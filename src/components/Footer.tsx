@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { MapPin, Phone, Mail, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -132,16 +133,13 @@ export default function Footer() {
               </p>
               <div className="flex flex-wrap gap-3">
                 {certificationBadges.map((badge) => (
-                  <img
+                  <Image
                     key={badge.name}
                     src={badge.src}
                     alt={badge.name}
+                    width={32}
+                    height={32}
                     className="h-8 w-auto opacity-80 hover:opacity-100 transition-opacity"
-                    onError={(e) => {
-                      // Fallback if badge image doesn't exist
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                    }}
                   />
                 ))}
               </div>
