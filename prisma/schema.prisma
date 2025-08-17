@@ -1,0 +1,314 @@
+// Surwahi Eco-Lodge Database Schema
+// This is your Prisma schema file for the Surwahi website
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Room Types and Accommodations
+model Room {
+  id           String   @id @default(cuid())
+  name         String
+  slug         String   @unique
+  description  String
+  longDescription String @db.Text
+  bedType      String
+  maxOccupancy Int
+  basePrice    Decimal  @db.Decimal(10, 2)
+  size         String?
+  view         String?
+  images       Json[]   // Array of image objects with URL, alt text, caption
+  amenities    String[] // Array of amenity strings
+  policies     Json?    // Room-specific policies
+  isActive     Boolean  @default(true)
+  sortOrder    Int      @default(0)
+  ecoFeatures  String[] // Sustainability features
+  accessibility String[] // Accessibility features
+  
+  // Relations
+  bookings     Booking[]
+  reviews      Review[]
+  
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("rooms")
+}
+
+// Booking System
+model Booking {
+  id          String      @id @default(cuid())
+  guestName   String
+  guestEmail  String
+  guestPhone  String
+  checkIn     DateTime
+  checkOut    DateTime
+  adults      Int
+  children    Int         @default(0)
+  totalPrice  Decimal     @db.Decimal(10, 2)
+  status      BookingStatus @default(PENDING)
+  specialRequests String?
+  source      String?     // How they found us
+  
+  // Relations
+  roomId      String
+  room        Room        @relation(fields: [roomId], references: [id])
+  
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  @@map("bookings")
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+}
+
+// Contact Forms
+model ContactForm {
+  id          String      @id @default(cuid())
+  name        String
+  email       String
+  phone       String?
+  city        String?
+  message     String      @db.Text
+  inquiryType ContactType @default(GENERAL)
+  preferredDates String?
+  partySize   Int?
+  status      FormStatus  @default(NEW)
+  notes       String?     // Internal notes
+  
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  @@map("contact_forms")
+}
+
+enum ContactType {
+  GENERAL
+  BOOKING
+  SUSTAINABILITY
+  ACTIVITIES
+  PRESS
+}
+
+enum FormStatus {
+  NEW
+  IN_PROGRESS
+  RESOLVED
+  SPAM
+}
+
+// Newsletter Subscriptions
+model NewsletterSubscription {
+  id          String   @id @default(cuid())
+  email       String   @unique
+  isActive    Boolean  @default(true)
+  source      String?  // Where they subscribed from
+  preferences Json?    // Email preferences
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("newsletter_subscriptions")
+}
+
+// Blog Posts
+model BlogPost {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  excerpt     String
+  content     String   @db.Text
+  featuredImage Json?  // Image object with URL, alt text, etc.
+  author      String
+  category    String
+  tags        String[]
+  isPublished Boolean  @default(false)
+  publishedAt DateTime?
+  readingTime Int?     // in minutes
+  seoTitle    String?
+  seoDescription String?
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("blog_posts")
+}
+
+// Activities and Things to Do
+model Activity {
+  id          String      @id @default(cuid())
+  name        String
+  slug        String      @unique
+  description String
+  longDescription String  @db.Text
+  category    ActivityCategory
+  duration    String      // e.g., "2 hours", "Half day"
+  difficulty  DifficultyLevel
+  price       Decimal?    @db.Decimal(10, 2)
+  included    String[]    // What's included
+  toBring     String[]    // What to bring
+  images      Json[]      // Array of image objects
+  isActive    Boolean     @default(true)
+  bestSeason  String?
+  maxParticipants Int?
+  ecoRating   Int?        // 1-5 leaf rating
+  
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  @@map("activities")
+}
+
+enum ActivityCategory {
+  NATURE_WALKS
+  SAFARIS
+  CULTURAL
+  WELLNESS
+  ADVENTURE
+}
+
+enum DifficultyLevel {
+  EASY
+  MODERATE
+  CHALLENGING
+}
+
+// Reviews and Testimonials
+model Review {
+  id          String   @id @default(cuid())
+  guestName   String
+  rating      Int      // 1-5 stars
+  title       String?
+  content     String   @db.Text
+  isPublished Boolean  @default(false)
+  source      String?  // Google, direct, etc.
+  stayDate    DateTime?
+  
+  // Relations
+  roomId      String?
+  room        Room?    @relation(fields: [roomId], references: [id])
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("reviews")
+}
+
+// FAQ Management
+model FAQ {
+  id          String   @id @default(cuid())
+  question    String
+  answer      String   @db.Text
+  category    String
+  isPublished Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("faqs")
+}
+
+// Sustainability Metrics and Content
+model SustainabilityMetric {
+  id          String   @id @default(cuid())
+  name        String
+  value       String
+  unit        String
+  description String?
+  category    SustainabilityCategory
+  period      String   // e.g., "Monthly", "Annual"
+  lastUpdated DateTime @default(now())
+  isVisible   Boolean  @default(true)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("sustainability_metrics")
+}
+
+enum SustainabilityCategory {
+  WATER
+  ENERGY
+  WASTE
+  COMMUNITY
+  BIODIVERSITY
+  CARBON
+}
+
+// Travel Itineraries
+model Itinerary {
+  id          String   @id @default(cuid())
+  fromCity    String
+  toDestination String @default("Surwahi")
+  title       String
+  description String
+  mode        TravelMode
+  steps       Json[]   // Array of travel steps
+  duration    String   // Total journey time
+  estimatedCost String
+  co2Emissions String?
+  isActive    Boolean  @default(true)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("itineraries")
+}
+
+enum TravelMode {
+  AIR
+  RAIL
+  ROAD
+  MIXED
+}
+
+// Gallery Images
+model GalleryImage {
+  id          String   @id @default(cuid())
+  url         String
+  altText     String
+  caption     String?
+  category    String
+  season      String?
+  photographer String?
+  location    String?
+  isPublished Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("gallery_images")
+}
+
+// Site Settings and Content
+model SiteSetting {
+  id          String   @id @default(cuid())
+  key         String   @unique
+  value       String   @db.Text
+  type        SettingType @default(TEXT)
+  description String?
+  
+  updatedAt   DateTime @updatedAt
+
+  @@map("site_settings")
+}
+
+enum SettingType {
+  TEXT
+  JSON
+  BOOLEAN
+  NUMBER
+  URL
+}
