@@ -167,6 +167,25 @@ body {
   background-repeat: repeat;
 }
 
+/* Eco-friendly pattern backgrounds */
+.pattern-leaves {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cg fill='none' stroke='%236FA888' stroke-opacity='0.08' stroke-width='1.5'%3E%3Cpath d='M200 50c-30 20-50 60-40 100 20-15 35-35 40-60 25 20 55 35 80 25-25-30-50-45-80-65z'/%3E%3Cpath d='M50 200c20-30 60-50 100-40-15 20-35 35-60 40 20 25 35 55 25 80-30-25-45-50-65-80z'/%3E%3Cpath d='M350 200c-20 30-60 50-100 40 15-20 35-35 60-40-20-25-35-55-25-80 30 25 45 50 65 80z'/%3E%3Cpath d='M200 350c30-20 50-60 40-100-20 15-35 35-40 60-25-20-55-35-80-25 25 30 50 45 80 65z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 400px 400px;
+  background-repeat: repeat;
+}
+
+.pattern-organic {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Cg fill='none' stroke='%233D6F54' stroke-opacity='0.06' stroke-width='2'%3E%3Cpath d='M150 30c-40 30-60 80-30 120 30-20 50-50 60-80 35 25 70 40 100 30-35-35-70-50-130-70z'/%3E%3Cpath d='M30 150c30-40 80-60 120-30-20 30-50 50-80 60 25 35 40 70 30 100-35-35-50-70-70-130z'/%3E%3Cpath d='M270 150c-30 40-80 60-120 30 20-30 50-50 80-60-25-35-40-70-30-100 35 35 50 70 70 130z'/%3E%3Cpath d='M150 270c40-30 60-80 30-120-30 20-50 50-60 80-35-25-70-40-100-30 35 35 70 50 130 70z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 300px 300px;
+  background-repeat: repeat;
+}
+
+.pattern-forest {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='200' viewBox='0 0 500 200'%3E%3Cg fill='none' stroke='%234886A8' stroke-opacity='0.05' stroke-width='3'%3E%3Cpath d='M0,100 Q125,20 250,100 T500,100'/%3E%3Cpath d='M0,120 Q100,40 200,120 T400,120'/%3E%3Cpath d='M100,80 Q225,160 350,80 T600,80'/%3E%3Cpath d='M0,140 Q150,60 300,140 T600,140'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 500px 200px;
+  background-repeat: repeat;
+}
+
 /* Button styles */
 .btn {
   display: inline-flex;

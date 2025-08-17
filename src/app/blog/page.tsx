@@ -30,7 +30,7 @@ const featuredPost = {
   author: 'Dr. Priya Sharma',
   publishedAt: '2024-08-15',
   readingTime: 6,
-  image: '/images/blog/sal-forest-dawn.jpg',
+  image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
   tags: ['forest', 'wildlife', 'morning', 'birdwatching', 'nature'],
   isPublished: true,
   isFeatured: true
@@ -46,7 +46,7 @@ const blogPosts = [
     author: 'Raj Kumar',
     publishedAt: '2024-08-10',
     readingTime: 8,
-    image: '/images/blog/zero-waste-system.jpg',
+    image: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
     tags: ['sustainability', 'waste management', 'conservation'],
     isPublished: true,
     isFeatured: false
@@ -60,7 +60,7 @@ const blogPosts = [
     author: 'Anita Devi',
     publishedAt: '2024-08-05',
     readingTime: 5,
-    image: '/images/blog/community-artisans.jpg',
+    image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
     tags: ['community', 'artisans', 'local economy'],
     isPublished: true,
     isFeatured: false
@@ -74,7 +74,7 @@ const blogPosts = [
     author: 'Dr. Priya Sharma',
     publishedAt: '2024-07-28',
     readingTime: 7,
-    image: '/images/blog/monsoon-forest.jpg',
+    image: 'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
     tags: ['monsoon', 'forest ecosystem', 'conservation'],
     isPublished: true,
     isFeatured: false
@@ -88,7 +88,7 @@ const blogPosts = [
     author: 'Surwahi Wildlife Team',
     publishedAt: '2024-07-20',
     readingTime: 6,
-    image: '/images/blog/hornbill-nest.jpg',
+    image: 'https://images.unsplash.com/photo-1444464666168-49d633b86797?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
     tags: ['hornbills', 'conservation success', 'wildlife'],
     isPublished: true,
     isFeatured: false
@@ -102,7 +102,7 @@ const blogPosts = [
     author: 'Organic Garden Team',
     publishedAt: '2024-07-15',
     readingTime: 9,
-    image: '/images/blog/permaculture-garden.jpg',
+    image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
     tags: ['permaculture', 'organic farming', 'sustainability'],
     isPublished: true,
     isFeatured: false
@@ -116,7 +116,7 @@ const blogPosts = [
     author: 'Naturalist Guide Team',
     publishedAt: '2024-07-08',
     readingTime: 4,
-    image: '/images/blog/night-forest.jpg',
+    image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
     tags: ['nocturnal wildlife', 'sounds', 'night safari'],
     isPublished: true,
     isFeatured: false
@@ -130,7 +130,7 @@ const blogPosts = [
     author: 'Dr. Priya Sharma',
     publishedAt: '2024-07-01',
     readingTime: 10,
-    image: '/images/blog/traditional-knowledge.jpg',
+    image: 'https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
     tags: ['traditional knowledge', 'community', 'conservation'],
     isPublished: true,
     isFeatured: false
@@ -144,7 +144,7 @@ const blogPosts = [
     author: 'Guest Experience Team',
     publishedAt: '2024-06-25',
     readingTime: 6,
-    image: '/images/blog/first-visit-tips.jpg',
+    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
     tags: ['travel tips', 'first visit', 'forest etiquette'],
     isPublished: true,
     isFeatured: false

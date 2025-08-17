@@ -72,28 +72,28 @@ const initiatives = [
   {
     title: 'Rainwater Harvesting System',
     description: 'Our comprehensive rainwater collection system captures and filters monsoon water for year-round use, reducing dependency on groundwater by 80%.',
-    image: '/images/sustainability/rainwater-system.jpg',
+    image: 'https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
     impact: '2,400L saved daily',
     category: 'Water Conservation'
   },
   {
     title: 'Solar Power Installation',
     description: '45kW solar panel system generates all our electricity needs, with battery storage ensuring 24/7 renewable power supply.',
-    image: '/images/sustainability/solar-panels.jpg',
+    image: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
     impact: '100% renewable energy',
     category: 'Clean Energy'
   },
   {
     title: 'Organic Waste Composting',
     description: 'All organic waste is processed through our composting system, creating nutrient-rich soil for our organic gardens.',
-    image: '/images/sustainability/composting.jpg',
+    image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
     impact: 'Zero waste to landfill',
     category: 'Waste Management'
   },
   {
     title: 'Local Artisan Partnerships',
     description: 'We source furniture, textiles, and crafts from local artisans, preserving traditional skills while creating sustainable livelihoods.',
-    image: '/images/sustainability/artisans.jpg',
+    image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
     impact: '15 families supported',
     category: 'Community Impact'
   }
