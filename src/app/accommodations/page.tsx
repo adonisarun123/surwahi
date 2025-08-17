@@ -22,9 +22,9 @@ const rooms = [
     description: 'Elevated suite with panoramic forest views and luxury amenities',
     shortDescription: 'Luxury suite with forest views',
     images: [
-      '/images/rooms/canopy-suite-1.jpg',
-      '/images/rooms/canopy-suite-2.jpg',
-      '/images/rooms/canopy-suite-3.jpg'
+      'https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
     ],
     basePrice: 9500,
     maxOccupancy: 3,
@@ -46,9 +46,9 @@ const rooms = [
     description: 'Cozy cottage by the flowing river with garden access',
     shortDescription: 'Riverside cottage with garden',
     images: [
-      '/images/rooms/riverside-cottage-1.jpg',
-      '/images/rooms/riverside-cottage-2.jpg',
-      '/images/rooms/riverside-cottage-3.jpg'
+      'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
     ],
     basePrice: 7200,
     maxOccupancy: 2,
@@ -70,9 +70,9 @@ const rooms = [
     description: 'Unique treehouse experience in the canopy with luxury amenities',
     shortDescription: 'Luxury treehouse in canopy',
     images: [
-      '/images/rooms/tree-house-1.jpg',
-      '/images/rooms/tree-house-2.jpg',
-      '/images/rooms/tree-house-3.jpg'
+      'https://images.unsplash.com/photo-1520637836862-4d197d17c15a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1502780402662-acc01917603e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
     ],
     basePrice: 12000,
     maxOccupancy: 4,
@@ -94,9 +94,9 @@ const rooms = [
     description: 'Ground-level cabin surrounded by native trees and wildlife',
     shortDescription: 'Accessible forest cabin',
     images: [
-      '/images/rooms/forest-cabin-1.jpg',
-      '/images/rooms/forest-cabin-2.jpg',
-      '/images/rooms/forest-cabin-3.jpg'
+      'https://images.unsplash.com/photo-1464822759844-d150065c142f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
     ],
     basePrice: 6500,
     maxOccupancy: 2,
