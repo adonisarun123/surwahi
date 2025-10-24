@@ -14,7 +14,11 @@ interface ContactFormData {
   message: string;
 }
 
-export default function ContactFormComponent() {
+interface ContactFormProps {
+  subject?: string;
+}
+
+export default function ContactFormComponent({ subject }: ContactFormProps) {
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
@@ -44,6 +48,7 @@ export default function ContactFormComponent() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...formData,
+          subject: subject || `New Inquiry: ${formData.inquiryType}`,
           partySize: formData.partySize ? parseInt(formData.partySize) : undefined
         }),
       });
@@ -77,6 +82,7 @@ export default function ContactFormComponent() {
       <h3 className="font-display text-xl text-forest-900 mb-6">Send us a Message</h3>
       
       <form onSubmit={handleSubmit} className="space-y-4">
+        <input type="hidden" name="subject" value={subject} />
         <div className="grid md:grid-cols-2 gap-4">
           <div>
             <label htmlFor="name" className="form-label">Name *</label>
