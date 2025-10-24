@@ -1,9 +1,10 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Calendar, Clock, User, Tag, Share2, ArrowLeft, ArrowRight } from 'lucide-react';
+import { Calendar, Clock, User, Tag, ArrowLeft, ArrowRight } from 'lucide-react';
 import Breadcrumbs, { BreadcrumbJsonLd } from '@/components/Breadcrumbs';
 import { generateBlogMetadata } from '@/lib/seo';
+import ShareButton from '@/components/ShareButton';
 
 // Mock blog data - will be replaced with database queries
 const blogPosts = {
@@ -185,24 +186,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     { name: post.title, href: `/blog/${post.slug}` }
   ];
 
-  const handleShare = async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: post.title,
-          text: post.excerpt,
-          url: window.location.href,
-        });
-      } catch (err) {
-        console.log('Error sharing:', err);
-      }
-    } else {
-      // Fallback: copy to clipboard
-      await navigator.clipboard.writeText(window.location.href);
-      // You could show a toast notification here
-    }
-  };
-
   return (
     <div className="pt-20">
       {/* Breadcrumbs */}
@@ -256,13 +239,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <Clock className="h-4 w-4" />
                 <span>{post.readingTime} min read</span>
               </div>
-              <button
-                onClick={handleShare}
-                className="flex items-center gap-2 text-moss-500 hover:text-forest-700 transition-colors"
-              >
-                <Share2 className="h-4 w-4" />
-                <span>Share</span>
-              </button>
+              <ShareButton title={post.title} text={post.excerpt} />
             </div>
 
             {/* Featured Image */}
