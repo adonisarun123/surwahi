@@ -80,48 +80,7 @@ export function generateMetadata(config: SEOConfig = {}): Metadata {
     },
     alternates: {
       canonical: fullUrl,
-    },
-    'application/ld+json': JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'LodgingBusiness',
-      name: 'Surwahi Social Eco-Lodge',
-      description: 'A sustainable eco-lodge offering immersive nature experiences at the edge of Kanha National Park.',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: 'Surwahi Social, Village Surwahi, P.O Majgaon, Tehsil Paraswada',
-        addressLocality: 'Balaghat',
-        addressRegion: 'Madhya Pradesh',
-        postalCode: '481111',
-        addressCountry: 'IN'
-      },
-      telephone: '+919744844777',
-      email: 'contact@surwahi.com',
-      url: 'https://www.surwahi.com',
-      image: 'https://www.surwahi.com/og-image.jpg', // URL to a representative image
-      priceRange: '₹₹ - ₹₹₹',
-      geo: {
-        '@type': 'GeoCoordinates',
-        latitude: '22.2587', // Replace with actual latitude
-        longitude: '80.1829' // Replace with actual longitude
-      },
-      hasMap: 'https://www.google.com/maps/place/Surwahi+Social+Ecoestate+Kanha', // Link to Google Maps
-      openingHoursSpecification: [
-        {
-          '@type': 'OpeningHoursSpecification',
-          dayOfWeek: [
-            'Monday',
-            'Tuesday',
-            'Wednesday',
-            'Thursday',
-            'Friday',
-            'Saturday',
-            'Sunday'
-          ],
-          opens: '00:00',
-          closes: '23:59'
-        }
-      ],
-    })
+    }
   };
 
   return metadata;
