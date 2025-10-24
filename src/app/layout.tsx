@@ -92,11 +92,10 @@ export default function RootLayout({
                   },
                   "telephone": "+919744844777",
                   "email": "contact@surwahi.com",
-                  "url": "https://www.surwahi.com",
                   "image": "https://www.surwahi.com/og-image.jpg",
                   "contactPoint": [{
                     "@type": "ContactPoint",
-                    "telephone": "+91-9876543210",
+                    "telephone": "+919744844777",
                     "contactType": "customer service",
                     "areaServed": "IN",
                     "availableLanguage": ["en", "hi"]
