@@ -6,6 +6,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
 import { blogs } from '@/lib/blogs';
 import ShareButton from '@/components/ShareButton';
+import { PageProps } from '@/types';
 
 export async function generateStaticParams() {
   return blogs.map((post) => ({
@@ -30,13 +31,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   );
 }
 
-interface BlogPostPageProps {
-  params: {
-    slug: string;
-  };
-}
-
-export default function BlogPostPage({ params }: BlogPostPageProps) {
+export default function BlogPostPage({ params }: PageProps<{ slug: string }>) {
   const post = blogs.find(p => p.slug === params.slug);
 
   if (!post) {
