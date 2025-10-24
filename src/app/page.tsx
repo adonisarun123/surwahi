@@ -13,7 +13,7 @@ export default function HomePage() {
   return (
     <div className="relative">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[calc(100vh-80px)] lg:min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0 z-0 bg-gradient-to-br from-forest-700 to-moss-500">
           {/* Eco Pattern Overlay */}
@@ -28,8 +28,8 @@ export default function HomePage() {
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-0">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Text Content */}
             <div className="text-center lg:text-left">
               <h1 className="font-display text-display-xl text-bone-0 mb-6 text-balance">
@@ -71,7 +71,7 @@ export default function HomePage() {
           }}
         />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             <div className="text-center group">
               <div className="w-16 h-16 mx-auto mb-6 bg-fern-300/10 rounded-full flex items-center justify-center group-hover:bg-fern-300/20 transition-colors">
                 <Leaf className="h-8 w-8 text-fern-300" />

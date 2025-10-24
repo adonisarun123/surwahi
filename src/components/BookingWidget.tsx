@@ -49,17 +49,17 @@ export default function BookingWidget({ className, variant = 'hero' }: BookingWi
     return (
       <div className={cn('bg-bone-0/95 backdrop-blur-md rounded-input shadow-elev-1 p-3', className)}>
         <div className="flex items-center gap-2">
-          <button className="flex-1 px-3 py-2 rounded-input border border-mist-200 text-left text-sm bg-bone-0">
+          <button className="flex-1 min-w-0 px-2 sm:px-3 py-2 rounded-input border border-mist-200 text-left text-sm bg-bone-0">
             <span className="block text-xs text-soil-700">Check-in</span>
-            <span>{checkIn ? new Date(checkIn).toLocaleDateString('en-IN', { month: 'short', day: 'numeric' }) : 'Add dates'}</span>
+            <span className="truncate block">{checkIn ? new Date(checkIn).toLocaleDateString('en-IN', { month: 'short', day: 'numeric' }) : 'Add dates'}</span>
           </button>
-          <button className="flex-1 px-3 py-2 rounded-input border border-mist-200 text-left text-sm bg-bone-0">
+          <button className="flex-1 min-w-0 px-2 sm:px-3 py-2 rounded-input border border-mist-200 text-left text-sm bg-bone-0">
             <span className="block text-xs text-soil-700">Guests</span>
-            <span>{guestText}</span>
+            <span className="truncate block">{guestText}</span>
           </button>
           <button
             onClick={handleSearch}
-            className="px-4 py-2 rounded-input bg-forest-700 text-bone-0 text-sm font-medium hover:opacity-90 transition-opacity"
+            className="flex-shrink-0 px-3 sm:px-4 py-2 rounded-input bg-forest-700 text-bone-0 text-sm font-medium hover:opacity-90 transition-opacity"
           >
             <Search className="h-4 w-4" />
           </button>
@@ -85,7 +85,7 @@ export default function BookingWidget({ className, variant = 'hero' }: BookingWi
         </div>
 
         {/* Date Selection */}
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <label htmlFor="checkin" className="block text-sm font-medium text-ink-900 mb-1">
               Check-in
@@ -97,9 +97,9 @@ export default function BookingWidget({ className, variant = 'hero' }: BookingWi
                 value={checkIn}
                 min={today}
                 onChange={(e) => handleCheckInChange(e.target.value)}
-                className="form-input text-sm pr-10"
+                className="form-input text-sm w-full"
               />
-              <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-soil-700 pointer-events-none" />
+              <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-soil-700 pointer-events-none hidden sm:block" />
             </div>
           </div>
 
@@ -114,9 +114,9 @@ export default function BookingWidget({ className, variant = 'hero' }: BookingWi
                 value={checkOut}
                 min={checkIn || tomorrow}
                 onChange={(e) => setCheckOut(e.target.value)}
-                className="form-input text-sm pr-10"
+                className="form-input text-sm w-full"
               />
-              <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-soil-700 pointer-events-none" />
+              <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-soil-700 pointer-events-none hidden sm:block" />
             </div>
           </div>
         </div>
@@ -136,7 +136,7 @@ export default function BookingWidget({ className, variant = 'hero' }: BookingWi
           </button>
 
           {isGuestSelectorOpen && (
-            <div className="absolute top-full left-0 right-0 mt-1 bg-bone-0 border border-mist-200 rounded-input shadow-elev-2 p-4 z-10">
+            <div className="absolute top-full left-0 right-0 mt-1 bg-bone-0 border border-mist-200 rounded-input shadow-elev-2 p-4 z-50">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div>

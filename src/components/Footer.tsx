@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { MapPin, Phone, Mail, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -56,9 +55,9 @@ const socialLinks = [
 ];
 
 const certificationBadges = [
-  { name: 'Eco-certified by Green Tourism', src: '/images/badges/green-tourism.svg' },
-  { name: 'Zero Waste Commitment', src: '/images/badges/zero-waste.svg' },
-  { name: 'Wildlife Friendly', src: '/images/badges/wildlife-friendly.svg' },
+  { name: 'Eco-certified', icon: '🌿' },
+  { name: 'Zero Waste', icon: '♻️' },
+  { name: 'Wildlife Friendly', icon: '🦜' },
 ];
 
 export default function Footer() {
@@ -113,10 +112,10 @@ export default function Footer() {
 
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+
           {/* About Section */}
-          <section className="sm:col-span-2 lg:col-span-1" aria-labelledby="footer-about">
+          <section className="md:col-span-2 lg:col-span-1" aria-labelledby="footer-about">
             <h3 id="footer-about" className="font-display text-xl text-forest-900 mb-4">
               About Surwahi
             </h3>
@@ -131,16 +130,16 @@ export default function Footer() {
               <p className="text-xs font-medium text-soil-700 uppercase tracking-wide">
                 Certifications
               </p>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2">
                 {certificationBadges.map((badge) => (
-                  <Image
+                  <div
                     key={badge.name}
-                    src={badge.src}
-                    alt={badge.name}
-                    width={32}
-                    height={32}
-                    className="h-8 w-auto opacity-80 hover:opacity-100 transition-opacity"
-                  />
+                    className="flex items-center gap-1.5 bg-fern-300/10 px-3 py-1.5 rounded-full border border-fern-300/20"
+                    title={badge.name}
+                  >
+                    <span className="text-lg" role="img" aria-label={badge.name}>{badge.icon}</span>
+                    <span className="text-xs font-medium text-forest-900">{badge.name}</span>
+                  </div>
                 ))}
               </div>
             </div>
@@ -175,7 +174,7 @@ export default function Footer() {
           ))}
 
           {/* Contact & Newsletter */}
-          <section className="sm:col-span-2 lg:col-span-1" aria-labelledby="footer-contact">
+          <section className="md:col-span-2 lg:col-span-1" aria-labelledby="footer-contact">
             <h3 id="footer-contact" className="font-display text-xl text-forest-900 mb-4">
               Stay Connected
             </h3>
@@ -184,25 +183,25 @@ export default function Footer() {
             <address className="not-italic text-sm space-y-3 mb-6">
               <div className="flex items-start gap-3">
                 <MapPin className="h-4 w-4 text-moss-500 mt-0.5 flex-shrink-0" />
-                <span>
+                <span className="word-break">
                   Forest Road, Surwahi<br />
                   Madhya Pradesh, India 480001
                 </span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="h-4 w-4 text-moss-500 flex-shrink-0" />
-                <Link 
-                  href="tel:+919876543210" 
-                  className="hover:text-moss-500 transition-colors"
+                <Link
+                  href="tel:+919876543210"
+                  className="hover:text-moss-500 transition-colors word-break"
                 >
                   +91-98765 43210
                 </Link>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-moss-500 flex-shrink-0" />
-                <Link 
-                  href="mailto:hello@surwahi.com" 
-                  className="hover:text-moss-500 transition-colors"
+                <Link
+                  href="mailto:hello@surwahi.com"
+                  className="hover:text-moss-500 transition-colors word-break"
                 >
                   hello@surwahi.com
                 </Link>
@@ -227,7 +226,7 @@ export default function Footer() {
               </p>
               
               <form onSubmit={handleNewsletterSubmit} className="space-y-3">
-                <div className="flex gap-2">
+                <div className="flex flex-col sm:flex-row gap-2">
                   <label htmlFor="footer-email" className="sr-only">
                     Email address
                   </label>
@@ -238,13 +237,13 @@ export default function Footer() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="your@email.com"
                     required
-                    className="form-input flex-1 text-sm"
+                    className="form-input flex-1 text-sm min-w-0"
                     disabled={isSubmitting}
                   />
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="px-4 py-2 rounded-input bg-forest-700 text-bone-0 text-sm font-medium hover:opacity-90 disabled:opacity-50 transition-opacity"
+                    className="px-4 py-2 rounded-input bg-forest-700 text-bone-0 text-sm font-medium hover:opacity-90 disabled:opacity-50 transition-opacity whitespace-nowrap"
                   >
                     {isSubmitting ? 'Joining...' : 'Join'}
                   </button>

@@ -151,29 +151,29 @@ function RoomCard({ room }: RoomCardProps) {
 
       {/* Content */}
       <div className="p-6">
-        <div className="flex items-start justify-between mb-3">
-          <div>
-            <h3 className="font-display text-xl text-forest-900 mb-1">{room.name}</h3>
-            <p className="text-soil-700 text-sm">{room.shortDescription}</p>
+        <div className="flex items-start justify-between gap-3 mb-3">
+          <div className="flex-1 min-w-0">
+            <h3 className="font-display text-xl text-forest-900 mb-1 truncate">{room.name}</h3>
+            <p className="text-soil-700 text-sm truncate-2-lines">{room.shortDescription}</p>
           </div>
-          <span className="bg-mist-200/50 text-soil-700 px-2 py-1 rounded text-xs">
+          <span className="flex-shrink-0 bg-mist-200/50 text-soil-700 px-2 py-1 rounded text-xs whitespace-nowrap">
             {room.category}
           </span>
         </div>
 
         {/* Room Details */}
-        <div className="grid grid-cols-3 gap-3 mb-4 text-sm">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3 mb-4 text-sm">
           <div className="flex items-center gap-2 text-soil-700">
-            <Users className="h-4 w-4" />
-            <span>{room.maxOccupancy} guests</span>
+            <Users className="h-4 w-4 flex-shrink-0" />
+            <span className="truncate">{room.maxOccupancy} guests</span>
           </div>
           <div className="flex items-center gap-2 text-soil-700">
-            <Bed className="h-4 w-4" />
-            <span>{room.bedType}</span>
+            <Bed className="h-4 w-4 flex-shrink-0" />
+            <span className="truncate">{room.bedType}</span>
           </div>
           <div className="flex items-center gap-2 text-soil-700">
-            <Eye className="h-4 w-4" />
-            <span>{room.view}</span>
+            <Eye className="h-4 w-4 flex-shrink-0" />
+            <span className="truncate">{room.view}</span>
           </div>
         </div>
 
@@ -181,12 +181,12 @@ function RoomCard({ room }: RoomCardProps) {
         <div className="mb-4">
           <div className="flex flex-wrap gap-1">
             {room.amenities.slice(0, 3).map((amenity) => (
-              <span key={amenity} className="bg-mist-200/50 text-soil-700 px-2 py-1 rounded text-xs">
+              <span key={amenity} className="bg-mist-200/50 text-soil-700 px-2 py-1 rounded text-xs truncate max-w-[120px]">
                 {amenity}
               </span>
             ))}
             {room.amenities.length > 3 && (
-              <span className="text-soil-700 text-xs py-1">
+              <span className="text-soil-700 text-xs py-1 whitespace-nowrap">
                 +{room.amenities.length - 3} more
               </span>
             )}
@@ -195,25 +195,29 @@ function RoomCard({ room }: RoomCardProps) {
 
         {/* Eco Features */}
         <div className="mb-4">
-          <div className="flex items-center gap-2 text-sm text-fern-300">
-            <Leaf className="h-4 w-4" />
-            <span className="font-medium">Eco Features:</span>
-            <span className="text-soil-700">{room.ecoFeatures.slice(0, 2).join(', ')}</span>
+          <div className="flex items-start gap-2 text-sm text-fern-300">
+            <Leaf className="h-4 w-4 flex-shrink-0 mt-0.5" />
+            <div className="min-w-0">
+              <span className="font-medium">Eco Features:</span>
+              <span className="text-soil-700 truncate block">{room.ecoFeatures.slice(0, 2).join(', ')}</span>
+            </div>
           </div>
         </div>
 
         {/* Price and CTA */}
-        <div className="flex items-center justify-between pt-4 border-t border-mist-200">
-          <div>
-            <span className="text-2xl font-bold text-forest-900">
-              {formatPrice(room.basePrice)}
-            </span>
-            <span className="text-soil-700 text-sm"> / night</span>
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-4 border-t border-mist-200">
+          <div className="min-w-0">
+            <div className="flex items-baseline gap-1 flex-wrap">
+              <span className="text-2xl font-bold text-forest-900">
+                {formatPrice(room.basePrice)}
+              </span>
+              <span className="text-soil-700 text-sm whitespace-nowrap">/ night</span>
+            </div>
             <div className="text-xs text-soil-700">Includes breakfast</div>
           </div>
           <Link
             href={`/accommodations/${room.slug}`}
-            className="btn btn-primary"
+            className="btn btn-primary whitespace-nowrap w-full sm:w-auto justify-center"
           >
             View Details
           </Link>
@@ -326,18 +330,18 @@ export default function AccommodationsPage() {
             </p>
             
             {/* Quick Search */}
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               <div className="flex-1">
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-soil-700" />
                   <input
                     type="text"
                     placeholder="Search rooms..."
-                    className="form-input pl-10"
+                    className="form-input pl-10 w-full"
                   />
                 </div>
               </div>
-              <select className="form-input min-w-[150px]">
+              <select className="form-input sm:min-w-[150px] w-full sm:w-auto">
                 <option>Sort by Price</option>
                 <option>Sort by Rating</option>
                 <option>Sort by Size</option>
@@ -361,18 +365,18 @@ export default function AccommodationsPage() {
             {/* Room Listings */}
             <div className="lg:col-span-3">
               {/* Results Header */}
-              <div className="flex items-center justify-between mb-6">
-                <p className="text-soil-700">
+              <div className="flex items-center justify-between gap-4 mb-6">
+                <p className="text-soil-700 truncate">
                   Showing {rooms.length} accommodations
                 </p>
-                <button className="lg:hidden btn btn-secondary">
+                <button className="lg:hidden btn btn-secondary flex-shrink-0 whitespace-nowrap">
                   <Filter className="h-4 w-4 mr-2" />
                   Filters
                 </button>
               </div>
 
               {/* Room Grid */}
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6">
                 {rooms.map((room) => (
                   <RoomCard key={room.id} room={room} />
                 ))}

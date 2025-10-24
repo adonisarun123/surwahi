@@ -165,7 +165,7 @@ export default function Header() {
           <div
             ref={drawerRef}
             id="mobile-menu"
-            className="ml-auto h-full w-[88%] max-w-sm bg-bone-0 shadow-elev-2 overflow-y-auto"
+            className="ml-auto h-full w-full max-w-sm bg-bone-0 shadow-elev-2 overflow-y-auto"
           >
             <div className="p-6">
               {/* Header */}
@@ -267,28 +267,6 @@ export default function Header() {
           </div>
         </div>
       )}
-
-      {/* Sticky Mobile Booking Bar */}
-      <div className="lg:hidden fixed inset-x-0 bottom-0 z-40 bg-bone-0/95 border-t border-mist-200 backdrop-blur-md">
-        <div className="container mx-auto px-4 py-3">
-          <div className="flex items-center gap-2">
-            <button className="flex-1 px-3 py-2 rounded-input border border-mist-200 text-left text-sm bg-bone-0 text-ink-900">
-              <span className="block text-xs text-soil-700">Check-in</span>
-              <span>Select dates</span>
-            </button>
-            <button className="flex-1 px-3 py-2 rounded-input border border-mist-200 text-left text-sm bg-bone-0 text-ink-900">
-              <span className="block text-xs text-soil-700">Guests</span>
-              <span>2 adults</span>
-            </button>
-            <Link
-              href="/#booking"
-              className="px-4 py-2 rounded-input bg-forest-700 text-bone-0 text-sm font-medium whitespace-nowrap"
-            >
-              Search
-            </Link>
-          </div>
-        </div>
-      </div>
     </>
   );
 }
