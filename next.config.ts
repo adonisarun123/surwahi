@@ -27,6 +27,14 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'uploads-ssl.webflow.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+      },
+      {
+        protocol: 'https',
+        hostname: 'ik.imagekit.io',
       }
     ],
   },
