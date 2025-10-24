@@ -22,9 +22,9 @@ const footerSections: FooterSection[] = [
       { name: 'Accommodations', href: '/accommodations' },
       { name: 'Sustainability', href: '/sustainability' },
       { name: 'Things to Do', href: '/things-to-do' },
-      { name: 'Itineraries', href: '/itineraries' },
+      { name: 'Knowledge Hub', href: '/knowledge-hub' },
       { name: 'Gallery', href: '/gallery' },
-      { name: 'Blog', href: '/blog' },
+      { name: 'Blog', href: '/blogs' },
     ],
   },
   {
