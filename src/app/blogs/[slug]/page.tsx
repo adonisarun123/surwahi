@@ -7,67 +7,107 @@ import { generateBlogMetadata } from '@/lib/seo';
 
 // Mock blog data - will be replaced with database queries
 const blogPosts = {
-  'sal-forest-morning': {
+  'the-magic-of-the-monsoon-forest': {
     id: 1,
-    title: 'A Quiet Morning in the Sal Forest',
-    slug: 'sal-forest-morning',
-    excerpt: 'What a dawn walk taught us about bird calls, patience, and the intricate connections that bind forest ecosystems together.',
-    content: `The forest awakens slowly, like an ancient being stretching after deep sleep. It's 5:45 AM, and I'm walking the familiar path that winds through our sal forest, camera in hand, footsteps muffled by years of fallen leaves.
+    title: 'The Magic of the Monsoon Forest',
+    slug: 'the-magic-of-the-monsoon-forest',
+    excerpt: 'The monsoon breathes new life into the forest, transforming the landscape into a vibrant green and filling the air with the scent of wet earth.',
+    content: `The forest awakens in a riot of green when the monsoon arrives. After months of dry heat, the first rains are a celebration. The dusty brown landscape transforms into a lush, vibrant paradise, and the air is thick with the petrichor, the scent of wet earth. This is the forest's time of rejuvenation, a magical period that reveals its deepest secrets.
 
-This morning ritual has become sacred to me over the past three years at Surwahi. As our naturalist and photographer, I've witnessed over 500 sunrises in this forest, but each one reveals something new—a behavior I've never noticed, a sound I've never heard, a connection I've never understood.
+## A Symphony of Life
 
-## The Symphony Begins
+The monsoon is a sensory explosion. The constant drumming of rain is a backdrop to a symphony of life. Frogs of all shapes and sizes emerge, their croaks filling the nights. The bird calls are different now - more urgent, more joyful. This is the breeding season for many species, and the forest is alive with courtship displays and the frantic activity of nest building.
 
-The first voices belong to the Oriental Magpie-Robins. Their melodious calls pierce the pre-dawn darkness, complex songs that seem to cascade from the canopy like musical water. Dr. Salim Ali once wrote that these birds "sing the forest awake," and I understand now what he meant. Their calls trigger a cascade response—first the Red-vented Bulbuls join in, then the Spotted Doves add their gentle cooing.
+## The World in a Droplet
 
-But it's the hornbill's call that stops me in my tracks this morning. The deep, resonant honking echoes from somewhere ahead, and my heart quickens. We've been tracking a pair of Malabar Pied Hornbills for three months now, hoping they'll establish a nest in our territory.
+It's a time to appreciate the small wonders. A raindrop clinging to a spider's web, a mushroom sprouting from a decaying log, a caterpillar munching on a fresh leaf. The macro world comes alive, offering endless opportunities for photographers and nature lovers to observe the intricate details of the ecosystem. Our guided herping walks are particularly exciting during this season, revealing the hidden world of amphibians and reptiles.
 
-## Patience as Practice
+## A Different Kind of Safari
 
-I settle onto a fallen log, camera ready but not raised. One of the most important lessons the forest has taught me is patience. In our hyperconnected world, we've forgotten the art of waiting, of watching, of simply being present. The forest demands this of you.
-
-Twenty minutes pass. The light gradually shifts from deep blue to soft gold. A Spotted Deer emerges from the undergrowth, pauses to assess me as a threat, then continues to browse. Two Indian Giant Squirrels chase each other through the canopy, their dramatic leaps from branch to branch a testament to millions of years of arboreal evolution.
-
-## The Hornbill Appears
-
-At 6:23 AM, the hornbill reveals itself. A magnificent male Malabar Pied Hornbill perches on a branch thirty meters away, his massive yellow casque catching the early light. Through my telephoto lens, I can see every detail—the intricate black and white patterning, the intelligent dark eye, the powerful beak designed for a fruit-based diet.
-
-He's not alone. His mate appears moments later, and I realize they're investigating a large hollow in an ancient sal tree. My pulse quickens again—are they considering this as a nesting site?
-
-## Connections in the Web
-
-As I photograph the hornbills, I become aware of the complex web of relationships playing out around me. The fig tree they're examining is one of over forty species of native trees we've documented in just this hectare of forest. Its fruits feed not just hornbills, but also langurs, flying foxes, and dozens of bird species.
-
-The sal trees that dominate this forest are keystone species—their leaves provide nutrients for the soil when they fall, their trunks support epiphytes and climbing plants, their canopy creates the microclimate that allows the entire ecosystem to flourish.
-
-## What the Forest Teaches
-
-By 7:30 AM, the hornbills have moved on, and the forest has fully awakened. The lesson of this morning, like so many others, is about interconnectedness. The health of our forest depends not on any single species, but on the intricate relationships between all of them.
-
-As humans, we often see ourselves as separate from nature, but mornings like this remind me that we're part of this web too. Our role at Surwahi isn't to control or manage this ecosystem, but to protect it, to learn from it, and to help others experience the profound peace that comes from truly connecting with the natural world.
-
-## Looking Forward
-
-The hornbills haven't committed to nesting here yet, but their presence is encouraging. Five years ago, there were no hornbill sightings in this area. Their return is a sign that our conservation efforts—protecting native trees, maintaining fruit-bearing species, eliminating pesticides—are working.
-
-Tomorrow morning, I'll walk this path again. The forest will teach me something new, as it always does. The hornbills may return, or they may not. But I'll be here, patient and ready, learning the ancient art of paying attention.
-
-*This is what the forest offers those willing to receive it: not answers, but better questions. Not certainty, but wonder. Not control, but connection.*`,
-    category: 'Wildlife',
-    author: 'Dr. Priya Sharma',
-    authorBio: 'Naturalist and photographer at Surwahi Eco-Lodge. PhD in Ornithology from Wildlife Institute of India.',
+While the core zones of the national parks are closed during the monsoon, the buffer zones offer a unique safari experience. The forest is less crowded, and the landscape is breathtakingly beautiful. It's a chance to see the jungle in its most raw and untamed state. The rain-washed trees, the misty mornings, and the dramatic skies create a mystical atmosphere that is a world away from the dry heat of summer.`,
+    category: 'Conservation Diaries',
+    author: 'Rhea Sharma',
+    authorBio: 'Naturalist and passionate conservationist at Surwahi Social.',
     publishedAt: '2024-08-15',
     updatedAt: '2024-08-15',
-    readingTime: 6,
+    readingTime: 4,
     featuredImage: {
-      url: '/images/blog/sal-forest-dawn.jpg',
-      alt: 'Golden morning light filtering through sal forest canopy',
-      caption: 'Dawn breaks over the sal forest at Surwahi Eco-Lodge'
+      url: 'https://placehold.co/1200x800/A8BA9A/333333?text=Monsoon+Forest',
+      alt: 'A lush green forest during the monsoon season',
+      caption: 'The vibrant green of the monsoon forest'
     },
-    tags: ['forest', 'wildlife', 'morning', 'birdwatching', 'hornbills', 'nature photography', 'conservation'],
+    tags: ['monsoon', 'forest', 'conservation', 'nature', 'rejuvenation'],
     isPublished: true,
-    seoTitle: 'A Quiet Morning in the Sal Forest - Wildlife Stories from Surwahi',
-    seoDescription: 'Join our naturalist on a dawn walk through the sal forest and discover the intricate connections that bind forest ecosystems together.'
+    seoTitle: 'The Magic of the Monsoon Forest',
+    seoDescription: 'Discover the beauty and secrets of the forest during the monsoon season.'
+  },
+  'building-with-mud-a-lesson-in-sustainability': {
+    id: 2,
+    title: 'Building with Mud: A Lesson in Sustainability',
+    slug: 'building-with-mud-a-lesson-in-sustainability',
+    excerpt: 'Our buildings are more than just structures; they are a testament to our philosophy of sustainable living. Discover how we use the very earth we stand on to create beautiful, comfortable, and eco-friendly spaces.',
+    content: `From the very beginning, our vision for Surwahi was to create a space that is in harmony with its surroundings. This philosophy is most tangible in our architecture. We chose to build with mud, one of the oldest and most sustainable building materials known to humankind.
+
+## The Wisdom of the Earth
+
+Building with mud is a tradition that has been practiced in this region for centuries. It is a technique that is both eco-friendly and climate-responsive. Our cob walls, made from a mixture of local soil, straw, and water, provide excellent thermal insulation. They keep the interiors cool in the scorching summer and warm during the chilly winter nights, drastically reducing our need for artificial heating and cooling.
+
+## A Labor of Love and Community
+
+The process of building with mud is a labor of love. Each wall is built by hand, layer by layer. We worked with local artisans who possess the traditional knowledge of this craft, passed down through generations. This not only ensured the authenticity of our structures but also provided meaningful employment to the local community, making them an integral part of our story.
+
+## More Than Just a Building
+
+Our mud structures are living, breathing entities. The natural materials allow the walls to 'breathe', regulating humidity and creating a healthy indoor environment. By choosing to build with mud, we have minimized our carbon footprint, reduced construction waste, and created a space that is truly connected to the land. Our "Build With Mud" workshop offers guests a chance to experience this ancient craft firsthand.`,
+    category: 'Behind the Scenes',
+    author: 'Arjun Das',
+    authorBio: 'Co-founder of Surwahi Social and an advocate for sustainable architecture.',
+    publishedAt: '2024-07-28',
+    updatedAt: '2024-07-28',
+    readingTime: 3,
+    featuredImage: {
+      url: 'https://placehold.co/1200x800/A8BA9A/333333?text=Mud+Building',
+      alt: 'A beautiful structure built with mud',
+      caption: 'The art of building with mud'
+    },
+    tags: ['sustainability', 'eco-architecture', 'mud-building', 'community', 'behind-the-scenes'],
+    isPublished: true,
+    seoTitle: 'Building with Mud: A Lesson in Sustainability',
+    seoDescription: 'Learn about our philosophy of sustainable architecture and the art of building with mud.'
+  },
+  'a-tiger-sighting-that-changed-my-perspective': {
+    id: 3,
+    title: 'A Tiger Sighting That Changed My Perspective',
+    slug: 'a-tiger-sighting-that-changed-my-perspective',
+    excerpt: 'Locking eyes with a wild tiger is an experience that words can hardly do justice. It was a moment of pure awe, a powerful reminder of the raw beauty and importance of our wild spaces.',
+    content: `I had been on several safaris before, but nothing could have prepared me for this moment. We were driving through the buffer zone of Kanha, the forest bathed in the golden light of the late afternoon. Our naturalist, with his keen eyes, suddenly stopped the jeep and pointed towards a thicket of bamboo.
+
+## The Majestic Presence
+
+And then I saw her. A tigress, majestic and powerful, emerged from the bamboo. She walked with a silent grace, her stripes a perfect camouflage in the dappled light. She was so close that I could see the twitch of her whiskers and the intensity in her amber eyes. For a few breathtaking moments, our worlds converged. She looked at us, not with aggression, but with a calm, regal indifference.
+
+## A Lesson in Humility
+
+In that moment, I felt a profound sense of humility. I was a guest in her kingdom, a fleeting visitor in a world that has existed for millennia. It was a powerful reminder that these wild spaces do not belong to us. We are merely custodians, with a responsibility to protect them for generations to come.
+
+## The Importance of Conservation
+
+This experience reinforced the importance of the conservation work being done by places like Surwahi Social and the forest department. Every effort to protect these habitats, to create corridors for wildlife, and to mitigate human-animal conflict is a step towards ensuring that future generations can also experience this sense of awe and wonder. My safari was not just a tour; it was a life-altering lesson in the importance of coexistence.`,
+    category: 'Guest Experiences',
+    author: 'A Guest Blogger',
+    authorBio: 'A recent guest at Surwahi Social who was deeply moved by their wildlife experience.',
+    publishedAt: '2024-07-10',
+    updatedAt: '2024-07-10',
+    readingTime: 3,
+    featuredImage: {
+      url: 'https://placehold.co/1200x800/A8BA9A/333333?text=Tiger+Sighting',
+      alt: 'A majestic tiger in the wild',
+      caption: 'A moment of awe in the jungle'
+    },
+    tags: ['tiger', 'safari', 'wildlife', 'conservation', 'guest-experience', 'kanha'],
+    isPublished: true,
+    seoTitle: 'A Tiger Sighting That Changed My Perspective',
+    seoDescription: 'A firsthand account of a life-changing tiger sighting experience near Surwahi.'
   }
 };
 
