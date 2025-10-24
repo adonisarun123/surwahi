@@ -1,137 +1,206 @@
 import Link from 'next/link';
-import { ArrowRight, Leaf, Users, Shield } from 'lucide-react';
-import BookingWidget from '@/components/BookingWidget';
+import { ArrowRight, Leaf, Users, Shield, Star, Award, Heart } from 'lucide-react';
+import Image from 'next/image';
 import { generateMetadata } from '@/lib/seo';
 
 export const metadata = generateMetadata({
-  title: 'Surwahi Eco-Lodge - Sustainable Forest Retreats',
-  description: 'Sleep to birdsong. Wake to the forest. Experience regenerative hospitality at Surwahi Eco-Lodge - your sustainable escape in nature.',
+  title: 'Surwahi Social Ecoestate Kanha — Sustainable Eco Lodge near Kanha National Park',
+  description: 'Experience eco-luxury at Surwahi Social Ecoestate Kanha — an award-winning sustainable stay near Kanha National Park. Explore nature, community, and conscious living in Madhya Pradesh, India.',
   url: 'https://surwahi.com',
 });
 
 export default function HomePage() {
   return (
-    <div className="relative">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0 z-0 bg-gradient-to-br from-forest-700 to-moss-500">
-          {/* Eco Pattern Overlay */}
-          <div 
-            className="absolute inset-0 opacity-20"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.15' stroke-width='1.5'%3E%3Cpath d='M200 50c-40 20-80 60-100 100 20 40 60 80 100 100 40-20 80-60 100-100-20-40-60-80-100-100z'/%3E%3Cpath d='M200 100c-20 10-40 30-50 50 10 20 30 40 50 50 20-10 40-30 50-50-10-20-30-40-50-50z'/%3E%3Ccircle cx='200' cy='200' r='8'/%3E%3Cpath d='M80 200c30-30 70-30 100 0'/%3E%3Cpath d='M220 200c30-30 70-30 100 0'/%3E%3Cpath d='M200 80c-30 30-30 70 0 100'/%3E%3Cpath d='M200 220c-30 30-30 70 0 100'/%3E%3C/g%3E%3C/svg%3E")`,
-              backgroundSize: '400px 400px'
-            }}
-          />
-          <div className="absolute inset-0 bg-forest-900/30" />
+    <main id="main">
+      <section className="relative min-h-screen flex items-center justify-center text-center text-white overflow-hidden">
+        <div className="absolute inset-0 z-0">
+            <Image
+                src="https://ik.imagekit.io/adonisarun/WhatsApp%20Image%202025-10-24%20at%2019.36.22.jpeg?updatedAt=1761321841612"
+                alt="Aerial view of Surwahi Social Ecoestate"
+                fill
+                className="object-cover"
+                priority
+            />
         </div>
-
-        {/* Hero Content */}
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Text Content */}
-            <div className="text-center lg:text-left">
-              <h1 className="font-display text-display-xl text-bone-0 mb-6 text-balance">
-                Sleep to birdsong.
-                <br />
-                Wake to the forest.
-              </h1>
-              <p className="text-body-lg text-bone-0/90 mb-8 max-w-lg mx-auto lg:mx-0">
-                Experience regenerative hospitality where luxury meets conservation. 
-                Your sustainable escape awaits in the heart of nature.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Link href="/accommodations" className="btn btn-primary text-base">
-                  Explore Rooms
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-                <Link href="/sustainability" className="btn btn-secondary bg-bone-0/10 border-bone-0/30 text-bone-0 hover:bg-bone-0/20">
-                  Our Impact
-                </Link>
-              </div>
-            </div>
-
-            {/* Booking Widget */}
-            <div className="flex justify-center lg:justify-end">
-              <BookingWidget variant="hero" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* USP Cards Section */}
-      <section className="relative py-16 lg:py-24 bg-bone-0 overflow-hidden">
-        {/* Subtle Leaf Pattern Background */}
-        <div 
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Cg fill='none' stroke='%236FA888' stroke-opacity='0.3' stroke-width='1'%3E%3Cpath d='M150 30c-20 30-30 70-10 100 15-10 25-25 30-40 20 15 40 25 60 20-30-20-50-50-80-80z'/%3E%3Cpath d='M50 150c30-20 70-30 100-10-10 15-25 25-40 30 15 20 25 40 20 60-20-30-50-50-80-80z'/%3E%3Cpath d='M250 150c-30 20-70 30-100 10 10-15 25-25 40-30-15-20-25-40-20-60 20 30 50 50 80 80z'/%3E%3Cpath d='M150 270c20-30 30-70 10-100-15 10-25 25-30 40-20-15-40-25-60-20 30 20 50 50 80 80z'/%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundSize: '300px 300px'
-          }}
-        />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center group">
-              <div className="w-16 h-16 mx-auto mb-6 bg-fern-300/10 rounded-full flex items-center justify-center group-hover:bg-fern-300/20 transition-colors">
-                <Leaf className="h-8 w-8 text-fern-300" />
-              </div>
-              <h3 className="font-display text-xl text-forest-900 mb-3">Eco-Certified</h3>
-              <p className="text-soil-700 leading-relaxed">
-                Certified sustainable practices with solar power, rainwater harvesting, 
-                and zero waste to landfill.
-              </p>
-            </div>
-
-            <div className="text-center group">
-              <div className="w-16 h-16 mx-auto mb-6 bg-clay-500/10 rounded-full flex items-center justify-center group-hover:bg-clay-500/20 transition-colors">
-                <Users className="h-8 w-8 text-clay-500" />
-              </div>
-              <h3 className="font-display text-xl text-forest-900 mb-3">Community-Powered</h3>
-              <p className="text-soil-700 leading-relaxed">
-                Partnerships with local artisans and farmers, creating 
-                economic opportunities for the surrounding community.
-              </p>
-            </div>
-
-            <div className="text-center group">
-              <div className="w-16 h-16 mx-auto mb-6 bg-river-400/10 rounded-full flex items-center justify-center group-hover:bg-river-400/20 transition-colors">
-                <Shield className="h-8 w-8 text-river-400" />
-              </div>
-              <h3 className="font-display text-xl text-forest-900 mb-3">Wildlife-Friendly</h3>
-              <p className="text-soil-700 leading-relaxed">
-                Ethical wildlife viewing with responsible distances and 
-                active participation in local conservation efforts.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="relative py-16 lg:py-24 bg-gradient-to-r from-forest-700 to-moss-500 text-bone-0 overflow-hidden">
-        {/* Organic Flow Pattern */}
-        <div 
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='200' viewBox='0 0 500 200'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.2' stroke-width='2'%3E%3Cpath d='M0,100 Q125,20 250,100 T500,100'/%3E%3Cpath d='M0,130 Q100,50 200,130 T400,130'/%3E%3Cpath d='M100,70 Q225,150 350,70 T600,70'/%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundSize: '500px 200px'
-          }}
-        />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className="font-display text-display-lg mb-6">
-            Your Forest Retreat Awaits
-          </h2>
-          <p className="text-body-lg mb-8 opacity-90 max-w-2xl mx-auto">
-            Book your sustainable escape and become part of our conservation story. 
-            Every stay makes a difference.
+        <div className="absolute inset-0 bg-forest-900/60 z-10"></div>
+        <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <h1 className="font-display text-display-xl text-bone-0 mb-6 animate-fade-up">
+            Discover Serenity in Sustainable Luxury
+          </h1>
+          <p className="text-body-lg text-bone-0/90 mb-8 max-w-2xl mx-auto animate-fade-up" style={{ animationDelay: '0.2s' }}>
+            Nestled at the edge of Kanha National Park, Surwahi Social Ecoestate invites you to slow down, reconnect with nature, and experience the art of sustainable living.
           </p>
-          <Link href="/accommodations" className="btn btn-secondary bg-bone-0 text-forest-700 hover:bg-bone-0/90">
-            Check Availability
-            <ArrowRight className="ml-2 h-4 w-4" />
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style={{ animationDelay: '0.4s' }}>
+            <Link href="/accommodations" className="btn btn-primary text-base bg-clay-500 hover:bg-clay-500/90 text-white border-clay-500">
+              Book Your Eco Stay
+            </Link>
+            <Link href="#about" className="btn btn-secondary bg-transparent border-bone-0 text-bone-0 hover:bg-bone-0/10">
+              Explore the Story
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* About Surwahi */}
+      <section id="about" className="py-16 lg:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-display text-display-lg text-forest-900 mb-4">🌱 About Surwahi — A Vision Rooted in Nature</h2>
+          <p className="text-body-lg max-w-prose mx-auto mb-6">
+            At Surwahi Social Ecoestate Kanha (SSEK), we believe in living gently — where nature, people, and architecture coexist in harmony. What began as a small idea to build responsibly has now become a vibrant community of travelers, artisans, and changemakers who share one dream: <strong>a greener tomorrow.</strong>
+          </p>
+          <p className="text-body-md max-w-prose mx-auto">
+            From earthen walls to solar lighting and natural ventilation, every corner at Surwahi celebrates <strong>eco-conscious design</strong> — built <em>with</em> nature, not <em>over</em> it.
+          </p>
+          <div className="mt-8">
+            <Link href="/sustainability" className="btn btn-secondary text-clay-500 border-clay-500/50 hover:bg-clay-500/10">
+              Know Our Story
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Eco Accommodations */}
+      <section className="bg-mist-200/50 py-16 lg:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-display text-display-lg text-forest-900 mb-4">🏡 Eco Accommodations — Designed for Comfort, Crafted for the Earth</h2>
+          <p className="text-body-lg max-w-prose mx-auto mb-8">
+            Stay in thoughtfully designed spaces made from local materials — mud, bamboo, stone, and love. Each room offers comfort without compromise, blending traditional craftsmanship with minimal modern amenities.
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+            <div className="bg-white p-6 rounded-card shadow-elev-1">🌾 Mudhouses & Dormitories for travelers and groups</div>
+            <div className="bg-white p-6 rounded-card shadow-elev-1">🌿 Open courtyards and skylit terraces</div>
+            <div className="bg-white p-6 rounded-card shadow-elev-1">🌞 Naturally cool interiors & solar energy</div>
+            <div className="bg-white p-6 rounded-card shadow-elev-1">🌕 Perfect stargazing nights and warm village hospitality</div>
+          </div>
+          <div className="mt-12">
+            <Link href="/accommodations" className="btn btn-primary text-base bg-forest-700 hover:bg-forest-900 text-white">
+              Explore Stays
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Sustainability at the Core */}
+      <section className="py-16 lg:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-display text-display-lg text-forest-900 mb-4">🌍 Sustainability at the Core</h2>
+          <p className="text-body-lg max-w-prose mx-auto mb-12">
+            Sustainability is not a feature here — it’s our foundation. We practice what we preach, from water and waste management to organic farming and community building.
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8">
+            <div className="text-center group">
+              <div className="w-16 h-16 mx-auto mb-4 bg-fern-300/10 rounded-full flex items-center justify-center"><Leaf className="h-8 w-8 text-fern-300" /></div>
+              <h3 className="font-ui font-bold text-lg text-forest-900">Eco-friendly construction</h3>
+            </div>
+            <div className="text-center group">
+              <div className="w-16 h-16 mx-auto mb-4 bg-river-400/10 rounded-full flex items-center justify-center"><Shield className="h-8 w-8 text-river-400" /></div>
+              <h3 className="font-ui font-bold text-lg text-forest-900">Water conservation</h3>
+            </div>
+            <div className="text-center group">
+              <div className="w-16 h-16 mx-auto mb-4 bg-yellow-500/10 rounded-full flex items-center justify-center"><Star className="h-8 w-8 text-yellow-500" /></div>
+              <h3 className="font-ui font-bold text-lg text-forest-900">Energy conservation</h3>
+            </div>
+            <div className="text-center group">
+              <div className="w-16 h-16 mx-auto mb-4 bg-lime-500/10 rounded-full flex items-center justify-center"><Heart className="h-8 w-8 text-lime-500" /></div>
+              <h3 className="font-ui font-bold text-lg text-forest-900">Evapotranspiration toilets</h3>
+            </div>
+            <div className="text-center group">
+              <div className="w-16 h-16 mx-auto mb-4 bg-clay-500/10 rounded-full flex items-center justify-center"><Users className="h-8 w-8 text-clay-500" /></div>
+              <h3 className="font-ui font-bold text-lg text-forest-900">Community partnerships</h3>
+            </div>
+          </div>
+          <div className="mt-12">
+            <Link href="/sustainability" className="btn btn-secondary text-clay-500 border-clay-500/50 hover:bg-clay-500/10">
+              Explore Our Green Practices
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Experiences */}
+      <section className="bg-mist-200/50 py-16 lg:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-display text-display-lg text-forest-900 mb-4">🤝 Experiences that Connect You to the Wild and Within</h2>
+          <p className="text-body-lg max-w-prose mx-auto mb-12">
+            At Surwahi, every experience brings you closer — to nature, to people, and to yourself.
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <p>🌾 <strong>Wilderness Coliving:</strong> Work, create, and live amidst the forest’s calm.</p>
+              <p>🍃 <strong>Organic Farming:</strong> Sow, nurture, and harvest the earth’s gifts.</p>
+              <p>🪶 <strong>Tribal & Cultural Interactions:</strong> Celebrate the traditions of the Gond and Baiga tribes.</p>
+              <p>🦋 <strong>Within SSEK:</strong> Nature walks, riverside high teas, star gazing, and mindful evenings.</p>
+          </div>
+          <div className="mt-12">
+            <Link href="/things-to-do" className="btn btn-primary text-base bg-forest-700 hover:bg-forest-900 text-white">
+              Experience Surwahi
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Kanha & Surroundings */}
+      <section className="py-16 lg:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-display text-display-lg text-forest-900 mb-4">🐅 Kanha & Surroundings — Nature’s Grand Theatre</h2>
+          <p className="text-body-lg max-w-prose mx-auto mb-8">
+            Explore the mystical beauty of <strong>Kanha Tiger Reserve</strong>, one of India’s most biodiverse landscapes. From early morning jungle safaris to quiet village walks, Surwahi is your perfect gateway to the wild heart of India.
+          </p>
+          <Link href="/around-surwahi" className="btn btn-secondary text-clay-500 border-clay-500/50 hover:bg-clay-500/10">
+            Plan Your Kanha Journey
           </Link>
         </div>
       </section>
-    </div>
+      
+      {/* Gallery */}
+      <section className="bg-forest-900 text-white py-16 lg:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-display text-display-lg mb-4">📸 Gallery — The Soul of Surwahi</h2>
+          <p className="text-body-lg max-w-prose mx-auto mb-8 text-bone-0/80">
+            Every photograph tells a story — of sunlit mornings, tribal art, forest trails, and quiet nights filled with stars.
+          </p>
+          <Link href="/gallery" className="btn btn-secondary bg-transparent border-bone-0 text-bone-0 hover:bg-bone-0/10">
+            View Gallery
+          </Link>
+        </div>
+      </section>
+      
+      {/* Recognitions & Accreditations */}
+      <section className="py-16 lg:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-display text-display-lg text-forest-900 mb-8">🏆 Recognitions & Accreditations</h2>
+          <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12">
+            <div className="text-center">
+              <Award className="h-12 w-12 mx-auto text-clay-500 mb-4" />
+              <p className="font-bold text-lg">John Wakefield Memorial Award 2024</p>
+              <p className="text-sm">Most Inspirational Eco Lodge of the Year by TOFT Tigers.</p>
+            </div>
+            <div className="w-px h-24 bg-mist-200 hidden md:block"></div>
+            <div className="text-center">
+              <Shield className="h-12 w-12 mx-auto text-fern-300 mb-4" />
+              <p className="font-bold text-lg">Certified Eco-Friendly Homestay</p>
+              <p className="text-sm">by the Madhya Pradesh Tourism Board.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="bg-canopy-dawn text-white py-16 lg:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-display text-display-lg mb-4">💚 Join the Movement for a Greener Tomorrow</h2>
+          <p className="text-body-lg max-w-prose mx-auto mb-8 text-bone-0/90">
+            Surwahi isn’t just a destination — it’s an invitation. Come be part of a community that’s redefining what sustainable living means.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/accommodations" className="btn btn-primary text-base bg-clay-500 hover:bg-clay-500/90 text-white border-clay-500">
+              Book Your Stay
+            </Link>
+            <Link href="/contact" className="btn btn-secondary bg-transparent border-bone-0 text-bone-0 hover:bg-bone-0/10">
+              Join Our Community
+            </Link>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }

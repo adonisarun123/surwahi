@@ -16,89 +16,7 @@ import Breadcrumbs, { BreadcrumbJsonLd } from '@/components/Breadcrumbs';
 import BookingWidget from '@/components/BookingWidget';
 import { generateRoomMetadata } from '@/lib/seo';
 import { formatPrice } from '@/lib/utils';
-
-// Mock room data - will be replaced with database query
-const rooms = {
-  'forest-canopy-suite': {
-    id: '1',
-    name: 'Forest Canopy Suite',
-    slug: 'forest-canopy-suite',
-    description: 'Elevated suite with panoramic forest views and luxury amenities',
-    longDescription: `Perched among the treetops, our Forest Canopy Suite offers an unparalleled view of the forest ecosystem. This spacious 45 sqm suite features floor-to-ceiling windows that frame the ever-changing forest landscape, from morning mists to golden hour light filtering through ancient sal trees.
-
-The suite is designed with sustainability at its core, featuring solar-powered air cooling, rainwater-fed bathroom facilities, and furniture crafted from locally sourced, sustainably harvested wood. Wake to the symphony of over 200 bird species that call this forest home.
-
-The elevated position provides natural ventilation and cooling, while the private balcony extends your living space into the canopy itself. Perfect for morning meditation, afternoon reading, or evening wildlife watching with provided binoculars.`,
-    images: [
-      {
-        url: '/images/rooms/canopy-suite-bedroom.jpg',
-        alt: 'Spacious bedroom with king bed facing floor-to-ceiling forest view windows',
-        caption: 'Wake up to panoramic forest views'
-      },
-      {
-        url: '/images/rooms/canopy-suite-balcony.jpg',
-        alt: 'Private balcony with seating overlooking forest canopy',
-        caption: 'Private balcony in the treetops'
-      },
-      {
-        url: '/images/rooms/canopy-suite-bathroom.jpg',
-        alt: 'Luxury bathroom with natural stone and forest views',
-        caption: 'Eco-luxury bathroom with rainwater system'
-      },
-      {
-        url: '/images/rooms/canopy-suite-living.jpg',
-        alt: 'Living area with locally crafted furniture and reading nook',
-        caption: 'Comfortable living space with sustainable design'
-      }
-    ],
-    basePrice: 9500,
-    maxOccupancy: 3,
-    bedConfiguration: 'King Bed + Daybed',
-    size: '45 sqm',
-    view: 'Forest Canopy',
-    amenities: [
-      'Solar-powered cooling',
-      'Private balcony',
-      'Filtered rainwater',
-      'Organic toiletries',
-      'Reading nook',
-      'Work desk',
-      'Mini refrigerator',
-      'Coffee/tea station',
-      'Wildlife viewing equipment',
-      'Mosquito netting'
-    ],
-    ecoFeatures: [
-      'Solar power system',
-      'Rainwater harvesting',
-      'Natural ventilation',
-      'Locally sourced materials',
-      'Minimal environmental impact',
-      'Waste separation system'
-    ],
-    included: [
-      'Daily breakfast',
-      'Afternoon tea',
-      'Nature walk access',
-      'WiFi in common areas',
-      'Parking',
-      'Laundry service'
-    ],
-    accessibility: ['Ground floor access', 'Wide doorways'],
-    rating: 4.8,
-    reviewCount: 42,
-    location: 'Canopy Level, East Wing',
-    checkIn: '14:00',
-    checkOut: '11:00',
-    policies: {
-      cancellation: 'Free cancellation up to 48 hours before check-in',
-      pets: 'Pets not allowed',
-      smoking: 'Smoking not permitted',
-      extraBed: 'Extra bed available for ₹1,500/night',
-      children: 'Children under 5 stay free'
-    }
-  }
-};
+import { rooms } from '@/lib/accommodations';
 
 interface RoomPageProps {
   params: Promise<{ slug: string }>;
@@ -347,7 +265,7 @@ export default async function RoomDetailPage({ params }: RoomPageProps) {
             {/* Booking Sidebar */}
             <div className="lg:col-span-1">
               <div className="sticky top-24">
-                <BookingWidget variant="page" className="mb-6" />
+                <BookingWidget variant="page" room={room} className="mb-6" />
                 
                 {/* Contact Info */}
                 <div className="bg-sand-50 rounded-card p-6">

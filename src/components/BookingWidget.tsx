@@ -1,27 +1,48 @@
 'use client';
 
-import { useState } from 'react';
-import { Calendar, Users, Search, Plus, Minus } from 'lucide-react';
-import { cn, addDays } from '@/lib/utils';
+import { useState, useMemo, useEffect } from 'react';
+import { Calendar, Users, Search, Plus, Minus, X } from 'lucide-react';
+import { cn, addDays, formatPrice } from '@/lib/utils';
+import { rooms } from '@/lib/accommodations';
+
+type Room = typeof rooms[keyof typeof rooms];
 
 interface BookingWidgetProps {
   className?: string;
   variant?: 'hero' | 'sticky' | 'page';
+  room?: Room;
 }
 
-export default function BookingWidget({ className, variant = 'hero' }: BookingWidgetProps) {
+export default function BookingWidget({ className, variant = 'hero', room }: BookingWidgetProps) {
   const [checkIn, setCheckIn] = useState<string>('');
   const [checkOut, setCheckOut] = useState<string>('');
-  const [adults, setAdults] = useState(2);
+  const [adults, setAdults] = useState(room ? 1 : 2);
   const [children, setChildren] = useState(0);
   const [isGuestSelectorOpen, setIsGuestSelectorOpen] = useState(false);
 
+  useEffect(() => {
+    // Close guest selector when clicking outside
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isGuestSelectorOpen &&
+        !(event.target as HTMLElement).closest('.guest-selector-wrapper')
+      ) {
+        setIsGuestSelectorOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isGuestSelectorOpen]);
+
   const today = new Date().toISOString().split('T')[0];
   const tomorrow = addDays(new Date(), 1).toISOString().split('T')[0];
+  
+  const maxGuests = room ? room.maxOccupancy : 8;
 
   const handleCheckInChange = (date: string) => {
     setCheckIn(date);
-    // Auto-set checkout to next day if not set or if checkout is before checkin
     if (!checkOut || new Date(checkOut) <= new Date(date)) {
       const nextDay = addDays(new Date(date), 1).toISOString().split('T')[0];
       setCheckOut(nextDay);
@@ -36,14 +57,36 @@ export default function BookingWidget({ className, variant = 'hero' }: BookingWi
       children: children.toString(),
     });
 
-    window.location.href = `/accommodations?${params.toString()}`;
+    if (room) {
+      // Handle direct booking for a specific room
+      alert(`Booking ${room.name} for ${adults} adults and ${children} children from ${checkIn} to ${checkOut}`);
+    } else {
+      // Handle general availability search
+      window.location.href = `/accommodations?${params.toString()}`;
+    }
   };
+
+  const numberOfNights = useMemo(() => {
+    if (checkIn && checkOut) {
+      const start = new Date(checkIn);
+      const end = new Date(checkOut);
+      const diff = end.getTime() - start.getTime();
+      const nights = Math.ceil(diff / (1000 * 60 * 60 * 24));
+      return nights > 0 ? nights : 0;
+    }
+    return 0;
+  }, [checkIn, checkOut]);
 
   const totalGuests = adults + children;
   const guestText = `${totalGuests} guest${totalGuests !== 1 ? 's' : ''}`;
 
   const isCompact = variant === 'sticky';
   const isHero = variant === 'hero';
+  
+  const basePrice = room ? room.basePrice : 0;
+  const totalBasePrice = basePrice * numberOfNights;
+  const taxesAndFees = totalBasePrice * 0.18; // Example 18% tax
+  const totalPrice = totalBasePrice + taxesAndFees;
 
   if (isCompact) {
     return (
@@ -75,14 +118,26 @@ export default function BookingWidget({ className, variant = 'hero' }: BookingWi
       className
     )}>
       <div className="space-y-4">
-        <div className="text-center">
-          <h3 className="font-display text-xl text-forest-900 mb-2">
-            Book Your Stay
-          </h3>
-          <p className="text-sm text-soil-700">
-            Find your perfect eco-friendly retreat
-          </p>
-        </div>
+        {!room && (
+          <div className="text-center">
+            <h3 className="font-display text-xl text-forest-900 mb-2">
+              Book Your Stay
+            </h3>
+            <p className="text-sm text-soil-700">
+              Find your perfect eco-friendly retreat
+            </p>
+          </div>
+        )}
+
+        {room && (
+          <div className="text-left">
+             <div className="text-2xl font-bold text-forest-900">
+              {formatPrice(room.basePrice)}
+              <span className="text-sm font-normal text-soil-700"> / night</span>
+            </div>
+            <div className="text-xs text-soil-700">Excluding taxes & fees</div>
+          </div>
+        )}
 
         {/* Date Selection */}
         <div className="grid grid-cols-2 gap-3">
@@ -122,7 +177,7 @@ export default function BookingWidget({ className, variant = 'hero' }: BookingWi
         </div>
 
         {/* Guest Selection */}
-        <div className="relative">
+        <div className="relative guest-selector-wrapper">
           <label className="block text-sm font-medium text-ink-900 mb-1">
             Guests
           </label>
@@ -138,6 +193,12 @@ export default function BookingWidget({ className, variant = 'hero' }: BookingWi
           {isGuestSelectorOpen && (
             <div className="absolute top-full left-0 right-0 mt-1 bg-bone-0 border border-mist-200 rounded-input shadow-elev-2 p-4 z-10">
               <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="font-medium text-ink-900">Guests</div>
+                  <button onClick={() => setIsGuestSelectorOpen(false)}>
+                    <X className="h-4 w-4" />
+                  </button>
+                </div>
                 <div className="flex items-center justify-between">
                   <div>
                     <div className="font-medium text-ink-900">Adults</div>
@@ -155,8 +216,8 @@ export default function BookingWidget({ className, variant = 'hero' }: BookingWi
                     <span className="w-8 text-center font-medium">{adults}</span>
                     <button
                       type="button"
-                      onClick={() => setAdults(Math.min(8, adults + 1))}
-                      disabled={adults >= 8}
+                      onClick={() => setAdults(Math.min(maxGuests - children, adults + 1))}
+                      disabled={(adults + children) >= maxGuests}
                       className="w-8 h-8 rounded-full border border-mist-200 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed hover:border-moss-500 transition-colors"
                     >
                       <Plus className="h-4 w-4" />
@@ -181,8 +242,8 @@ export default function BookingWidget({ className, variant = 'hero' }: BookingWi
                     <span className="w-8 text-center font-medium">{children}</span>
                     <button
                       type="button"
-                      onClick={() => setChildren(Math.min(6, children + 1))}
-                      disabled={children >= 6}
+                      onClick={() => setChildren(Math.min(maxGuests - adults, children + 1))}
+                      disabled={(adults + children) >= maxGuests}
                       className="w-8 h-8 rounded-full border border-mist-200 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed hover:border-moss-500 transition-colors"
                     >
                       <Plus className="h-4 w-4" />
@@ -194,13 +255,38 @@ export default function BookingWidget({ className, variant = 'hero' }: BookingWi
           )}
         </div>
 
+        {/* Price Breakdown */}
+        {room && numberOfNights > 0 && (
+          <div className="border-t border-mist-200 pt-4 space-y-2 text-sm">
+            <div className="flex justify-between">
+              <span className="text-soil-700">{formatPrice(basePrice)} x {numberOfNights} night{numberOfNights > 1 && 's'}</span>
+              <span className="text-ink-900">{formatPrice(totalBasePrice)}</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-soil-700">Taxes & fees</span>
+              <span className="text-ink-900">{formatPrice(taxesAndFees)}</span>
+            </div>
+            <div className="flex justify-between font-bold text-base pt-2">
+              <span className="text-forest-900">Total</span>
+              <span className="text-forest-900">{formatPrice(totalPrice)}</span>
+            </div>
+          </div>
+        )}
+
         {/* Search Button */}
         <button
           onClick={handleSearch}
-          className="btn btn-primary w-full justify-center text-base"
+          disabled={room && !checkIn && !checkOut}
+          className="btn btn-primary w-full justify-center text-base disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          <Search className="h-4 w-4 mr-2" />
-          Check Availability
+          {room ? (
+            'Reserve'
+          ) : (
+            <>
+              <Search className="h-4 w-4 mr-2" />
+              Check Availability
+            </>
+          )}
         </button>
 
         {/* Quick Info */}
