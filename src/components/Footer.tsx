@@ -185,26 +185,25 @@ export default function Footer() {
               <div className="flex items-start gap-3">
                 <MapPin className="h-4 w-4 text-moss-500 mt-0.5 flex-shrink-0" />
                 <span>
-                  Forest Road, Surwahi<br />
-                  Madhya Pradesh, India 480001
+                  Surwahi Social, Village Surwahi, P.O Majgaon, Tehsil Paraswada, District Balaghat, Madhya Pradesh – 481111
                 </span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="h-4 w-4 text-moss-500 flex-shrink-0" />
                 <Link 
-                  href="tel:+919876543210" 
+                  href="tel:+919744844777" 
                   className="hover:text-moss-500 transition-colors"
                 >
-                  +91-98765 43210
+                  +91 97448 44777
                 </Link>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-moss-500 flex-shrink-0" />
                 <Link 
-                  href="mailto:hello@surwahi.com" 
+                  href="mailto:contact@surwahi.com" 
                   className="hover:text-moss-500 transition-colors"
                 >
-                  hello@surwahi.com
+                  contact@surwahi.com
                 </Link>
               </div>
             </address>

@@ -16,15 +16,15 @@ export const metadata = generatePageMetadata(
 
 const contactInfo = {
   address: {
-    street: 'Surwahi, PO - Jamunia, Tehsil - Bichiya',
-    city: 'Mandla',
+    street: 'Surwahi Social, Village Surwahi, P.O Majgaon',
+    city: 'Tehsil Paraswada, District Balaghat',
     state: 'Madhya Pradesh',
-    pincode: '481993',
+    pincode: '481111',
     country: 'India'
   },
-  phone: '+91 83057 20078',
-  email: 'surwahisocial@gmail.com',
-  bookingEmail: 'bookings@surwahi.com',
+  phone: '+919744844777',
+  generalEmail: 'contact@surwahi.com',
+  bookingEmail: 'contact@surwahi.com',
 };
 
 export default function ContactPage() {
@@ -90,10 +90,10 @@ export default function ContactPage() {
                     <div className="space-y-1">
                       <div>
                         <Link 
-                          href={`mailto:${contactInfo.email}`}
+                          href={`mailto:${contactInfo.generalEmail}`}
                           className="text-soil-700 hover:text-moss-500 transition-colors"
                         >
-                          {contactInfo.email}
+                          {contactInfo.generalEmail}
                         </Link>
                       </div>
                       <div>

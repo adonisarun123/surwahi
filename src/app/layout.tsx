@@ -79,12 +79,21 @@ export default function RootLayout({
                   "foundingDate": "2020",
                   "address": {
                     "@type": "PostalAddress",
-                    "streetAddress": "Forest Road, Surwahi",
-                    "addressLocality": "Surwahi",
+                    "streetAddress": "Surwahi Social, Village Surwahi, P.O Majgaon, Tehsil Paraswada",
+                    "addressLocality": "Balaghat",
                     "addressRegion": "Madhya Pradesh",
-                    "postalCode": "480001",
+                    "postalCode": "481111",
                     "addressCountry": "IN"
                   },
+                  "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "22.2587", 
+                    "longitude": "80.1829"
+                  },
+                  "telephone": "+919744844777",
+                  "email": "contact@surwahi.com",
+                  "url": "https://www.surwahi.com",
+                  "image": "https://www.surwahi.com/og-image.jpg",
                   "contactPoint": [{
                     "@type": "ContactPoint",
                     "telephone": "+91-9876543210",

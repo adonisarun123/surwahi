@@ -276,14 +276,14 @@ export default async function RoomDetailPage({ params }: RoomPageProps) {
                   <div className="space-y-2 text-sm">
                     <div className="flex items-center gap-2">
                       <span className="font-medium">Phone:</span>
-                      <Link href="tel:+919876543210" className="text-moss-500 hover:underline">
-                        +91-98765 43210
+                      <Link href="tel:+919744844777" className="text-moss-500 hover:underline">
+                        +919744844777
                       </Link>
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="font-medium">Email:</span>
-                      <Link href="mailto:bookings@surwahi.com" className="text-moss-500 hover:underline">
-                        bookings@surwahi.com
+                      <Link href="mailto:contact@surwahi.com" className="text-moss-500 hover:underline">
+                        contact@surwahi.com
                       </Link>
                     </div>
                   </div>
