@@ -8,19 +8,21 @@ import { knowledgeArticles } from '@/lib/knowledge-hub';
 import { KnowledgeArticle } from '@/types';
 
 interface ArticlePageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateMetadata({ params }: ArticlePageProps) {
-  const article: KnowledgeArticle = knowledgeArticles[params.slug];
+  const { slug } = await params;
+  const article: KnowledgeArticle | undefined = knowledgeArticles[slug];
   if (!article) {
     return {};
   }
   return generatePageMetadata(article.title, article.excerpt, `/knowledge-hub/${article.slug}`);
 }
 
-export default function KnowledgeArticlePage({ params }: ArticlePageProps) {
-  const article: KnowledgeArticle = knowledgeArticles[params.slug];
+export default async function KnowledgeArticlePage({ params }: ArticlePageProps) {
+  const { slug } = await params;
+  const article: KnowledgeArticle | undefined = knowledgeArticles[slug];
 
   if (!article) {
     notFound();
@@ -82,7 +84,7 @@ export default function KnowledgeArticlePage({ params }: ArticlePageProps) {
                     <h2 className="font-display text-2xl text-forest-900 mt-12 mb-6 first:mt-0">
                       {heading}
                     </h2>
-                    <div className="text-ink-900 leading-relaxed" dangerouslySetInnerHTML={{ __html: content.replace(/\n/g, '<br />').replace(/- /g, '• ').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
+                    <div className="text-ink-900 leading-relaxed" dangerouslySetInnerHTML={{ __html: content.replace(/\n/g, '<br />').replace(/- /g, '\u2022 ').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
                   </div>
                 );
               })}
