@@ -1,4 +1,6 @@
-export const knowledgeArticles = {
+import { KnowledgeArticle } from "@/types";
+
+export const knowledgeArticles: Record<string, KnowledgeArticle> = {
   'banjar-river-lifeline-of-kanha': {
     slug: 'banjar-river-lifeline-of-kanha',
     title: 'Banjar River – Lifeline of Kanha',

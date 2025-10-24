@@ -1,17 +1,18 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowLeft, BookOpen } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
 import { knowledgeArticles } from '@/lib/knowledge-hub';
+import { KnowledgeArticle } from '@/types';
 
 interface ArticlePageProps {
   params: { slug: string };
 }
 
 export async function generateMetadata({ params }: ArticlePageProps) {
-  const article = (knowledgeArticles as any)[params.slug];
+  const article: KnowledgeArticle = knowledgeArticles[params.slug];
   if (!article) {
     return {};
   }
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: ArticlePageProps) {
 }
 
 export default function KnowledgeArticlePage({ params }: ArticlePageProps) {
-  const article = (knowledgeArticles as any)[params.slug];
+  const article: KnowledgeArticle = knowledgeArticles[params.slug];
 
   if (!article) {
     notFound();
@@ -70,18 +71,18 @@ export default function KnowledgeArticlePage({ params }: ArticlePageProps) {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="prose prose-lg max-w-none">
-              {article.content.split('## ').map((section:any, index:any) => {
+              {article.content.split('## ').map((section: string, index: number) => {
                 if (!section.trim()) return null;
-                const lines = section.trim().split('\\n');
-                const heading = lines.shift().trim();
-                const content = lines.join('\\n').trim();
+                const lines = section.trim().split('\n');
+                const heading = lines.shift()?.trim();
+                const content = lines.join('\n').trim();
 
                 return (
                   <div key={index} className="mb-12">
                     <h2 className="font-display text-2xl text-forest-900 mt-12 mb-6 first:mt-0">
                       {heading}
                     </h2>
-                    <div className="text-ink-900 leading-relaxed" dangerouslySetInnerHTML={{ __html: content.replace(/\\n/g, '<br />').replace(/\- /g, '• ').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
+                    <div className="text-ink-900 leading-relaxed" dangerouslySetInnerHTML={{ __html: content.replace(/\n/g, '<br />').replace(/- /g, '• ').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
                   </div>
                 );
               })}

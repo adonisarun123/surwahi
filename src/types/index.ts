@@ -12,7 +12,7 @@ export interface Room {
   view?: string;
   images: ImageObject[];
   amenities: string[];
-  policies?: Record<string, unknown>;
+  policies: Record<string, string>;
   isActive: boolean;
   sortOrder: number;
   ecoFeatures: string[];
@@ -395,3 +395,13 @@ export type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
 export type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
 };
+
+export type RoomData = Record<string, Room>;
+
+export interface KnowledgeArticle {
+  slug: string;
+  title: string;
+  excerpt: string;
+  imageUrl: string;
+  content: string;
+}
