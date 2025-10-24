@@ -1,6 +1,5 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import { Calendar, Clock, Sun, Mountain } from 'lucide-react';
 
 import { itineraries } from '@/lib/itineraries';
 import { generatePageMetadata } from '@/lib/seo';

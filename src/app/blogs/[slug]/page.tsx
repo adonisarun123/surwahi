@@ -30,7 +30,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   );
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
+interface BlogPostPageProps {
+  params: {
+    slug: string;
+  };
+}
+
+export default function BlogPostPage({ params }: BlogPostPageProps) {
   const post = blogs.find(p => p.slug === params.slug);
 
   if (!post) {
