@@ -19,22 +19,6 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'surwahi.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'cdn.prod.website-files.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'uploads-ssl.webflow.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'placehold.co',
-      },
-      {
-        protocol: 'https',
-        hostname: 'ik.imagekit.io',
       }
     ],
   },

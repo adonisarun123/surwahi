@@ -395,14 +395,3 @@ export type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
 export type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
 };
-
-export type PageProps<
-  TParams extends Record<string, string> = Record<string, never>,
-  TSearchParams extends Record<string, string | string[] | undefined> = Record<
-    string,
-    never
-  >
-> = {
-  params: TParams;
-  searchParams: TSearchParams;
-};
