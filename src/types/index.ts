@@ -397,8 +397,11 @@ export type DeepPartial<T> = {
 };
 
 export type PageProps<
-  TParams extends Record<string, string> = {},
-  TSearchParams extends Record<string, string | string[] | undefined> = {}
+  TParams extends Record<string, string> = Record<string, never>,
+  TSearchParams extends Record<string, string | string[] | undefined> = Record<
+    string,
+    never
+  >
 > = {
   params: TParams;
   searchParams: TSearchParams;
