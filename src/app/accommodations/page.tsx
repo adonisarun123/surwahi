@@ -1,12 +1,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Bed, Users, Mountain } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
-import { rooms } from '@/lib/accommodations';
 
 export const metadata = generatePageMetadata(
-  'Our Accommodations',
+  'Our Eco Accommodations',
   'Explore our range of sustainable stays, from luxurious suites to communal dormitories and adventurous camping tents.',
   '/accommodations'
 );

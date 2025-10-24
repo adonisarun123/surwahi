@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Check, Clock, Sun, Users, BookOpen, Leaf } from 'lucide-react';
+import { Check, Clock, Sun, Users, Leaf } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
 

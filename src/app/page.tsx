@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, Leaf, Users, Shield, Star, Award, Heart } from 'lucide-react';
+import { Leaf, Users, Shield, Star, Award, Heart } from 'lucide-react';
 import Image from 'next/image';
 import { generateMetadata } from '@/lib/seo';
 

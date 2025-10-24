@@ -120,7 +120,7 @@ export default function NaturesPharmacyPage() {
             <div className="sticky top-24">
               <div className="bg-bone-0 p-6 rounded-lg shadow-lg">
                 <h3 className="font-display text-xl text-forest-900 mb-4">Book Your Session</h3>
-                <p className="text-soil-700 mb-4 text-sm">Discover the healing wisdom of the forest. Inquire to book your spot in our Nature's Pharmacy workshop.</p>
+                <p className="text-soil-700 mb-4 text-sm">Discover the healing wisdom of the forest. Inquire to book your spot in our Nature&apos;s Pharmacy workshop.</p>
                 <ContactForm subject="Nature's Pharmacy Workshop Inquiry" />
               </div>
             </div>

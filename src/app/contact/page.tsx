@@ -40,7 +40,7 @@ export default function ContactPage() {
                 Contact Us
             </h1>
             <p className="text-body-lg text-soil-700 max-w-3xl mx-auto">
-                We'd love to hear from you. Whether you have a question, a booking inquiry, or just want to say hello, here's how you can reach us.
+                We&apos;d love to hear from you. Whether you have a question, a booking inquiry, or just want to say hello, here&apos;s how you can reach us.
             </p>
         </div>
       </section>

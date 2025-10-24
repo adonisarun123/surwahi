@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Check, Users, Calendar, Clock, Star } from 'lucide-react';
+import { Check, Users, Calendar, Clock } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
 import ContactForm from '@/components/ContactForm';

@@ -1,8 +1,7 @@
 import Image from 'next/image';
-import { Check, Clock, Sun, Users, Mountain, Leaf } from 'lucide-react';
+import { Check, Users, Mountain, Leaf } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
-import BookingWidget from '@/components/BookingWidget';
 
 export const metadata = generatePageMetadata(
   'Guided Forest Trails',

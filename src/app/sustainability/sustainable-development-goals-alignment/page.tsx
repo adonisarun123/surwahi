@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Check, Users, Leaf, Heart, Briefcase, Droplets, Zap, LifeBuoy } from 'lucide-react';
+import { Leaf, Heart, Briefcase, Droplets, Zap, LifeBuoy } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
 

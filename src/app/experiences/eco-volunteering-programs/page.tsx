@@ -107,7 +107,7 @@ export default function EcoVolunteeringPage() {
             <div className="sticky top-24">
               <div className="bg-bone-0 p-6 rounded-lg shadow-lg">
                 <h3 className="font-display text-xl text-forest-900 mb-4">Join Us</h3>
-                <p className="text-soil-700 mb-4 text-sm">If you're passionate about making a difference, we'd love to hear from you. Fill out the form below to express your interest.</p>
+                <p className="text-soil-700 mb-4 text-sm">If you&apos;re passionate about making a difference, we&apos;d love to hear from you. Fill out the form below to express your interest.</p>
                 <ContactForm subject="Eco-Volunteering Inquiry" />
               </div>
             </div>

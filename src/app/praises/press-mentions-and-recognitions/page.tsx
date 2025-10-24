@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Newspaper, MessageSquare, Link as LinkIcon } from 'lucide-react';
+import { Newspaper, MessageSquare } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
 
@@ -75,7 +75,7 @@ export default function PressMentionsAndRecognitionsPage() {
             {pressDetails.pressMentions.map((mention, index) => (
               <a key={index} href={mention.link} target="_blank" rel="noopener noreferrer" className="block p-6 bg-white rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
                 <Image src={mention.logoUrl} alt={`${mention.publication} logo`} width={150} height={50} className="mb-4" />
-                <blockquote className="text-soil-700 italic">"{mention.quote}"</blockquote>
+                <blockquote className="text-soil-700 italic">&quot;{mention.quote}&quot;</blockquote>
               </a>
             ))}
           </div>
@@ -90,7 +90,7 @@ export default function PressMentionsAndRecognitionsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {pressDetails.testimonials.map((testimonial, index) => (
               <div key={index} className="p-6 bg-sand-50 rounded-lg">
-                <blockquote className="text-lg text-soil-700 italic mb-4">"{testimonial.quote}"</blockquote>
+                <blockquote className="text-lg text-soil-700 italic mb-4">&quot;{testimonial.quote}&quot;</blockquote>
                 <p className="font-semibold text-forest-800">{testimonial.name}</p>
                 <p className="text-sm text-gray-500">{testimonial.location}</p>
               </div>

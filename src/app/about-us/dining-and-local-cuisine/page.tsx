@@ -101,7 +101,7 @@ export default function DiningPage() {
           </div>
           <div className="bg-sand-50 p-8 rounded-lg">
             <h3 className="font-display text-2xl text-forest-900 mb-6 text-center">A Taste of Surwahi</h3>
-            <p className="text-soil-700 text-center mb-6">Our menu is a dynamic reflection of the day's harvest. Here are some of the experiences that await you:</p>
+            <p className="text-soil-700 text-center mb-6">Our menu is a dynamic reflection of the day&apos;s harvest. Here are some of the experiences that await you:</p>
             <ul className="space-y-3">
               {diningDetails.sampleDishes.map((dish, index) => (
                 <li key={index} className="flex items-center">
