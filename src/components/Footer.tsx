@@ -24,7 +24,8 @@ const footerSections: FooterSection[] = [
       { name: 'Things to Do', href: '/things-to-do' },
       { name: 'Knowledge Hub', href: '/knowledge-hub' },
       { name: 'Gallery', href: '/gallery' },
-      { name: 'Blog', href: '/blogs' },
+      { name: 'Blogs', href: '/blogs' },
+      { name: 'Getting Here', href: '/getting-here' },
     ],
   },
   {
