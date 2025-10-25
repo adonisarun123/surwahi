@@ -77,7 +77,6 @@ const navigation: NavigationItem[] = [
   { name: 'Gallery', href: '/gallery' },
   { name: 'Getting Here', href: '/getting-here' },
   { name: 'Blogs', href: '/blogs' },
-  { name: 'House Rules', href: '/house-rules' },
   { name: 'Contact', href: '/contact' },
 ];
 

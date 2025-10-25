@@ -44,6 +44,7 @@ const footerSections: FooterSection[] = [
       { name: 'Privacy Policy', href: '/privacy' },
       { name: 'Terms of Service', href: '/terms' },
       { name: 'Cancellation Policy', href: '/cancellation' },
+      { name: 'House Rules', href: '/house-rules' },
       { name: 'Accessibility', href: '/accessibility' },
     ],
   },
