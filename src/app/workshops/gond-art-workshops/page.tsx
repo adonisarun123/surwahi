@@ -91,7 +91,7 @@ export default function GondArtWorkshopsPage() {
                 <div key={index} className="flex items-start">
                   <item.icon className="h-8 w-8 text-moss-500 mr-4 flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-semibold text-xl text-forest-800">{item.title}</h3>
+                    <h3 className="font-semibold text-xl text-forest-900">{item.title}</h3>
                     <p className="text-soil-700">{item.description}</p>
                   </div>
                 </div>
@@ -104,7 +104,7 @@ export default function GondArtWorkshopsPage() {
                 <div className="flex items-center">
                   <Calendar className="h-6 w-6 text-moss-500 mr-4" />
                   <div>
-                    <p className="font-semibold text-lg text-forest-800">{workshopDetails.schedule[0].date}</p>
+                    <p className="font-semibold text-lg text-forest-900">{workshopDetails.schedule[0].date}</p>
                     <p className="text-sm text-soil-700 flex items-center"><Clock className="h-4 w-4 mr-1"/>{workshopDetails.schedule[0].time}</p>
                   </div>
                 </div>

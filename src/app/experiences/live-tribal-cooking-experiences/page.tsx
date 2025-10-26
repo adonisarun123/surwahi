@@ -94,7 +94,7 @@ export default function LiveTribalCookingPage() {
                 {cookingDetails.sampleMenu.map((item, index) => (
                   <div key={index} className="flex flex-col items-center text-center">
                     <item.icon className="h-10 w-10 text-moss-500 mb-3" />
-                    <h4 className="font-semibold text-xl text-forest-800">{item.name}</h4>
+                    <h4 className="font-semibold text-xl text-forest-900">{item.name}</h4>
                     <p className="text-sm text-soil-700">{item.description}</p>
                   </div>
                 ))}
@@ -111,7 +111,7 @@ export default function LiveTribalCookingPage() {
                 <a href="/contact" className="btn btn-primary w-full">Inquire Now</a>
               </div>
               <div className="mt-6 text-center">
-                <a href="/experiences" className="text-moss-600 hover:underline">Explore other experiences</a>
+                <a href="/experiences" className="text-moss-500 hover:underline">Explore other experiences</a>
               </div>
             </div>
           </div>

@@ -99,12 +99,12 @@ export default function OurResidentsPage() {
                 <div>
                   <div className="flex items-center mb-4">
                     <category.icon className="h-10 w-10 text-moss-500 mr-4" />
-                    <h3 className="font-display text-3xl text-forest-800">{category.name}</h3>
+                    <h3 className="font-display text-3xl text-forest-900">{category.name}</h3>
                   </div>
                   <p className="text-lg text-soil-700 mb-4">{category.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {category.species.map((s) => (
-                      <span key={s} className="bg-fern-100 text-fern-800 text-sm font-medium px-3 py-1 rounded-full">{s}</span>
+                      <span key={s} className="bg-fern-300/10 text-forest-900 text-sm font-medium px-3 py-1 rounded-full">{s}</span>
                     ))}
                   </div>
                 </div>
@@ -124,7 +124,7 @@ export default function OurResidentsPage() {
               <div key={category.name} className="bg-bone-0 p-6 rounded-lg shadow-md">
                 <div className="flex items-center mb-4">
                   <category.icon className="h-8 w-8 text-moss-500 mr-3" />
-                  <h3 className="font-display text-2xl text-forest-800">{category.name}</h3>
+                  <h3 className="font-display text-2xl text-forest-900">{category.name}</h3>
                 </div>
                 <p className="text-soil-700 mb-4">{category.description}</p>
                 <div className="grid grid-cols-2 gap-4">

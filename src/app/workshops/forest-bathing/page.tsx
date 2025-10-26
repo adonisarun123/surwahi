@@ -96,7 +96,7 @@ export default function ForestBathingPage() {
                   <div key={index} className="flex items-start">
                     <item.icon className="h-8 w-8 text-moss-500 mr-4 flex-shrink-0 mt-1" />
                     <div>
-                      <h3 className="font-semibold text-xl text-forest-800">{item.title}</h3>
+                      <h3 className="font-semibold text-xl text-forest-900">{item.title}</h3>
                       <p className="text-soil-700">{item.description}</p>
                     </div>
                   </div>

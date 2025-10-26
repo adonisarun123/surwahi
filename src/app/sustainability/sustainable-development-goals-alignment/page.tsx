@@ -70,7 +70,7 @@ export default function SdgsAlignmentPage() {
               <div key={index} className="flex items-start bg-sand-50 p-6 rounded-lg">
                 <alignment.icon className="h-12 w-12 text-moss-500 mr-6 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-xl text-forest-800">{alignment.sdg}</h3>
+                  <h3 className="font-semibold text-xl text-forest-900">{alignment.sdg}</h3>
                   <p className="text-soil-700">{alignment.ourAction}</p>
                 </div>
               </div>

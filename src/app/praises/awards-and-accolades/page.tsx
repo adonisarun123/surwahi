@@ -78,8 +78,8 @@ export default function AwardsAndAccoladesPage() {
               <div key={index} className="flex flex-col md:flex-row items-center bg-sand-50 p-6 rounded-lg">
                 <award.icon className="h-16 w-16 text-yellow-500 md:mr-6 mb-4 md:mb-0 flex-shrink-0" />
                 <div className="text-center md:text-left">
-                  <h3 className="font-display text-2xl text-forest-800">{award.title}</h3>
-                  <p className="font-semibold text-moss-600 mb-2">by {award.by} - {award.category}</p>
+                  <h3 className="font-display text-2xl text-forest-900">{award.title}</h3>
+                  <p className="font-semibold text-moss-500 mb-2">by {award.by} - {award.category}</p>
                   <p className="text-soil-700">{award.description}</p>
                 </div>
               </div>

@@ -75,9 +75,9 @@ export default function BlogPage() {
                   <Tag className="h-4 w-4 mr-2 text-moss-500" />
                   <span>{post.category}</span>
                 </div>
-                <h3 className="font-display text-2xl text-forest-900 mb-2 group-hover:text-moss-600 transition-colors">{post.title}</h3>
+                <h3 className="font-display text-2xl text-forest-900 mb-2 group-hover:text-moss-500 transition-colors">{post.title}</h3>
                 <p className="text-soil-700 text-sm mb-4">{post.excerpt}</p>
-                <div className="flex items-center text-xs text-gray-500">
+                <div className="flex items-center text-xs text-soil-700">
                   <div className="flex items-center mr-4">
                     <User className="h-3 w-3 mr-1" />
                     <span>{post.author}</span>

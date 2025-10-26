@@ -95,7 +95,7 @@ export default function GuidedForestTrailsPage() {
                   <div key={index} className="flex items-start">
                     <trail.icon className="h-8 w-8 text-moss-500 mr-4 flex-shrink-0 mt-1" />
                     <div>
-                      <h4 className="font-semibold text-xl text-forest-800">{trail.name}</h4>
+                      <h4 className="font-semibold text-xl text-forest-900">{trail.name}</h4>
                       <p className="text-soil-700 mb-1">{trail.duration} | {trail.difficulty}</p>
                       <p className="text-sm text-soil-700">{trail.focus}</p>
                     </div>
@@ -114,7 +114,7 @@ export default function GuidedForestTrailsPage() {
                 <a href="/contact" className="btn btn-primary w-full">Contact Us</a>
               </div>
               <div className="mt-6 text-center">
-                <a href="/experiences" className="text-moss-600 hover:underline">Explore other experiences</a>
+                <a href="/experiences" className="text-moss-500 hover:underline">Explore other experiences</a>
               </div>
             </div>
           </div>
