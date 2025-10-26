@@ -96,6 +96,18 @@ export default function Header() {
     setMobileMenuOpen(false);
   }, [pathname]);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [mobileMenuOpen]);
+
   const isTransparent = !scrolled && !mobileMenuOpen && pathname === '/';
 
   const NavLink = ({ item }: { item: NavigationItem }) => {
@@ -196,7 +208,7 @@ export default function Header() {
       </div>
 
       {mobileMenuOpen && (
-        <div className="md:hidden">
+        <div className="md:hidden fixed inset-x-0 top-20 bottom-0 bg-white/95 backdrop-blur-sm shadow-lg overflow-y-auto z-40">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navigation.map((item) => (
               item.children ? (
@@ -216,7 +228,7 @@ export default function Header() {
               )
             ))}
           </div>
-          <div className="px-5 py-4">
+          <div className="px-5 py-4 pb-8">
             <Link href="/accommodations" className="btn btn-primary w-full">
               Book Now
             </Link>
