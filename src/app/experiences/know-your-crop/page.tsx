@@ -94,7 +94,7 @@ export default function KnowYourCropPage() {
                 {knowYourCropDetails.seasonalFocus.map((season, index) => (
                   <div key={index} className="flex flex-col items-center text-center">
                     <season.icon className="h-10 w-10 text-moss-500 mb-3" />
-                    <h4 className="font-semibold text-xl text-forest-800">{season.season}</h4>
+                    <h4 className="font-semibold text-xl text-forest-900">{season.season}</h4>
                     <p className="text-sm text-soil-700"><strong>Crops:</strong> {season.crops}</p>
                   </div>
                 ))}
@@ -111,7 +111,7 @@ export default function KnowYourCropPage() {
                 <a href="/contact" className="btn btn-primary w-full">Schedule Your Walk</a>
               </div>
               <div className="mt-6 text-center">
-                <a href="/experiences" className="text-moss-600 hover:underline">Explore other experiences</a>
+                <a href="/experiences" className="text-moss-500 hover:underline">Explore other experiences</a>
               </div>
             </div>
           </div>

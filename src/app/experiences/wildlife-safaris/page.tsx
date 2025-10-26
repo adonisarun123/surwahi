@@ -96,7 +96,7 @@ export default function WildlifeSafarisPage() {
                     <div key={index} className="flex items-center">
                       <timing.icon className="h-6 w-6 text-moss-500 mr-3" />
                       <div>
-                        <p className="font-semibold text-lg text-forest-800">{timing.session}</p>
+                        <p className="font-semibold text-lg text-forest-900">{timing.session}</p>
                         <p className="text-soil-700">{timing.time}</p>
                       </div>
                     </div>

@@ -93,7 +93,7 @@ export default function EcoVolunteeringPage() {
                   <div key={index} className="flex items-start">
                     <area.icon className="h-8 w-8 text-moss-500 mr-4 flex-shrink-0 mt-1" />
                     <div>
-                      <h4 className="font-semibold text-xl text-forest-800">{area.name}</h4>
+                      <h4 className="font-semibold text-xl text-forest-900">{area.name}</h4>
                       <p className="text-sm text-soil-700">{area.description}</p>
                     </div>
                   </div>

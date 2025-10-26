@@ -104,7 +104,7 @@ export default function TreeCensusPage() {
               <div className="space-y-3">
                 {reportDetails.reports.map((report, index) => (
                   <a key={index} href={report.fileUrl} download className="flex items-center p-3 bg-white rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors">
-                    <Download className="h-5 w-5 text-moss-600 mr-3" />
+                    <Download className="h-5 w-5 text-moss-500 mr-3" />
                     <span className="text-moss-700 font-medium">{report.name}</span>
                   </a>
                 ))}

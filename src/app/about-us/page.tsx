@@ -43,7 +43,7 @@ export default function AboutUsPage() {
               <div className="flex justify-center mb-4">
                 <section.icon className="h-12 w-12 text-moss-500" />
               </div>
-              <h2 className="font-display text-2xl text-forest-800 mb-2">{section.name}</h2>
+              <h2 className="font-display text-2xl text-forest-900 mb-2">{section.name}</h2>
               <p className="text-soil-700 text-sm">{section.description}</p>
             </Link>
           ))}

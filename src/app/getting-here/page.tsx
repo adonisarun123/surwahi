@@ -78,7 +78,7 @@ export default function GettingHerePage() {
                 <div key={index} className="flex items-start">
                   <option.icon className="h-10 w-10 text-moss-500 mr-4 flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-semibold text-xl text-forest-800">{option.mode}</h3>
+                    <h3 className="font-semibold text-xl text-forest-900">{option.mode}</h3>
                     <p className="text-soil-700">{option.details}</p>
                   </div>
                 </div>
@@ -97,7 +97,7 @@ export default function GettingHerePage() {
                 <div key={index} className="flex items-start">
                   <season.icon className="h-10 w-10 text-moss-500 mr-4 flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-semibold text-xl text-forest-800">{season.season}</h3>
+                    <h3 className="font-semibold text-xl text-forest-900">{season.season}</h3>
                     <p className="text-soil-700">{season.description}</p>
                   </div>
                 </div>

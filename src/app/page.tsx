@@ -97,11 +97,11 @@ export default function HomePage() {
               <h3 className="font-ui font-bold text-lg text-forest-900">Water conservation</h3>
             </div>
             <div className="text-center group">
-              <div className="w-16 h-16 mx-auto mb-4 bg-yellow-500/10 rounded-full flex items-center justify-center"><Star className="h-8 w-8 text-yellow-500" /></div>
+              <div className="w-16 h-16 mx-auto mb-4 bg-clay-500/10 rounded-full flex items-center justify-center"><Star className="h-8 w-8 text-clay-500" /></div>
               <h3 className="font-ui font-bold text-lg text-forest-900">Energy conservation</h3>
             </div>
             <div className="text-center group">
-              <div className="w-16 h-16 mx-auto mb-4 bg-lime-500/10 rounded-full flex items-center justify-center"><Heart className="h-8 w-8 text-lime-500" /></div>
+              <div className="w-16 h-16 mx-auto mb-4 bg-fern-300/10 rounded-full flex items-center justify-center"><Heart className="h-8 w-8 text-fern-300" /></div>
               <h3 className="font-ui font-bold text-lg text-forest-900">Evapotranspiration toilets</h3>
             </div>
             <div className="text-center group">
@@ -131,7 +131,7 @@ export default function HomePage() {
               <p>🦋 <strong>Within SSEK:</strong> Nature walks, riverside high teas, star gazing, and mindful evenings.</p>
           </div>
           <div className="mt-12">
-            <Link href="/things-to-do" className="btn btn-primary text-base bg-forest-700 hover:bg-forest-900 text-white">
+            <Link href="/experiences" className="btn btn-primary text-base bg-forest-700 hover:bg-forest-900 text-white">
               Experience Surwahi
             </Link>
           </div>
@@ -145,7 +145,7 @@ export default function HomePage() {
           <p className="text-body-lg max-w-prose mx-auto mb-8">
             Explore the mystical beauty of <strong>Kanha Tiger Reserve</strong>, one of India’s most biodiverse landscapes. From early morning jungle safaris to quiet village walks, Surwahi is your perfect gateway to the wild heart of India.
           </p>
-          <Link href="/around-surwahi" className="btn btn-secondary text-clay-500 border-clay-500/50 hover:bg-clay-500/10">
+          <Link href="/getting-here" className="btn btn-secondary text-clay-500 border-clay-500/50 hover:bg-clay-500/10">
             Plan Your Kanha Journey
           </Link>
         </div>

@@ -70,7 +70,7 @@ export default function GalleryPage() {
                 className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${
                   filter === category
                     ? 'bg-forest-700 text-white'
-                    : 'bg-sand-100 text-forest-800 hover:bg-sand-200'
+                    : 'bg-sand-50 text-forest-700 hover:bg-mist-200'
                 }`}
               >
                 {category}
@@ -117,7 +117,7 @@ export default function GalleryPage() {
                     <Video className="h-12 w-12 text-white/80" />
                   </div>
                 </div>
-                <h3 className="font-semibold text-lg text-forest-800 mt-4">{video.title}</h3>
+                <h3 className="font-semibold text-lg text-forest-900 mt-4">{video.title}</h3>
               </a>
             ))}
           </div>

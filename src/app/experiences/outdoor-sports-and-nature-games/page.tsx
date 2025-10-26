@@ -97,7 +97,7 @@ export default function OutdoorSportsPage() {
                   <div key={index} className="flex items-start">
                     <game.icon className="h-8 w-8 text-moss-500 mr-4 flex-shrink-0 mt-1" />
                     <div>
-                      <h4 className="font-semibold text-xl text-forest-800">{game.name}</h4>
+                      <h4 className="font-semibold text-xl text-forest-900">{game.name}</h4>
                       <p className="text-sm text-soil-700">{game.description}</p>
                     </div>
                   </div>
@@ -115,7 +115,7 @@ export default function OutdoorSportsPage() {
                 <a href="/contact" className="btn btn-primary w-full">Contact Front Desk</a>
               </div>
               <div className="mt-6 text-center">
-                <a href="/experiences" className="text-moss-600 hover:underline">Explore other experiences</a>
+                <a href="/experiences" className="text-moss-500 hover:underline">Explore other experiences</a>
               </div>
             </div>
           </div>

@@ -91,8 +91,8 @@ export default function PressMentionsAndRecognitionsPage() {
             {pressDetails.testimonials.map((testimonial, index) => (
               <div key={index} className="p-6 bg-sand-50 rounded-lg">
                 <blockquote className="text-lg text-soil-700 italic mb-4">&quot;{testimonial.quote}&quot;</blockquote>
-                <p className="font-semibold text-forest-800">{testimonial.name}</p>
-                <p className="text-sm text-gray-500">{testimonial.location}</p>
+                <p className="font-semibold text-forest-900">{testimonial.name}</p>
+                <p className="text-sm text-soil-700">{testimonial.location}</p>
               </div>
             ))}
           </div>

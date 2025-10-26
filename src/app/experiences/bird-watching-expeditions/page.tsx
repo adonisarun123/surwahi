@@ -91,7 +91,7 @@ export default function BirdWatchingPage() {
                 {birdWatchingDetails.seasonalHighlights.map((season, index) => (
                   <div key={index} className="flex flex-col items-center text-center">
                     <season.icon className="h-10 w-10 text-moss-500 mb-3" />
-                    <h4 className="font-semibold text-xl text-forest-800">{season.season}</h4>
+                    <h4 className="font-semibold text-xl text-forest-900">{season.season}</h4>
                     <p className="text-sm text-soil-700">{season.highlight}</p>
                   </div>
                 ))}
@@ -101,7 +101,7 @@ export default function BirdWatchingPage() {
             <h3 className="font-display text-2xl text-forest-900 mb-4">Common Sightings</h3>
             <div className="flex flex-wrap gap-3">
               {birdWatchingDetails.commonSightings.map((bird, index) => (
-                <span key={index} className="bg-fern-100 text-fern-800 text-sm font-medium px-3 py-1 rounded-full">{bird}</span>
+                <span key={index} className="bg-fern-300/10 text-forest-900 text-sm font-medium px-3 py-1 rounded-full">{bird}</span>
               ))}
             </div>
           </div>
@@ -115,7 +115,7 @@ export default function BirdWatchingPage() {
                 <a href="/contact" className="btn btn-primary w-full">Inquire Now</a>
               </div>
               <div className="mt-6 text-center">
-                <a href="/experiences" className="text-moss-600 hover:underline">Explore other experiences</a>
+                <a href="/experiences" className="text-moss-500 hover:underline">Explore other experiences</a>
               </div>
             </div>
           </div>

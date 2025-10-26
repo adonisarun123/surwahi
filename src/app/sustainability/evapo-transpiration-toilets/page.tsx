@@ -79,10 +79,10 @@ export default function EttPage() {
             {ettDetails.howItWorks.map((step, index) => (
               <div key={index} className="md:flex items-center mb-8">
                 <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8 md:text-right'}`}>
-                  <h3 className="font-display text-2xl text-forest-800 mb-2">{step.title}</h3>
+                  <h3 className="font-display text-2xl text-forest-900 mb-2">{step.title}</h3>
                   <p className="text-soil-700">{step.description}</p>
                 </div>
-                <div className="absolute left-1/2 -translate-x-1/2 w-10 h-10 bg-white border-2 border-gray-300 rounded-full flex items-center justify-center font-bold text-moss-600 hidden md:flex">
+                <div className="absolute left-1/2 -translate-x-1/2 w-10 h-10 bg-white border-2 border-mist-200 rounded-full flex items-center justify-center font-bold text-moss-500 hidden md:flex">
                   {step.step}
                 </div>
                 <div className="md:w-1/2" />
@@ -96,7 +96,7 @@ export default function EttPage() {
               <div key={index} className="flex items-start">
                 <benefit.icon className="h-10 w-10 text-moss-500 mr-4 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-xl text-forest-800">{benefit.title}</h3>
+                  <h3 className="font-semibold text-xl text-forest-900">{benefit.title}</h3>
                   <p className="text-soil-700">{benefit.description}</p>
                 </div>
               </div>

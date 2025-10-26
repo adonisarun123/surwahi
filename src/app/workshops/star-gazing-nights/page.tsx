@@ -96,7 +96,7 @@ export default function StarGazingNightsPage() {
                     <div className="flex items-center">
                       <Calendar className="h-6 w-6 text-moss-500 mr-4" />
                       <div>
-                        <p className="font-semibold text-lg text-forest-800">{session.date}</p>
+                        <p className="font-semibold text-lg text-forest-900">{session.date}</p>
                         <p className="text-sm text-soil-700 flex items-center"><Clock className="h-4 w-4 mr-1"/>{session.time}</p>
                       </div>
                     </div>

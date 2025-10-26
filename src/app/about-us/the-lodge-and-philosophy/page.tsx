@@ -85,7 +85,7 @@ export default function LodgeAndPhilosophyPage() {
               <div key={index} className="flex items-start">
                 <item.icon className="h-10 w-10 text-moss-500 mr-4 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-xl text-forest-800 mb-2">{item.title}</h3>
+                  <h3 className="font-semibold text-xl text-forest-900 mb-2">{item.title}</h3>
                   <p className="text-soil-700">{item.description}</p>
                 </div>
               </div>

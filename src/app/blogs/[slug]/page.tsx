@@ -182,8 +182,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   const breadcrumbs = [
     { name: 'Home', href: '/' },
-    { name: 'Blog', href: '/blog' },
-    { name: post.title, href: `/blog/${post.slug}` }
+    { name: 'Blog', href: '/blogs' },
+    { name: post.title, href: `/blogs/${post.slug}` }
   ];
 
   return (
@@ -193,7 +193,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <div className="flex items-center justify-between">
           <Breadcrumbs customBreadcrumbs={breadcrumbs} />
           <Link
-            href="/blog"
+            href="/blogs"
             className="flex items-center gap-2 text-moss-500 hover:text-forest-700 transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -304,7 +304,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   {post.tags.map((tag) => (
                     <Link
                       key={tag}
-                      href={`/blog/tag/${tag}`}
+                      href="/blogs"
                       className="inline-flex items-center gap-1 bg-mist-200/50 hover:bg-moss-500/10 text-soil-700 hover:text-moss-500 px-3 py-1 rounded-full text-sm transition-colors"
                     >
                       <Tag className="h-3 w-3" />
@@ -361,13 +361,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <div className="bg-sand-50 rounded-card p-6">
                   <h3 className="font-medium text-forest-900 mb-4">Related Topics</h3>
                   <div className="space-y-2">
-                    <Link href="/blog/category/wildlife" className="block text-soil-700 hover:text-moss-500 transition-colors text-sm">
+                    <Link href="/blogs" className="block text-soil-700 hover:text-moss-500 transition-colors text-sm">
                       Wildlife Stories
                     </Link>
-                    <Link href="/blog/category/conservation" className="block text-soil-700 hover:text-moss-500 transition-colors text-sm">
+                    <Link href="/blogs" className="block text-soil-700 hover:text-moss-500 transition-colors text-sm">
                       Conservation Updates
                     </Link>
-                    <Link href="/things-to-do" className="block text-soil-700 hover:text-moss-500 transition-colors text-sm">
+                    <Link href="/experiences" className="block text-soil-700 hover:text-moss-500 transition-colors text-sm">
                       Forest Activities
                     </Link>
                   </div>
@@ -409,15 +409,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   </div>
                   
                   <h3 className="font-display text-lg text-forest-900 mb-3 group-hover:text-moss-500 transition-colors">
-                    <Link href={`/blog/${relatedPost.slug}`}>
+                    <Link href={`/blogs/${relatedPost.slug}`}>
                       {relatedPost.title}
                     </Link>
                   </h3>
-                  
+
                   <p className="text-soil-700 text-sm mb-4">{relatedPost.excerpt}</p>
-                  
+
                   <Link
-                    href={`/blog/${relatedPost.slug}`}
+                    href={`/blogs/${relatedPost.slug}`}
                     className="inline-flex items-center text-moss-500 hover:text-forest-700 transition-colors text-sm font-medium"
                   >
                     Read More
@@ -456,7 +456,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             },
             "datePublished": post.publishedAt,
             "dateModified": post.updatedAt,
-            "mainEntityOfPage": `https://surwahi.com/blog/${post.slug}`,
+            "mainEntityOfPage": `https://surwahi.com/blogs/${post.slug}`,
             "articleSection": post.category,
             "keywords": post.tags.join(", "),
             "wordCount": post.content.split(' ').length
