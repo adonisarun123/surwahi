@@ -207,8 +207,18 @@ export default function Header() {
         </div>
       </div>
 
+      {/* Mobile Menu Backdrop */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-20 bottom-0 bg-white/95 backdrop-blur-sm shadow-lg overflow-y-auto z-40">
+        <div
+          className="md:hidden fixed inset-0 bg-forest-900/20 backdrop-blur-sm z-40"
+          onClick={() => setMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden absolute inset-x-0 top-full bg-white shadow-lg overflow-y-auto max-h-[calc(100vh-5rem)] z-50 border-t border-mist-200">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navigation.map((item) => (
               item.children ? (
