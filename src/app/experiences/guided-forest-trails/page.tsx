@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Users, Mountain, Leaf } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { getImageKitUrl } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
   'Guided Forest Trails',
@@ -13,10 +14,10 @@ const trailDetails = {
   title: 'Guided Forest Trails',
   description: 'Step into the living classroom of the forest. Our guided trails, led by resident naturalists, are a journey of discovery, revealing the intricate connections of the ecosystem, from the smallest insects to ancient trees.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Forest+Trail', alt: 'A winding trail through a dense, sunlit forest' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Naturalist+Guide', alt: 'A naturalist guide pointing out flora to guests' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Unique+Flora', alt: 'Close-up of a unique flower found on the trail' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Animal+Tracks', alt: 'Animal tracks imprinted on the muddy forest floor' },
+    { src: getImageKitUrl('Website Photos/IMG20231020170019.jpg'), alt: 'A winding trail through a dense, sunlit forest' },
+    { src: getImageKitUrl('Website Photos/IMG_5104.JPG'), alt: 'A naturalist guide pointing out flora to guests' },
+    { src: getImageKitUrl('Website Photos/IMG_5224.JPG'), alt: 'Close-up of a unique flower found on the trail' },
+    { src: getImageKitUrl('Website Photos/IMG20231020171008.jpg'), alt: 'Animal tracks imprinted on the muddy forest floor' },
   ],
   keyHighlights: [
     'Learn to identify medicinal plants, animal tracks, and bird calls.',

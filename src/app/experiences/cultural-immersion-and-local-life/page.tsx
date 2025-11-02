@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Users, Hand, Mic, Home } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { getImageKitUrl } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
   'Cultural Immersion & Local Life',
@@ -13,10 +14,10 @@ const culturalDetails = {
   title: 'Cultural Immersion & Local Life',
   description: 'Journey beyond the wilderness and into the heart of the community. Our cultural immersion experiences offer a genuine connection to the people, traditions, and rhythms of daily life in the villages surrounding Surwahi.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Village+Visit', alt: 'Guests interacting with local villagers in a courtyard' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Local+Artisan', alt: 'A local artisan showcasing their craft' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Traditional+Dance', alt: 'Local community members performing a traditional dance' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Local+Cuisine', alt: 'A traditional meal being prepared in a village home' },
+    { src: getImageKitUrl('Surwahi Social Photos/IMG_20200217_095015 (2).jpg'), alt: 'A warm welcome from villagers during a visit' },
+    { src: getImageKitUrl('Surwahi Social Photos/3c3adbb2-aacd-4c01-8aa0-01615b0912e8.jpeg'), alt: 'A local artisan demonstrating their craft' },
+    { src: getImageKitUrl('Website Photos/IMG_3048.JPG'), alt: 'Guests participating in a traditional folk dance' },
+    { src: getImageKitUrl('Surwahi Social Photos/Jholar_Corridor_Wall_Painting.jpg'), alt: 'A beautiful Gond painting created by a local artist' },
   ],
   keyHighlights: [
     'Authentic and respectful interactions with the local Baiga and Gond communities.',

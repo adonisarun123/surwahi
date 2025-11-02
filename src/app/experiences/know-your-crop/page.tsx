@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Clock, Sun, Users, Leaf } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { getImageKitUrl } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
   'Know Your Crop',
@@ -13,10 +14,10 @@ const knowYourCropDetails = {
   title: 'Know Your Crop: Agri-Learning Walks',
   description: 'Trace the journey of your food from the soil to your plate. Our Agri-Learning Walks are a deep dive into the world of agriculture, offering insights into the seasonal crops we cultivate, the science of organic farming, and the importance of biodiversity in our food systems.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Rice+Paddy', alt: 'Golden rice paddies ready for harvest' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Vegetable+Patch', alt: 'A diverse patch of organic vegetables' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Farmer+Explaining', alt: 'A farmer explaining the details of a plant to a guest' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Spices', alt: 'A collection of freshly harvested spices' },
+    { src: getImageKitUrl('Surwahi Social Photos/Breakfast_under_Mahua_with_staff_in_Compound_2.jpg'), alt: 'Golden rice paddies ready for harvest' },
+    { src: getImageKitUrl('Website Photos/IMG_5104.JPG'), alt: 'A diverse patch of organic vegetables' },
+    { src: getImageKitUrl('Surwahi Social Photos/IMG_20200217_095015 (2).jpg'), alt: 'A farmer explaining the details of a plant to a guest' },
+    { src: getImageKitUrl('Website Photos/IMG_5224.JPG'), alt: 'A collection of freshly harvested spices' },
   ],
   keyHighlights: [
     'In-depth knowledge about local and seasonal crops.',

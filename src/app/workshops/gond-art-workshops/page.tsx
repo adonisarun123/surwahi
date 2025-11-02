@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Users, Calendar, Clock, Palette } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { getImageKitUrl } from '@/lib/images';
 import ContactForm from '@/components/ContactForm';
 
 export const metadata = generatePageMetadata(
@@ -14,10 +15,10 @@ const workshopDetails = {
   title: 'Gond Art Workshop',
   description: 'Discover the intricate and imaginative world of Gond art, a traditional art form of the Gond tribe. In this workshop, you will learn the unique style of creating patterns, inspired by nature and mythology, under the guidance of a local Gond artist.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Gond+Painting', alt: 'A vibrant and detailed Gond art painting' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Gond+Artist', alt: 'A Gond artist at work on a painting' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Workshop+in+Progress', alt: 'Guests learning the techniques of Gond art in a workshop' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Finished+Artwork', alt: 'A finished piece of Gond art created by a workshop participant' },
+    { src: getImageKitUrl('Surwahi Social Photos/Jholar_Corridor_Wall_Painting.jpg'), alt: 'A vibrant Gond art painting' },
+    { src: getImageKitUrl('Surwahi Social Photos/3c3adbb2-aacd-4c01-8aa0-01615b0912e8.jpeg'), alt: 'A Gond artist creating a piece' },
+    { src: getImageKitUrl('Surwahi Social Photos/IMG_20200217_095015 (2).jpg'), alt: 'A workshop participant learning Gond art' },
+    { src: getImageKitUrl('Surwahi Social Photos/Jholar_Corridor_Wall_Painting.jpg'), alt: 'Beautiful finished Gond artwork' },
   ],
   keyHighlights: [
     'Learn the history and cultural significance of Gond art.',

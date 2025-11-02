@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Users, Calendar, Clock, Hand } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { getImageKitUrl } from '@/lib/images';
 import ContactForm from '@/components/ContactForm';
 
 export const metadata = generatePageMetadata(
@@ -14,10 +15,10 @@ const workshopDetails = {
   title: 'Earthen Pottery Workshop',
   description: 'Get your hands dirty and your spirit centered. Our earthen pottery workshop is a therapeutic and creative journey, where you\'ll learn the ancient art of shaping clay, guided by skilled local artisans.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Pottery+Wheel', alt: 'Hands shaping a pot on a pottery wheel' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Local+Artisan', alt: 'A local artisan demonstrating pottery techniques' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Finished+Pottery', alt: 'A collection of beautifully crafted earthen pottery' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Guests+at+Work', alt: 'Guests enjoying the hands-on experience of making pottery' },
+    { src: getImageKitUrl('Website Photos/0eff556c5ffef77703536bec9bd14585.jpg'), alt: 'A potter shaping clay on a wheel' },
+    { src: getImageKitUrl('Surwahi Social Photos/A.jpg'), alt: 'Hands working the clay' },
+    { src: getImageKitUrl('Website Photos/0eff556c5ffef77703536bec9bd14585.jpg'), alt: 'Beautiful finished pottery pieces' },
+    { src: getImageKitUrl('Surwahi Social Photos/IMG_20200217_095015 (2).jpg'), alt: 'Participants learning pottery in the workshop' },
   ],
   keyHighlights: [
     'Learn the entire process, from preparing the clay to shaping it on the wheel.',

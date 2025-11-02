@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Sun, Users, Leaf } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { getImageKitUrl } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
   'Farm Life Visit',
@@ -13,10 +14,10 @@ const farmVisitDetails = {
   title: 'A Day at the Farm',
   description: 'Connect with the earth and the hands that feed you. Our Farm Life Visit is an invitation to experience the rhythm of rural life, learn about organic farming, and enjoy the simple pleasures of the countryside.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Organic+Farm', alt: 'Lush green organic vegetable beds at the farm' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Farmer+Interaction', alt: 'A smiling local farmer interacting with guests' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Farm+Animals', alt: 'Guests petting a friendly cow at the farm' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Harvesting', alt: 'Hands harvesting fresh vegetables from the farm' },
+    { src: getImageKitUrl('Surwahi Social Photos/Breakfast_under_Mahua_with_staff_in_Compound_2.jpg'), alt: 'Lush green organic vegetable beds at the farm' },
+    { src: getImageKitUrl('Surwahi Social Photos/IMG_20200217_095015 (2).jpg'), alt: 'A smiling local farmer interacting with guests' },
+    { src: getImageKitUrl('Website Photos/IMG_3048.JPG'), alt: 'Guests petting a friendly cow at the farm' },
+    { src: getImageKitUrl('Website Photos/IMG_5104.JPG'), alt: 'Hands harvesting fresh vegetables from the farm' },
   ],
   keyHighlights: [
     'Tour our organic farms and learn about sustainable agricultural practices.',

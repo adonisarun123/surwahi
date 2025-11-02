@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Droplets, Recycle, BarChart2 } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { getImageKitUrl } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
   'Evapo-Transpiration Toilets (ETT)',
@@ -13,10 +14,10 @@ const ettDetails = {
   title: 'Evapo-Transpiration Toilets (ETT)',
   description: 'At the forefront of our sustainability initiatives is the innovative Evapo-Transpiration Toilet system. This is a closed-loop, zero-discharge system that treats wastewater onsite, conserves water, and prevents pollution of local water bodies.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=ETT+System+Diagram', alt: 'A clear diagram explaining the ETT process' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Banana+Platation', alt: 'A lush banana plantation thriving on the recycled water from the ETT' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Constructed+Wetland', alt: 'The constructed wetland that is part of the ETT system' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Clean+Water', alt: 'A symbol of clean water and conservation' },
+    { src: getImageKitUrl('Surwahi Social Photos/Eathen Swimming Pool/WhatsApp Image 2025-04-14 at 10.03.48_5a837a8d.jpg'), alt: 'A clear diagram explaining the ETT process' },
+    { src: getImageKitUrl('Surwahi Social Photos/Eathen Swimming Pool/WhatsApp Image 2025-04-14 at 10.03.46_0e4e17c1.jpg'), alt: 'A lush banana plantation thriving on the recycled water from the ETT' },
+    { src: getImageKitUrl('Surwahi Social Photos/Eathen Swimming Pool/WhatsApp Image 2025-04-14 at 10.03.48_5a837a8d.jpg'), alt: 'The constructed wetland that is part of the ETT system' },
+    { src: getImageKitUrl('Website Photos/IMG20231020171008.jpg'), alt: 'A symbol of clean water and conservation' },
   ],
   howItWorks: [
     { step: 1, title: 'Collection', description: 'Wastewater from toilets is collected in a sealed, underground tank.' },

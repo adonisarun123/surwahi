@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Users, Leaf, Heart } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { getImageKitUrl } from '@/lib/images';
 import ContactForm from '@/components/ContactForm';
 
 export const metadata = generatePageMetadata(
@@ -14,10 +15,10 @@ const volunteeringDetails = {
   title: 'Eco-Volunteering Programs',
   description: 'Be a part of the change. Our eco-volunteering programs offer a unique opportunity to immerse yourself in our conservation and community efforts, contribute your skills, and leave a positive, lasting impact.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Tree+Planting', alt: 'Volunteers planting saplings as part of a reforestation drive' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Community+Workshop', alt: 'A volunteer conducting a workshop for the local community' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Waste+Management', alt: 'Volunteers working at a waste segregation and recycling unit' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Happy+Volunteers', alt: 'A group of smiling volunteers after a day of work' },
+    { src: getImageKitUrl('Website Photos/IMG20231020171008.jpg'), alt: 'Volunteers planting saplings in a reforestation area' },
+    { src: getImageKitUrl('Surwahi Social Photos/IMG_20200217_095015 (2).jpg'), alt: 'Working alongside the local community on a project' },
+    { src: getImageKitUrl('Website Photos/IMG_5090.JPG'), alt: 'Setting up camera traps for wildlife monitoring' },
+    { src: getImageKitUrl('Website Photos/IMG_5104.JPG'), alt: 'Sorting waste for recycling and composting' },
   ],
   keyHighlights: [
     'Make a tangible contribution to environmental conservation and community empowerment.',

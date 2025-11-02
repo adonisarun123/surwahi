@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Users, Calendar, Clock, Leaf, AlertTriangle } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { getImageKitUrl } from '@/lib/images';
 import ContactForm from '@/components/ContactForm';
 
 export const metadata = generatePageMetadata(
@@ -14,10 +15,10 @@ const workshopDetails = {
   title: 'Food Foraging Trails',
   description: 'The forest is a natural larder, full of edible plants, fruits, and fungi. Join our expert forager on a guided trail to safely identify and learn about the wild foods that have sustained local communities for generations.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Foraging+in+Forest', alt: 'A person foraging for wild edibles in the forest' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Edible+Mushrooms', alt: 'A cluster of edible wild mushrooms' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Wild+Berries', alt: 'A handful of colorful wild berries' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Foraged+Meal', alt: 'A meal prepared with foraged ingredients' },
+    { src: getImageKitUrl('Website Photos/IMG20231020170019.jpg'), alt: 'A guide identifying edible plants on a trail' },
+    { src: getImageKitUrl('Website Photos/IMG_5104.JPG'), alt: 'Fresh wild edible greens' },
+    { src: getImageKitUrl('Website Photos/IMG_5224.JPG'), alt: 'Discovering edible mushrooms in the forest' },
+    { src: getImageKitUrl('Surwahi Social Photos/Dining Area/Khichdi_Dinner_Displayed_On_Table_Landscape_Closeup_1 - Copy (2).JPG'), alt: 'A meal prepared with foraged ingredients' },
   ],
   keyHighlights: [
     'Learn to safely identify a variety of wild edible plants.',

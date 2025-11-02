@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Leaf, Heart, Briefcase, Droplets, Zap, LifeBuoy } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { getImageKitUrl } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
   'Sustainable Development Goals (SDGs) Alignment',
@@ -13,10 +14,10 @@ const sdgDetails = {
   title: 'Alignment with UN Sustainable Development Goals',
   description: 'Our commitment to sustainability extends beyond our estate. We are proud to align our practices with the United Nations\' Sustainable Development Goals (SDGs), contributing to a global blueprint for peace and prosperity for people and the planet.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=UN+SDG+Icons', alt: 'The colorful grid of the 17 UN Sustainable Development Goals' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Community+Empowerment', alt: 'A local community member empowered through our initiatives' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Clean+Water+Project', alt: 'A clean water source provided for the community' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Conservation+Effort', alt: 'A reforestation project in progress' },
+    { src: getImageKitUrl('Website Photos/surwahi edit.png'), alt: 'The colorful grid of the 17 UN Sustainable Development Goals' },
+    { src: getImageKitUrl('Surwahi Social Photos/IMG_20200217_095015 (2).jpg'), alt: 'A local community member empowered through our initiatives' },
+    { src: getImageKitUrl('Surwahi Social Photos/Eathen Swimming Pool/WhatsApp Image 2025-04-14 at 10.03.48_5a837a8d.jpg'), alt: 'A clean water source provided for the community' },
+    { src: getImageKitUrl('Website Photos/IMG20231020171008.jpg'), alt: 'A reforestation project in progress' },
   ],
   sdgAlignments: [
     { sdg: 'SDG 6: Clean Water and Sanitation', ourAction: 'Implementation of Evapo-Transpiration Toilets and rainwater harvesting, ensuring responsible water management.', icon: Droplets },

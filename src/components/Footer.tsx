@@ -97,52 +97,99 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-sand-50 text-ink-900">
-      {/* Decorative Top Band with Pattern */}
-      <div
-        className="relative h-24 sm:h-28 md:h-32 overflow-hidden"
-        aria-hidden="true"
-        style={{
-          background: `
-            radial-gradient(var(--footer-top-curve) 300px at 50% -220px, rgba(30,87,65,.10), transparent 70%),
-            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Cdefs%3E%3Cfilter id='soften'%3E%3CfeGaussianBlur stdDeviation='0.3'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' stroke='%230F261A' stroke-opacity='0.12' stroke-width='1.2' filter='url(%23soften)'%3E%3Cpath d='M-20,80 C120,40 220,100 360,60 480,30 560,90 640,60'/%3E%3Cpath d='M-40,160 C110,120 240,180 360,140 500,100 560,160 660,130'/%3E%3Cpath d='M-10,240 C90,210 220,260 350,220 480,190 590,250 680,220'/%3E%3Cpath d='M-30,320 C130,280 210,340 340,300 470,270 560,330 700,300'/%3E%3C/g%3E%3C/svg%3E")
-          `,
-          backgroundSize: '1200px 300px, 600px 400px',
-          backgroundRepeat: 'no-repeat, repeat',
-          backgroundPosition: '50% -220px, 0 0',
-        }}
-      />
+    <footer className="relative bg-sand-50">
+      {/* Newsletter CTA Section */}
+      <div className="bg-gradient-to-br from-moss-500/5 via-fern-300/5 to-moss-500/5 border-b-2 border-moss-500/10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-moss-500/10 rounded-full mb-6">
+              <Mail className="h-8 w-8 text-moss-600" />
+            </div>
+            <h3 className="font-display text-3xl md:text-4xl text-forest-900 mb-4">
+              Stay Connected with Nature
+            </h3>
+            <p className="text-lg text-soil-700 mb-8 max-w-2xl mx-auto">
+              Get updates on conservation efforts, seasonal highlights, and exclusive eco-travel offers delivered to your inbox.
+            </p>
+            
+            <form onSubmit={handleNewsletterSubmit} className="max-w-lg mx-auto">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <label htmlFor="footer-email" className="sr-only">
+                  Email address
+                </label>
+                <input
+                  id="footer-email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="your@email.com"
+                  required
+                  className="form-input flex-1 h-14 text-base px-5 bg-white border-2 border-mist-300 focus:border-moss-500 rounded-xl shadow-sm"
+                  disabled={isSubmitting}
+                />
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="h-14 px-8 rounded-xl bg-moss-600 hover:bg-moss-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all disabled:opacity-50 whitespace-nowrap"
+                >
+                  {isSubmitting ? 'Joining...' : 'Subscribe'}
+                </button>
+              </div>
+              
+              {message && (
+                <p className={cn(
+                  'text-sm mt-4 font-medium',
+                  message.includes('Thanks') ? 'text-green-700' : 'text-red-600'
+                )}>
+                  {message}
+                </p>
+              )}
+              
+              <p className="text-sm text-soil-600 mt-4">
+                🔒 We respect your privacy. Unsubscribe anytime.{' '}
+                <Link href="/privacy" className="text-moss-600 hover:text-moss-700 underline font-medium">
+                  Privacy policy
+                </Link>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
 
       {/* Main Footer Content */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-16">
           
           {/* About Section */}
-          <section className="sm:col-span-2 lg:col-span-1" aria-labelledby="footer-about">
-            <h3 id="footer-about" className="font-display text-xl text-forest-900 mb-4">
-              About Surwahi
-            </h3>
-            <p className="text-sm leading-6 text-ink-900 mb-6">
+          <section className="lg:col-span-2" aria-labelledby="footer-about">
+            <div className="mb-6">
+              <h3 id="footer-about" className="font-display text-2xl text-forest-900 mb-5 relative inline-block">
+                About Surwahi
+                <span className="absolute -bottom-2 left-0 w-12 h-1 bg-moss-500 rounded-full"></span>
+              </h3>
+            </div>
+            <p className="text-base leading-relaxed text-soil-700 mb-8">
               Surwahi Eco-Lodge is a regenerative, low-impact stay nestled near the forest. 
               We&apos;re committed to conservation, community empowerment, and providing authentic 
               experiences in harmony with nature.
             </p>
             
             {/* Certification Badges */}
-            <div className="space-y-3">
-              <p className="text-xs font-medium text-soil-700 uppercase tracking-wide">
-                Certifications
+            <div className="space-y-4">
+              <p className="text-xs font-bold text-soil-600 uppercase tracking-widest">
+                Our Certifications
               </p>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-5">
                 {certificationBadges.map((badge) => (
-                  <Image
-                    key={badge.name}
-                    src={badge.src}
-                    alt={badge.name}
-                    width={32}
-                    height={32}
-                    className="h-8 w-auto opacity-80 hover:opacity-100 transition-opacity"
-                  />
+                  <div key={badge.name} className="group relative">
+                    <Image
+                      src={badge.src}
+                      alt={badge.name}
+                      width={56}
+                      height={56}
+                      className="h-14 w-auto opacity-60 group-hover:opacity-100 transition-opacity filter grayscale-[30%] group-hover:grayscale-0"
+                    />
+                  </div>
                 ))}
               </div>
             </div>
@@ -150,60 +197,72 @@ export default function Footer() {
 
           {/* Navigation Sections */}
           {footerSections.map((section) => (
-            <nav key={section.title} aria-labelledby={`footer-${section.title.toLowerCase()}`}>
-              <h3 
-                id={`footer-${section.title.toLowerCase()}`}
-                className="font-display text-xl text-forest-900 mb-4"
-              >
-                {section.title}
-              </h3>
+            <nav key={section.title} className="lg:col-span-1" aria-labelledby={`footer-${section.title.toLowerCase()}`}>
+              <div className="mb-6">
+                <h3 
+                  id={`footer-${section.title.toLowerCase()}`}
+                  className="font-display text-xl text-forest-900 mb-5 relative inline-block"
+                >
+                  {section.title}
+                  <span className="absolute -bottom-2 left-0 w-8 h-1 bg-moss-500 rounded-full"></span>
+                </h3>
+              </div>
               <ul className="space-y-3">
                 {section.links.map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-sm text-ink-900 hover:text-moss-500 transition-colors"
+                      className="text-base text-soil-700 hover:text-moss-600 transition-colors inline-flex items-center group"
                       {...(link.external && {
                         target: '_blank',
                         rel: 'noopener noreferrer'
                       })}
                     >
+                      <span className="inline-block w-1.5 h-1.5 bg-moss-500 rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                       {link.name}
                     </Link>
                   </li>
                 ))}
               </ul>
             </nav>
-          ))}
+          ))}          
 
-          {/* Contact & Newsletter */}
-          <section className="sm:col-span-2 lg:col-span-1" aria-labelledby="footer-contact">
-            <h3 id="footer-contact" className="font-display text-xl text-forest-900 mb-4">
-              Stay Connected
-            </h3>
+          {/* Contact Info */}
+          <section className="lg:col-span-2 md:col-span-2" aria-labelledby="footer-contact">
+            <div className="mb-6">
+              <h3 id="footer-contact" className="font-display text-xl text-forest-900 mb-5 relative inline-block">
+                Get in Touch
+                <span className="absolute -bottom-2 left-0 w-12 h-1 bg-moss-500 rounded-full"></span>
+              </h3>
+            </div>
             
-            {/* Contact Info */}
-            <address className="not-italic text-sm space-y-3 mb-6">
-              <div className="flex items-start gap-3">
-                <MapPin className="h-4 w-4 text-moss-500 mt-0.5 flex-shrink-0" />
-                <span>
+            <address className="not-italic text-base space-y-4 mb-8">
+              <div className="flex items-start gap-3 group">
+                <div className="w-10 h-10 rounded-lg bg-moss-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-moss-500/20 transition-colors">
+                  <MapPin className="h-5 w-5 text-moss-600" />
+                </div>
+                <span className="text-soil-700 leading-relaxed pt-1.5">
                   Surwahi Social, Village Surwahi, P.O Majgaon, Tehsil Paraswada, District Balaghat, Madhya Pradesh – 481111
                 </span>
               </div>
-              <div className="flex items-center gap-3">
-                <Phone className="h-4 w-4 text-moss-500 flex-shrink-0" />
+              <div className="flex items-center gap-3 group">
+                <div className="w-10 h-10 rounded-lg bg-moss-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-moss-500/20 transition-colors">
+                  <Phone className="h-5 w-5 text-moss-600" />
+                </div>
                 <Link 
-                  href="tel:+919744844777" 
-                  className="hover:text-moss-500 transition-colors"
+                  href="tel:+917795207779" 
+                  className="text-soil-700 hover:text-moss-600 transition-colors font-medium pt-1.5"
                 >
-                  +91 97448 44777
+                  +91 77952 07779
                 </Link>
               </div>
-              <div className="flex items-center gap-3">
-                <Mail className="h-4 w-4 text-moss-500 flex-shrink-0" />
+              <div className="flex items-center gap-3 group">
+                <div className="w-10 h-10 rounded-lg bg-moss-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-moss-500/20 transition-colors">
+                  <Mail className="h-5 w-5 text-moss-600" />
+                </div>
                 <Link 
                   href="mailto:contact@surwahi.com" 
-                  className="hover:text-moss-500 transition-colors"
+                  className="text-soil-700 hover:text-moss-600 transition-colors font-medium pt-1.5"
                 >
                   contact@surwahi.com
                 </Link>
@@ -212,105 +271,57 @@ export default function Footer() {
 
             <Link
               href="/contact#map"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-input bg-bone-0 border border-mist-200 text-sm font-medium hover:border-moss-500 hover:shadow-elev-1 transition-all"
+              className="inline-flex items-center gap-3 px-6 py-3.5 rounded-xl bg-white border-2 border-moss-500/20 text-forest-900 font-semibold hover:border-moss-500 hover:bg-moss-50 transition-all shadow-sm hover:shadow-md group"
               aria-label="View map and directions"
             >
-              <MapPin className="h-4 w-4" />
-              Map & Directions
-              <ArrowRight className="h-3 w-3" />
+              <MapPin className="h-5 w-5 text-moss-600" />
+              View on Map
+              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Link>
-
-            {/* Newsletter Signup */}
-            <div className="mt-8 pt-6 border-t border-mist-200">
-              <h4 className="font-medium text-forest-900 mb-3">Newsletter</h4>
-              <p className="text-sm text-ink-900 mb-4">
-                Get updates on conservation efforts, seasonal highlights, and exclusive offers.
-              </p>
-              
-              <form onSubmit={handleNewsletterSubmit} className="space-y-3">
-                <div className="flex gap-2">
-                  <label htmlFor="footer-email" className="sr-only">
-                    Email address
-                  </label>
-                  <input
-                    id="footer-email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="your@email.com"
-                    required
-                    className="form-input flex-1 text-sm"
-                    disabled={isSubmitting}
-                  />
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="px-4 py-2 rounded-input bg-forest-700 text-bone-0 text-sm font-medium hover:opacity-90 disabled:opacity-50 transition-opacity"
-                  >
-                    {isSubmitting ? 'Joining...' : 'Join'}
-                  </button>
-                </div>
-                
-                {message && (
-                  <p className={cn(
-                    'text-xs',
-                    message.includes('Thanks') ? 'text-success' : 'text-error'
-                  )}>
-                    {message}
-                  </p>
-                )}
-                
-                <p className="text-xs text-soil-700">
-                  We use double opt-in. Unsubscribe anytime. 
-                  <Link href="/privacy" className="underline hover:no-underline">
-                    Privacy policy
-                  </Link>
-                </p>
-              </form>
-            </div>
           </section>
         </div>
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-mist-200 bg-sand-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="border-t-2 border-mist-200 bg-gradient-to-b from-sand-50 to-sand-100">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             
             {/* Copyright */}
-            <p className="text-xs text-ink-900">
+            <p className="text-sm text-soil-600 font-medium">
               &copy; {currentYear} Surwahi Eco-Lodge. All rights reserved.
             </p>
 
             {/* Social Links */}
-            <div className="flex items-center gap-4">
-              <span className="text-xs text-soil-700 hidden sm:inline">Follow us:</span>
+            <div className="flex items-center gap-6">
+              <span className="text-sm text-soil-600 font-medium hidden sm:inline">Follow us:</span>
               {socialLinks.map((social) => (
                 <Link
                   key={social.name}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm hover:text-moss-500 transition-colors"
+                  className="w-10 h-10 rounded-lg bg-white border border-mist-200 flex items-center justify-center hover:border-moss-500 hover:bg-moss-50 transition-all shadow-sm hover:shadow group"
                   aria-label={`Follow us on ${social.name}`}
                 >
                   <span className="sr-only">{social.name}</span>
-                  <span role="img" aria-hidden="true">{social.icon}</span>
+                  <span role="img" aria-hidden="true" className="text-lg group-hover:scale-110 transition-transform">{social.icon}</span>
                 </Link>
               ))}
             </div>
 
             {/* Additional Links */}
-            <div className="flex items-center gap-4 text-xs">
+            <div className="flex items-center gap-6 text-sm font-medium">
               <Link 
                 href="/accessibility" 
-                className="text-ink-900 hover:text-moss-500 transition-colors"
+                className="text-soil-600 hover:text-moss-600 transition-colors"
               >
                 Accessibility
               </Link>
+              <span className="text-mist-300">•</span>
               <Link 
-                href="/sitemap" 
-                className="text-ink-900 hover:text-moss-500 transition-colors"
+                href="/sitemap.xml" 
+                className="text-soil-600 hover:text-moss-600 transition-colors"
               >
                 Sitemap
               </Link>

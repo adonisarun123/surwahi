@@ -22,7 +22,7 @@ const contactInfo = {
     pincode: '481111',
     country: 'India'
   },
-  phone: '+919744844777',
+  phone: '+917795207779',
   generalEmail: 'contact@surwahi.com',
   bookingEmail: 'contact@surwahi.com',
 };

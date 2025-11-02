@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Users, Calendar, Clock, Camera } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { getImageKitUrl } from '@/lib/images';
 import ContactForm from '@/components/ContactForm';
 
 export const metadata = generatePageMetadata(
@@ -14,10 +15,10 @@ const workshopDetails = {
   title: 'Astro-Photography Workshop',
   description: 'Learn to capture the breathtaking beauty of the night sky. Our astrophotography workshop, designed for both beginners and enthusiasts, will guide you through the techniques of shooting stars, the Milky Way, and other celestial wonders.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Starry+Night+Photo', alt: 'A stunning long-exposure photograph of the starry night sky' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Camera+Setup', alt: 'A DSLR camera on a tripod set up for astrophotography' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Workshop+in+Action', alt: 'Participants learning astrophotography techniques in a field' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Moon+Photography', alt: 'A detailed close-up shot of the moon' },
+    { src: getImageKitUrl('Website Photos/IMG_20250525_230538.jpg'), alt: 'A stunning star trail photograph' },
+    { src: getImageKitUrl('Website Photos/IMG20231020171008.jpg'), alt: 'A DSLR camera on a tripod pointed at the night sky' },
+    { src: getImageKitUrl('Surwahi Social Photos/IMG_20200217_095015 (2).jpg'), alt: 'Participants learning camera settings from the instructor' },
+    { src: getImageKitUrl('Website Photos/IMG_20250525_230538.jpg'), alt: 'A captured image of the Milky Way' },
   ],
   keyHighlights: [
     'Hands-on guidance from an experienced astrophotographer.',

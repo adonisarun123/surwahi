@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Users, Sun, Zap } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { getImageKitUrl } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
   'Outdoor Sports & Nature Games',
@@ -13,10 +14,10 @@ const sportsDetails = {
   title: 'Outdoor Sports & Nature Games',
   description: 'Unleash your playful side amidst nature. Our expansive grounds offer the perfect setting for a variety of sports and traditional games that promise fun, fitness, and a healthy dose of friendly competition.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Volleyball', alt: 'Guests playing a lively game of volleyball' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Archery', alt: 'A guest taking aim during an archery session' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Badminton', alt: 'A game of badminton with the forest in the background' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Traditional+Games', alt: 'Guests learning a traditional Indian outdoor game' },
+    { src: getImageKitUrl('Website Photos/IMG_20220408_180107.jpg'), alt: 'Guests engaged in an outdoor game on the lawn' },
+    { src: getImageKitUrl('Website Photos/IMG_3048.JPG'), alt: 'A guest trying their hand at archery' },
+    { src: getImageKitUrl('Website Photos/IMG_3202.JPG'), alt: 'A friendly game of volleyball in a natural setting' },
+    { src: getImageKitUrl('Surwahi Social Photos/Breakfast_under_Mahua_with_staff_in_Compound_2.jpg'), alt: 'Playing a traditional local game' },
   ],
   keyHighlights: [
     'Wide range of activities for all ages and fitness levels.',

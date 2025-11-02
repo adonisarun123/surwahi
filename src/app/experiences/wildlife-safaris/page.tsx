@@ -3,6 +3,7 @@ import { Check, Clock, Sun, Users } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
 import BookingWidget from '@/components/BookingWidget';
+import { getImageKitUrl } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
   'Wildlife Safaris',
@@ -14,10 +15,10 @@ const safariDetails = {
   title: 'Kanha Buffer Zone Wildlife Safari',
   description: 'Embark on an unforgettable journey into the wild heart of India. Our expert-guided safaris take you through the diverse landscapes of the Kanha buffer zone, offering a chance to witness majestic tigers, elusive leopards, and a rich array of flora and fauna in their natural habitat.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Tiger+in+Kanha', alt: 'A majestic tiger in the Kanha National Park' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Safari+Jeep', alt: 'An open-top safari jeep on a forest trail' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Spotted+Deer', alt: 'A herd of spotted deer grazing in the grasslands' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Diverse+Birdlife', alt: 'A colorful bird perched on a branch' },
+    { src: getImageKitUrl('Website Photos/IMG_5090.JPG'), alt: 'A majestic tiger in the Kanha National Park' },
+    { src: getImageKitUrl('Website Photos/IMG_4330 (1).JPG'), alt: 'An open-top safari jeep on a forest trail' },
+    { src: getImageKitUrl('Website Photos/IMG20231020170019.jpg'), alt: 'A herd of spotted deer grazing in the grasslands' },
+    { src: getImageKitUrl('Website Photos/IMG_5091.JPG'), alt: 'A colorful bird perched on a branch' },
   ],
   keyHighlights: [
     'Chance to spot Royal Bengal Tigers, leopards, sloth bears, and more.',

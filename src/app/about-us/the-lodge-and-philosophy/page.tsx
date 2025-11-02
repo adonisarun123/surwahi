@@ -3,6 +3,7 @@ import { Leaf, Users, Heart, Home } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
 import Link from 'next/link';
+import { getImageKitUrl } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
   'The Lodge & Philosophy',
@@ -14,10 +15,10 @@ const lodgeDetails = {
   title: 'The Lodge & Our Philosophy',
   intro: 'Surwahi is more than a building; it is a living, breathing entity, designed in harmony with the principles of sustainability, community, and deep respect for nature. Our philosophy is simple: to create a space that is regenerative, not extractive, and to offer an experience that is authentic, not artificial.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Aerial+View+of+Lodge', alt: 'An aerial view of the lodge nestled in the lush landscape' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Earthen+Architecture', alt: 'A close-up of the beautiful earthen walls of the lodge' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Common+Area', alt: 'The warm and inviting common area, built with natural materials' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Lodge+at+Dusk', alt: 'The lodge glowing warmly at dusk' },
+    { src: getImageKitUrl('Website Photos/DJI_20250819094744_0109_D.JPG'), alt: 'An aerial view of the lodge nestled in the lush landscape' },
+    { src: getImageKitUrl('Surwahi Social Photos/A.jpg'), alt: 'A close-up of the beautiful earthen walls of the lodge' },
+    { src: getImageKitUrl('Surwahi Social Photos/Corridor_Reception_Entrance_Night_Landscape_2.JPG'), alt: 'The warm and inviting common area, built with natural materials' },
+    { src: getImageKitUrl('Surwahi Social Photos/Suite_Room_Lobby_Evening.jpg'), alt: 'The lodge glowing warmly at dusk' },
   ],
   philosophy: [
     {

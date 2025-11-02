@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Newspaper, MessageSquare } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { getImageKitUrl } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
   'Press Mentions & Recognitions',
@@ -16,20 +17,26 @@ const pressDetails = {
     {
       publication: 'Condé Nast Traveller',
       quote: '"A benchmark for sustainable tourism in India, Surwahi Social is a must-visit for the conscious traveler."',
+      images: [
+        { src: getImageKitUrl('Website Photos/surwahi edit.png'), alt: 'A collection of press articles about Surwahi' },
+        { src: getImageKitUrl('Website Photos/DJI_20250819094744_0109_D.JPG'), alt: 'Surwahi featured in a travel magazine' },
+        { src: getImageKitUrl('Surwahi Social Photos/IMG_20200217_095015 (2).jpg'), alt: 'A team member giving an interview for a travel show' },
+        { src: getImageKitUrl('Website Photos/IMG20231020171008.jpg'), alt: 'Surwahi recognized by a popular travel blog' },
+      ],
       link: '#',
-      logoUrl: 'https://placehold.co/200x100/A8BA9A/333333?text=Conde+Nast',
+      logoUrl: getImageKitUrl('Website Photos/surwahi edit.png'),
     },
     {
       publication: 'The Guardian',
       quote: '"More than a lodge, it\'s a living experiment in regeneration. A truly hopeful and inspiring project."',
       link: '#',
-      logoUrl: 'https://placehold.co/200x100/A8BA9A/333333?text=The+Guardian',
+      logoUrl: getImageKitUrl('Website Photos/surwahi edit.png'),
     },
     {
       publication: 'National Geographic Traveller India',
       quote: '"Where luxury meets conservation. Surwahi shows us that a truly immersive travel experience is one that gives back to nature and the community."',
       link: '#',
-      logoUrl: 'https://placehold.co/200x100/A8BA9A/333333?text=Nat+Geo',
+      logoUrl: getImageKitUrl('Website Photos/surwahi edit.png'),
     },
   ],
   testimonials: [

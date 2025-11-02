@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Users, Calendar, Clock, Leaf, Recycle } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { getImageKitUrl } from '@/lib/images';
 import ContactForm from '@/components/ContactForm';
 
 export const metadata = generatePageMetadata(
@@ -14,10 +15,10 @@ const workshopDetails = {
   title: 'Leaf Plate Making Workshop',
   description: 'Discover a beautiful, sustainable alternative to disposable plates. In this hands-on workshop, you will learn the traditional art of crafting sturdy and biodegradable plates from Sal and Banyan leaves, a practice that has been part of the local culture for centuries.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Stitching+Leaves', alt: 'Hands skillfully stitching leaves together to make a plate' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Finished+Leaf+Plates', alt: 'A stack of freshly made, beautiful leaf plates' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Workshop+Participants', alt: 'Guests happily engaged in the leaf plate making workshop' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Serving+Food', alt: 'Food being served on a natural leaf plate' },
+    { src: getImageKitUrl('Website Photos/IMG_5104.JPG'), alt: 'Beautiful handmade leaf plates' },
+    { src: getImageKitUrl('Website Photos/IMG20231020171008.jpg'), alt: 'Fresh sal leaves collected for plate making' },
+    { src: getImageKitUrl('Surwahi Social Photos/3c3adbb2-aacd-4c01-8aa0-01615b0912e8.jpeg'), alt: 'The traditional process of stitching leaf plates' },
+    { src: getImageKitUrl('Surwahi Social Photos/IMG_20200217_095015 (2).jpg'), alt: 'Participants learning the craft' },
   ],
   keyHighlights: [
     'Learn a zero-waste, traditional craft from local women.',

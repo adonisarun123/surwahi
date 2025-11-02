@@ -166,7 +166,7 @@ export function generateOrganizationSchema() {
     },
     contactPoint: [{
       '@type': 'ContactPoint',
-      telephone: '+91-9876543210',
+      telephone: '+91-77952-07779',
       contactType: 'customer service',
       areaServed: 'IN',
       availableLanguage: ['en', 'hi']
@@ -221,7 +221,7 @@ export function generateLodgingBusinessSchema() {
       latitude: 23.1765,
       longitude: 79.9385
     },
-    telephone: '+91-9876543210',
+    telephone: '+91-77952-07779',
     checkinTime: '14:00',
     checkoutTime: '11:00',
     petsAllowed: false,

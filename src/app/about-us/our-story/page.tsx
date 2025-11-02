@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { aboutUsImages } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
   'Our Story',
@@ -12,10 +13,10 @@ const ourStoryDetails = {
   title: 'Our Story: A Dream Takes Root',
   description: 'Surwahi Social is more than just an eco-lodge; it is the culmination of a lifelong dream and a deep-seated belief in the power of tourism to be a force for good. It is a story of passion, perseverance, and partnership with the land and its people.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Founders+Vision', alt: 'The founders overlooking the land, envisioning the project' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Early+Construction', alt: 'The early days of construction, using local materials and techniques' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Community+Meeting', alt: 'A meeting with the local community to discuss the project' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Lodge+Today', alt: 'A beautiful shot of the completed lodge in harmony with nature' },
+    { src: aboutUsImages.foundersVision, alt: 'The founders overlooking the land, envisioning the project' },
+    { src: aboutUsImages.earlyConstruction, alt: 'The early days of construction, using local materials and techniques' },
+    { src: aboutUsImages.communityMeeting, alt: 'A meeting with the local community to discuss the project' },
+    { src: aboutUsImages.lodgeToday, alt: 'A beautiful shot of the completed lodge in harmony with nature' },
   ],
   sections: [
     {

@@ -1,3 +1,5 @@
+import { getImageKitUrl } from './images';
+
 export const rooms = {
   'forest-canopy-suite': {
     id: '1',
@@ -12,22 +14,22 @@ The suite is designed with sustainability at its core, featuring solar-powered a
 The elevated position provides natural ventilation and cooling, while the private balcony extends your living space into the canopy itself. Perfect for morning meditation, afternoon reading, or evening wildlife watching with provided binoculars.`,
     images: [
       {
-        url: 'https://placehold.co/1200x800/A8BA9A/333333?text=Suite+Bedroom',
+        url: getImageKitUrl('Surwahi Social Photos/Family Suite/Jholar_Bed_Portrait.JPG'),
         alt: 'Spacious bedroom with king bed facing floor-to-ceiling forest view windows',
         caption: 'Wake up to panoramic forest views'
       },
       {
-        url: 'https://placehold.co/1200x800/A8BA9A/333333?text=Suite+Balcony',
+        url: getImageKitUrl('Surwahi Social Photos/Family Suite/Jholar_Couch_Bed_Mezzanine_from_Entrance_Landscape.JPG'),
         alt: 'Private balcony with seating overlooking forest canopy',
         caption: 'Private balcony in the treetops'
       },
       {
-        url: 'https://placehold.co/1200x800/A8BA9A/333333?text=Suite+Bathroom',
+        url: getImageKitUrl('Surwahi Social Photos/Family Suite/Jholar_Washroom.JPG'),
         alt: 'Luxury bathroom with natural stone and forest views',
         caption: 'Eco-luxury bathroom with rainwater system'
       },
       {
-        url: 'https://placehold.co/1200x800/A8BA9A/333333?text=Suite+Living+Area',
+        url: getImageKitUrl('Surwahi Social Photos/Family Suite/Jholar_Full_Suite_view_from_mezzanine_landscape (2) - Copy.JPG'),
         alt: 'Living area with locally crafted furniture and reading nook',
         caption: 'Comfortable living space with sustainable design'
       }
@@ -87,8 +89,8 @@ The elevated position provides natural ventilation and cooling, while the privat
     description: 'Elegant suite with a private balcony overlooking the serene river.',
     longDescription: `Located on the ground floor with a stunning view of the river, this suite offers a perfect blend of luxury and nature. The private balcony is an ideal spot for bird watching or simply relaxing to the sound of flowing water. The interior is adorned with local art and handcrafted furniture, creating a warm and inviting atmosphere.`,
     images: [
-      { url: 'https://placehold.co/1200x800/A8BA9A/333333?text=River+View+Suite', alt: 'River View Suite Bedroom', caption: 'Elegant bedroom with river view' },
-      { url: 'https://placehold.co/1200x800/A8BA9A/333333?text=Suite+Balcony', alt: 'River View Suite Balcony', caption: 'Private balcony overlooking the river' },
+      { url: getImageKitUrl('Surwahi Social Photos/Family Suite/Jholar_Bed_Almirah_from_Couch_Landscape.JPG'), alt: 'River View Suite Bedroom', caption: 'Elegant bedroom with river view' },
+      { url: getImageKitUrl('Surwahi Social Photos/Family Suite/Jholar_Work_Table_Couch_from_Bed_Portrait.JPG'), alt: 'River View Suite Balcony', caption: 'Private balcony overlooking the river' },
     ],
     basePrice: 10500,
     maxOccupancy: 2,
@@ -120,8 +122,8 @@ The elevated position provides natural ventilation and cooling, while the privat
     description: 'A social and affordable option for travelers, our mixed dormitory offers a comfortable and secure stay.',
     longDescription: `Our mixed dormitory is designed for the modern traveler. Each bunk is equipped with a personal reading light, charging station, and privacy curtain. Lockers are available to store your belongings securely. The dormitory has a shared bathroom and a common area for relaxing and meeting fellow travelers.`,
     images: [
-      { url: 'https://placehold.co/1200x800/A8BA9A/333333?text=Dormitory+Bunks', alt: 'Mixed Dormitory Bunks', caption: 'Comfortable bunk beds with privacy curtains' },
-      { url: 'https://placehold.co/1200x800/A8BA9A/333333?text=Dormitory+Common+Area', alt: 'Dormitory Common Area', caption: 'Shared common area for relaxation' },
+      { url: getImageKitUrl('Surwahi Social Photos/Dormitory/Maikal_Bunk_Beds_with_Open_Window - Copy.JPG'), alt: 'Mixed Dormitory Bunks', caption: 'Comfortable bunk beds with privacy curtains' },
+      { url: getImageKitUrl('Surwahi Social Photos/Dormitory/Maikal_Quarter_Dome_1.JPG'), alt: 'Dormitory Common Area', caption: 'Shared common area for relaxation' },
     ],
     basePrice: 1500,
     maxOccupancy: 8,
@@ -153,8 +155,8 @@ The elevated position provides natural ventilation and cooling, while the privat
     description: 'For a truly immersive experience, our safari tents offer the perfect blend of adventure and comfort.',
     longDescription: `Our safari tents are designed for those who want to be close to nature without roughing it. Each tent is equipped with comfortable twin beds, a private bathroom, and a small deck area. The tents are located in a secluded area of the property, offering privacy and a chance to spot wildlife.`,
     images: [
-      { url: 'https://placehold.co/1200x800/A8BA9A/333333?text=Safari+Tent+Exterior', alt: 'Safari Tent Exterior', caption: 'Safari tent in a secluded setting' },
-      { url: 'https://placehold.co/1200x800/A8BA9A/333333?text=Safari+Tent+Interior', alt: 'Safari Tent Interior', caption: 'Comfortable twin beds inside the tent' },
+      { url: getImageKitUrl('Website Photos/IMG_4330 (1).JPG'), alt: 'Safari Tent Exterior', caption: 'Safari tent in a secluded setting' },
+      { url: getImageKitUrl('Website Photos/IMG_0049.JPG'), alt: 'Safari Tent Interior', caption: 'Comfortable twin beds inside the tent' },
     ],
     basePrice: 4500,
     maxOccupancy: 2,

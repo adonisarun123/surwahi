@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Users, Calendar, Clock, Hand, Recycle } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { getImageKitUrl } from '@/lib/images';
 import ContactForm from '@/components/ContactForm';
 
 export const metadata = generatePageMetadata(
@@ -14,10 +15,10 @@ const workshopDetails = {
   title: 'Bamboo & Lantana Crafting',
   description: 'Transform humble materials into beautiful, functional art. This unique workshop teaches you the traditional techniques of crafting with bamboo and the innovative use of lantana, an invasive weed, turning a problem into a sustainable solution.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Crafting+in+Progress', alt: 'Hands weaving a basket from bamboo strips' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Lantana+Craft', alt: 'A beautiful piece of furniture made from lantana wood' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Finished+Products', alt: 'A collection of finished bamboo and lantana crafts' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Artisan+Instructor', alt: 'A local artisan guiding a guest in the crafting process' },
+    { src: getImageKitUrl('Website Photos/IMG_3202.JPG'), alt: 'Intricately woven bamboo basketry' },
+    { src: getImageKitUrl('Surwahi Social Photos/3c3adbb2-aacd-4c01-8aa0-01615b0912e8.jpeg'), alt: 'Artisan weaving with lantana stems' },
+    { src: getImageKitUrl('Surwahi Social Photos/IMG_20200217_095015 (2).jpg'), alt: 'Participants learning bamboo crafting' },
+    { src: getImageKitUrl('Website Photos/IMG_3202.JPG'), alt: 'Beautiful finished bamboo and lantana crafts' },
   ],
   keyHighlights: [
     'Learn a sustainable craft from master artisans.',

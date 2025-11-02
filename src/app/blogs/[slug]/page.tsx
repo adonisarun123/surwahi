@@ -5,6 +5,7 @@ import { Calendar, Clock, User, Tag, ArrowLeft, ArrowRight } from 'lucide-react'
 import Breadcrumbs, { BreadcrumbJsonLd } from '@/components/Breadcrumbs';
 import { generateBlogMetadata } from '@/lib/seo';
 import ShareButton from '@/components/ShareButton';
+import { getImageKitUrl } from '@/lib/images';
 
 // Mock blog data - will be replaced with database queries
 const blogPosts = {
@@ -33,7 +34,7 @@ While the core zones of the national parks are closed during the monsoon, the bu
     updatedAt: '2024-08-15',
     readingTime: 4,
     featuredImage: {
-      url: 'https://placehold.co/1200x800/A8BA9A/333333?text=Monsoon+Forest',
+      url: getImageKitUrl('Website Photos/IMG20231020171008.jpg'),
       alt: 'A lush green forest during the monsoon season',
       caption: 'The vibrant green of the monsoon forest'
     },
@@ -67,7 +68,7 @@ Our mud structures are living, breathing entities. The natural materials allow t
     updatedAt: '2024-07-28',
     readingTime: 3,
     featuredImage: {
-      url: 'https://placehold.co/1200x800/A8BA9A/333333?text=Mud+Building',
+      url: getImageKitUrl('Surwahi Social Photos/A.jpg'),
       alt: 'A beautiful structure built with mud',
       caption: 'The art of building with mud'
     },
@@ -101,7 +102,7 @@ This experience reinforced the importance of the conservation work being done by
     updatedAt: '2024-07-10',
     readingTime: 3,
     featuredImage: {
-      url: 'https://placehold.co/1200x800/A8BA9A/333333?text=Tiger+Sighting',
+      url: getImageKitUrl('Website Photos/IMG_5090.JPG'),
       alt: 'A majestic tiger in the wild',
       caption: 'A moment of awe in the jungle'
     },
@@ -115,33 +116,33 @@ This experience reinforced the importance of the conservation work being done by
 const relatedPosts = [
   {
     id: 2,
-    title: 'The Return of the Hornbills',
-    slug: 'hornbill-return',
-    excerpt: 'After five years of conservation efforts, the Malabar Pied Hornbills have returned to nest in our forest.',
-    image: '/images/blog/hornbill-nest.jpg',
-    category: 'Wildlife',
+    title: 'Building with Mud: A Lesson in Sustainability',
+    slug: 'building-with-mud-a-lesson-in-sustainability',
+    excerpt: 'Our buildings are more than just structures; they are a testament to our philosophy of sustainable living. Discover how we use the very earth we stand on to create beautiful, comfortable, and eco-friendly spaces.',
+    image: getImageKitUrl('Surwahi Social Photos/A.jpg'),
+    category: 'Sustainability',
     publishedAt: '2024-07-20',
     readingTime: 6
   },
   {
     id: 3,
-    title: 'Night Sounds of the Forest',
-    slug: 'night-sounds',
-    excerpt: 'A guide to the nocturnal symphony that plays every night at Surwahi.',
-    image: '/images/blog/night-forest.jpg',
+    title: 'A Tiger Sighting That Changed My Perspective',
+    slug: 'a-tiger-sighting-that-changed-my-perspective',
+    excerpt: 'A chance encounter with a wild tiger on a dawn safari offered me a profound lesson in the power of patience, respect for nature, and the importance of conservation.',
+    image: getImageKitUrl('Website Photos/IMG_5090.JPG'),
     category: 'Wildlife',
     publishedAt: '2024-07-08',
-    readingTime: 4
+    readingTime: 5
   },
   {
-    id: 4,
-    title: 'Monsoon Magic in the Forest',
-    slug: 'monsoon-forest',
-    excerpt: 'The transformation of our forest during monsoon season and why this is the most critical time for ecosystem health.',
-    image: '/images/blog/monsoon-forest.jpg',
+    id: 1,
+    title: 'The Magic of the Monsoon Forest',
+    slug: 'the-magic-of-the-monsoon-forest',
+    excerpt: 'The monsoon breathes new life into the forest, transforming the landscape into a vibrant green and filling the air with the scent of wet earth.',
+    image: getImageKitUrl('Website Photos/IMG20231020171008.jpg'),
     category: 'Conservation',
-    publishedAt: '2024-07-28',
-    readingTime: 7
+    publishedAt: '2024-08-15',
+    readingTime: 4
   }
 ];
 

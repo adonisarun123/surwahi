@@ -90,12 +90,12 @@ export default function RootLayout({
                     "latitude": "22.2587", 
                     "longitude": "80.1829"
                   },
-                  "telephone": "+919744844777",
+                  "telephone": "+917795207779",
                   "email": "contact@surwahi.com",
                   "image": "https://www.surwahi.com/og-image.jpg",
                   "contactPoint": [{
                     "@type": "ContactPoint",
-                    "telephone": "+919744844777",
+                    "telephone": "+917795207779",
                     "contactType": "customer service",
                     "areaServed": "IN",
                     "availableLanguage": ["en", "hi"]

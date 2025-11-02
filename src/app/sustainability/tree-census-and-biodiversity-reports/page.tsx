@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Download, BarChart2, Leaf, PawPrint } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { getImageKitUrl } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
   'Tree Census & Biodiversity Reports',
@@ -13,10 +14,10 @@ const reportDetails = {
   title: 'Tree Census & Biodiversity Reports',
   description: 'Understanding our ecosystem is the first step to protecting it. We conduct regular tree censuses and biodiversity surveys to monitor the health of our local environment, guide our conservation efforts, and contribute to scientific research.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Researchers+at+Work', alt: 'Researchers conducting a biodiversity survey in the forest' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Tree+Tagging', alt: 'A tree being tagged as part of the census' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Infographic', alt: 'An infographic showing key findings from the report' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Diverse+Fauna', alt: 'A collage of different animal species found in the area' },
+    { src: getImageKitUrl('Website Photos/IMG20231020170019.jpg'), alt: 'Researchers conducting a biodiversity survey in the forest' },
+    { src: getImageKitUrl('Website Photos/IMG_5091.JPG'), alt: 'A tree being tagged as part of the census' },
+    { src: getImageKitUrl('Website Photos/surwahi edit.png'), alt: 'An infographic showing key findings from the report' },
+    { src: getImageKitUrl('Website Photos/IMG_5091.JPG'), alt: 'A collage of different animal species found in the area' },
   ],
   keyFindings: [
     'Identification of over 150 species of trees within our estate.',

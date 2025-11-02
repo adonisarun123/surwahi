@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Users, Calendar, Clock } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { getImageKitUrl } from '@/lib/images';
 import ContactForm from '@/components/ContactForm';
 
 export const metadata = generatePageMetadata(
@@ -14,10 +15,10 @@ const workshopDetails = {
   title: 'Star Gazing Nights',
   description: 'Unveil the secrets of the night sky. Away from the city glare, Surwahi offers a breathtaking celestial canvas. Our guided stargazing sessions are an enchanting journey through constellations, planets, and galaxies.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Milky+Way', alt: 'The Milky Way galaxy visible in a clear night sky' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Telescope', alt: 'A powerful telescope pointed towards the stars' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Guests+Stargazing', alt: 'Guests looking up at the night sky with wonder' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Constellations', alt: 'An illustration of a constellation' },
+    { src: getImageKitUrl('Website Photos/IMG_20250525_230538.jpg'), alt: 'The Milky Way galaxy visible in the night sky' },
+    { src: getImageKitUrl('Website Photos/IMG20231020171008.jpg'), alt: 'Guests using a telescope to observe celestial objects' },
+    { src: getImageKitUrl('Website Photos/surwahi edit.png'), alt: 'A guide pointing out constellations on a star chart' },
+    { src: getImageKitUrl('Surwahi Social Photos/Breakfast_under_Mahua_with_staff_in_Compound_2.jpg'), alt: 'A campfire gathering under the stars' },
   ],
   keyHighlights: [
     'Guided tour of the night sky by an experienced astronomer.',

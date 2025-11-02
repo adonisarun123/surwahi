@@ -2,6 +2,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import Image from 'next/image';
+import { sustainabilityImages } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
   'Sustainability at Surwahi',
@@ -13,25 +14,25 @@ const sustainabilityTopics = [
   {
     name: 'Evapo-Transpiration Toilets',
     href: '/sustainability/evapo-transpiration-toilets',
-    imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=ETT',
+    imageUrl: sustainabilityImages.evapotranspirationToilets,
     description: 'Innovative water-saving sanitation.'
   },
   {
     name: 'Tree Census & Biodiversity Report',
     href: '/sustainability/tree-census-and-biodiversity-reports',
-    imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=Biodiversity',
+    imageUrl: sustainabilityImages.treeCensus,
     description: 'Understanding our local ecosystem.'
   },
   {
     name: 'Eco-Friendly Construction Practices',
     href: '/sustainability/eco-friendly-construction-practices',
-    imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=Eco-Construction',
+    imageUrl: sustainabilityImages.ecoConstruction,
     description: 'Building in harmony with nature.'
   },
   {
     name: 'Sustainable Development Goals (SDGs) Alignment',
     href: '/sustainability/sustainable-development-goals-alignment',
-    imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=SDGs',
+    imageUrl: sustainabilityImages.sdgAlignment,
     description: 'Our commitment to global goals.'
   }
 ];

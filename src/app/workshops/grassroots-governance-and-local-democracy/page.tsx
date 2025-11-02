@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Users, Calendar, Clock, Landmark, BookOpen } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { getImageKitUrl } from '@/lib/images';
 import ContactForm from '@/components/ContactForm';
 
 export const metadata = generatePageMetadata(
@@ -14,10 +15,10 @@ const workshopDetails = {
   title: 'Grassroots Governance & Local Democracy',
   description: 'How do local communities organize themselves to manage their resources and shape their future? This unique workshop offers a deep dive into the Panchayati Raj system, the cornerstone of India\'s local self-governance, and its role in fostering sustainable development and democracy from the ground up.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Gram+Sabha+Meeting', alt: 'A village assembly (Gram Sabha) meeting in progress' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Community+Discussion', alt: 'A lively discussion among community members' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Local+Leader', alt: 'A portrait of an elected local village leader' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Development+Project', alt: 'A community-led development project, like a check dam' },
+    { src: getImageKitUrl('Surwahi Social Photos/IMG_20200217_095015 (2).jpg'), alt: 'A village assembly (Gram Sabha) meeting in progress' },
+    { src: getImageKitUrl('Surwahi Social Photos/3c3adbb2-aacd-4c01-8aa0-01615b0912e8.jpeg'), alt: 'A lively discussion among community members' },
+    { src: getImageKitUrl('Website Photos/IMG_3048.JPG'), alt: 'A portrait of an elected local village leader' },
+    { src: getImageKitUrl('Surwahi Social Photos/IMG_20200217_095015 (2).jpg'), alt: 'A community-led development project, like a check dam' },
   ],
   keyHighlights: [
     'Gain a firsthand understanding of India\'s vibrant grassroots democracy.',

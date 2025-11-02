@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Clock, Sun, Leaf } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { getImageKitUrl } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
   'Bird-watching Expeditions',
@@ -13,10 +14,10 @@ const birdWatchingDetails = {
   title: 'Bird-watching Expeditions',
   description: 'With over 200 species of resident and migratory birds, Surwahi is a paradise for birdwatchers. Join our expert naturalists on an expedition to discover the vibrant avian life that thrives in our diverse habitats, from riverbanks to dense forests.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Hornbill', alt: 'An Indian Grey Hornbill perched on a branch' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Kingfisher', alt: 'A vibrant Kingfisher with its catch' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Birdwatchers', alt: 'Guests on a birdwatching tour with binoculars' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Owl', alt: 'A Mottled Wood Owl camouflaged in the trees' },
+    { src: getImageKitUrl('Website Photos/IMG_5091.JPG'), alt: 'An Indian Grey Hornbill perched on a branch' },
+    { src: getImageKitUrl('Website Photos/IMG_5224.JPG'), alt: 'A vibrant Kingfisher with its catch' },
+    { src: getImageKitUrl('Website Photos/IMG20231020170019.jpg'), alt: 'Guests on a birdwatching tour with binoculars' },
+    { src: getImageKitUrl('Website Photos/IMG_5224.JPG'), alt: 'A Mottled Wood Owl camouflaged in the trees' },
   ],
   keyHighlights: [
     'Explore diverse habitats: riverine, grassland, and forest ecosystems.',

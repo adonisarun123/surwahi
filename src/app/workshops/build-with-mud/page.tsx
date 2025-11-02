@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Users, Calendar, Clock, Home, Layers } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { getImageKitUrl } from '@/lib/images';
 import ContactForm from '@/components/ContactForm';
 
 export const metadata = generatePageMetadata(
@@ -14,10 +15,10 @@ const workshopDetails = {
   title: 'Build With Mud: Eco-Architecture Workshop',
   description: 'Connect with the most fundamental building material known to humankind - Earth. This intensive, hands-on workshop will teach you the principles and techniques of natural building, empowering you to create beautiful, durable, and sustainable structures with your own hands.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Mud+Wall+Building', alt: 'People working together to build a cob wall' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Adobe+Bricks', alt: 'Sun-dried adobe bricks ready for construction' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Natural+Plastering', alt: 'Applying a natural plaster finish to a mud wall' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Finished+Mud+Structure', alt: 'A beautiful, finished structure built with mud' },
+    { src: getImageKitUrl('Surwahi Social Photos/A.jpg'), alt: 'A beautiful mud-constructed building' },
+    { src: getImageKitUrl('Website Photos/0eff556c5ffef77703536bec9bd14585.jpg'), alt: 'Hands working with mud and straw' },
+    { src: getImageKitUrl('Website Photos/IMG_3202.JPG'), alt: 'Participants constructing a mud wall' },
+    { src: getImageKitUrl('Website Photos/DJI_20250819094744_0109_D.JPG'), alt: 'A beautifully finished mud structure' },
   ],
   keyHighlights: [
     'A comprehensive, hands-on introduction to natural building.',

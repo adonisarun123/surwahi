@@ -22,19 +22,19 @@ export default function HomePage() {
                 priority
             />
         </div>
-        <div className="absolute inset-0 bg-forest-900/60 z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-forest-900/50 via-forest-900/60 to-forest-900/70 z-10"></div>
         <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <h1 className="font-display text-display-xl text-bone-0 mb-6 animate-fade-up">
+          <h1 className="font-display text-display-xl text-bone-0 mb-6 animate-fade-up drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">
             Discover Serenity in Sustainable Luxury
           </h1>
-          <p className="text-body-lg text-bone-0/90 mb-8 max-w-2xl mx-auto animate-fade-up" style={{ animationDelay: '0.2s' }}>
+          <p className="text-body-lg text-bone-0 mb-8 max-w-2xl mx-auto animate-fade-up drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]" style={{ animationDelay: '0.2s' }}>
             Nestled at the edge of Kanha National Park, Surwahi Social Ecoestate invites you to slow down, reconnect with nature, and experience the art of sustainable living.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style={{ animationDelay: '0.4s' }}>
-            <Link href="/accommodations" className="btn btn-primary text-base bg-clay-500 hover:bg-clay-500/90 text-white border-clay-500">
+            <Link href="/accommodations" className="btn btn-primary text-base bg-moss-500 hover:bg-moss-600 text-white border-2 border-white shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.5)] transition-all">
               Book Your Eco Stay
             </Link>
-            <Link href="#about" className="btn btn-secondary bg-transparent border-bone-0 text-bone-0 hover:bg-bone-0/10">
+            <Link href="#about" className="btn btn-secondary bg-bone-0/95 hover:bg-bone-0 border-2 border-white text-forest-900 shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.5)] transition-all">
               Explore the Story
             </Link>
           </div>

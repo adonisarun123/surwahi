@@ -3,6 +3,7 @@ import { Leaf, Sun, Wheat, Fish } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
 import Link from 'next/link';
+import { getImageKitUrl } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
   'Dining & Local Cuisine',
@@ -14,10 +15,10 @@ const diningDetails = {
   title: 'Dining & Local Cuisine',
   intro: 'At Surwahi, dining is an experience that nourishes the body and soul. Our kitchen is a celebration of the land, serving fresh, seasonal, and locally sourced cuisine that tells the story of our region. We believe in the power of food to connect us to nature and to each other.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Dining+Area', alt: 'The communal dining area with views of the forest' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Farm-Fresh+Thali', alt: 'A vibrant and colorful thali made with fresh, local ingredients' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Organic+Garden', alt: 'Our on-site organic garden, bustling with fresh vegetables' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Local+Chef', alt: 'Our chef preparing a traditional dish with a smile' },
+    { src: getImageKitUrl('Surwahi Social Photos/Dining Area/Serving_Table_From_Entrance_with_Kitchen_Satkon.JPG'), alt: 'The communal dining area with views of the forest' },
+    { src: getImageKitUrl('Surwahi Social Photos/Dining Area/Khichdi_Dinner_Displayed_On_Table_Landscape_Closeup_1 - Copy (2).JPG'), alt: 'A vibrant and colorful thali made with fresh, local ingredients' },
+    { src: getImageKitUrl('Surwahi Social Photos/Breakfast_under_Mahua_with_staff_in_Compound_2.jpg'), alt: 'Our on-site organic garden, bustling with fresh vegetables' },
+    { src: getImageKitUrl('Surwahi Social Photos/Dining Area/Kodo_Kutki_Kitchen_Satkon.JPG'), alt: 'Our chef preparing a traditional dish with a smile' },
   ],
   philosophy: [
     {

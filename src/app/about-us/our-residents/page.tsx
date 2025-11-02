@@ -3,6 +3,7 @@ import { Bird, Bug, Sprout, Trees } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
 import Link from 'next/link';
+import { getImageKitUrl } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
   'Our Residents (Flora & Fauna)',
@@ -21,8 +22,8 @@ const residentsDetails = {
         icon: Bird,
         description: 'Over 200 species of birds have been recorded at Surwahi, making it a birder\'s paradise. From the majestic Crested Serpent Eagle to the vibrant Indian Roller, the air is alive with birdsong.',
         images: [
-          { src: 'https://placehold.co/600x400/A8BA9A/333333?text=Hornbill', alt: 'Malabar Pied Hornbill' },
-          { src: 'https://placehold.co/600x400/A8BA9A/333333?text=Kingfisher', alt: 'White-throated Kingfisher' },
+          { src: getImageKitUrl('Website Photos/IMG_5091.JPG'), alt: 'Malabar Pied Hornbill' },
+          { src: getImageKitUrl('Website Photos/IMG_5224.JPG'), alt: 'White-throated Kingfisher' },
         ],
         species: ['Racket-tailed Drongo', 'Black-hooded Oriole', 'Mottled Wood Owl', 'Changeable Hawk-Eagle'],
       },
@@ -31,8 +32,8 @@ const residentsDetails = {
         icon: Bug,
         description: 'The world of insects at Surwahi is a miniature marvel. Butterflies paint the air with color, while fascinating creatures like stick insects and praying mantises reveal the art of camouflage.',
         images: [
-          { src: 'https://placehold.co/600x400/A8BA9A/333333?text=Butterfly', alt: 'A Common Jezebel butterfly on a flower' },
-          { src: 'https://placehold.co/600x400/A8BA9A/333333?text=Dragonfly', alt: 'A vibrant dragonfly resting on a leaf' },
+          { src: getImageKitUrl('Website Photos/IMG_4518.JPG'), alt: 'A Common Jezebel butterfly on a flower' },
+          { src: getImageKitUrl('Website Photos/IMG_5224.JPG'), alt: 'A vibrant dragonfly resting on a leaf' },
         ],
         species: ['Common Mormon', 'Blue Pansy', 'Giant Wood Spider', 'Praying Mantis'],
       },
@@ -47,8 +48,8 @@ const residentsDetails = {
         icon: Trees,
         description: 'The backbone of our ecosystem, these trees provide food and shelter for countless species. We have over 50 species of native trees, including Sal, Teak, and Mahua.',
         images: [
-          { src: 'https://placehold.co/600x400/A8BA9A/333333?text=Sal+Forest', alt: 'A dense grove of Sal trees' },
-          { src: 'https://placehold.co/600x400/A8BA9A/333333?text=Mahua+Flowers', alt: 'The fragrant flowers of the Mahua tree' },
+          { src: getImageKitUrl('Website Photos/IMG20231020171008.jpg'), alt: 'A dense grove of Sal trees' },
+          { src: getImageKitUrl('Surwahi Social Photos/Breakfast_under_Mahua_with_staff_in_Compound_2.jpg'), alt: 'The fragrant flowers of the Mahua tree' },
         ],
       },
       {
@@ -56,8 +57,8 @@ const residentsDetails = {
         icon: Sprout,
         description: 'Our herbal garden is a living pharmacy, home to a variety of medicinal plants used in traditional remedies. Learn about the healing properties of Ashwagandha, Tulsi, and more.',
         images: [
-          { src: 'https://placehold.co/600x400/A8BA9A/333333?text=Tulsi+Plant', alt: 'A lush Tulsi (Holy Basil) plant' },
-          { src: 'https://placehold.co/600x400/A8BA9A/333333?text=Aloe+Vera', alt: 'An Aloe Vera plant in the herbal garden' },
+          { src: getImageKitUrl('Website Photos/IMG_5104.JPG'), alt: 'A lush Tulsi (Holy Basil) plant' },
+          { src: getImageKitUrl('Website Photos/IMG_5091.JPG'), alt: 'An Aloe Vera plant in the herbal garden' },
         ],
       },
     ]

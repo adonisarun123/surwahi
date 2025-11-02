@@ -1,7 +1,8 @@
 import Image from 'next/image';
-import { Check, Users, Heart, Wind, Waves } from 'lucide-react';
+import { Check, Users, Heart, Eye, Ear } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { getImageKitUrl } from '@/lib/images';
 import ContactForm from '@/components/ContactForm';
 
 export const metadata = generatePageMetadata(
@@ -14,10 +15,10 @@ const workshopDetails = {
   title: 'Forest Bathing (Shinrin-yoku)',
   description: 'Slow down, awaken your senses, and connect with nature on a deeper level. Forest Bathing, or Shinrin-yoku, is the Japanese practice of immersing oneself in the forest atmosphere. It is a gentle, meditative experience that has proven benefits for mental and physical well-being.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Forest+Path', alt: 'A serene path winding through a sun-dappled forest' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Meditating+in+Nature', alt: 'A person meditating peacefully by a stream in the forest' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Sunlight+Through+Trees', alt: 'Sunlight filtering through the canopy of tall trees' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Barefoot+on+Moss', alt: 'A close-up of bare feet on soft, green moss' },
+    { src: getImageKitUrl('Website Photos/IMG20231020171008.jpg'), alt: 'A serene forest path for mindful walking' },
+    { src: getImageKitUrl('Website Photos/IMG20231020170019.jpg'), alt: 'Peaceful meditation in the forest' },
+    { src: getImageKitUrl('Website Photos/IMG_5104.JPG'), alt: 'Connecting with nature through touch' },
+    { src: getImageKitUrl('Surwahi Social Photos/IMG_20200217_095015 (2).jpg'), alt: 'A group forest bathing session' },
   ],
   keyBenefits: [
     'Reduces stress, anxiety, and blood pressure.',
@@ -28,8 +29,8 @@ const workshopDetails = {
   ],
   whatToExpect: 'This is not a hike or a naturalist walk. It is a slow, guided journey of sensory immersion. Your certified guide will offer a series of invitations to help you connect with the forest through your senses of sight, sound, smell, touch, and taste. The experience is gentle, quiet, and deeply restorative. No fitness level is required.',
   sensoryInvitations: [
-    { title: 'Sense of Sight', description: 'Notice the play of light and shadow, the different shades of green, and the intricate patterns of nature.', icon: Waves },
-    { title: 'Sense of Sound', description: 'Listen to the symphony of the forest - the rustling leaves, the birdsong, the gentle breeze.', icon: Wind },
+    { title: 'Sense of Sight', description: 'Notice the play of light and shadow, the different shades of green, and the intricate patterns of nature.', icon: Eye },
+    { title: 'Sense of Sound', description: 'Listen to the symphony of the forest - the rustling leaves, the birdsong, the gentle breeze.', icon: Ear },
     { title: 'Sense of Smell', description: 'Inhale the earthy fragrance of the soil, the sweet scent of flowers, and the fresh aroma of the trees.', icon: Users },
     { title: 'Sense of Touch', description: 'Feel the texture of the bark, the coolness of a stone, and the softness of moss.', icon: Heart },
   ],

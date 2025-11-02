@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Clock, Sun, Shield, Leaf, Smile } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { getImageKitUrl } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
   'Play @ Surwahi',
@@ -13,10 +14,10 @@ const playDetails = {
   title: 'Play @ Surwahi: Family & Kids Zone',
   description: 'Childhood is a time for exploration and wonder. Our dedicated Kids Zone is a safe, nature-inspired space designed to spark curiosity, encourage creativity, and let children connect with the natural world through play.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Kids+Playing', alt: 'Children laughing and playing in a natural playground' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Nature+Crafts', alt: 'A child engaged in a nature craft activity with leaves and twigs' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Tree+House', alt: 'A rustic, safe-to-climb tree house for kids' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Family+Fun', alt: 'A family enjoying a game together in the kids zone' },
+    { src: getImageKitUrl('Website Photos/IMG_3048.JPG'), alt: 'Children laughing and playing in a natural playground' },
+    { src: getImageKitUrl('Website Photos/IMG_3202.JPG'), alt: 'A child engaged in a nature craft activity with leaves and twigs' },
+    { src: getImageKitUrl('Website Photos/IMG20231020171008.jpg'), alt: 'A rustic, safe-to-climb tree house for kids' },
+    { src: getImageKitUrl('Surwahi Social Photos/Breakfast_under_Mahua_with_staff_in_Compound_2.jpg'), alt: 'A family enjoying a game together in the kids zone' },
   ],
   keyHighlights: [
     'Safe and supervised environment for children to play freely.',

@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Users, Calendar, Clock, Eye, AlertTriangle } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { getImageKitUrl } from '@/lib/images';
 import ContactForm from '@/components/ContactForm';
 
 export const metadata = generatePageMetadata(
@@ -14,10 +15,10 @@ const workshopDetails = {
   title: 'Herping Walks: Amphibian & Reptile Study',
   description: 'As dusk falls, a different world awakens. Our herping walks are a unique adventure into the nocturnal realm of frogs, snakes, lizards, and other fascinating herpetofauna. Led by an expert naturalist, this is a chance to see and learn about these often-misunderstood creatures.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Night+Walk', alt: 'A group on a guided night walk with flashlights' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Tree+Frog', alt: 'A vibrant green tree frog on a leaf' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Chameleon', alt: 'A chameleon camouflaged on a branch' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Non-venomous+Snake', alt: 'A naturalist safely handling a non-venomous snake' },
+    { src: getImageKitUrl('Website Photos/IMG_5224.JPG'), alt: 'A colorful frog spotted during a herping walk' },
+    { src: getImageKitUrl('Website Photos/IMG_5090.JPG'), alt: 'A guide safely identifying a snake' },
+    { src: getImageKitUrl('Website Photos/IMG_4518.JPG'), alt: 'A close-up of a beautiful lizard' },
+    { src: getImageKitUrl('Website Photos/IMG20231020170019.jpg'), alt: 'Participants on a night herping walk with flashlights' },
   ],
   keyHighlights: [
     'Explore the nocturnal ecosystem with a trained herpetologist.',

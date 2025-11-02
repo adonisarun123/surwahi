@@ -4,28 +4,29 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Camera, Video } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import { galleryImages } from '@/lib/images';
 // We will use a client component for the gallery, so we can't use generatePageMetadata here
 // SEO metadata can be set in a parent layout or a separate metadata export if needed.
 
 const allImages = [
-  { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Lodge+Exterior', alt: 'The beautiful exterior of the eco-lodge', category: 'Lodge & Architecture' },
-  { src: 'https://placehold.co/800x600/A8BA9A/333333?text=River+Suite', alt: 'Interior of the River View Suite', category: 'Lodge & Architecture' },
-  { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Hornbill', alt: 'A Malabar Pied Hornbill perched on a branch', category: 'Flora & Fauna' },
-  { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Tiger+Safari', alt: 'A tiger spotted during a wildlife safari', category: 'Experiences' },
-  { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Dining+Experience', alt: 'A beautifully prepared farm-to-table meal', category: 'Cuisine' },
-  { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Forest+Trail', alt: 'A serene trail winding through the forest', category: 'Experiences' },
-  { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Common+Area', alt: 'The cozy common area of the lodge', category: 'Lodge & Architecture' },
-  { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Wild+Mushrooms', alt: 'A cluster of wild mushrooms on the forest floor', category: 'Flora & Fauna' },
-  { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Gond+Art', alt: 'A guest learning Gond art from a local artist', category: 'Experiences' },
-  { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Organic+Farm', alt: 'Fresh vegetables growing in the organic farm', category: 'Cuisine' },
-  { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Starry+Night', alt: 'The Milky Way visible in the clear night sky', category: 'Experiences' },
-  { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Earthen+Pottery', alt: 'Hands shaping a pot on a pottery wheel', category: 'Experiences' },
+  { src: galleryImages.lodgeExterior, alt: 'The beautiful exterior of the eco-lodge', category: 'Lodge & Architecture' },
+  { src: galleryImages.riverSuite, alt: 'Interior of the River View Suite', category: 'Lodge & Architecture' },
+  { src: galleryImages.hornbill, alt: 'A Malabar Pied Hornbill perched on a branch', category: 'Flora & Fauna' },
+  { src: galleryImages.tigerSafari, alt: 'A tiger spotted during a wildlife safari', category: 'Experiences' },
+  { src: galleryImages.diningExperience, alt: 'A beautifully prepared farm-to-table meal', category: 'Cuisine' },
+  { src: galleryImages.forestTrail, alt: 'A serene trail winding through the forest', category: 'Experiences' },
+  { src: galleryImages.commonArea, alt: 'The cozy common area of the lodge', category: 'Lodge & Architecture' },
+  { src: galleryImages.wildMushrooms, alt: 'A cluster of wild mushrooms on the forest floor', category: 'Flora & Fauna' },
+  { src: galleryImages.gondArt, alt: 'A guest learning Gond art from a local artist', category: 'Experiences' },
+  { src: galleryImages.organicFarm, alt: 'Fresh vegetables growing in the organic farm', category: 'Cuisine' },
+  { src: galleryImages.starryNight, alt: 'The Milky Way visible in the clear night sky', category: 'Experiences' },
+  { src: galleryImages.earthenPottery, alt: 'Hands shaping a pot on a pottery wheel', category: 'Experiences' },
 ];
 
 const videos = [
-  { id: '1', title: 'A Glimpse into Surwahi Social', thumbnailUrl: 'https://placehold.co/800x450/A8BA9A/333333?text=Surwahi+Intro+Video', videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
-  { id: '2', title: 'The Making of an Eco-Lodge', thumbnailUrl: 'https://placehold.co/800x450/A8BA9A/333333?text=Construction+Video', videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
-  { id: '3', title: 'Voices from the Community', thumbnailUrl: 'https://placehold.co/800x450/A8BA9A/333333?text=Community+Video', videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
+  { id: '1', title: 'A Glimpse into Surwahi Social', thumbnailUrl: galleryImages.lodgeExterior, videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
+  { id: '2', title: 'The Making of an Eco-Lodge', thumbnailUrl: galleryImages.commonArea, videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
+  { id: '3', title: 'Voices from the Community', thumbnailUrl: galleryImages.gondArt, videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
 ];
 
 const categories = ['All', ...Array.from(new Set(allImages.map(img => img.category)))];

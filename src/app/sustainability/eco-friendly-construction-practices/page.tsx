@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Wind, Sun, Home, Layers } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { getImageKitUrl } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
   'Eco-Friendly Construction Practices',
@@ -13,10 +14,10 @@ const constructionDetails = {
   title: 'Eco-Friendly Construction',
   description: 'Our lodge is built not just on the land, but with it. We believe in an architecture that respects the local ecology, culture, and climate. Our construction practices are a testament to this philosophy, blending traditional wisdom with modern sustainable innovations.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Mud+House+Construction', alt: 'Workers building a house with mud and natural materials' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Local+Materials', alt: 'A showcase of local materials used in construction like bamboo, stone, and clay' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Natural+Ventilation', alt: 'An interior shot showing the design for natural light and ventilation' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Finished+Eco-Lodge', alt: 'The beautiful exterior of a finished eco-friendly building' },
+    { src: getImageKitUrl('Surwahi Social Photos/A.jpg'), alt: 'Workers building a house with mud and natural materials' },
+    { src: getImageKitUrl('Website Photos/IMG_3202.JPG'), alt: 'A showcase of local materials used in construction like bamboo, stone, and clay' },
+    { src: getImageKitUrl('Surwahi Social Photos/Family Suite/Jholar_Room_Interior.JPG'), alt: 'An interior shot showing the design for natural light and ventilation' },
+    { src: getImageKitUrl('Website Photos/DJI_20250819094744_0109_D.JPG'), alt: 'The beautiful exterior of a finished eco-friendly building' },
   ],
   keyPrinciples: [
     'Minimizing the carbon footprint by sourcing materials locally.',

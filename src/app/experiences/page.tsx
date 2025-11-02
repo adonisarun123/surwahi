@@ -2,6 +2,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import Image from 'next/image';
+import { experienceImages } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
   'Experiences at Surwahi',
@@ -13,61 +14,61 @@ const experiences = [
     {
         name: 'Wildlife Safaris',
         href: '/experiences/wildlife-safaris',
-        imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=Wildlife+Safari',
+        imageUrl: experienceImages.wildlifeSafaris,
         description: 'Explore the wild side of Kanha.'
     },
     {
         name: 'Guided Forest Trails',
         href: '/experiences/guided-forest-trails',
-        imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=Forest+Trail',
+        imageUrl: experienceImages.guidedForestTrails,
         description: 'Walk through the serene forest paths.'
     },
     {
         name: 'Bird-watching Expeditions',
         href: '/experiences/bird-watching-expeditions',
-        imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=Bird+Watching',
+        imageUrl: experienceImages.birdWatching,
         description: 'Discover the diverse avian life.'
     },
     {
         name: 'Farm Life Visit',
         href: '/experiences/farm-life-visit',
-        imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=Farm+Visit',
+        imageUrl: experienceImages.farmLife,
         description: 'Experience authentic rural life.'
     },
     {
         name: 'Know Your Crop',
         href: '/experiences/know-your-crop',
-        imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=Organic+Farming',
+        imageUrl: experienceImages.knowYourCrop,
         description: 'Learn about organic farming.'
     },
     {
         name: 'Play @ Surwahi',
         href: '/experiences/play-at-surwahi',
-        imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=Kids+Zone',
+        imageUrl: experienceImages.playAtSurwahi,
         description: 'Fun and games in nature for all ages.'
     },
     {
         name: 'Outdoor Sports & Nature Games',
         href: '/experiences/outdoor-sports-and-nature-games',
-        imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=Outdoor+Sports',
+        imageUrl: experienceImages.outdoorSports,
         description: 'Get active in the great outdoors.'
     },
     {
         name: 'Eco Volunteering Programs',
         href: '/experiences/eco-volunteering-programs',
-        imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=Volunteering',
+        imageUrl: experienceImages.ecoVolunteering,
         description: 'Contribute to our conservation efforts.'
     },
     {
         name: 'Cultural Immersion & Local Life',
         href: '/experiences/cultural-immersion-and-local-life',
-        imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=Local+Culture',
+        imageUrl: experienceImages.culturalImmersion,
         description: 'Connect with the local community.'
     },
     {
         name: 'Live Tribal Cooking Experiences',
         href: '/experiences/live-tribal-cooking-experiences',
-        imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=Tribal+Cooking',
+        imageUrl: experienceImages.tribalCooking,
         description: 'Learn the secrets of local cuisine.'
     },
 ];

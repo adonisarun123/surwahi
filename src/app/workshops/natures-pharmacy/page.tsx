@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Users, Calendar, Clock, Leaf, BookOpen } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { getImageKitUrl } from '@/lib/images';
 import ContactForm from '@/components/ContactForm';
 
 export const metadata = generatePageMetadata(
@@ -14,10 +15,10 @@ const workshopDetails = {
   title: 'Nature’s Pharmacy: Herbal Healing',
   description: 'The forest is a treasure trove of medicinal plants. This workshop is an introduction to the world of herbal healing, drawing from the rich traditional knowledge of the local Baiga community, who are renowned for their expertise in jungle medicine.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Medicinal+Herbs', alt: 'A collection of various medicinal herbs and plants' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Herbal+Preparation', alt: 'Hands preparing a traditional herbal remedy' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Baiga+Healer', alt: 'A traditional Baiga healer sharing their knowledge' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Herbal+Garden', alt: 'A walk through a cultivated medicinal herb garden' },
+    { src: getImageKitUrl('Website Photos/IMG_5104.JPG'), alt: 'A variety of medicinal plants in the forest' },
+    { src: getImageKitUrl('Website Photos/IMG_5224.JPG'), alt: 'Preparing traditional herbal remedies' },
+    { src: getImageKitUrl('Website Photos/IMG20231020171008.jpg'), alt: 'A guide identifying a medicinal plant' },
+    { src: getImageKitUrl('Website Photos/IMG_5091.JPG'), alt: 'Natural herbal products displayed' },
   ],
   keyHighlights: [
     'Learn to identify common medicinal plants and their uses.',

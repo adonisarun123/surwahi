@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Users, Calendar, Clock, Heart, Recycle, Wind } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { getImageKitUrl } from '@/lib/images';
 import ContactForm from '@/components/ContactForm';
 
 export const metadata = generatePageMetadata(
@@ -14,10 +15,10 @@ const workshopDetails = {
   title: 'The Art of Regeneration',
   description: 'Sustainability is about maintaining the status quo, but what if we could do more? This thought-provoking workshop explores the principles and practices of regeneration - the art of leaving a place better than we found it. It\'s a journey into a new paradigm of ecological and social thinking.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Regenerated+Land', alt: 'A once-barren land now thriving with new life and biodiversity' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Permaculture+Design', alt: 'A design sketch of a permaculture system' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Community+Dialogue', alt: 'A group engaged in a deep dialogue about regeneration' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Seed+Ball+Making', alt: 'Hands rolling seed balls for a reforestation project' },
+    { src: getImageKitUrl('Website Photos/IMG20231020171008.jpg'), alt: 'Volunteers planting native tree saplings' },
+    { src: getImageKitUrl('Website Photos/IMG_5104.JPG'), alt: 'Creating compost from organic waste' },
+    { src: getImageKitUrl('Surwahi Social Photos/Eathen Swimming Pool/WhatsApp Image 2025-04-14 at 10.03.48_5a837a8d.jpg'), alt: 'A rainwater harvesting system' },
+    { src: getImageKitUrl('Surwahi Social Photos/IMG_20200217_095015 (2).jpg'), alt: 'Participants learning about regenerative practices' },
   ],
   keyHighlights: [
     'Shift your perspective from "doing less harm" to "creating more good".',

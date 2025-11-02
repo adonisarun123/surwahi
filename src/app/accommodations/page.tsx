@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { accommodationImages } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
   'Our Eco Accommodations',
@@ -13,19 +14,19 @@ const categories = [
   { 
     name: 'Suites', 
     description: 'Luxurious and private, our suites offer the perfect blend of comfort and nature.',
-    imageUrl: 'https://placehold.co/800x600/A8BA9A/333333?text=Suites',
+    imageUrl: accommodationImages.suites.category,
     slug: 'suites'
   },
   { 
     name: 'Dormitory', 
     description: 'Affordable and social, our dormitory is ideal for solo travelers and groups.',
-    imageUrl: 'https://placehold.co/800x600/A8BA9A/333333?text=Dormitory',
+    imageUrl: accommodationImages.dormitory.category,
     slug: 'dormitory'
   },
   { 
     name: 'Camping Tents', 
     description: 'Immerse yourself in nature with our comfortable and well-equipped safari tents.',
-    imageUrl: 'https://placehold.co/800x600/A8BA9A/333333?text=Camping+Tents',
+    imageUrl: accommodationImages.camping.category,
     slug: 'camping-tents'
   }
 ];

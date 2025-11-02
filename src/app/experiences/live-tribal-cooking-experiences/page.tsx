@@ -1,7 +1,8 @@
 import Image from 'next/image';
-import { Check, Users, Leaf, UtensilsCrossed } from 'lucide-react';
+import { Check, Leaf, Users, Utensils } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { getImageKitUrl } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
   'Live Tribal Cooking Experiences',
@@ -13,10 +14,10 @@ const cookingDetails = {
   title: 'Live Tribal Cooking Experiences',
   description: 'Embark on a culinary adventure into the heart of tribal kitchens. Our live cooking experiences are a sensory delight, where you\'ll learn the secrets of traditional Baiga and Gond cuisine, using ancient recipes and fresh, local ingredients.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Tribal+Cooking', alt: 'A tribal woman cooking over an open fire' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Fresh+Ingredients', alt: 'A colorful array of fresh, locally sourced ingredients' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Guests+Cooking', alt: 'Guests participating in a hands-on cooking class' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Plated+Dish', alt: 'A beautifully plated traditional tribal dish' },
+    { src: getImageKitUrl('Surwahi Social Photos/Dining Area/Serving_Table_From_Entrance_with_Kitchen_Satkon.JPG'), alt: 'A local chef cooking over an open fire' },
+    { src: getImageKitUrl('Surwahi Social Photos/Breakfast_under_Mahua_with_staff_in_Compound_2.jpg'), alt: 'Fresh, local ingredients on display' },
+    { src: getImageKitUrl('Surwahi Social Photos/Dining Area/Kodo_Kutki_Kitchen_Satkon.JPG'), alt: 'A guest learning to make a traditional dish' },
+    { src: getImageKitUrl('Surwahi Social Photos/Dining Area/Khichdi_Dinner_Displayed_On_Table_Landscape_Closeup_1 - Copy (2).JPG'), alt: 'A beautifully plated traditional meal ready to be served' },
   ],
   keyHighlights: [
     'Hands-on cooking class led by local community chefs.',
@@ -27,7 +28,7 @@ const cookingDetails = {
   ],
   whatToExpect: 'This is a fun, interactive, and delicious experience. You will be guided through the entire process, from understanding the ingredients to mastering the cooking techniques. The class is conducted in a traditional kitchen setting, offering an authentic glimpse into the local way of life. The experience culminates in a communal meal, where you get to savor the fruits of your labor.',
   sampleMenu: [
-    { name: 'Red Ant Chutney', description: 'A zesty and protein-rich local delicacy (optional and seasonal).', icon: UtensilsCrossed },
+    { name: 'Red Ant Chutney', description: 'A zesty and protein-rich local delicacy (optional and seasonal).', icon: Utensils },
     { name: 'Kodo Millet Khichdi', description: 'A nutritious and comforting one-pot meal made from local millets.', icon: Leaf },
     { name: 'Mahua Laddoos', description: 'Sweet treats made from the flowers of the sacred Mahua tree.', icon: Users },
   ],

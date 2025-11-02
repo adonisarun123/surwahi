@@ -2,6 +2,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import Image from 'next/image';
+import { workshopImages } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
   'Workshops & Learning',
@@ -10,19 +11,19 @@ export const metadata = generatePageMetadata(
 );
 
 const workshops = [
-    { name: 'Star Gazing Nights', href: '/workshops/star-gazing-nights', imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=Star+Gazing', description: 'Explore the cosmos from our dark sky location.' },
-    { name: 'Astro-Photography', href: '/workshops/astro-photography', imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=Astro-Photography', description: 'Capture the beauty of the night sky.' },
-    { name: 'Earthen Pottery', href: '/workshops/earthen-pottery', imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=Pottery', description: 'Craft your own pottery from local clay.' },
-    { name: 'Gond Art Workshops', href: '/workshops/gond-art-workshops', imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=Gond+Art', description: 'Learn the intricate art of the Gond tribe.' },
-    { name: 'Bamboo & Lantana Crafting', href: '/workshops/bamboo-and-lantana-crafting', imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=Crafting', description: 'Create beautiful objects from natural materials.' },
-    { name: 'Forest Bathing (Shinrin-Yoku)', href: '/workshops/forest-bathing', imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=Forest+Bathing', description: 'Reconnect with nature and yourself.' },
-    { name: 'Leaf Plate Making', href: '/workshops/leaf-plate-making', imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=Leaf+Plates', description: 'Learn the traditional art of making leaf plates.' },
-    { name: 'Food Foraging Trails', href: '/workshops/food-foraging-trails', imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=Foraging', description: 'Discover the edible treasures of the forest.' },
-    { name: 'Herping Walks (Amphibian Study)', href: '/workshops/herping-walks', imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=Herping', description: 'Explore the world of reptiles and amphibians.' },
-    { name: 'The Art of Regeneration', href: '/workshops/the-art-of-regeneration', imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=Regeneration', description: 'Learn about ecological restoration.' },
-    { name: 'Grassroots Governance & Local Democracy', href: '/workshops/grassroots-governance-and-local-democracy', imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=Governance', description: 'Understand local community structures.' },
-    { name: 'Nature’s Pharmacy (Herbal Healing)', href: '/workshops/natures-pharmacy', imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=Herbal+Healing', description: 'Discover the medicinal properties of local plants.' },
-    { name: 'Build With Mud (Eco-Architecture)', href: '/workshops/build-with-mud', imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=Mud+Building', description: 'Learn the art of sustainable construction.' },
+    { name: 'Star Gazing Nights', href: '/workshops/star-gazing-nights', imageUrl: workshopImages.starGazing, description: 'Explore the cosmos from our dark sky location.' },
+    { name: 'Astro-Photography', href: '/workshops/astro-photography', imageUrl: workshopImages.astroPhotography, description: 'Capture the beauty of the night sky.' },
+    { name: 'Earthen Pottery', href: '/workshops/earthen-pottery', imageUrl: workshopImages.earthenPottery, description: 'Craft your own pottery from local clay.' },
+    { name: 'Gond Art Workshops', href: '/workshops/gond-art-workshops', imageUrl: workshopImages.gondArt, description: 'Learn the intricate art of the Gond tribe.' },
+    { name: 'Bamboo & Lantana Crafting', href: '/workshops/bamboo-and-lantana-crafting', imageUrl: workshopImages.bambooCrafting, description: 'Create beautiful objects from natural materials.' },
+    { name: 'Forest Bathing (Shinrin-Yoku)', href: '/workshops/forest-bathing', imageUrl: workshopImages.forestBathing, description: 'Reconnect with nature and yourself.' },
+    { name: 'Leaf Plate Making', href: '/workshops/leaf-plate-making', imageUrl: workshopImages.leafPlate, description: 'Learn the traditional art of making leaf plates.' },
+    { name: 'Food Foraging Trails', href: '/workshops/food-foraging-trails', imageUrl: workshopImages.foodForaging, description: 'Discover the edible treasures of the forest.' },
+    { name: 'Herping Walks (Amphibian Study)', href: '/workshops/herping-walks', imageUrl: workshopImages.herping, description: 'Explore the world of reptiles and amphibians.' },
+    { name: 'The Art of Regeneration', href: '/workshops/the-art-of-regeneration', imageUrl: workshopImages.regeneration, description: 'Learn about ecological restoration.' },
+    { name: 'Grassroots Governance & Local Democracy', href: '/workshops/grassroots-governance-and-local-democracy', imageUrl: workshopImages.governance, description: 'Understand local community structures.' },
+    { name: "Nature's Pharmacy (Herbal Healing)", href: '/workshops/natures-pharmacy', imageUrl: workshopImages.naturesPharmacy, description: 'Discover the medicinal properties of local plants.' },
+    { name: 'Build With Mud (Eco-Architecture)', href: '/workshops/build-with-mud', imageUrl: workshopImages.buildWithMud, description: 'Learn the art of sustainable construction.' },
 ];
 
 export default function WorkshopsPage() {

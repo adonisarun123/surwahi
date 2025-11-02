@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Trophy, Star } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import { getImageKitUrl } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
   'Awards & Accolades',
@@ -13,10 +14,10 @@ const awardsDetails = {
   title: 'Awards & Accolades',
   description: 'Our journey towards creating a model for sustainable and responsible tourism has been recognized by esteemed organizations. These accolades motivate us to continue our work with greater passion and dedication.',
   images: [
-    { src: 'https://placehold.co/1200x800/A8BA9A/333333?text=Award+Ceremony', alt: 'Receiving an award at a formal ceremony' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Award+Trophy', alt: 'A close-up of a prestigious award trophy' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Team+Celebration', alt: 'The Surwahi team celebrating an achievement' },
-    { src: 'https://placehold.co/800x600/A8BA9A/333333?text=Certificate+of+Excellence', alt: 'A certificate of excellence on display' },
+    { src: getImageKitUrl('Website Photos/surwahi edit.png'), alt: 'Receiving an award at a formal ceremony' },
+    { src: getImageKitUrl('Website Photos/DJI_20250819094744_0109_D.JPG'), alt: 'A close-up of a prestigious award trophy' },
+    { src: getImageKitUrl('Surwahi Social Photos/IMG_20200217_095015 (2).jpg'), alt: 'The Surwahi team celebrating an achievement' },
+    { src: getImageKitUrl('Website Photos/surwahi edit.png'), alt: 'A certificate of excellence on display' },
   ],
   awards: [
     {

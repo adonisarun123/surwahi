@@ -2,6 +2,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import Image from 'next/image';
+import { praisesImages } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
   'Praises',
@@ -13,13 +14,13 @@ const praises = [
     {
         name: 'Awards & Accolades',
         href: '/praises/awards-and-accolades',
-        imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=Awards',
+        imageUrl: praisesImages.awards,
         description: 'Recognized for our commitment to sustainability.'
     },
     {
         name: 'Press Mentions & Recognitions',
         href: '/praises/press-mentions-and-recognitions',
-        imageUrl: 'https://placehold.co/600x400/A8BA9A/333333?text=Press',
+        imageUrl: praisesImages.press,
         description: 'Featured in leading publications.'
     }
 ];
