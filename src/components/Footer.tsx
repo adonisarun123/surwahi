@@ -2,8 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { MapPin, Phone, Mail, ArrowRight } from 'lucide-react';
+import { MapPin, Phone, Mail, ArrowRight, Leaf, Recycle, Bird } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface FooterSection {
@@ -58,9 +57,9 @@ const socialLinks = [
 ];
 
 const certificationBadges = [
-  { name: 'Eco-certified by Green Tourism', src: '/images/badges/green-tourism.svg' },
-  { name: 'Zero Waste Commitment', src: '/images/badges/zero-waste.svg' },
-  { name: 'Wildlife Friendly', src: '/images/badges/wildlife-friendly.svg' },
+  { name: 'Eco-Certified', icon: Leaf, color: 'text-green-600 bg-green-50' },
+  { name: 'Zero Waste', icon: Recycle, color: 'text-blue-600 bg-blue-50' },
+  { name: 'Wildlife Friendly', icon: Bird, color: 'text-amber-600 bg-amber-50' },
 ];
 
 export default function Footer() {
@@ -125,12 +124,13 @@ export default function Footer() {
                   placeholder="your@email.com"
                   required
                   className="form-input flex-1 h-14 text-base px-5 bg-white border-2 border-mist-300 focus:border-moss-500 rounded-xl shadow-sm"
+                  style={{ backgroundColor: 'transparent' }}
                   disabled={isSubmitting}
                 />
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="h-14 px-8 rounded-xl bg-moss-600 hover:bg-moss-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all disabled:opacity-50 whitespace-nowrap"
+                  className="h-14 px-8 rounded-xl bg-moss-600 hover:bg-moss-700 text-dark font-semibold shadow-lg hover:shadow-xl transition-all disabled:opacity-50 whitespace-nowrap"
                 >
                   {isSubmitting ? 'Joining...' : 'Subscribe'}
                 </button>
@@ -179,18 +179,27 @@ export default function Footer() {
               <p className="text-xs font-bold text-soil-600 uppercase tracking-widest">
                 Our Certifications
               </p>
-              <div className="flex flex-wrap gap-5">
-                {certificationBadges.map((badge) => (
-                  <div key={badge.name} className="group relative">
-                    <Image
-                      src={badge.src}
-                      alt={badge.name}
-                      width={56}
-                      height={56}
-                      className="h-14 w-auto opacity-60 group-hover:opacity-100 transition-opacity filter grayscale-[30%] group-hover:grayscale-0"
-                    />
-                  </div>
-                ))}
+              <div className="flex flex-wrap gap-3">
+                {certificationBadges.map((badge) => {
+                  const Icon = badge.icon;
+                  return (
+                    <div
+                      key={badge.name}
+                      className="group relative inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border-2 border-mist-200 bg-white hover:border-moss-500/30 hover:shadow-md transition-all"
+                      title={badge.name}
+                    >
+                      <div className={cn(
+                        "w-8 h-8 rounded-lg flex items-center justify-center",
+                        badge.color
+                      )}>
+                        <Icon className="h-4 w-4" />
+                      </div>
+                      <span className="text-sm font-medium text-soil-700 group-hover:text-moss-600 transition-colors">
+                        {badge.name}
+                      </span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </section>

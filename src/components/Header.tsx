@@ -187,7 +187,7 @@ export default function Header() {
           </div>
 
           <div className="hidden md:block">
-            <Link href="/accommodations" className="btn btn-primary">
+            <Link href="/accommodations" className="btn btn-primary" style={{ color: 'white'}}>
               Book Now
             </Link>
           </div>
@@ -239,7 +239,7 @@ export default function Header() {
             ))}
           </div>
           <div className="px-5 py-4 pb-8">
-            <Link href="/accommodations" className="btn btn-primary w-full">
+            <Link href="/accommodations" className="btn btn-primary w-full" style={{ color: 'white'}}>
               Book Now
             </Link>
           </div>

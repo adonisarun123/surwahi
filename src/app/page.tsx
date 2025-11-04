@@ -14,13 +14,13 @@ export default function HomePage() {
     <main id="main">
       <section className="relative min-h-screen flex items-center justify-center text-center text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
-            <Image
-                src="https://ik.imagekit.io/adonisarun/WhatsApp%20Image%202025-10-24%20at%2019.36.22.jpeg?updatedAt=1761321841612"
-                alt="Aerial view of Surwahi Social Ecoestate"
-                fill
-                className="object-cover"
-                priority
-            />
+          <Image
+            src="https://ik.imagekit.io/adonisarun/WhatsApp%20Image%202025-10-24%20at%2019.36.22.jpeg?updatedAt=1761321841612"
+            alt="Aerial view of Surwahi Social Ecoestate"
+            fill
+            className="object-cover"
+            priority
+          />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-forest-900/50 via-forest-900/60 to-forest-900/70 z-10"></div>
         <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 py-24">
@@ -31,10 +31,13 @@ export default function HomePage() {
             Nestled at the edge of Kanha National Park, Surwahi Social Ecoestate invites you to slow down, reconnect with nature, and experience the art of sustainable living.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style={{ animationDelay: '0.4s' }}>
-            <Link href="/accommodations" className="btn btn-primary text-base bg-moss-500 hover:bg-moss-600 text-white border-2 border-white shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.5)] transition-all">
+            <Link href="/accommodations" className="btn btn-primary text-base bg-moss-500 hover:bg-moss-600 text-white border-2 border-white shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.5)] transition-all" style={{ color: 'white' }}>
               Book Your Eco Stay
             </Link>
-            <Link href="#about" className="btn btn-secondary bg-bone-0/95 hover:bg-bone-0 border-2 border-white text-forest-900 shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.5)] transition-all">
+            <Link
+              href="#about"
+              className="btn btn-secondary bg-bone-0 hover:bg-bone-0/95 border-2 border-white text-white shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.5)] transition-all"
+            >
               Explore the Story
             </Link>
           </div>
@@ -73,7 +76,9 @@ export default function HomePage() {
             <div className="bg-white p-6 rounded-card shadow-elev-1">🌕 Perfect stargazing nights and warm village hospitality</div>
           </div>
           <div className="mt-12">
-            <Link href="/accommodations" className="btn btn-primary text-base bg-forest-700 hover:bg-forest-900 text-white">
+            <Link href="/accommodations" className="btn btn-primary text-base bg-forest-700 hover:bg-forest-900 text-white"
+            style={{ color: 'white'}}
+            >
               Explore Stays
             </Link>
           </div>
@@ -125,13 +130,15 @@ export default function HomePage() {
             At Surwahi, every experience brings you closer — to nature, to people, and to yourself.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <p>🌾 <strong>Wilderness Coliving:</strong> Work, create, and live amidst the forest’s calm.</p>
-              <p>🍃 <strong>Organic Farming:</strong> Sow, nurture, and harvest the earth’s gifts.</p>
-              <p>🪶 <strong>Tribal & Cultural Interactions:</strong> Celebrate the traditions of the Gond and Baiga tribes.</p>
-              <p>🦋 <strong>Within SSEK:</strong> Nature walks, riverside high teas, star gazing, and mindful evenings.</p>
+            <p>🌾 <strong>Wilderness Coliving:</strong> Work, create, and live amidst the forest’s calm.</p>
+            <p>🍃 <strong>Organic Farming:</strong> Sow, nurture, and harvest the earth’s gifts.</p>
+            <p>🪶 <strong>Tribal & Cultural Interactions:</strong> Celebrate the traditions of the Gond and Baiga tribes.</p>
+            <p>🦋 <strong>Within SSEK:</strong> Nature walks, riverside high teas, star gazing, and mindful evenings.</p>
           </div>
           <div className="mt-12">
-            <Link href="/experiences" className="btn btn-primary text-base bg-forest-700 hover:bg-forest-900 text-white">
+            <Link href="/experiences" className="btn btn-primary text-base bg-forest-700 hover:bg-forest-900 text-white"
+            style={{ color: 'white'}}
+            >
               Experience Surwahi
             </Link>
           </div>
@@ -150,7 +157,7 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
-      
+
       {/* Gallery */}
       <section className="bg-forest-900 text-white py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -158,12 +165,14 @@ export default function HomePage() {
           <p className="text-body-lg max-w-prose mx-auto mb-8 text-bone-0/80">
             Every photograph tells a story — of sunlit mornings, tribal art, forest trails, and quiet nights filled with stars.
           </p>
-          <Link href="/gallery" className="btn btn-secondary bg-transparent border-bone-0 text-bone-0 hover:bg-bone-0/10">
+          <Link href="/gallery" className="btn btn-secondary bg-transparent border-bone-0 text-bone-0 hover:bg-bone-0/10"
+          style={{ color: 'white'}}
+          >
             View Gallery
           </Link>
         </div>
       </section>
-      
+
       {/* Recognitions & Accreditations */}
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -192,10 +201,14 @@ export default function HomePage() {
             Surwahi isn’t just a destination — it’s an invitation. Come be part of a community that’s redefining what sustainable living means.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/accommodations" className="btn btn-primary text-base bg-clay-500 hover:bg-clay-500/90 text-white border-clay-500">
+            <Link href="/accommodations" className="btn btn-primary text-base bg-clay-500 hover:bg-clay-500/90 text-white border-clay-500"
+            style={{ color: 'white'}}
+            >
               Book Your Stay
             </Link>
-            <Link href="/contact" className="btn btn-secondary bg-transparent border-bone-0 text-bone-0 hover:bg-bone-0/10">
+            <Link href="/contact" className="btn btn-secondary bg-transparent border-bone-0 text-bone-0 hover:bg-bone-0/10"
+            style={{ color: 'white'}}
+            >
               Join Our Community
             </Link>
           </div>
