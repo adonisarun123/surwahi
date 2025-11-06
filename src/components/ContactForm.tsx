@@ -202,7 +202,7 @@ export default function ContactFormComponent({ subject }: ContactFormProps) {
             required
             rows={4}
             className="form-input"
-            style={{ backgroundColor: 'transparent' }}
+            style={{ backgroundColor: 'transparent', color: 'black' }}
             placeholder="Tell us about your inquiry..."
           />
         </div>

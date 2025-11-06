@@ -77,7 +77,7 @@ export default function HomePage() {
           </div>
           <div className="mt-12">
             <Link href="/accommodations" className="btn btn-primary text-base bg-forest-700 hover:bg-forest-900 text-white"
-            style={{ color: 'white'}}
+              style={{ color: 'white' }}
             >
               Explore Stays
             </Link>
@@ -137,7 +137,7 @@ export default function HomePage() {
           </div>
           <div className="mt-12">
             <Link href="/experiences" className="btn btn-primary text-base bg-forest-700 hover:bg-forest-900 text-white"
-            style={{ color: 'white'}}
+              style={{ color: 'white' }}
             >
               Experience Surwahi
             </Link>
@@ -166,7 +166,7 @@ export default function HomePage() {
             Every photograph tells a story — of sunlit mornings, tribal art, forest trails, and quiet nights filled with stars.
           </p>
           <Link href="/gallery" className="btn btn-secondary bg-transparent border-bone-0 text-bone-0 hover:bg-bone-0/10"
-          style={{ color: 'white'}}
+            style={{ color: 'white' }}
           >
             View Gallery
           </Link>
@@ -202,12 +202,12 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/accommodations" className="btn btn-primary text-base bg-clay-500 hover:bg-clay-500/90 text-white border-clay-500"
-            style={{ color: 'white'}}
+              style={{ color: 'white' }}
             >
               Book Your Stay
             </Link>
             <Link href="/contact" className="btn btn-secondary bg-transparent border-bone-0 text-bone-0 hover:bg-bone-0/10"
-            style={{ color: 'white'}}
+              style={{ color: 'white' }}
             >
               Join Our Community
             </Link>
