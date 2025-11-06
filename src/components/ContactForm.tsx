@@ -94,6 +94,7 @@ export default function ContactFormComponent({ subject }: ContactFormProps) {
               onChange={handleInputChange}
               required
               className="form-input"
+              style={{ backgroundColor: 'transparent', color: 'black' }}
               placeholder="Your full name"
             />
           </div>
@@ -107,6 +108,7 @@ export default function ContactFormComponent({ subject }: ContactFormProps) {
               onChange={handleInputChange}
               required
               className="form-input"
+              style={{ backgroundColor: 'transparent', color: 'black' }}
               placeholder="your@email.com"
             />
           </div>
@@ -122,6 +124,7 @@ export default function ContactFormComponent({ subject }: ContactFormProps) {
               value={formData.phone}
               onChange={handleInputChange}
               className="form-input"
+              style={{ backgroundColor: 'transparent', color: 'black' }}
               placeholder="+91-XXXXX XXXXX"
             />
           </div>
@@ -134,6 +137,7 @@ export default function ContactFormComponent({ subject }: ContactFormProps) {
               value={formData.city}
               onChange={handleInputChange}
               className="form-input"
+              style={{ backgroundColor: 'transparent', color: 'black' }}
               placeholder="Your city"
             />
           </div>
@@ -147,6 +151,7 @@ export default function ContactFormComponent({ subject }: ContactFormProps) {
             value={formData.inquiryType}
             onChange={handleInputChange}
             className="form-input"
+            style={{ backgroundColor: 'transparent' , color: 'black'}}
           >
             <option value="GENERAL">General Inquiry</option>
             <option value="BOOKING">Booking & Reservations</option>
@@ -166,6 +171,7 @@ export default function ContactFormComponent({ subject }: ContactFormProps) {
               value={formData.preferredDates}
               onChange={handleInputChange}
               className="form-input"
+              style={{ backgroundColor: 'transparent', color: 'black' }}
               placeholder="e.g., Dec 15-20, 2024"
             />
           </div>
@@ -178,6 +184,7 @@ export default function ContactFormComponent({ subject }: ContactFormProps) {
               value={formData.partySize}
               onChange={handleInputChange}
               className="form-input"
+              style={{ backgroundColor: 'transparent', color: 'black' }}
               placeholder="Number of guests"
               min="1"
               max="20"
@@ -195,6 +202,7 @@ export default function ContactFormComponent({ subject }: ContactFormProps) {
             required
             rows={4}
             className="form-input"
+            style={{ backgroundColor: 'transparent' }}
             placeholder="Tell us about your inquiry..."
           />
         </div>
@@ -218,6 +226,7 @@ export default function ContactFormComponent({ subject }: ContactFormProps) {
           type="submit"
           disabled={isSubmitting}
           className="btn btn-primary w-full justify-center disabled:opacity-50"
+          style={{ color: 'white'}}
         >
           {isSubmitting ? (
             <>Sending...</>

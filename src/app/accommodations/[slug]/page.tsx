@@ -276,8 +276,8 @@ export default async function RoomDetailPage({ params }: RoomPageProps) {
                   <div className="space-y-2 text-sm">
                     <div className="flex items-center gap-2">
                       <span className="font-medium">Phone:</span>
-                      <Link href="tel:+919744844777" className="text-moss-500 hover:underline">
-                        +919744844777
+                      <Link href="tel:+917795207779" className="text-moss-500 hover:underline">
+                        +91 77952 07779
                       </Link>
                     </div>
                     <div className="flex items-center gap-2">

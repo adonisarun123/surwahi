@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { prisma } from '@/lib/prisma';
+import { query } from '@/lib/db';
+import { sendNewsletterConfirmation } from '@/lib/email';
 
 // Validation schema for newsletter subscription
 const newsletterSchema = z.object({
@@ -20,27 +21,27 @@ export async function POST(request: NextRequest) {
     const validatedData = newsletterSchema.parse(body);
     
     // Check if email already exists
-    const existingSubscription = await prisma.newsletterSubscription.findUnique({
-      where: { email: validatedData.email }
-    });
+    const existingResult = await query(
+      'SELECT * FROM newsletter_subscriptions WHERE email = $1',
+      [validatedData.email]
+    );
+    const existingSubscription = existingResult.rows[0];
     
     if (existingSubscription) {
-      if (existingSubscription.isActive) {
+      if (existingSubscription.status === 'active') {
         return NextResponse.json({
           success: false,
           message: 'This email is already subscribed to our newsletter.'
         }, { status: 400 });
       } else {
         // Reactivate subscription
-        await prisma.newsletterSubscription.update({
-          where: { email: validatedData.email },
-          data: {
-            isActive: true,
-            source: validatedData.source,
-            preferences: validatedData.preferences,
-            updatedAt: new Date()
-          }
-        });
+        await query(
+          'UPDATE newsletter_subscriptions SET status = $1, source = $2, updated_at = NOW() WHERE email = $3',
+          ['active', validatedData.source, validatedData.email]
+        );
+        
+        // Send confirmation email
+        await sendNewsletterConfirmation(validatedData.email);
         
         return NextResponse.json({
           success: true,
@@ -50,23 +51,18 @@ export async function POST(request: NextRequest) {
     }
     
     // Create new subscription
-    const subscription = await prisma.newsletterSubscription.create({
-      data: {
-        email: validatedData.email,
-        source: validatedData.source,
-        preferences: validatedData.preferences,
-        isActive: true
-      }
-    });
+    const result = await query(
+      'INSERT INTO newsletter_subscriptions (email, source, status) VALUES ($1, $2, $3) RETURNING *',
+      [validatedData.email, validatedData.source, 'active']
+    );
+    const subscription = result.rows[0];
 
-    // In production, you would:
-    // 1. Send a confirmation email with double opt-in
-    // 2. Add to email marketing service (Mailchimp, ConvertKit, etc.)
-    // await sendConfirmationEmail(subscription);
+    // Send confirmation email
+    await sendNewsletterConfirmation(validatedData.email);
     
     return NextResponse.json({
       success: true,
-      message: 'Thank you for subscribing! Please check your email to confirm your subscription.',
+      message: 'Thanks for subscribing! Check your email for confirmation.',
       data: { id: subscription.id }
     });
 
@@ -101,10 +97,10 @@ export async function DELETE(request: NextRequest) {
     }
     
     // Deactivate subscription instead of deleting
-    await prisma.newsletterSubscription.update({
-      where: { email },
-      data: { isActive: false, updatedAt: new Date() }
-    });
+    await query(
+      'UPDATE newsletter_subscriptions SET status = $1, unsubscribed_at = NOW(), updated_at = NOW() WHERE email = $2',
+      ['unsubscribed', email]
+    );
     
     return NextResponse.json({
       success: true,
@@ -125,28 +121,30 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const page = parseInt(searchParams.get('page') || '1');
     const limit = parseInt(searchParams.get('limit') || '50');
-    const isActive = searchParams.get('active') === 'true';
+    const status = searchParams.get('active') === 'true' ? 'active' : null;
     
-    const where = isActive !== undefined ? { isActive } : {};
+    const offset = (page - 1) * limit;
     
-    const [subscriptions, total] = await Promise.all([
-      prisma.newsletterSubscription.findMany({
-        where,
-        orderBy: { createdAt: 'desc' },
-        skip: (page - 1) * limit,
-        take: limit,
-        select: {
-          id: true,
-          email: true,
-          source: true,
-          isActive: true,
-          createdAt: true,
-          updatedAt: true
-          // Don't return preferences for privacy
-        }
-      }),
-      prisma.newsletterSubscription.count({ where }),
+    const whereClause = status ? 'WHERE status = $1' : '';
+    const params = status ? [status] : [];
+    
+    const [subscriptionsResult, totalResult] = await Promise.all([
+      query(
+        `SELECT id, email, source, status, subscribed_at, created_at, updated_at 
+         FROM newsletter_subscriptions 
+         ${whereClause} 
+         ORDER BY created_at DESC 
+         LIMIT $${params.length + 1} OFFSET $${params.length + 2}`,
+        [...params, limit, offset]
+      ),
+      query(
+        `SELECT COUNT(*) FROM newsletter_subscriptions ${whereClause}`,
+        params
+      ),
     ]);
+    
+    const subscriptions = subscriptionsResult.rows;
+    const total = parseInt(totalResult.rows[0].count);
     
     return NextResponse.json({
       success: true,

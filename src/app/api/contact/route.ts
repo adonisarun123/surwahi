@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { prisma } from '@/lib/prisma';
+import { query } from '@/lib/db';
+import { sendContactFormNotification, sendContactFormConfirmation } from '@/lib/email';
 
 // Validation schema for contact form
 const contactFormSchema = z.object({
@@ -27,26 +28,41 @@ export async function POST(request: NextRequest) {
     const isSpam = spamKeywords.some(keyword => message.includes(keyword));
     
     // Save to database
-    const contactForm = await prisma.contactForm.create({
-      data: {
-        name: validatedData.name,
-        email: validatedData.email,
-        phone: validatedData.phone,
-        city: validatedData.city,
-        message: validatedData.message,
-        inquiryType: validatedData.inquiryType,
-        preferredDates: validatedData.preferredDates,
-        partySize: validatedData.partySize,
-        status: isSpam ? 'SPAM' : 'NEW',
-      },
-    });
+    const result = await query(
+      `INSERT INTO contact_submissions 
+       (name, email, phone, city, message, inquiry_type, preferred_dates, party_size, status) 
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) 
+       RETURNING *`,
+      [
+        validatedData.name,
+        validatedData.email,
+        validatedData.phone || null,
+        validatedData.city || null,
+        validatedData.message,
+        validatedData.inquiryType,
+        validatedData.preferredDates || null,
+        validatedData.partySize || null,
+        isSpam ? 'spam' : 'new',
+      ]
+    );
+    const contactForm = result.rows[0] as { id: string };
 
-    // In production, you would send email notifications here
-    // await sendContactFormNotification(contactForm);
+    // Send email notifications (only if not spam)
+    if (!isSpam) {
+      try {
+        await Promise.all([
+          sendContactFormNotification(validatedData),
+          sendContactFormConfirmation(validatedData.email, validatedData.name)
+        ]);
+      } catch (emailError) {
+        console.error('Failed to send emails:', emailError);
+        // Continue even if email fails - form is saved
+      }
+    }
     
     return NextResponse.json({
       success: true,
-      message: 'Thank you for your inquiry. We\'ll get back to you within 24 hours.',
+      message: 'Thank you for contacting us! We\'ll get back to you within 24 hours.',
       data: { id: contactForm.id }
     });
 
@@ -75,17 +91,27 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get('limit') || '10');
     const status = searchParams.get('status');
     
-    const where = status ? { status: status as 'NEW' | 'IN_PROGRESS' | 'RESOLVED' | 'SPAM' } : {};
+    const offset = (page - 1) * limit;
     
-    const [contactForms, total] = await Promise.all([
-      prisma.contactForm.findMany({
-        where,
-        orderBy: { createdAt: 'desc' },
-        skip: (page - 1) * limit,
-        take: limit,
-      }),
-      prisma.contactForm.count({ where }),
+    const whereClause = status ? 'WHERE status = $1' : '';
+    const params = status ? [status] : [];
+    
+    const [formsResult, totalResult] = await Promise.all([
+      query(
+        `SELECT * FROM contact_submissions 
+         ${whereClause} 
+         ORDER BY submitted_at DESC 
+         LIMIT $${params.length + 1} OFFSET $${params.length + 2}`,
+        [...params, limit, offset]
+      ),
+      query(
+        `SELECT COUNT(*) FROM contact_submissions ${whereClause}`,
+        params
+      ),
     ]);
+    
+    const contactForms = formsResult.rows;
+    const total = parseInt(totalResult.rows[0].count);
     
     return NextResponse.json({
       success: true,

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { MapPin, Phone, Mail, ArrowRight, Leaf, Recycle, Bird } from 'lucide-react';
+import { MapPin, Phone, Mail, Leaf, Recycle, Bird } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface FooterSection {
@@ -51,9 +51,9 @@ const footerSections: FooterSection[] = [
 ];
 
 const socialLinks = [
-  { name: 'Instagram', href: 'https://www.instagram.com/surwahi', icon: '📷' },
-  { name: 'Facebook', href: 'https://www.facebook.com/surwahi', icon: '📘' },
-  { name: 'LinkedIn', href: 'https://www.linkedin.com/company/surwahi', icon: '💼' },
+  { name: 'Instagram', href: 'https://www.instagram.com/surwahisocialecoestatekanha', icon: 'fa-brands fa-instagram' },
+  { name: 'Facebook', href: 'https://www.facebook.com/surwahisocialecoestatekanha/', icon: 'fa-brands fa-facebook' },
+  { name: 'LinkedIn', href: 'https://in.linkedin.com/company/surwahisocialecoestatekanha', icon: 'fa-brands fa-linkedin' },
 ];
 
 const certificationBadges = [
@@ -124,7 +124,7 @@ export default function Footer() {
                   placeholder="your@email.com"
                   required
                   className="form-input flex-1 h-14 text-base px-5 bg-white border-2 border-mist-300 focus:border-moss-500 rounded-xl shadow-sm"
-                  style={{ backgroundColor: 'transparent' }}
+                  style={{ backgroundColor: 'transparent', color: 'black' }}
                   disabled={isSubmitting}
                 />
                 <button
@@ -157,8 +157,8 @@ export default function Footer() {
       </div>
 
       {/* Main Footer Content */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 flex justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-16 max-w-7xl">
           
           {/* About Section */}
           <section className="lg:col-span-2" aria-labelledby="footer-about">
@@ -237,7 +237,7 @@ export default function Footer() {
           ))}          
 
           {/* Contact Info */}
-          <section className="lg:col-span-2 md:col-span-2" aria-labelledby="footer-contact">
+          <section className="lg:col-span-2 md:col-span-1" aria-labelledby="footer-contact">
             <div className="mb-6">
               <h3 id="footer-contact" className="font-display text-xl text-forest-900 mb-5 relative inline-block">
                 Get in Touch
@@ -245,7 +245,7 @@ export default function Footer() {
               </h3>
             </div>
             
-            <address className="not-italic text-base space-y-4 mb-8">
+            <address className="not-italic text-base space-y-4">
               <div className="flex items-start gap-3 group">
                 <div className="w-10 h-10 rounded-lg bg-moss-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-moss-500/20 transition-colors">
                   <MapPin className="h-5 w-5 text-moss-600" />
@@ -277,16 +277,22 @@ export default function Footer() {
                 </Link>
               </div>
             </address>
+          </section>
 
-            <Link
-              href="/contact#map"
-              className="inline-flex items-center gap-3 px-6 py-3.5 rounded-xl bg-white border-2 border-moss-500/20 text-forest-900 font-semibold hover:border-moss-500 hover:bg-moss-50 transition-all shadow-sm hover:shadow-md group"
-              aria-label="View map and directions"
-            >
-              <MapPin className="h-5 w-5 text-moss-600" />
-              View on Map
-              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
+          {/* Google Maps Embed - Now beside Contact Info */}
+          <section className="lg:col-span-3 md:col-span-1" aria-label="Location Map">
+            <div className="w-full h-full min-h-[280px] rounded-lg overflow-hidden shadow-lg">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7788986.880134164!2d73.72899689350048!3d17.59246313028678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a2a0ca75f087ccb%3A0xe89d09f64b652f09!2sSurwahi%20Social%20Ecoestate%20Kanha!5e0!3m2!1sen!2sin!4v1762322342765!5m2!1sen!2sin" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0, minHeight: '280px' }} 
+                allowFullScreen
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Surwahi Location Map"
+              />
+            </div>
           </section>
         </div>
       </div>
@@ -314,7 +320,7 @@ export default function Footer() {
                   aria-label={`Follow us on ${social.name}`}
                 >
                   <span className="sr-only">{social.name}</span>
-                  <span role="img" aria-hidden="true" className="text-lg group-hover:scale-110 transition-transform">{social.icon}</span>
+                  <i className={`${social.icon} text-lg group-hover:scale-110 transition-transform`} aria-hidden="true"></i>
                 </Link>
               ))}
             </div>

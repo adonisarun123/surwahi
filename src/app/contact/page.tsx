@@ -114,6 +114,25 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      {/* Google Maps Section */}
+      <section id="map" className="py-16 bg-sand-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-display text-3xl text-forest-900 mb-8 text-center">Find Us on the Map</h2>
+          <div className="w-full max-w-6xl mx-auto rounded-lg overflow-hidden shadow-lg">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7788986.880134164!2d73.72899689350048!3d17.59246313028678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a2a0ca75f087ccb%3A0xe89d09f64b652f09!2sSurwahi%20Social%20Ecoestate%20Kanha!5e0!3m2!1sen!2sin!4v1762322342765!5m2!1sen!2sin" 
+              width="100%" 
+              height="450" 
+              style={{ border: 0 }} 
+              allowFullScreen
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Surwahi Social Ecoestate Kanha Location"
+            />
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
