@@ -85,7 +85,7 @@ export default function ContactFormComponent({ subject }: ContactFormProps) {
         <input type="hidden" name="subject" value={subject} />
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <label htmlFor="name" className="form-label">Name *</label>
+            <label htmlFor="name" className="form-label" style={{ color: 'black' }}>Name <span style={{ color: 'red' }}>*</span></label>
             <input
               type="text"
               id="name"
@@ -99,7 +99,7 @@ export default function ContactFormComponent({ subject }: ContactFormProps) {
             />
           </div>
           <div>
-            <label htmlFor="email" className="form-label">Email *</label>
+            <label htmlFor="email" className="form-label" style={{ color: 'black' }}>Email <span style={{ color: 'red' }}>*</span></label>
             <input
               type="email"
               id="email"
@@ -109,14 +109,14 @@ export default function ContactFormComponent({ subject }: ContactFormProps) {
               required
               className="form-input"
               style={{ backgroundColor: 'transparent', color: 'black' }}
-              placeholder="your@email.com"
+              placeholder="example@email.com"
             />
           </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <label htmlFor="phone" className="form-label">Phone</label>
+            <label htmlFor="phone" className="form-label" style={{ color: 'black' }}>Phone</label>
             <input
               type="tel"
               id="phone"
@@ -125,11 +125,11 @@ export default function ContactFormComponent({ subject }: ContactFormProps) {
               onChange={handleInputChange}
               className="form-input"
               style={{ backgroundColor: 'transparent', color: 'black' }}
-              placeholder="+91-XXXXX XXXXX"
+              placeholder="+91-98765 43210"
             />
           </div>
           <div>
-            <label htmlFor="city" className="form-label">City</label>
+            <label htmlFor="city" className="form-label" style={{ color: 'black' }}>City</label>
             <input
               type="text"
               id="city"
@@ -144,7 +144,7 @@ export default function ContactFormComponent({ subject }: ContactFormProps) {
         </div>
 
         <div>
-          <label htmlFor="inquiryType" className="form-label">Inquiry Type</label>
+          <label htmlFor="inquiryType" className="form-label" style={{ color: 'black' }}>Inquiry Type</label>
           <select
             id="inquiryType"
             name="inquiryType"
@@ -163,20 +163,19 @@ export default function ContactFormComponent({ subject }: ContactFormProps) {
 
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <label htmlFor="preferredDates" className="form-label">Preferred Dates</label>
+            <label htmlFor="preferredDates" className="form-label" style={{ color: 'black' }}>Preferred Dates</label>
             <input
-              type="text"
+              type="date"
               id="preferredDates"
               name="preferredDates"
               value={formData.preferredDates}
               onChange={handleInputChange}
               className="form-input"
               style={{ backgroundColor: 'transparent', color: 'black' }}
-              placeholder="e.g., Dec 15-20, 2024"
             />
           </div>
           <div>
-            <label htmlFor="partySize" className="form-label">Party Size</label>
+            <label htmlFor="partySize" className="form-label" style={{ color: 'black' }}>Total Guests</label>
             <input
               type="number"
               id="partySize"
@@ -193,7 +192,7 @@ export default function ContactFormComponent({ subject }: ContactFormProps) {
         </div>
 
         <div>
-          <label htmlFor="message" className="form-label">Message *</label>
+          <label htmlFor="message" className="form-label" style={{ color: 'black' }}>Message <span style={{ color: 'red' }}>*</span></label>
           <textarea
             id="message"
             name="message"

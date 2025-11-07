@@ -3,6 +3,7 @@ import { Trophy, Star } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
 import { getImageKitUrl } from '@/lib/images';
+import AwardsCarousel from '@/components/AwardsCarousel';
 
 export const metadata = generatePageMetadata(
   'Awards & Accolades',
@@ -14,10 +15,14 @@ const awardsDetails = {
   title: 'Awards & Accolades',
   description: 'Our journey towards creating a model for sustainable and responsible tourism has been recognized by esteemed organizations. These accolades motivate us to continue our work with greater passion and dedication.',
   images: [
-    { src: getImageKitUrl('Website Photos/surwahi edit.png'), alt: 'Receiving an award at a formal ceremony' },
-    { src: getImageKitUrl('Website Photos/DJI_20250819094744_0109_D.JPG'), alt: 'A close-up of a prestigious award trophy' },
-    { src: getImageKitUrl('Surwahi Social Photos/IMG_20200217_095015 (2).jpg'), alt: 'The Surwahi team celebrating an achievement' },
-    { src: getImageKitUrl('Website Photos/surwahi edit.png'), alt: 'A certificate of excellence on display' },
+    { src: 'https://ik.imagekit.io/surwahi/Website%20Photos/awards/Certificate/AEN%20award.jpg', alt: 'Award certificate' },
+    { src: 'https://ik.imagekit.io/surwahi/Website%20Photos/awards/Certificate/MP%20Award%202025.jpg', alt: 'MP Award 2025 certificate' },
+    { src: 'https://ik.imagekit.io/surwahi/Website%20Photos/awards/Certificate/Toft%20award.png', alt: 'TOFT award' },
+    { src: 'https://ik.imagekit.io/surwahi/Website%20Photos/awards/Certificate/Screenshot%202025-10-28%20174400.png', alt: 'Award recognition screenshot 1' },
+    { src: 'https://ik.imagekit.io/surwahi/Website%20Photos/awards/Certificate/Screenshot%202025-10-28%20175016.png', alt: 'Award recognition screenshot 2' },
+    { src: 'https://ik.imagekit.io/surwahi/Website%20Photos/awards/Certificate/Silver%20Winner%20Badge.jpg', alt: 'Silver winner badge' },
+    { src: 'https://ik.imagekit.io/surwahi/Website%20Photos/awards/Certificate/Surwahi%20Social%20Ecostate%20Kanha.png', alt: 'Surwahi Social Ecoestate Kanha certificate' },
+    { src: 'https://ik.imagekit.io/surwahi/Website%20Photos/awards/Certificate/WhatsApp%20Image%202025-06-20%20at%2010.30.53_92a9d914.jpg', alt: 'Award announcement photo' },
   ],
   awards: [
     {
@@ -55,19 +60,10 @@ export default function AwardsAndAccoladesPage() {
         </div>
       </section>
 
-      {/* Image Gallery */}
+      {/* Awards Carousel */}
       <section className="py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="col-span-2 row-span-2">
-              <Image src={awardsDetails.images[0].src} alt={awardsDetails.images[0].alt} width={1200} height={800} className="rounded-lg object-cover w-full h-full" />
-            </div>
-            {awardsDetails.images.slice(1).map((image, index) => (
-              <div key={index}>
-                <Image src={image.src} alt={image.alt} width={800} height={600} className="rounded-lg object-cover w-full h-full" />
-              </div>
-            ))}
-          </div>
+          <AwardsCarousel images={awardsDetails.images} />
         </div>
       </section>
       
