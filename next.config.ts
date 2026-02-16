@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react', '@headlessui/react'],
   },
-  
+
   // Image optimization configuration
   images: {
     formats: ['image/avif', 'image/webp'],
@@ -23,16 +23,66 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'surwahi.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
       }
     ],
   },
-  
+
+  async redirects() {
+    return [
+      {
+        source: '/story-about-surwahi-social',
+        destination: '/about-us/our-story',
+        permanent: true,
+      },
+      {
+        source: '/about-social-surwahi',
+        destination: '/about-us',
+        permanent: true,
+      },
+      {
+        source: '/surwahi-social/experiences-within-ssek',
+        destination: '/experiences',
+        permanent: true,
+      },
+      {
+        source: '/surwahi-social/best-homestays-of-kanha',
+        destination: '/accommodations',
+        permanent: true,
+      },
+      {
+        source: '/surwahi-ecoestate-house-rules',
+        destination: '/house-rules',
+        permanent: true,
+      },
+      // Shortened URL redirects as recommended
+      {
+        source: '/sustainability/sustainable-development-goals-alignment',
+        destination: '/sustainability/sdg-alignment',
+        permanent: true,
+      },
+      {
+        source: '/experiences/cultural-immersion-and-local-life',
+        destination: '/experiences/cultural-immersion',
+        permanent: true,
+      },
+      {
+        source: '/workshops/grassroots-governance-and-local-democracy',
+        destination: '/workshops/grassroots-governance',
+        permanent: true,
+      },
+    ];
+  },
+
   // Compression
   compress: true,
-  
+
   // PoweredByHeader
   poweredByHeader: false,
-  
+
   // Generate robots.txt and sitemap
   async rewrites() {
     return [
@@ -46,7 +96,7 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  
+
   // Security headers
   async headers() {
     return [
@@ -81,7 +131,7 @@ const nextConfig: NextConfig = {
       }
     ];
   },
-  
+
 
 };
 

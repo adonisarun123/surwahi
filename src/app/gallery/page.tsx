@@ -9,18 +9,18 @@ import { galleryImages } from '@/lib/images';
 // SEO metadata can be set in a parent layout or a separate metadata export if needed.
 
 const allImages = [
-  { src: galleryImages.lodgeExterior, alt: 'The beautiful exterior of the eco-lodge', category: 'Lodge & Architecture' },
-  { src: galleryImages.riverSuite, alt: 'Interior of the River View Suite', category: 'Lodge & Architecture' },
-  { src: galleryImages.hornbill, alt: 'A Malabar Pied Hornbill perched on a branch', category: 'Flora & Fauna' },
-  { src: galleryImages.tigerSafari, alt: 'A tiger spotted during a wildlife safari', category: 'Experiences' },
-  { src: galleryImages.diningExperience, alt: 'A beautifully prepared farm-to-table meal', category: 'Cuisine' },
-  { src: galleryImages.forestTrail, alt: 'A serene trail winding through the forest', category: 'Experiences' },
-  { src: galleryImages.commonArea, alt: 'The cozy common area of the lodge', category: 'Lodge & Architecture' },
-  { src: galleryImages.wildMushrooms, alt: 'A cluster of wild mushrooms on the forest floor', category: 'Flora & Fauna' },
-  { src: galleryImages.gondArt, alt: 'A guest learning Gond art from a local artist', category: 'Experiences' },
-  { src: galleryImages.organicFarm, alt: 'Fresh vegetables growing in the organic farm', category: 'Cuisine' },
-  { src: galleryImages.starryNight, alt: 'The Milky Way visible in the clear night sky', category: 'Experiences' },
-  { src: galleryImages.earthenPottery, alt: 'Hands shaping a pot on a pottery wheel', category: 'Experiences' },
+  { src: galleryImages.lodgeExterior, alt: 'Exterior view of Surwahi Eco-Lodge built with traditional mud architecture', category: 'Lodge & Architecture' },
+  { src: galleryImages.riverSuite, alt: 'Interior of the River View Suite at Surwahi Eco-Lodge', category: 'Lodge & Architecture' },
+  { src: galleryImages.hornbill, alt: 'Malabar Pied Hornbill spotted near Kanha National Park', category: 'Flora & Fauna' },
+  { src: galleryImages.tigerSafari, alt: 'Tiger sighting during a wildlife safari in Kanha Tiger Reserve', category: 'Experiences' },
+  { src: galleryImages.diningExperience, alt: 'Farm-to-table dining experience with local cuisine', category: 'Cuisine' },
+  { src: galleryImages.forestTrail, alt: 'Guided nature walk on a forest trail near Surwahi', category: 'Experiences' },
+  { src: galleryImages.commonArea, alt: 'Cozy common area and library at Surwahi Eco-Lodge', category: 'Lodge & Architecture' },
+  { src: galleryImages.wildMushrooms, alt: 'Wild mushrooms growing in the forest floor at Surwahi', category: 'Flora & Fauna' },
+  { src: galleryImages.gondArt, alt: 'Guests participating in a Gond art workshop with local artisans', category: 'Experiences' },
+  { src: galleryImages.organicFarm, alt: 'Fresh organic vegetables from Surwahi\'s kitchen garden', category: 'Cuisine' },
+  { src: galleryImages.starryNight, alt: 'Stargazing night sky view from Surwahi Eco-Lodge', category: 'Experiences' },
+  { src: galleryImages.earthenPottery, alt: 'Pottery workshop experience with local potters', category: 'Experiences' },
 ];
 
 const videos = [
@@ -46,12 +46,12 @@ export default function GalleryPage() {
 
       <section className="bg-sand-50 py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="font-display text-display-xl text-forest-900 mb-4">
-                Gallery
-            </h1>
-            <p className="text-body-lg text-soil-700 max-w-3xl mx-auto">
-                A visual journey through the experiences, landscapes, and life at Surwahi Social. Explore the beauty that awaits you.
-            </p>
+          <h1 className="font-display text-display-xl text-forest-900 mb-4">
+            Gallery
+          </h1>
+          <p className="text-body-lg text-soil-700 max-w-3xl mx-auto">
+            A visual journey through the experiences, landscapes, and life at Surwahi Social. Explore the beauty that awaits you.
+          </p>
         </div>
       </section>
 
@@ -62,17 +62,16 @@ export default function GalleryPage() {
             <Camera className="h-8 w-8 mr-3 text-moss-500" />
             Photo Gallery
           </h2>
-          
+
           <div className="flex justify-center flex-wrap gap-2 mb-8">
             {categories.map(category => (
               <button
                 key={category}
                 onClick={() => setFilter(category)}
-                className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${
-                  filter === category
+                className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${filter === category
                     ? 'bg-forest-700 text-white'
                     : 'bg-sand-50 text-forest-700 hover:bg-mist-200'
-                }`}
+                  }`}
               >
                 {category}
               </button>
@@ -96,7 +95,7 @@ export default function GalleryPage() {
           </div>
         </div>
       </section>
-      
+
       {/* Video Stories */}
       <section id="video-stories" className="bg-sand-50 py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

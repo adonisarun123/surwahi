@@ -4,13 +4,13 @@ import { generatePageMetadata } from '@/lib/seo';
 import { aboutUsImages } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
-  'Our Story',
-  'The journey of how Surwahi Social was born from a dream of sustainable, community-centric tourism.',
+  'Our Story | Surwahi Eco-Lodge near Kanha National Park',
+  'Discover Surwahi\'s story — an award-winning eco lodge near Kanha National Park built with mud, community & a dream. John Wakefield Award winner 2024.',
   '/about-us/our-story'
 );
 
 const ourStoryDetails = {
-  title: 'Our Story: A Dream Takes Root',
+  title: 'The Surwahi Story: Building an Eco-Lodge near Kanha',
   description: 'Surwahi Social is more than just an eco-lodge; it is the culmination of a lifelong dream and a deep-seated belief in the power of tourism to be a force for good. It is a story of passion, perseverance, and partnership with the land and its people.',
   images: [
     { src: aboutUsImages.foundersVision, alt: 'The founders overlooking the land, envisioning the project' },
@@ -71,7 +71,7 @@ export default function OurStoryPage() {
           </div>
         </div>
       </section>
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="max-w-3xl mx-auto">
           <div className="space-y-10">

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Image from 'next/image';
 import { Check, Clock, Sun, Users } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -71,7 +72,7 @@ export default function WildlifeSafarisPage() {
           </div>
         </div>
       </section>
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Main Content */}
@@ -88,7 +89,7 @@ export default function WildlifeSafarisPage() {
 
             <h2 className="font-display text-3xl text-forest-900 mb-6">What to Expect</h2>
             <p className="text-lg text-soil-700 mb-8">{safariDetails.whatToExpect}</p>
-            
+
             <div className="grid md:grid-cols-2 gap-8 bg-sand-50 p-8 rounded-lg">
               <div>
                 <h3 className="font-display text-2xl text-forest-900 mb-4">Safari Timings</h3>
@@ -119,12 +120,27 @@ export default function WildlifeSafarisPage() {
             <div className="sticky top-24">
               <BookingWidget variant="page" />
               <div className="mt-6 text-center">
-                <a href="/contact" className="btn btn-secondary w-full">Inquire for Group Bookings</a>
+                <Link href="/contact" className="btn btn-secondary w-full">Inquire for Group Bookings</Link>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Stay with Us */}
+      <section className="py-12 bg-sand-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-card p-8 md:p-12 text-center shadow-lg">
+            <h2 className="font-display text-3xl text-forest-900 mb-4">Extend Your Adventure</h2>
+            <p className="text-body-lg text-soil-700 max-w-2xl mx-auto mb-8">
+              Relax in our eco-friendly mud cottages or luxury suites after your day in the wild.
+            </p>
+            <Link href="/accommodations" className="btn btn-primary bg-forest-900 text-white hover:bg-forest-800">
+              View Accommodations
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

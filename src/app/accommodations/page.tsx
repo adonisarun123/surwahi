@@ -5,26 +5,33 @@ import { generatePageMetadata } from '@/lib/seo';
 import { accommodationImages } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
-  'Our Eco Accommodations',
-  'Explore our range of sustainable stays, from luxurious suites to communal dormitories and adventurous camping tents.',
+  'Eco Accommodations near Kanha — Suites, Dorms & Camping | Surwahi',
+  'Stay at Surwahi eco lodge near Kanha — eco suites, dormitories & camping tents. Mud-built, solar-powered comfort. Book your sustainable Kanha stay.',
   '/accommodations'
 );
 
+// ... (categories array stays same, skipping for brevity in replacement if not needed, but here I need to replace the metadata block first)
+// Wait, I need to replace the component H1 too. I'll do two chunks or just replace the file content carefully.
+// I'll do the component H1 in a separate tool call if needed, but replace_file_content is single contiguous block.
+// The file has metadata at top and component at bottom.
+// I will use multi_replace for this file as well.
+
+
 const categories = [
-  { 
-    name: 'Suites', 
+  {
+    name: 'Suites',
     description: 'Luxurious and private, our suites offer the perfect blend of comfort and nature.',
     imageUrl: accommodationImages.suites.category,
     slug: 'suites'
   },
-  { 
-    name: 'Dormitory', 
+  {
+    name: 'Dormitory',
     description: 'Affordable and social, our dormitory is ideal for solo travelers and groups.',
     imageUrl: accommodationImages.dormitory.category,
     slug: 'dormitory'
   },
-  { 
-    name: 'Camping Tents', 
+  {
+    name: 'Camping Tents',
     description: 'Immerse yourself in nature with our comfortable and well-equipped safari tents.',
     imageUrl: accommodationImages.camping.category,
     slug: 'camping-tents'
@@ -41,7 +48,7 @@ export default function AccommodationsPage() {
       <section className="bg-sand-50 py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="font-display text-display-xl text-forest-900 mb-4">
-            Our Accommodations
+            Eco Accommodations near Kanha — Suites, Dorms & Camping
           </h1>
           <p className="text-body-lg text-soil-700 max-w-2xl mx-auto">
             We offer a variety of unique, eco-conscious accommodations designed to connect you with nature.
@@ -57,7 +64,7 @@ export default function AccommodationsPage() {
                 <div className="aspect-w-4 aspect-h-3 relative overflow-hidden">
                   <Image
                     src={category.imageUrl}
-                    alt={category.name}
+                    alt={`${category.name} at Surwahi Eco-Lodge`}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />

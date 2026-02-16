@@ -1,12 +1,12 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { 
-  ArrowLeft, 
-  Users, 
-  Bed, 
-  Maximize, 
-  Eye, 
+import {
+  ArrowLeft,
+  Users,
+  Bed,
+  Maximize,
+  Eye,
   Leaf,
   Star,
   Check,
@@ -25,7 +25,7 @@ interface RoomPageProps {
 export async function generateMetadata({ params }: RoomPageProps) {
   const { slug } = await params;
   const room = rooms[slug as keyof typeof rooms];
-  
+
   if (!room) {
     return {
       title: 'Room Not Found',
@@ -86,7 +86,7 @@ export default async function RoomDetailPage({ params }: RoomPageProps) {
                 priority
               />
             </div>
-            
+
             {/* Thumbnail Grid */}
             <div className="md:col-span-2 grid grid-cols-2 gap-4">
               {room.images.slice(1, 5).map((image, index) => (
@@ -266,7 +266,7 @@ export default async function RoomDetailPage({ params }: RoomPageProps) {
             <div className="lg:col-span-1">
               <div className="sticky top-24">
                 <BookingWidget variant="page" room={room} className="mb-6" />
-                
+
                 {/* Contact Info */}
                 <div className="bg-sand-50 rounded-card p-6">
                   <h4 className="font-medium text-forest-900 mb-3">Need Help Booking?</h4>
@@ -290,6 +290,21 @@ export default async function RoomDetailPage({ params }: RoomPageProps) {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Enhance Your Stay */}
+      <section className="py-12">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-forest-900 rounded-card p-8 md:p-12 text-center text-white">
+            <h2 className="font-display text-3xl mb-4">Enhance Your Stay</h2>
+            <p className="text-body-lg text-bone-0/80 max-w-2xl mx-auto mb-8">
+              Complete your eco-luxury experience with our curated wildlife safaris, nature walks, and cultural workshops.
+            </p>
+            <Link href="/experiences" className="btn btn-secondary border-white text-white hover:bg-white hover:text-forest-900">
+              Explore Experiences
+            </Link>
           </div>
         </div>
       </section>

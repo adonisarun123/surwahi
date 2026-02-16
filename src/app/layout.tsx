@@ -4,7 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { generateMetadata } from "@/lib/seo";
+import { generateMetadata, generateOrganizationSchema, generateWebsiteSchema, generateLodgingBusinessSchema } from "@/lib/seo";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -35,20 +35,20 @@ export default function RootLayout({
         {/* Preconnect to font origins */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
+
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        
+
         {/* Theme color */}
         <meta name="theme-color" content="#1E5741" />
-        
+
         {/* Viewport */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        
+
         {/* Facebook Domain Verification */}
         <meta name="facebook-domain-verification" content="mlk59ybu44651lzcbhhxjfl8vfae8q" />
-        
+
         {/* Font Awesome */}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
       </head>
@@ -66,75 +66,32 @@ export default function RootLayout({
             gtag('config', 'G-NM9B4CP67R');
           `}
         </Script>
-        
+
         <a href="#main" className="skip-link">
           Skip to main content
         </a>
-        
+
         <Header />
-        
+
         <main id="main" className="min-h-screen">
           {children}
         </main>
-        
+
         <Footer />
-        
+
         {/* Schema.org structured data for organization */}
+
+
+        {/* Schema.org structured data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@graph": [
-                {
-                  "@type": "Organization",
-                  "@id": "https://surwahi.com/#org",
-                  "name": "Surwahi Eco-Lodge",
-                  "url": "https://surwahi.com/",
-                  "logo": "https://surwahi.com/assets/logo.png",
-                  "sameAs": [
-                    "https://www.facebook.com/surwahi",
-                    "https://www.instagram.com/surwahi",
-                    "https://www.linkedin.com/company/surwahi"
-                  ],
-                  "foundingDate": "2020",
-                  "address": {
-                    "@type": "PostalAddress",
-                    "streetAddress": "Surwahi Social, Village Surwahi, P.O Majgaon, Tehsil Paraswada",
-                    "addressLocality": "Balaghat",
-                    "addressRegion": "Madhya Pradesh",
-                    "postalCode": "481111",
-                    "addressCountry": "IN"
-                  },
-                  "geo": {
-                    "@type": "GeoCoordinates",
-                    "latitude": "22.2587", 
-                    "longitude": "80.1829"
-                  },
-                  "telephone": "+917795207779",
-                  "email": "contact@surwahi.com",
-                  "image": "https://www.surwahi.com/og-image.jpg",
-                  "contactPoint": [{
-                    "@type": "ContactPoint",
-                    "telephone": "+917795207779",
-                    "contactType": "customer service",
-                    "areaServed": "IN",
-                    "availableLanguage": ["en", "hi"]
-                  }]
-                },
-                {
-                  "@type": "WebSite",
-                  "@id": "https://surwahi.com/#website",
-                  "url": "https://surwahi.com/",
-                  "name": "Surwahi Eco-Lodge",
-                  "publisher": {"@id": "https://surwahi.com/#org"},
-                  "inLanguage": "en-IN",
-                  "potentialAction": {
-                    "@type": "SearchAction",
-                    "target": "https://surwahi.com/search?q={search_term_string}",
-                    "query-input": "required name=search_term_string"
-                  }
-                }
+                generateOrganizationSchema(),
+                generateWebsiteSchema(),
+                generateLodgingBusinessSchema()
               ]
             })
           }}
