@@ -1,9 +1,10 @@
 import { generateMetadata } from '@/lib/seo';
 
 export const metadata = generateMetadata({
-  title: 'Terms of Service — Surwahi Social Ecoestate Kanha',
-  description: 'Terms of service for booking and staying at Surwahi Social Ecoestate Kanha.',
+  title: 'Terms of Service — Surwahi Eco-Lodge',
+  description: 'Terms of service for booking and staying at Surwahi Eco-Lodge.',
   url: 'https://surwahi.com/terms',
+  keywords: ['Terms of Service Surwahi', 'Booking Terms Kanha', 'Resort Policies', 'Hotel Rules Kanha']
 });
 
 export default function TermsPage() {
@@ -20,7 +21,7 @@ export default function TermsPage() {
           <section className="mb-8">
             <h2 className="font-display text-display-md text-forest-900 mb-4">Acceptance of Terms</h2>
             <p className="text-body-md text-black mb-4">
-              By accessing and using Surwahi Social Ecoestate Kanha&apos;s website and services, you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
+              By accessing and using Surwahi Eco-Lodge&apos;s website and services, you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
             </p>
           </section>
 
@@ -63,14 +64,14 @@ export default function TermsPage() {
           <section className="mb-8">
             <h2 className="font-display text-display-md text-forest-900 mb-4">Limitation of Liability</h2>
             <p className="text-body-md text-black mb-4">
-              Surwahi Social Ecoestate Kanha shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of our services or property. We are not responsible for loss or damage to personal belongings.
+              Surwahi Eco-Lodge shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of our services or property. We are not responsible for loss or damage to personal belongings.
             </p>
           </section>
 
           <section className="mb-8">
             <h2 className="font-display text-display-md text-forest-900 mb-4">Intellectual Property</h2>
             <p className="text-body-md text-black mb-4">
-              All content on this website, including text, images, logos, and designs, is the property of Surwahi Social Ecoestate Kanha and is protected by copyright and intellectual property laws.
+              All content on this website, including text, images, logos, and designs, is the property of Surwahi Eco-Lodge and is protected by copyright and intellectual property laws.
             </p>
           </section>
 

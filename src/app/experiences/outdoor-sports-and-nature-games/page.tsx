@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Image from 'next/image';
 import { Check, Users, Sun, Zap } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -7,7 +8,9 @@ import { getImageKitUrl } from '@/lib/images';
 export const metadata = generatePageMetadata(
   'Outdoor Sports & Nature Games',
   'Engage in a variety of outdoor sports and games in a natural setting.',
-  '/experiences/outdoor-sports-and-nature-games'
+  '/experiences/outdoor-sports-and-nature-games',
+  undefined,
+  ['Nature Games', 'Outdoor Activities Kanha', 'Kids Activities Resort', 'Traditional Indian Games', 'Archery Kanha']
 );
 
 const sportsDetails = {
@@ -73,7 +76,7 @@ export default function OutdoorSportsPage() {
           </div>
         </div>
       </section>
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Main Content */}
@@ -90,7 +93,7 @@ export default function OutdoorSportsPage() {
 
             <h2 className="font-display text-3xl text-forest-900 mb-6">What to Expect</h2>
             <p className="text-lg text-soil-700 mb-8">{sportsDetails.whatToExpect}</p>
-            
+
             <div className="bg-sand-50 p-8 rounded-lg">
               <h3 className="font-display text-2xl text-forest-900 mb-6">Available Sports & Games</h3>
               <div className="grid md:grid-cols-2 gap-6">
@@ -113,10 +116,10 @@ export default function OutdoorSportsPage() {
               <div className="bg-bone-0 p-6 rounded-lg shadow-lg">
                 <h3 className="font-display text-xl text-forest-900 mb-4">Ready to Play?</h3>
                 <p className="text-soil-700 mb-4 text-sm">All sports facilities are available for our guests. Contact our front desk to borrow equipment or organize a game.</p>
-                <a href="/contact" className="btn btn-primary w-full">Contact Front Desk</a>
+                <Link href="/contact" className="btn btn-primary w-full">Contact Front Desk</Link>
               </div>
               <div className="mt-6 text-center">
-                <a href="/experiences" className="text-moss-500 hover:underline">Explore other experiences</a>
+                <Link href="/experiences" className="text-moss-500 hover:underline">Explore other experiences</Link>
               </div>
             </div>
           </div>

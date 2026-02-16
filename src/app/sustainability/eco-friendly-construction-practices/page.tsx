@@ -7,7 +7,9 @@ import { getImageKitUrl } from '@/lib/images';
 export const metadata = generatePageMetadata(
   'Eco-Friendly Construction Practices',
   'Learn how we build in harmony with nature.',
-  '/sustainability/eco-friendly-construction-practices'
+  '/sustainability/eco-friendly-construction-practices',
+  undefined,
+  ['Eco Friendly Construction', 'Mud House Building', 'Sustainable Architecture', 'Natural Building Materials', 'Traditional Construction']
 );
 
 const constructionDetails = {
@@ -68,7 +70,7 @@ export default function EcoFriendlyConstructionPage() {
           </div>
         </div>
       </section>
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>

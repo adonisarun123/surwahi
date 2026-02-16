@@ -6,12 +6,14 @@ import { aboutUsImages } from '@/lib/images';
 export const metadata = generatePageMetadata(
   'Our Story | Surwahi Eco-Lodge near Kanha National Park',
   'Discover Surwahi\'s story — an award-winning eco lodge near Kanha National Park built with mud, community & a dream. John Wakefield Award winner 2024.',
-  '/about-us/our-story'
+  '/about-us/our-story',
+  undefined,
+  ['Surwahi Story', 'Eco Lodge History', 'Sustainable Architecture', 'Community Led Tourism', 'Mud House India']
 );
 
 const ourStoryDetails = {
   title: 'The Surwahi Story: Building an Eco-Lodge near Kanha',
-  description: 'Surwahi Social is more than just an eco-lodge; it is the culmination of a lifelong dream and a deep-seated belief in the power of tourism to be a force for good. It is a story of passion, perseverance, and partnership with the land and its people.',
+  description: 'Surwahi Eco-Lodge is more than just an eco-lodge; it is the culmination of a lifelong dream and a deep-seated belief in the power of tourism to be a force for good. It is a story of passion, perseverance, and partnership with the land and its people.',
   images: [
     { src: aboutUsImages.foundersVision, alt: 'The founders overlooking the land, envisioning the project' },
     { src: aboutUsImages.earlyConstruction, alt: 'The early days of construction, using local materials and techniques' },
@@ -33,7 +35,7 @@ const ourStoryDetails = {
     },
     {
       title: 'An Evolving Dream',
-      content: 'Today, Surwahi Social stands as a testament to the idea that a more beautiful, just, and sustainable world is possible. But our story is far from over. It is an evolving dream, a living laboratory for regeneration, and a continuous journey of learning and growing. We invite you to be a part of our story, to experience our vision firsthand, and to join us in writing the next chapter.',
+      content: 'Today, Surwahi Eco-Lodge stands as a testament to the idea that a more beautiful, just, and sustainable world is possible. But our story is far from over. It is an evolving dream, a living laboratory for regeneration, and a continuous journey of learning and growing. We invite you to be a part of our story, to experience our vision firsthand, and to join us in writing the next chapter.',
     },
   ],
 };

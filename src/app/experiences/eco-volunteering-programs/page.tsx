@@ -8,7 +8,9 @@ import ContactForm from '@/components/ContactForm';
 export const metadata = generatePageMetadata(
   'Eco Volunteering Programs',
   'Get involved and contribute to our sustainability and community initiatives.',
-  '/experiences/eco-volunteering-programs'
+  '/experiences/eco-volunteering-programs',
+  undefined,
+  ['Volunteer Kanha', 'Eco Tourism Volunteering', 'Conservation Volunteer India', 'Reforestation Project India', 'Community Service Travel']
 );
 
 const volunteeringDetails = {
@@ -69,7 +71,7 @@ export default function EcoVolunteeringPage() {
           </div>
         </div>
       </section>
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Main Content */}
@@ -86,7 +88,7 @@ export default function EcoVolunteeringPage() {
 
             <h2 className="font-display text-3xl text-forest-900 mb-6">What to Expect</h2>
             <p className="text-lg text-soil-700 mb-8">{volunteeringDetails.whatToExpect}</p>
-            
+
             <div className="bg-sand-50 p-8 rounded-lg">
               <h3 className="font-display text-2xl text-forest-900 mb-6">Our Program Areas</h3>
               <div className="grid md:grid-cols-2 gap-6">

@@ -1,9 +1,10 @@
 import { generateMetadata } from '@/lib/seo';
 
 export const metadata = generateMetadata({
-  title: 'Privacy Policy — Surwahi Social Ecoestate Kanha',
+  title: 'Privacy Policy — Surwahi Eco-Lodge',
   description: 'Privacy policy for Surwahi Social Ecoestate. Learn how we protect and handle your personal information.',
   url: 'https://surwahi.com/privacy',
+  keywords: ['Privacy Policy Surwahi', 'Data Protection Kanha', 'Eco Lodge Privacy', 'UserData Protection']
 });
 
 export default function PrivacyPage() {
@@ -20,7 +21,7 @@ export default function PrivacyPage() {
           <section className="mb-8">
             <h2 className="font-display text-display-md text-forest-900 mb-4">Introduction</h2>
             <p className="text-body-md text-black mb-4">
-              At Surwahi Social Ecoestate Kanha (&quot;Surwahi,&quot; &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;), we are committed to protecting your privacy and personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or stay at our eco-lodge.
+              At Surwahi Eco-Lodge (&quot;Surwahi,&quot; &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;), we are committed to protecting your privacy and personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or stay at our eco-lodge.
             </p>
           </section>
 

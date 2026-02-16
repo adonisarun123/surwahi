@@ -8,7 +8,9 @@ import { getImageKitUrl } from '@/lib/images';
 export const metadata = generatePageMetadata(
   'Dining & Local Cuisine',
   'Discover our farm-to-table dining experience and the flavors of local cuisine.',
-  '/about-us/dining-and-local-cuisine'
+  '/about-us/dining-and-local-cuisine',
+  undefined,
+  ['Farm to Table Kanha', 'Local Cuisine India', 'Organic Food', 'Baiga Cuisine', 'Sustainable Dining']
 );
 
 const diningDetails = {
@@ -83,7 +85,7 @@ export default function DiningPage() {
           </div>
         </div>
       </section>
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>

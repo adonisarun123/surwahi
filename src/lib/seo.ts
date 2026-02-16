@@ -10,6 +10,7 @@ export interface SEOConfig {
   modifiedTime?: string;
   authors?: string[];
   tags?: string[];
+  keywords?: string[];
 }
 
 export const defaultMeta = {
@@ -32,6 +33,7 @@ export function generateMetadata(config: SEOConfig = {}): Metadata {
     modifiedTime,
     authors,
     tags,
+    keywords,
   } = config;
 
   const fullTitle = title === defaultMeta.title ? title : `${title} | ${defaultMeta.siteName}`;
@@ -41,7 +43,7 @@ export function generateMetadata(config: SEOConfig = {}): Metadata {
   const metadata: Metadata = {
     title: fullTitle,
     description,
-    keywords: tags?.join(', '),
+    keywords: keywords?.join(', ') || tags?.join(', '),
     authors: authors?.map(name => ({ name })),
     openGraph: {
       title: fullTitle,
@@ -90,13 +92,15 @@ export function generatePageMetadata(
   title: string,
   description: string,
   path: string = '',
-  image?: string
+  image?: string,
+  keywords?: string[]
 ): Metadata {
   return generateMetadata({
     title,
     description,
     url: path,
     image,
+    keywords,
   });
 }
 
@@ -108,7 +112,8 @@ export function generateBlogMetadata(
   modifiedTime?: string,
   authors?: string[],
   tags?: string[],
-  image?: string
+  image?: string,
+  keywords?: string[]
 ): Metadata {
   return generateMetadata({
     title,
@@ -120,6 +125,7 @@ export function generateBlogMetadata(
     authors,
     tags,
     image,
+    keywords: keywords || tags,
   });
 }
 
@@ -128,16 +134,18 @@ export function generateRoomMetadata(
   description: string,
   slug: string,
   price: number,
-  image?: string
+  image?: string,
+  keywords?: string[]
 ): Metadata {
   const title = `${roomName} - Book Your Stay`;
   const enhancedDescription = `${description} Starting from ₹${price.toLocaleString('en-IN')} per night. Book your sustainable stay at Surwahi Eco-Lodge.`;
-  
+
   return generateMetadata({
     title,
     description: enhancedDescription,
     url: `/accommodations/${slug}`,
     image,
+    keywords,
   });
 }
 
@@ -315,5 +323,20 @@ export function generateBlogPostSchema(post: {
     datePublished: post.publishedAt,
     dateModified: post.updatedAt || post.publishedAt,
     mainEntityOfPage: `https://surwahi.com/blog/${post.slug}`
+  };
+}
+
+export function generateFAQSchema(faqs: Array<{ question: string; answer: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer
+      }
+    }))
   };
 }

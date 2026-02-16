@@ -9,7 +9,9 @@ import { formatPrice } from '@/lib/utils';
 export const metadata = generatePageMetadata(
   'Suites',
   'Explore our luxurious and private suites, offering the perfect blend of comfort and nature.',
-  '/accommodations/suites'
+  '/accommodations/suites',
+  undefined,
+  ['Luxury Suites Kanha', 'Forest Suite', 'River View Room', 'Family Suite Kanha', 'Luxury Eco Resort']
 );
 
 const suites = Object.values(rooms).filter(room => room.category === 'Suites');

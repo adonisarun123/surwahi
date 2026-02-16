@@ -5,14 +5,16 @@ import Link from 'next/link';
 export const metadata = generatePageMetadata(
   'Fact Sheet',
   'Detailed information about our sustainability practices.',
-  '/about-us/fact-sheet'
+  '/about-us/fact-sheet',
+  undefined,
+  ['Sustainability Facts', 'Eco Friendly Practices', 'Green Resort India', 'Carbon Footprint', 'Water Conservation']
 );
 
 const factSheetSections = [
-    { name: 'Water Conservation', href: '/sustainability/evapo-transpiration-toilets' },
-    { name: 'Soil Conservation', href: '/sustainability/tree-census-and-biodiversity-reports' },
-    { name: 'Reforestation & Green Belt', href: '/sustainability/eco-friendly-construction-practices' },
-    { name: 'Energy & Power Management', href: '/sustainability/sustainable-development-goals-alignment' },
+  { name: 'Water Conservation', href: '/sustainability/evapo-transpiration-toilets' },
+  { name: 'Soil Conservation', href: '/sustainability/tree-census-and-biodiversity-reports' },
+  { name: 'Reforestation & Green Belt', href: '/sustainability/eco-friendly-construction-practices' },
+  { name: 'Energy & Power Management', href: '/sustainability/sustainable-development-goals-alignment' },
 ]
 
 export default function FactSheetPage() {

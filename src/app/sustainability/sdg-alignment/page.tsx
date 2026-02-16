@@ -7,7 +7,9 @@ import { getImageKitUrl } from '@/lib/images';
 export const metadata = generatePageMetadata(
   'Sustainable Development Goals (SDGs) Alignment',
   'See how our practices align with the UN’s SDGs.',
-  '/sustainability/sustainable-development-goals-alignment'
+  '/sustainability/sdg-alignment',
+  undefined,
+  ['SDG Alignment', 'Sustainable Development Goals', 'UN SDG Tourism', 'Responsible Business', 'Global Goals']
 );
 
 const sdgDetails = {
@@ -62,7 +64,7 @@ export default function SdgsAlignmentPage() {
           </div>
         </div>
       </section>
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-display text-3xl text-forest-900 mb-8 text-center">Our Contribution to the Global Goals</h2>

@@ -8,7 +8,9 @@ import ContactForm from '@/components/ContactForm';
 export const metadata = generatePageMetadata(
   'Forest Bathing (Shinrin-yoku)',
   'Immerse your senses in the healing atmosphere of the forest.',
-  '/workshops/forest-bathing'
+  '/workshops/forest-bathing',
+  undefined,
+  ['Forest Bathing Kanha', 'Shinrin Yoku India', 'Nature Therapy', 'Mindfulness Retreat', 'Wellness Travel India']
 );
 
 const workshopDetails = {
@@ -72,7 +74,7 @@ export default function ForestBathingPage() {
           </div>
         </div>
       </section>
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Main Content */}
@@ -89,7 +91,7 @@ export default function ForestBathingPage() {
 
             <h2 className="font-display text-3xl text-forest-900 mb-6">What to Expect</h2>
             <p className="text-lg text-soil-700 mb-8">{workshopDetails.whatToExpect}</p>
-            
+
             <div className="bg-sand-50 p-8 rounded-lg">
               <h3 className="font-display text-2xl text-forest-900 mb-6">Sensory Invitations</h3>
               <div className="grid md:grid-cols-2 gap-8">

@@ -8,7 +8,9 @@ import { getImageKitUrl } from '@/lib/images';
 export const metadata = generatePageMetadata(
   'The Lodge & Philosophy',
   'Learn about the design, architecture, and guiding principles of Surwahi.',
-  '/about-us/the-lodge-and-philosophy'
+  '/about-us/the-lodge-and-philosophy',
+  undefined,
+  ['Eco Lodge Philosophy', 'Sustainable Design', 'Regenerative Tourism', 'Conscious Travel', 'Nature Architecture']
 );
 
 const lodgeDetails = {
@@ -77,7 +79,7 @@ export default function LodgeAndPhilosophyPage() {
           </div>
         </div>
       </section>
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-display text-3xl text-forest-900 mb-8 text-center">Our Guiding Philosophy</h2>

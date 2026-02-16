@@ -8,7 +8,9 @@ import ContactForm from '@/components/ContactForm';
 export const metadata = generatePageMetadata(
   'Nature’s Pharmacy (Herbal Healing)',
   'Discover the healing power of plants in our workshop on traditional herbal medicine.',
-  '/workshops/natures-pharmacy'
+  '/workshops/natures-pharmacy',
+  undefined,
+  ['Medicinal Plants India', 'Herbal Medicine Workshop', 'Ethnobotany Kanha', 'Ayurveda Plants', 'Forest Healing']
 );
 
 const workshopDetails = {
@@ -71,7 +73,7 @@ export default function NaturesPharmacyPage() {
           </div>
         </div>
       </section>
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Main Content */}
@@ -106,7 +108,7 @@ export default function NaturesPharmacyPage() {
                   <Calendar className="h-6 w-6 text-moss-500 mr-4" />
                   <div>
                     <p className="font-semibold text-lg text-forest-900">{workshopDetails.schedule[0].date}</p>
-                    <p className="text-sm text-soil-700 flex items-center"><Clock className="h-4 w-4 mr-1"/>{workshopDetails.schedule[0].time}</p>
+                    <p className="text-sm text-soil-700 flex items-center"><Clock className="h-4 w-4 mr-1" />{workshopDetails.schedule[0].time}</p>
                   </div>
                 </div>
                 <span className="px-3 py-1 text-sm rounded-full bg-blue-100 text-blue-800">

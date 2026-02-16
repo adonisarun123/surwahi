@@ -8,7 +8,9 @@ import ContactForm from '@/components/ContactForm';
 export const metadata = generatePageMetadata(
   'Star Gazing Nights',
   'Explore the cosmos from our pristine, light-pollution-free skies.',
-  '/workshops/star-gazing-nights'
+  '/workshops/star-gazing-nights',
+  undefined,
+  ['Star Gazing Kanha', 'Astronomy Workshop', 'Night Sky Tour', 'Telescope Stargazing', 'Dark Sky Experience']
 );
 
 const workshopDetails = {
@@ -71,7 +73,7 @@ export default function StarGazingNightsPage() {
           </div>
         </div>
       </section>
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Main Content */}
@@ -88,7 +90,7 @@ export default function StarGazingNightsPage() {
 
             <h2 className="font-display text-3xl text-forest-900 mb-6">What to Expect</h2>
             <p className="text-lg text-soil-700 mb-8">{workshopDetails.whatToExpect}</p>
-            
+
             <div className="bg-sand-50 p-8 rounded-lg">
               <h3 className="font-display text-2xl text-forest-900 mb-6">Upcoming Sessions</h3>
               <div className="space-y-4">
@@ -98,7 +100,7 @@ export default function StarGazingNightsPage() {
                       <Calendar className="h-6 w-6 text-moss-500 mr-4" />
                       <div>
                         <p className="font-semibold text-lg text-forest-900">{session.date}</p>
-                        <p className="text-sm text-soil-700 flex items-center"><Clock className="h-4 w-4 mr-1"/>{session.time}</p>
+                        <p className="text-sm text-soil-700 flex items-center"><Clock className="h-4 w-4 mr-1" />{session.time}</p>
                       </div>
                     </div>
                     <span className={`px-3 py-1 text-sm rounded-full ${session.availability === 'Open' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}`}>

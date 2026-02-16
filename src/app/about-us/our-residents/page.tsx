@@ -8,7 +8,9 @@ import { getImageKitUrl } from '@/lib/images';
 export const metadata = generatePageMetadata(
   'Our Residents (Flora & Fauna)',
   'Meet the diverse wildlife that calls Surwahi home.',
-  '/about-us/our-residents'
+  '/about-us/our-residents',
+  undefined,
+  ['Wildlife Kanha', 'Flora and Fauna', 'Bird Watching India', 'Butterflies of Kanha', 'Medicinal Plants']
 );
 
 const residentsDetails = {
@@ -114,7 +116,7 @@ export default function OurResidentsPage() {
           </div>
         </div>
       </section>
-      
+
       {/* Flora Section */}
       <section className="bg-sand-50 py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

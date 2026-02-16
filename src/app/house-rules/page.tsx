@@ -5,7 +5,9 @@ import { generatePageMetadata } from '@/lib/seo';
 export const metadata = generatePageMetadata(
   'House Rules & Responsible Travel',
   'Read our house rules and responsible travel code to ensure a safe and respectful stay for everyone.',
-  '/house-rules'
+  '/house-rules',
+  undefined,
+  ['House Rules', 'Responsible Travel Code', 'Eco Lodge Guidelines', 'Guest Conduct Policy']
 );
 
 const rulesDetails = {
@@ -61,12 +63,12 @@ export default function HouseRulesPage() {
 
       <section className="bg-sand-50 py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="font-display text-display-xl text-forest-900 mb-4">
-                {rulesDetails.title}
-            </h1>
-            <p className="text-body-lg text-soil-700 max-w-3xl mx-auto">
-                {rulesDetails.description}
-            </p>
+          <h1 className="font-display text-display-xl text-forest-900 mb-4">
+            {rulesDetails.title}
+          </h1>
+          <p className="text-body-lg text-soil-700 max-w-3xl mx-auto">
+            {rulesDetails.description}
+          </p>
         </div>
       </section>
 

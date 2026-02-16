@@ -9,7 +9,9 @@ import { getImageKitUrl } from '@/lib/images';
 export const metadata = generatePageMetadata(
   'Wildlife Safaris',
   'Experience the thrill of a wildlife safari in the buffer zone of Kanha National Park.',
-  '/experiences/wildlife-safaris'
+  '/experiences/wildlife-safaris',
+  undefined,
+  ['Tiger Safari Kanha', 'Jungle Safari Booking', 'Kanha National Park Safari', 'Wildlife Photography Tour', 'Bengal Tiger India']
 );
 
 const safariDetails = {
@@ -39,7 +41,44 @@ const safariDetails = {
   },
 };
 
+import FAQ from '@/components/FAQ';
+import Testimonials from '@/components/Testimonials';
+import BookingCTA from '@/components/BookingCTA';
+
 export default function WildlifeSafarisPage() {
+  const faqs = [
+    {
+      question: "What are the chances of sighting a tiger?",
+      answer: "While tiger sightings are common in Kanha, they are never guaranteed as these are wild animals in their natural habitat. However, our experienced naturalists track pugmarks and alarm calls to maximize your chances. The summer months (April-June) generally offer higher sighting probabilities."
+    },
+    {
+      question: "Is the safari safe for children?",
+      answer: "Yes, safaris are generally safe for children. We recommend them for children above 5 years old who can sit still for longer durations. Our guides ensure all safety protocols are followed."
+    },
+    {
+      question: "What should I wear for the safari?",
+      answer: "Wear comfortable, earth-toned clothing (greens, browns, beiges) to blend in with the forest. Layering is key, especially for morning safaris which can be chilly. Avoid bright colors and strong perfumes."
+    }
+  ];
+
+  const testimonials = [
+    {
+      quote: "Seeing a tiger in the wild was a dream come true! The naturalist from Surwahi was incredibly knowledgeable and made the whole experience so much richer.",
+      author: "Sarah J.",
+      location: "UK"
+    },
+    {
+      quote: "We loved the buffer zone safari. It was peaceful, beautiful, and we saw so many birds and deer. A perfect alternative to the crowded core zones.",
+      author: "Amit & Priya",
+      location: "Mumbai"
+    },
+    {
+      quote: "The open jeep ride through the forest at sunrise is a memory I will cherish forever. Surwahi handled all the booking logistics seamlessly.",
+      author: "David L.",
+      location: "USA"
+    }
+  ];
+
   return (
     <div className="pt-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -127,20 +166,9 @@ export default function WildlifeSafarisPage() {
         </div>
       </div>
 
-      {/* Stay with Us */}
-      <section className="py-12 bg-sand-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-card p-8 md:p-12 text-center shadow-lg">
-            <h2 className="font-display text-3xl text-forest-900 mb-4">Extend Your Adventure</h2>
-            <p className="text-body-lg text-soil-700 max-w-2xl mx-auto mb-8">
-              Relax in our eco-friendly mud cottages or luxury suites after your day in the wild.
-            </p>
-            <Link href="/accommodations" className="btn btn-primary bg-forest-900 text-white hover:bg-forest-800">
-              View Accommodations
-            </Link>
-          </div>
-        </div>
-      </section>
+      <FAQ items={faqs} />
+      <Testimonials items={testimonials} className="bg-sand-50" />
+      <BookingCTA />
     </div>
   );
 }

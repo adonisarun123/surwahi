@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Image from 'next/image';
 import { Check, Clock, Sun, Shield, Leaf, Smile } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -7,7 +8,9 @@ import { getImageKitUrl } from '@/lib/images';
 export const metadata = generatePageMetadata(
   'Play @ Surwahi',
   'A dedicated space for families and children to play and learn in nature.',
-  '/experiences/play-at-surwahi'
+  '/experiences/play-at-surwahi',
+  undefined,
+  ['Kids Play Area', 'Family Resort Kanha', 'Child Friendly Resort', 'Nature Playground', 'Kids Activities Kanha']
 );
 
 const playDetails = {
@@ -72,7 +75,7 @@ export default function PlayAtSurwahiPage() {
           </div>
         </div>
       </section>
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Main Content */}
@@ -89,7 +92,7 @@ export default function PlayAtSurwahiPage() {
 
             <h2 className="font-display text-3xl text-forest-900 mb-6">What to Expect</h2>
             <p className="text-lg text-soil-700 mb-8">{playDetails.whatToExpect}</p>
-            
+
             <div className="bg-sand-50 p-8 rounded-lg mb-8">
               <h3 className="font-display text-2xl text-forest-900 mb-6">Fun-filled Activities</h3>
               <div className="grid md:grid-cols-2 gap-6">
@@ -120,10 +123,10 @@ export default function PlayAtSurwahiPage() {
               <div className="bg-bone-0 p-6 rounded-lg shadow-lg">
                 <h3 className="font-display text-xl text-forest-900 mb-4">Family Fun Awaits</h3>
                 <p className="text-soil-700 mb-4 text-sm">The Kids Zone is open daily for our guests. Some activities may require advance booking. Please contact reception for the weekly schedule.</p>
-                <a href="/contact" className="btn btn-primary w-full">Contact Reception</a>
+                <Link href="/contact" className="btn btn-primary w-full">Contact Reception</Link>
               </div>
               <div className="mt-6 text-center">
-                <a href="/experiences" className="text-moss-500 hover:underline">Explore other experiences</a>
+                <Link href="/experiences" className="text-moss-500 hover:underline">Explore other experiences</Link>
               </div>
             </div>
           </div>

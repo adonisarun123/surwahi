@@ -7,7 +7,9 @@ import { getImageKitUrl } from '@/lib/images';
 export const metadata = generatePageMetadata(
   'Tree Census & Biodiversity Reports',
   'Explore our research and data on the local ecosystem.',
-  '/sustainability/tree-census-and-biodiversity-reports'
+  '/sustainability/tree-census-and-biodiversity-reports',
+  undefined,
+  ['Tree Census Kanha', 'Biodiversity Report', 'Flora conservation', 'Native Species India', 'Ecosystem Monitoring']
 );
 
 const reportDetails = {
@@ -72,7 +74,7 @@ export default function TreeCensusPage() {
           </div>
         </div>
       </section>
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-display text-3xl text-forest-900 mb-8 text-center">Our Ecosystem at a Glance</h2>

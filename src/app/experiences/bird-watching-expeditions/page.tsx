@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Image from 'next/image';
 import { Check, Clock, Sun, Leaf } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -7,7 +8,9 @@ import { getImageKitUrl } from '@/lib/images';
 export const metadata = generatePageMetadata(
   'Bird-watching Expeditions',
   'Discover the avian diversity of Surwahi with our specialized bird-watching tours.',
-  '/experiences/bird-watching-expeditions'
+  '/experiences/bird-watching-expeditions',
+  undefined,
+  ['Bird Watching Kanha', 'Bird Photography India', 'Kanha Bird Species', 'Ornithology Tours', 'Malabar Pied Hornbill']
 );
 
 const birdWatchingDetails = {
@@ -68,7 +71,7 @@ export default function BirdWatchingPage() {
           </div>
         </div>
       </section>
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Main Content */}
@@ -85,7 +88,7 @@ export default function BirdWatchingPage() {
 
             <h2 className="font-display text-3xl text-forest-900 mb-6">What to Expect</h2>
             <p className="text-lg text-soil-700 mb-8">{birdWatchingDetails.whatToExpect}</p>
-            
+
             <div className="bg-sand-50 p-8 rounded-lg mb-8">
               <h3 className="font-display text-2xl text-forest-900 mb-6">Seasonal Highlights</h3>
               <div className="grid md:grid-cols-3 gap-6">
@@ -113,10 +116,10 @@ export default function BirdWatchingPage() {
               <div className="bg-bone-0 p-6 rounded-lg shadow-lg">
                 <h3 className="font-display text-xl text-forest-900 mb-4">Book a Birding Expedition</h3>
                 <p className="text-soil-700 mb-4 text-sm">Join our naturalists for an unforgettable birding experience. Expeditions are best booked in advance.</p>
-                <a href="/contact" className="btn btn-primary w-full">Inquire Now</a>
+                <Link href="/contact" className="btn btn-primary w-full">Inquire Now</Link>
               </div>
               <div className="mt-6 text-center">
-                <a href="/experiences" className="text-moss-500 hover:underline">Explore other experiences</a>
+                <Link href="/experiences" className="text-moss-500 hover:underline">Explore other experiences</Link>
               </div>
             </div>
           </div>

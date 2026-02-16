@@ -9,7 +9,9 @@ import { formatPrice } from '@/lib/utils';
 export const metadata = generatePageMetadata(
   'Camping Tents',
   'Immerse yourself in nature with our comfortable and well-equipped safari tents.',
-  '/accommodations/camping-tents'
+  '/accommodations/camping-tents',
+  undefined,
+  ['Camping Kanha', 'Safari Tents', 'Tent Stay Kanha', 'Glamping India', 'Jungle Camping']
 );
 
 const campingTents = Object.values(rooms).filter(room => room.category === 'Camping Tents');

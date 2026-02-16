@@ -7,7 +7,9 @@ import { getImageKitUrl } from '@/lib/images';
 export const metadata = generatePageMetadata(
   'Evapo-Transpiration Toilets (ETT)',
   'Learn about our innovative and water-saving toilet systems.',
-  '/sustainability/evapo-transpiration-toilets'
+  '/sustainability/evapo-transpiration-toilets',
+  undefined,
+  ['Evapo-Transpiration Toilets', 'Eco Toilets India', 'Water Conservation', 'Sustainable Sanitation', 'Zero Waste Toilet']
 );
 
 const ettDetails = {
@@ -71,7 +73,7 @@ export default function EttPage() {
           </div>
         </div>
       </section>
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-display text-3xl text-forest-900 mb-8 text-center">How It Works</h2>

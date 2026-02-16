@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Image from 'next/image';
 import { Check, Sun, Users, Leaf } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -7,7 +8,9 @@ import { getImageKitUrl } from '@/lib/images';
 export const metadata = generatePageMetadata(
   'Farm Life Visit',
   'Get a firsthand experience of rural life and sustainable farming practices.',
-  '/experiences/farm-life-visit'
+  '/experiences/farm-life-visit',
+  undefined,
+  ['Organic Farming Experience', 'Farm Stay Kanha', 'Rural Life Experience', 'Sustainable Agriculture Tour', 'Farm to Table Kanha']
 );
 
 const farmVisitDetails = {
@@ -71,7 +74,7 @@ export default function FarmLifeVisitPage() {
           </div>
         </div>
       </section>
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Main Content */}
@@ -88,7 +91,7 @@ export default function FarmLifeVisitPage() {
 
             <h2 className="font-display text-3xl text-forest-900 mb-6">What to Expect</h2>
             <p className="text-lg text-soil-700 mb-8">{farmVisitDetails.whatToExpect}</p>
-            
+
             <div className="bg-sand-50 p-8 rounded-lg">
               <h3 className="font-display text-2xl text-forest-900 mb-6">Farm Activities</h3>
               <div className="grid md:grid-cols-3 gap-6 text-center">
@@ -109,10 +112,10 @@ export default function FarmLifeVisitPage() {
               <div className="bg-bone-0 p-6 rounded-lg shadow-lg">
                 <h3 className="font-display text-xl text-forest-900 mb-4">Book a Farm Visit</h3>
                 <p className="text-soil-700 mb-4 text-sm">This experience is complimentary for our guests. Please let us know at the reception a day in advance.</p>
-                <a href="/contact" className="btn btn-primary w-full">Inquire for Day Visits</a>
+                <Link href="/contact" className="btn btn-primary w-full">Inquire for Day Visits</Link>
               </div>
               <div className="mt-6 text-center">
-                <a href="/experiences" className="text-moss-500 hover:underline">Explore other experiences</a>
+                <Link href="/experiences" className="text-moss-500 hover:underline">Explore other experiences</Link>
               </div>
             </div>
           </div>

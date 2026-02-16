@@ -8,7 +8,9 @@ import ContactForm from '@/components/ContactForm';
 export const metadata = generatePageMetadata(
   'The Art of Regeneration',
   'Learn how we can move beyond sustainability to actively regenerate our ecosystems and communities.',
-  '/workshops/the-art-of-regeneration'
+  '/workshops/the-art-of-regeneration',
+  undefined,
+  ['Regenerative Agriculture', 'Permaculture Workshop', 'Sustainable Design', 'Eco Restoration', 'Soil Regeneration']
 );
 
 const workshopDetails = {
@@ -71,7 +73,7 @@ export default function TheArtOfRegenerationPage() {
           </div>
         </div>
       </section>
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Main Content */}
@@ -106,7 +108,7 @@ export default function TheArtOfRegenerationPage() {
                   <Calendar className="h-6 w-6 text-moss-500 mr-4" />
                   <div>
                     <p className="font-semibold text-lg text-forest-900">{workshopDetails.schedule[0].date}</p>
-                    <p className="text-sm text-soil-700 flex items-center"><Clock className="h-4 w-4 mr-1"/>{workshopDetails.schedule[0].time}</p>
+                    <p className="text-sm text-soil-700 flex items-center"><Clock className="h-4 w-4 mr-1" />{workshopDetails.schedule[0].time}</p>
                   </div>
                 </div>
                 <span className="px-3 py-1 text-sm rounded-full bg-yellow-100 text-yellow-800">

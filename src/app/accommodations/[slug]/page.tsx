@@ -38,7 +38,8 @@ export async function generateMetadata({ params }: RoomPageProps) {
     room.description,
     room.slug,
     room.basePrice,
-    room.images[0]?.url
+    (room.images && room.images.length > 0 ? room.images[0].url : undefined),
+    room.keywords
   );
 }
 

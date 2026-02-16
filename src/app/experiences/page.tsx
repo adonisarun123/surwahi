@@ -7,7 +7,9 @@ import { experienceImages } from '@/lib/images';
 export const metadata = generatePageMetadata(
     'Kanha Jungle Safaris & Nature Experiences | Surwahi Eco-Lodge',
     'Book Kanha National Park jungle safaris, guided forest walks, and Gond art workshops. Authentic eco-tourism experiences at Surwahi near Khatia Gate.',
-    '/experiences'
+    '/experiences',
+    undefined,
+    ['Jungle Safari Kanha', 'Eco Tourism India', 'Nature Walks Kanha', 'Bird Watching Madhya Pradesh', 'Sustainable Travel Experiences', 'Kanha Activities']
 );
 
 const experiences = [
@@ -61,7 +63,7 @@ const experiences = [
     },
     {
         name: 'Cultural Immersion & Local Life',
-        href: '/experiences/cultural-immersion-and-local-life',
+        href: '/experiences/cultural-immersion',
         imageUrl: experienceImages.culturalImmersion,
         description: 'Connect with the local community.'
     },

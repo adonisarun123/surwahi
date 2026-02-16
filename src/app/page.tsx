@@ -4,9 +4,10 @@ import Image from 'next/image';
 import { generateMetadata } from '@/lib/seo';
 
 export const metadata = generateMetadata({
-  title: 'Eco Lodge near Kanha National Park — Surwahi | Award-Winning Eco Stay',
+  title: 'Award-Winning Eco Lodge near Kanha National Park | Surwahi',
   description: 'Stay at Surwahi Eco-Lodge near Kanha National Park. Award-winning sustainable mud cottages, dorms & camping. Located 15km from Khatia Gate.',
   url: 'https://surwahi.com',
+  keywords: ['Eco Lodge Kanha', 'Sustainable Resort India', 'Kanha National Park Hotels', 'Mud House Stay', 'Wildlife Resort Kanha', 'Surwahi Eco-Lodge', 'Ecotourism Madhya Pradesh'],
 });
 
 export default function HomePage() {
@@ -52,7 +53,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-display text-display-lg text-forest-900 mb-4">About Surwahi — A Vision Rooted in Nature</h2>
           <p className="text-body-lg max-w-prose mx-auto mb-6">
-            At Surwahi Social Ecoestate Kanha (SSEK), we believe in living gently — where nature, people, and architecture coexist in harmony. What began as a small idea to build responsibly has now become a vibrant community of travelers, artisans, and changemakers who share one dream: <strong>a greener tomorrow.</strong>
+            At Surwahi Eco-Lodge, we believe in living gently — where nature, people, and architecture coexist in harmony. What began as a small idea to build responsibly has now become a vibrant community of travelers, artisans, and changemakers who share one dream: <strong>a greener tomorrow.</strong>
           </p>
           <p className="text-body-md max-w-prose mx-auto">
             From earthen walls to solar lighting and natural ventilation, every corner at Surwahi celebrates <strong>eco-conscious design</strong> — built <em>with</em> nature, not <em>over</em> it.

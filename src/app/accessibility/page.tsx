@@ -1,9 +1,10 @@
 import { generateMetadata } from '@/lib/seo';
 
 export const metadata = generateMetadata({
-  title: 'Accessibility Statement — Surwahi Social Ecoestate Kanha',
-  description: 'Accessibility information and commitment for Surwahi Social Ecoestate Kanha.',
+  title: 'Accessibility Statement — Surwahi Eco-Lodge',
+  description: 'Accessibility information and commitment for Surwahi Eco-Lodge.',
   url: 'https://surwahi.com/accessibility',
+  keywords: ['Accessibility Statement', 'Accessible Resort Kanha', 'Wheelchair Friendly Resort', 'Inclusive Tourism India']
 });
 
 export default function AccessibilityPage() {
@@ -20,7 +21,7 @@ export default function AccessibilityPage() {
           <section className="mb-8">
             <h2 className="font-display text-display-md text-forest-900 mb-4">Our Commitment</h2>
             <p className="text-body-md text-black mb-4">
-              Surwahi Social Ecoestate Kanha is committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone and applying relevant accessibility standards.
+              Surwahi Eco-Lodge is committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone and applying relevant accessibility standards.
             </p>
           </section>
 
@@ -121,7 +122,7 @@ export default function AccessibilityPage() {
           <section className="mb-8 bg-moss-500/10 p-6 rounded-card border-l-4 border-moss-500">
             <h3 className="font-display text-lg text-forest-900 mb-3">Thank You</h3>
             <p className="text-body-md text-black">
-              Thank you for choosing Surwahi Social Ecoestate Kanha. We are committed to providing an inclusive experience for all our guests and website visitors.
+              Thank you for choosing Surwahi Eco-Lodge. We are committed to providing an inclusive experience for all our guests and website visitors.
             </p>
           </section>
         </div>

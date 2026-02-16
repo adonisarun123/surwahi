@@ -79,7 +79,8 @@ The elevated position provides natural ventilation and cooling, while the privat
       smoking: 'Smoking not permitted',
       extraBed: 'Extra bed available for ₹1,500/night',
       children: 'Children under 5 stay free'
-    }
+    },
+    keywords: ['Treehouse India', 'Luxury Forest Suite', 'Kanha Tree House', 'Canopy Views Kanha', 'Luxury Eco Resort India']
   },
   'river-view-suite': {
     id: '2',
@@ -113,6 +114,7 @@ The elevated position provides natural ventilation and cooling, while the privat
       extraBed: 'Not available',
       children: 'Allowed',
     },
+    keywords: ['River View Room Kanha', 'Luxury Suite Kanha', 'Couple Stay Kanha', 'Romantic Getaway Kanha', 'Riverside Resort Kanha']
   },
   'mixed-dormitory': {
     id: '3',
@@ -146,6 +148,7 @@ The elevated position provides natural ventilation and cooling, while the privat
       extraBed: 'Not available',
       children: 'Not allowed',
     },
+    keywords: ['Hostel in Kanha', 'Budget Stay Kanha', 'Backpacker Hostel Kanha', 'Cheap Stay Kanha National Park', 'Dormitory Kanha']
   },
   'safari-tent': {
     id: '4',
@@ -179,5 +182,6 @@ The elevated position provides natural ventilation and cooling, while the privat
       extraBed: 'Not available',
       children: 'Allowed',
     },
+    keywords: ['Camping Kanha', 'Tent Stay Kanha', 'Glamping India', 'Safari Tents Madhya Pradesh', 'Jungle Camp Kanha']
   }
 };

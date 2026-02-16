@@ -9,7 +9,9 @@ import { formatPrice } from '@/lib/utils';
 export const metadata = generatePageMetadata(
   'Dormitory',
   'Affordable and social, our dormitory is ideal for solo travelers and groups.',
-  '/accommodations/dormitory'
+  '/accommodations/dormitory',
+  undefined,
+  ['Dormitory Kanha', 'Hostel Kanha National Park', 'Budget Stay Kanha', 'Group Accommodation Kanha', 'Backpacker Hostel']
 );
 
 const dormitories = Object.values(rooms).filter(room => room.category === 'Dormitory');

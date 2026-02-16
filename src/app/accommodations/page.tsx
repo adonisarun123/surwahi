@@ -7,7 +7,9 @@ import { accommodationImages } from '@/lib/images';
 export const metadata = generatePageMetadata(
   'Eco Accommodations near Kanha — Suites, Dorms & Camping | Surwahi',
   'Stay at Surwahi eco lodge near Kanha — eco suites, dormitories & camping tents. Mud-built, solar-powered comfort. Book your sustainable Kanha stay.',
-  '/accommodations'
+  '/accommodations',
+  undefined,
+  ['Eco Friendly Accommodation Kanha', 'Sustainable Stays India', 'Family Rooms Kanha', 'Nature Resort Rooms', 'Mud Cottages', 'Forest Stay']
 );
 
 // ... (categories array stays same, skipping for brevity in replacement if not needed, but here I need to replace the metadata block first)

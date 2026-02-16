@@ -12,13 +12,13 @@ interface BreadcrumbsProps {
   customBreadcrumbs?: Array<{ name: string; href: string }>;
 }
 
-export default function Breadcrumbs({ 
-  className, 
+export default function Breadcrumbs({
+  className,
   showHome = true,
-  customBreadcrumbs 
+  customBreadcrumbs
 }: BreadcrumbsProps) {
   const pathname = usePathname();
-  
+
   // Don't show breadcrumbs on home page
   if (pathname === '/') {
     return null;
@@ -49,14 +49,14 @@ export default function Breadcrumbs({
           return (
             <li key={crumb.href} className="flex items-center">
               {index > 0 && (
-                <ChevronRight 
-                  className="h-4 w-4 text-mist-200 mx-1 flex-shrink-0" 
-                  aria-hidden="true" 
+                <ChevronRight
+                  className="h-4 w-4 text-mist-200 mx-1 flex-shrink-0"
+                  aria-hidden="true"
                 />
               )}
-              
+
               {isLast ? (
-                <span 
+                <span
                   className="text-ink-900 font-medium"
                   aria-current="page"
                 >
@@ -85,6 +85,7 @@ export default function Breadcrumbs({
           );
         })}
       </ol>
+      <BreadcrumbJsonLd breadcrumbs={breadcrumbs} />
     </nav>
   );
 }
@@ -105,8 +106,8 @@ export function BreadcrumbJsonLd({ breadcrumbs }: BreadcrumbJsonLdProps) {
       '@type': 'ListItem',
       position: index + 1,
       name: crumb.name,
-      item: crumb.href.startsWith('http') 
-        ? crumb.href 
+      item: crumb.href.startsWith('http')
+        ? crumb.href
         : `https://surwahi.com${crumb.href}`
     }))
   };
@@ -124,14 +125,14 @@ interface CompactBreadcrumbsProps extends BreadcrumbsProps {
   maxItems?: number;
 }
 
-export function CompactBreadcrumbs({ 
-  className, 
+export function CompactBreadcrumbs({
+  className,
   showHome = true,
   customBreadcrumbs,
-  maxItems = 3 
+  maxItems = 3
 }: CompactBreadcrumbsProps) {
   const pathname = usePathname();
-  
+
   if (pathname === '/') {
     return null;
   }
@@ -165,7 +166,7 @@ export function CompactBreadcrumbs({
     >
       <ol className="flex items-center space-x-1">
         {displayBreadcrumbs.map((crumb, index) => {
-          const isLast = !showEllipsis 
+          const isLast = !showEllipsis
             ? index === displayBreadcrumbs.length - 1
             : index === 1; // In truncated view, second item is last
           const isHome = crumb.href === '/';
@@ -176,24 +177,24 @@ export function CompactBreadcrumbs({
                 <>
                   {showEllipsis && index === 1 && (
                     <>
-                      <ChevronRight 
-                        className="h-4 w-4 text-mist-200 mx-1 flex-shrink-0" 
-                        aria-hidden="true" 
+                      <ChevronRight
+                        className="h-4 w-4 text-mist-200 mx-1 flex-shrink-0"
+                        aria-hidden="true"
                       />
                       <span className="text-mist-200 mx-1" aria-hidden="true">
                         ...
                       </span>
                     </>
                   )}
-                  <ChevronRight 
-                    className="h-4 w-4 text-mist-200 mx-1 flex-shrink-0" 
-                    aria-hidden="true" 
+                  <ChevronRight
+                    className="h-4 w-4 text-mist-200 mx-1 flex-shrink-0"
+                    aria-hidden="true"
                   />
                 </>
               )}
-              
+
               {isLast ? (
-                <span 
+                <span
                   className="text-ink-900 font-medium"
                   aria-current="page"
                 >

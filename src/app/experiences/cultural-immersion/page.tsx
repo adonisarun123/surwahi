@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Image from 'next/image';
 import { Check, Users, Hand, Mic, Home } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -7,7 +8,9 @@ import { getImageKitUrl } from '@/lib/images';
 export const metadata = generatePageMetadata(
   'Cultural Immersion & Local Life',
   'Experience the local culture and traditions of the communities around Surwahi.',
-  '/experiences/cultural-immersion-and-local-life'
+  '/experiences/cultural-immersion',
+  undefined,
+  ['Tribal Village Tour', 'Gond Culture', 'Village Life India', 'Rural Tourism Madhya Pradesh', 'Baiga Tribe Culture']
 );
 
 const culturalDetails = {
@@ -38,7 +41,25 @@ const culturalDetails = {
   },
 };
 
+import FAQ from '@/components/FAQ';
+import BookingCTA from '@/components/BookingCTA';
+
 export default function CulturalImmersionPage() {
+  const faqs = [
+    {
+      question: "Is it okay to take photographs in the village?",
+      answer: "We ask that you always seek permission before taking photographs of people or their homes. Our guide will help facilitate this. The aim is to have a respectful interaction, not just a photo opportunity."
+    },
+    {
+      question: "Can we buy products directly from the artisans?",
+      answer: "Absolutely! We encourage supporting the local economy. You can buy pottery, paintings, or other crafts directly from the artisans. Cash is usually the preferred mode of payment in the village."
+    },
+    {
+      question: "What language do the locals speak?",
+      answer: "The local language is a dialect of Hindi/Gondi. Your guide will translate for you, helping you communicate and share stories."
+    }
+  ];
+
   return (
     <div className="pt-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -71,7 +92,7 @@ export default function CulturalImmersionPage() {
           </div>
         </div>
       </section>
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Main Content */}
@@ -88,7 +109,7 @@ export default function CulturalImmersionPage() {
 
             <h2 className="font-display text-3xl text-forest-900 mb-6">What to Expect</h2>
             <p className="text-lg text-soil-700 mb-8">{culturalDetails.whatToExpect}</p>
-            
+
             <div className="bg-sand-50 p-8 rounded-lg">
               <h3 className="font-display text-2xl text-forest-900 mb-6">Immersion Activities</h3>
               <div className="grid md:grid-cols-3 gap-6 text-center">
@@ -109,15 +130,21 @@ export default function CulturalImmersionPage() {
               <div className="bg-bone-0 p-6 rounded-lg shadow-lg">
                 <h3 className="font-display text-xl text-forest-900 mb-4">Book a Cultural Tour</h3>
                 <p className="text-soil-700 mb-4 text-sm">To ensure a meaningful and respectful experience for both our guests and the community, these tours are arranged on request. Please contact us to know more.</p>
-                <a href="/contact" className="btn btn-primary w-full">Inquire Now</a>
+                <Link href="/contact" className="btn btn-primary w-full">Inquire Now</Link>
               </div>
               <div className="mt-6 text-center">
-                <a href="/experiences" className="text-moss-500 hover:underline">Explore other experiences</a>
+                <Link href="/experiences" className="text-moss-500 hover:underline">Explore other experiences</Link>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <FAQ items={faqs} />
+      <BookingCTA
+        title="Experience Village Life"
+        description="Connect with the warmth and wisdom of the local community. Stay at Surwahi Eco-Lodge."
+      />
     </div>
   );
 }

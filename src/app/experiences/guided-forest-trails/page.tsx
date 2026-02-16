@@ -8,7 +8,9 @@ import { getImageKitUrl } from '@/lib/images';
 export const metadata = generatePageMetadata(
   'Guided Forest Trails',
   'Explore the rich biodiversity of the forest with our expert guides.',
-  '/experiences/guided-forest-trails'
+  '/experiences/guided-forest-trails',
+  undefined,
+  ['Nature Trails Kanha', 'Forest Walks', 'Guided Nature Walks', 'Flora and Fauna Kanha', 'Hiking Kanha']
 );
 
 const trailDetails = {
@@ -39,7 +41,25 @@ const trailDetails = {
   },
 };
 
+import FAQ from '@/components/FAQ';
+import BookingCTA from '@/components/BookingCTA';
+
 export default function GuidedForestTrailsPage() {
+  const faqs = [
+    {
+      question: "Are these walks suitable for seniors?",
+      answer: "Yes, our 'Herbal Walk' and 'Riverine Trail' are easy-paced and generally flat, making them suitable for most fitness levels, including agile seniors."
+    },
+    {
+      question: "Will we see big cats on these trails?",
+      answer: "While we walk in the buffer zone where wildlife is present, these trails are more focused on smaller fauna, birdlife, plants, and the overall ecosystem. Safety is our priority, and we avoid areas with recent big cat activity for walking safaris."
+    },
+    {
+      question: "Do I need special shoes?",
+      answer: "Sturdy walking shoes or sneakers are highly recommended. Avoid open-toed sandals. Long pants are also advised to protect against scratches and insects."
+    }
+  ];
+
   return (
     <div className="pt-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -123,20 +143,11 @@ export default function GuidedForestTrailsPage() {
         </div>
       </div>
 
-      {/* Stay with Us */}
-      <section className="py-12 bg-sand-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-card p-8 md:p-12 text-center shadow-lg">
-            <h2 className="font-display text-3xl text-forest-900 mb-4">Extend Your Adventure</h2>
-            <p className="text-body-lg text-soil-700 max-w-2xl mx-auto mb-8">
-              Relax in our eco-friendly mud cottages or luxury suites after your day in the wild.
-            </p>
-            <Link href="/accommodations" className="btn btn-primary bg-forest-900 text-white hover:bg-forest-800">
-              View Accommodations
-            </Link>
-          </div>
-        </div>
-      </section>
+      <FAQ items={faqs} />
+      <BookingCTA
+        title="Walk on the Wild Side"
+        description="Immerse yourself in the sights, smells, and sounds of the forest. Book your stay at Surwahi today."
+      />
     </div>
   );
 }

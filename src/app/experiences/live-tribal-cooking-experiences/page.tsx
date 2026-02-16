@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Image from 'next/image';
 import { Check, Leaf, Users, Utensils } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -7,7 +8,9 @@ import { getImageKitUrl } from '@/lib/images';
 export const metadata = generatePageMetadata(
   'Live Tribal Cooking Experiences',
   'Learn to cook traditional tribal dishes with local chefs.',
-  '/experiences/live-tribal-cooking-experiences'
+  '/experiences/live-tribal-cooking-experiences',
+  undefined,
+  ['Tribal Food India', 'Village Cooking Class', 'Traditional Recipes Madhya Pradesh', 'Cooking Workshop Kanha', 'Gond Cuisine']
 );
 
 const cookingDetails = {
@@ -71,7 +74,7 @@ export default function LiveTribalCookingPage() {
           </div>
         </div>
       </section>
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Main Content */}
@@ -88,7 +91,7 @@ export default function LiveTribalCookingPage() {
 
             <h2 className="font-display text-3xl text-forest-900 mb-6">What to Expect</h2>
             <p className="text-lg text-soil-700 mb-8">{cookingDetails.whatToExpect}</p>
-            
+
             <div className="bg-sand-50 p-8 rounded-lg">
               <h3 className="font-display text-2xl text-forest-900 mb-6">A Taste of Our Menu</h3>
               <div className="grid md:grid-cols-3 gap-6">
@@ -109,10 +112,10 @@ export default function LiveTribalCookingPage() {
               <div className="bg-bone-0 p-6 rounded-lg shadow-lg">
                 <h3 className="font-display text-xl text-forest-900 mb-4">Book Your Culinary Adventure</h3>
                 <p className="text-soil-700 mb-4 text-sm">These exclusive cooking experiences are arranged on request. Please contact us to check availability and book your spot.</p>
-                <a href="/contact" className="btn btn-primary w-full">Inquire Now</a>
+                <Link href="/contact" className="btn btn-primary w-full">Inquire Now</Link>
               </div>
               <div className="mt-6 text-center">
-                <a href="/experiences" className="text-moss-500 hover:underline">Explore other experiences</a>
+                <Link href="/experiences" className="text-moss-500 hover:underline">Explore other experiences</Link>
               </div>
             </div>
           </div>

@@ -7,23 +7,25 @@ import { workshopImages } from '@/lib/images';
 export const metadata = generatePageMetadata(
   'Workshops & Learning',
   'Engage in hands-on workshops and learning experiences, from pottery and tribal art to stargazing and eco-construction.',
-  '/workshops'
+  '/workshops',
+  undefined,
+  ['Workshops Kanha', 'Skill Learning', 'Nature Workshops', 'Sustainable Living Workshops', 'Art Workshops India']
 );
 
 const workshops = [
-    { name: 'Star Gazing Nights', href: '/workshops/star-gazing-nights', imageUrl: workshopImages.starGazing, description: 'Explore the cosmos from our dark sky location.' },
-    { name: 'Astro-Photography', href: '/workshops/astro-photography', imageUrl: workshopImages.astroPhotography, description: 'Capture the beauty of the night sky.' },
-    { name: 'Earthen Pottery', href: '/workshops/earthen-pottery', imageUrl: workshopImages.earthenPottery, description: 'Craft your own pottery from local clay.' },
-    { name: 'Gond Art Workshops', href: '/workshops/gond-art-workshops', imageUrl: workshopImages.gondArt, description: 'Learn the intricate art of the Gond tribe.' },
-    { name: 'Bamboo & Lantana Crafting', href: '/workshops/bamboo-and-lantana-crafting', imageUrl: workshopImages.bambooCrafting, description: 'Create beautiful objects from natural materials.' },
-    { name: 'Forest Bathing (Shinrin-Yoku)', href: '/workshops/forest-bathing', imageUrl: workshopImages.forestBathing, description: 'Reconnect with nature and yourself.' },
-    { name: 'Leaf Plate Making', href: '/workshops/leaf-plate-making', imageUrl: workshopImages.leafPlate, description: 'Learn the traditional art of making leaf plates.' },
-    { name: 'Food Foraging Trails', href: '/workshops/food-foraging-trails', imageUrl: workshopImages.foodForaging, description: 'Discover the edible treasures of the forest.' },
-    { name: 'Herping Walks (Amphibian Study)', href: '/workshops/herping-walks', imageUrl: workshopImages.herping, description: 'Explore the world of reptiles and amphibians.' },
-    { name: 'The Art of Regeneration', href: '/workshops/the-art-of-regeneration', imageUrl: workshopImages.regeneration, description: 'Learn about ecological restoration.' },
-    { name: 'Grassroots Governance & Local Democracy', href: '/workshops/grassroots-governance-and-local-democracy', imageUrl: workshopImages.governance, description: 'Understand local community structures.' },
-    { name: "Nature's Pharmacy (Herbal Healing)", href: '/workshops/natures-pharmacy', imageUrl: workshopImages.naturesPharmacy, description: 'Discover the medicinal properties of local plants.' },
-    { name: 'Build With Mud (Eco-Architecture)', href: '/workshops/build-with-mud', imageUrl: workshopImages.buildWithMud, description: 'Learn the art of sustainable construction.' },
+  { name: 'Star Gazing Nights', href: '/workshops/star-gazing-nights', imageUrl: workshopImages.starGazing, description: 'Explore the cosmos from our dark sky location.' },
+  { name: 'Astro-Photography', href: '/workshops/astro-photography', imageUrl: workshopImages.astroPhotography, description: 'Capture the beauty of the night sky.' },
+  { name: 'Earthen Pottery', href: '/workshops/earthen-pottery', imageUrl: workshopImages.earthenPottery, description: 'Craft your own pottery from local clay.' },
+  { name: 'Gond Art Workshops', href: '/workshops/gond-art-workshops', imageUrl: workshopImages.gondArt, description: 'Learn the intricate art of the Gond tribe.' },
+  { name: 'Bamboo & Lantana Crafting', href: '/workshops/bamboo-and-lantana-crafting', imageUrl: workshopImages.bambooCrafting, description: 'Create beautiful objects from natural materials.' },
+  { name: 'Forest Bathing (Shinrin-Yoku)', href: '/workshops/forest-bathing', imageUrl: workshopImages.forestBathing, description: 'Reconnect with nature and yourself.' },
+  { name: 'Leaf Plate Making', href: '/workshops/leaf-plate-making', imageUrl: workshopImages.leafPlate, description: 'Learn the traditional art of making leaf plates.' },
+  { name: 'Food Foraging Trails', href: '/workshops/food-foraging-trails', imageUrl: workshopImages.foodForaging, description: 'Discover the edible treasures of the forest.' },
+  { name: 'Herping Walks (Amphibian Study)', href: '/workshops/herping-walks', imageUrl: workshopImages.herping, description: 'Explore the world of reptiles and amphibians.' },
+  { name: 'The Art of Regeneration', href: '/workshops/the-art-of-regeneration', imageUrl: workshopImages.regeneration, description: 'Learn about ecological restoration.' },
+  { name: 'Grassroots Governance & Local Democracy', href: '/workshops/grassroots-governance', imageUrl: workshopImages.governance, description: 'Understand local community structures.' },
+  { name: "Nature's Pharmacy (Herbal Healing)", href: '/workshops/natures-pharmacy', imageUrl: workshopImages.naturesPharmacy, description: 'Discover the medicinal properties of local plants.' },
+  { name: 'Build With Mud (Eco-Architecture)', href: '/workshops/build-with-mud', imageUrl: workshopImages.buildWithMud, description: 'Learn the art of sustainable construction.' },
 ];
 
 export default function WorkshopsPage() {
@@ -38,22 +40,22 @@ export default function WorkshopsPage() {
           Immerse yourself in hands-on learning experiences that connect you with nature, culture, and new skills.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {workshops.map((workshop) => (
-                <Link href={workshop.href} key={workshop.name} className="group block bg-bone-0 rounded-card overflow-hidden shadow-elev-1 hover:shadow-elev-2 transition-all">
-                    <div className="aspect-w-4 aspect-h-3 relative overflow-hidden">
-                        <Image
-                            src={workshop.imageUrl}
-                            alt={workshop.name}
-                            fill
-                            className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                    </div>
-                    <div className="p-6">
-                        <h3 className="font-display text-2xl text-forest-900 mb-2">{workshop.name}</h3>
-                        <p className="text-soil-700 text-sm">{workshop.description}</p>
-                    </div>
-                </Link>
-            ))}
+          {workshops.map((workshop) => (
+            <Link href={workshop.href} key={workshop.name} className="group block bg-bone-0 rounded-card overflow-hidden shadow-elev-1 hover:shadow-elev-2 transition-all">
+              <div className="aspect-w-4 aspect-h-3 relative overflow-hidden">
+                <Image
+                  src={workshop.imageUrl}
+                  alt={workshop.name}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="font-display text-2xl text-forest-900 mb-2">{workshop.name}</h3>
+                <p className="text-soil-700 text-sm">{workshop.description}</p>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </div>
