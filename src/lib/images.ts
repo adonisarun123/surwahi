@@ -15,6 +15,7 @@ export const getImageKitUrl = (path: string) => {
 export const accommodationImages = {
   // Suite Category Images
   suites: {
+    hero: getImageKitUrl('Surwahi Social Photos/Family Suite/Jholar_Room_Interior.JPG'),
     category: getImageKitUrl('Surwahi Social Photos/Family Suite/Jholar_Room_Interior.JPG'),
     forestCanopy: [
       getImageKitUrl('Surwahi Social Photos/Family Suite/Jholar_Bed_Portrait.JPG'),
@@ -27,7 +28,7 @@ export const accommodationImages = {
       getImageKitUrl('Surwahi Social Photos/Family Suite/Jholar_Work_Table_Couch_from_Bed_Portrait.JPG'),
     ]
   },
-  
+
   // Dormitory Category Images
   dormitory: {
     category: getImageKitUrl('Surwahi Social Photos/Dormitory/Maikal_full_length_Landscape_1 - Copy.JPG'),
@@ -36,7 +37,7 @@ export const accommodationImages = {
       getImageKitUrl('Surwahi Social Photos/Dormitory/Maikal_Quarter_Dome_1.JPG'),
     ]
   },
-  
+
   // Camping Tents Category Images
   camping: {
     category: getImageKitUrl('Website Photos/IMG_4330 (1).JPG'),
