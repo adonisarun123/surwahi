@@ -63,7 +63,7 @@ export default function GuestReviewsPage() {
                         Guest Love
                     </h1>
                     <p className="text-body-lg text-soil-700 max-w-2xl mx-auto">
-                        We don't just host guests; we make friends. Here's what travelers from around the world have to say about their Surwahi experience.
+                        We don&apos;t just host guests; we make friends. Here&apos;s what travelers from around the world have to say about their Surwahi experience.
                     </p>
                 </div>
             </section>
@@ -112,7 +112,7 @@ export default function GuestReviewsPage() {
                                     ))}
                                 </div>
                             </div>
-                            <p className="text-soil-700 italic mb-6 leading-relaxed flex-1">"{review.content}"</p>
+                            <p className="text-soil-700 italic mb-6 leading-relaxed flex-1">&quot;{review.content}&quot;</p>
                             <div className="flex justify-between items-center text-xs text-soil-500 pt-4 border-t border-stone-100">
                                 <span>Visited in {review.date}</span>
                                 <span className="px-2 py-1 bg-sand-100 rounded-md">via {review.source}</span>

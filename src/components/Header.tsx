@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, Phone, Mail, Instagram, Facebook, Linkedin } from 'lucide-react';
+import { Menu, X, ChevronDown, Instagram, Facebook, Linkedin } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
 import { NavigationItem } from '@/types';

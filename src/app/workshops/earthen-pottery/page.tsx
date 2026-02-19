@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { Check, Users, Calendar, Clock, Hand } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
-import { getImageKitUrl, workshopImages, experienceImages } from '@/lib/images';
+import { getImageKitUrl, workshopImages } from '@/lib/images';
 import ContactForm from '@/components/ContactForm';
 import RelatedContent from '@/components/RelatedContent';
 
@@ -16,7 +16,7 @@ export const metadata = generatePageMetadata(
 
 const workshopDetails = {
   title: 'Earthen Pottery Workshop',
-  description: 'Get your hands dirty and your spirit centered. Our earthen pottery workshop is a therapeutic and creative journey, where you\'ll learn the ancient art of shaping clay, guided by skilled local artisans.',
+  description: 'Get your hands dirty and your spirit centered. Our earthen pottery workshop is a therapeutic and creative journey, where you&apos;ll learn the ancient art of shaping clay, guided by skilled local artisans.',
   images: [
     { src: getImageKitUrl('Website Photos/0eff556c5ffef77703536bec9bd14585.jpg'), alt: 'A potter shaping clay on a wheel' },
     { src: getImageKitUrl('Surwahi Social Photos/A.jpg'), alt: 'Hands working the clay' },
@@ -32,7 +32,7 @@ const workshopDetails = {
   ],
   whatYouWillLearn: [
     { title: 'Clay Preparation', description: 'Understand the process of sourcing and preparing the local clay.', icon: Hand },
-    { title: 'Wheel Throwing', description: 'Get a feel for the potter\'s wheel and learn to center and shape the clay.', icon: Check },
+    { title: 'Wheel Throwing', description: 'Get a feel for the potter&apos;s wheel and learn to center and shape the clay.', icon: Check },
     { title: 'Hand Building', description: 'Explore techniques like pinching, coiling, and slab building.', icon: Users },
     { title: 'Finishing', description: 'Learn about the drying and firing process (firing is done after you leave and can be shipped).', icon: Clock },
   ],

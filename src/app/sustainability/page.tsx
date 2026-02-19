@@ -61,7 +61,7 @@ export default function SustainabilityPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="font-display text-display-xl mb-4 text-center">Sustainability at Surwahi</h1>
           <p className="text-center text-moss-100 mb-12 max-w-2xl mx-auto text-lg">
-            Sustainability isn't a feature — it's our foundation. Every decision at Surwahi
+            Sustainability isn&apos;t a feature — it&apos;s our foundation. Every decision at Surwahi
             is made with the earth, the community, and future generations in mind.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-5xl mx-auto">

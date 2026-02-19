@@ -1,7 +1,7 @@
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
 import Link from 'next/link';
-import { Info, AlertTriangle } from 'lucide-react';
+import { Info } from 'lucide-react';
 
 export const metadata = generatePageMetadata(
     'Kanha Safari Booking Guide | Surwahi Eco Lodge',

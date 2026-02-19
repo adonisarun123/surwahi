@@ -71,7 +71,7 @@ export default function PlanYourVisitPage() {
                         Plan Your Visit to Surwahi
                     </h1>
                     <p className="text-xl text-bone-0/90 max-w-2xl mx-auto">
-                        Everything you need to know to craft your perfect eco-escape. From travel logistics to safari bookings, we've got you covered.
+                        Everything you need to know to craft your perfect eco-escape. From travel logistics to safari bookings, we&apos;ve got you covered.
                     </p>
                 </div>
             </section>

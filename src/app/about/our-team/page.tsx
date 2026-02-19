@@ -2,7 +2,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Users, Heart, Handshake } from 'lucide-react';
+import { Handshake } from 'lucide-react';
 
 export const metadata = generatePageMetadata(
     'Meet the Team | Surwahi Eco Lodge',

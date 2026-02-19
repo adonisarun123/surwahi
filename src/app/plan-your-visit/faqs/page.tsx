@@ -157,7 +157,7 @@ export default function FAQsPage() {
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h2 className="font-display text-2xl text-forest-900 mb-4">Still have questions?</h2>
                     <p className="text-soil-700 mb-6">
-                        We're here to help. Reach out to us directly.
+                        We&apos;re here to help. Reach out to us directly.
                     </p>
                     <Link href="/contact" className="btn btn-primary">
                         Contact Us

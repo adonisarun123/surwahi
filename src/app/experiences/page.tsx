@@ -2,7 +2,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import Image from 'next/image';
-import { experienceImages } from '@/lib/images';
+
 import { experienceGroups } from '@/lib/data';
 import { ArrowRight } from 'lucide-react';
 
