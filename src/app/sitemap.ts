@@ -1,90 +1,64 @@
 import { MetadataRoute } from 'next';
-
-const URL = 'https://www.surwahi.com';
-
-const accommodations = [
-  'forest-canopy-suite',
-  'river-view-suite',
-  'mixed-dormitory',
-  'safari-tent'
-];
-
-const blogPosts = [
-  'the-magic-of-the-monsoon-forest',
-  'building-with-mud-a-lesson-in-sustainability',
-  'a-tiger-sighting-that-changed-my-perspective'
-];
+import { blogPosts, experienceGroups, workshopGroups } from '@/lib/data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = [
-    '/',
-    '/about-us',
-    '/about-us/our-story',
-    '/about-us/the-lodge-and-philosophy',
-    '/about-us/dining-and-local-cuisine',
-    '/about-us/fact-sheet',
-    '/about-us/our-residents',
+  const baseUrl = 'https://surwahi.com';
+
+  // Static routes
+  const staticRoutes = [
+    '',
+    '/about/our-story',
+    '/about/our-team',
+    '/about/why-surwahi',
     '/accommodations',
-    '/accommodations/suites',
-    '/accommodations/dormitory',
-    '/accommodations/camping-tents',
-    '/experiences',
-    '/experiences/wildlife-safaris',
-    '/experiences/guided-forest-trails',
-    '/experiences/bird-watching-expeditions',
-    '/experiences/farm-life-visit',
-    '/experiences/know-your-crop',
-    '/experiences/play-at-surwahi',
-    '/experiences/outdoor-sports-and-nature-games',
-    '/experiences/eco-volunteering-programs',
-    '/experiences/cultural-immersion',
-    '/experiences/live-tribal-cooking-experiences',
-    '/sustainability',
-    '/sustainability/evapo-transpiration-toilets',
-    '/sustainability/tree-census-and-biodiversity-reports',
-    '/sustainability/eco-friendly-construction-practices',
-    '/sustainability/sdg-alignment',
-    '/workshops',
-    '/workshops/star-gazing-nights',
-    '/workshops/astro-photography',
-    '/workshops/earthen-pottery',
-    '/workshops/gond-art-workshops',
-    '/workshops/bamboo-and-lantana-crafting',
-    '/workshops/forest-bathing',
-    '/workshops/leaf-plate-making',
-    '/workshops/food-foraging-trails',
-    '/workshops/herping-walks',
-    '/workshops/the-art-of-regeneration',
-    '/workshops/grassroots-governance',
-    '/workshops/natures-pharmacy',
-    '/workshops/build-with-mud',
-    '/praises',
-    '/praises/awards-and-accolades',
-    '/praises/press-mentions-and-recognitions',
-    '/gallery',
-    '/getting-here',
     '/blogs',
-    '/house-rules',
     '/contact',
-    '/privacy',
-    '/terms',
-    '/cancellation',
-    '/accessibility',
-    '/kanha-national-park',
+    '/experiences',
+    '/gallery',
+    '/plan-your-visit',
+    '/plan-your-visit/getting-here',
+    '/plan-your-visit/best-time-to-visit',
+    '/plan-your-visit/safari-booking-guide',
+    '/plan-your-visit/faqs',
+    '/stay',
+    '/stories',
+    '/stories/guest-reviews',
+    '/sustainability',
+    '/workshops',
   ].map((route) => ({
-    url: `${URL}${route}`,
+    url: `${baseUrl}${route}`,
     lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: route === '' ? 1 : 0.8,
   }));
 
-  const accommodationPages = accommodations.map((slug) => ({
-    url: `${URL}/accommodations/${slug}`,
-    lastModified: new Date(),
+  // Blog posts
+  const blogRoutes = blogPosts.map((post) => ({
+    url: `${baseUrl}/blogs/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
   }));
 
-  const blogPages = blogPosts.map((slug) => ({
-    url: `${URL}/blogs/${slug}`,
-    lastModified: new Date(),
-  }));
+  // Experience routes
+  const experienceRoutes = experienceGroups.flatMap((group) =>
+    group.items.map((item) => ({
+      url: `${baseUrl}${item.href}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    }))
+  );
 
-  return [...staticPages, ...accommodationPages, ...blogPages];
+  // Workshop routes
+  const workshopRoutes = workshopGroups.flatMap((group) =>
+    group.items.map((item) => ({
+      url: `${baseUrl}${item.href}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    }))
+  );
+
+  return [...staticRoutes, ...blogRoutes, ...experienceRoutes, ...workshopRoutes];
 }

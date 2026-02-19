@@ -18,23 +18,21 @@ const footerSections: FooterSection[] = [
   {
     title: 'Explore',
     links: [
-      { name: 'Accommodations', href: '/accommodations' },
-      { name: 'Sustainability', href: '/sustainability' },
+      { name: 'Stay', href: '/stay' },
       { name: 'Experiences', href: '/experiences' },
       { name: 'Workshops', href: '/workshops' },
-      { name: 'Knowledge Hub', href: '/knowledge-hub' },
+      { name: 'Plan Your Visit', href: '/plan-your-visit' },
+      { name: 'Stories & News', href: '/stories' },
       { name: 'Gallery', href: '/gallery' },
-      { name: 'Blogs', href: '/blogs' },
     ],
   },
   {
     title: 'About',
     links: [
-      { name: 'Our Story', href: '/about-us/our-story' },
-      { name: 'The Lodge & Philosophy', href: '/about-us/the-lodge-and-philosophy' },
-      { name: 'Sustainability', href: '/sustainability' },
-      { name: 'Press & Media', href: '/praises/press-mentions-and-recognitions' },
-      { name: 'Awards & Accolades', href: '/praises/awards-and-accolades' },
+      { name: 'Our Story', href: '/about/our-story' },
+      { name: 'Why Surwahi', href: '/about/why-surwahi' },
+      { name: 'The Lodge & Philosophy', href: '/about/the-lodge-and-philosophy' },
+      { name: 'Our Residents', href: '/about/our-residents' },
       { name: 'Contact', href: '/contact' },
     ],
   },
@@ -70,16 +68,16 @@ export default function Footer() {
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
       const response = await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, source: 'footer' }),
       });
-      
+
       const result = await response.json();
-      
+
       if (result.success) {
         setMessage('Thanks for subscribing! Check your email to confirm.');
         setEmail('');
@@ -110,7 +108,7 @@ export default function Footer() {
             <p className="text-lg text-soil-700 mb-8 max-w-2xl mx-auto">
               Get updates on conservation efforts, seasonal highlights, and exclusive eco-travel offers delivered to your inbox.
             </p>
-            
+
             <form onSubmit={handleNewsletterSubmit} className="max-w-lg mx-auto">
               <div className="flex flex-col sm:flex-row gap-3">
                 <label htmlFor="footer-email" className="sr-only">
@@ -135,7 +133,7 @@ export default function Footer() {
                   {isSubmitting ? 'Joining...' : 'Subscribe'}
                 </button>
               </div>
-              
+
               {message && (
                 <p className={cn(
                   'text-sm mt-4 font-medium',
@@ -144,7 +142,7 @@ export default function Footer() {
                   {message}
                 </p>
               )}
-              
+
               <p className="text-sm text-soil-600 mt-4">
                 🔒 We respect your privacy. Unsubscribe anytime.{' '}
                 <Link href="/privacy" className="text-moss-600 hover:text-moss-700 underline font-medium">
@@ -159,7 +157,7 @@ export default function Footer() {
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 flex justify-center">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-16 max-w-7xl">
-          
+
           {/* About Section */}
           <section className="lg:col-span-2" aria-labelledby="footer-about">
             <div className="mb-6">
@@ -169,11 +167,11 @@ export default function Footer() {
               </h3>
             </div>
             <p className="text-base leading-relaxed text-soil-700 mb-8">
-              Surwahi Eco-Lodge is a regenerative, low-impact stay nestled near the forest. 
-              We&apos;re committed to conservation, community empowerment, and providing authentic 
+              Surwahi Eco-Lodge is a regenerative, low-impact stay nestled near the forest.
+              We&apos;re committed to conservation, community empowerment, and providing authentic
               experiences in harmony with nature.
             </p>
-            
+
             {/* Certification Badges */}
             <div className="space-y-4">
               <p className="text-xs font-bold text-soil-600 uppercase tracking-widest">
@@ -208,7 +206,7 @@ export default function Footer() {
           {footerSections.map((section) => (
             <nav key={section.title} className="lg:col-span-1" aria-labelledby={`footer-${section.title.toLowerCase()}`}>
               <div className="mb-6">
-                <h3 
+                <h3
                   id={`footer-${section.title.toLowerCase()}`}
                   className="font-display text-xl text-forest-900 mb-5 relative inline-block"
                 >
@@ -234,7 +232,7 @@ export default function Footer() {
                 ))}
               </ul>
             </nav>
-          ))}          
+          ))}
 
           {/* Contact Info */}
           <section className="lg:col-span-2 md:col-span-1" aria-labelledby="footer-contact">
@@ -244,7 +242,7 @@ export default function Footer() {
                 <span className="absolute -bottom-2 left-0 w-12 h-1 bg-moss-500 rounded-full"></span>
               </h3>
             </div>
-            
+
             <address className="not-italic text-base space-y-4">
               <div className="flex items-start gap-3 group">
                 <div className="w-10 h-10 rounded-lg bg-moss-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-moss-500/20 transition-colors">
@@ -258,8 +256,8 @@ export default function Footer() {
                 <div className="w-10 h-10 rounded-lg bg-moss-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-moss-500/20 transition-colors">
                   <Phone className="h-5 w-5 text-moss-600" />
                 </div>
-                <Link 
-                  href="tel:+917795207779" 
+                <Link
+                  href="tel:+917795207779"
                   className="text-soil-700 hover:text-moss-600 transition-colors font-medium pt-1.5"
                 >
                   +91 77952 07779
@@ -269,8 +267,8 @@ export default function Footer() {
                 <div className="w-10 h-10 rounded-lg bg-moss-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-moss-500/20 transition-colors">
                   <Mail className="h-5 w-5 text-moss-600" />
                 </div>
-                <Link 
-                  href="mailto:contact@surwahi.com" 
+                <Link
+                  href="mailto:contact@surwahi.com"
                   className="text-soil-700 hover:text-moss-600 transition-colors font-medium pt-1.5"
                 >
                   contact@surwahi.com
@@ -282,13 +280,13 @@ export default function Footer() {
           {/* Google Maps Embed - Now beside Contact Info */}
           <section className="lg:col-span-3 md:col-span-1" aria-label="Location Map">
             <div className="w-full h-full min-h-[280px] rounded-lg overflow-hidden shadow-lg">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7788986.880134164!2d73.72899689350048!3d17.59246313028678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a2a0ca75f087ccb%3A0xe89d09f64b652f09!2sSurwahi%20Social%20Ecoestate%20Kanha!5e0!3m2!1sen!2sin!4v1762322342765!5m2!1sen!2sin" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0, minHeight: '280px' }} 
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7788986.880134164!2d73.72899689350048!3d17.59246313028678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a2a0ca75f087ccb%3A0xe89d09f64b652f09!2sSurwahi%20Social%20Ecoestate%20Kanha!5e0!3m2!1sen!2sin!4v1762322342765!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0, minHeight: '280px' }}
                 allowFullScreen
-                loading="lazy" 
+                loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Surwahi Location Map"
               />
@@ -301,7 +299,7 @@ export default function Footer() {
       <div className="border-t-2 border-mist-200 bg-gradient-to-b from-sand-50 to-sand-100">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            
+
             {/* Copyright */}
             <p className="text-sm text-soil-600 font-medium">
               &copy; {currentYear} Surwahi Eco-Lodge. All rights reserved.
@@ -327,15 +325,15 @@ export default function Footer() {
 
             {/* Additional Links */}
             <div className="flex items-center gap-6 text-sm font-medium">
-              <Link 
-                href="/accessibility" 
+              <Link
+                href="/accessibility"
                 className="text-soil-600 hover:text-moss-600 transition-colors"
               >
                 Accessibility
               </Link>
               <span className="text-mist-300">•</span>
-              <Link 
-                href="/sitemap.xml" 
+              <Link
+                href="/sitemap.xml"
                 className="text-soil-600 hover:text-moss-600 transition-colors"
               >
                 Sitemap

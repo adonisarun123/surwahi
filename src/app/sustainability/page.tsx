@@ -39,17 +39,47 @@ const sustainabilityTopics = [
   }
 ];
 
+import { Trees, Sun, Recycle, Users, Globe } from 'lucide-react';
+
+const impactMetrics = [
+  { number: "500+", label: "Trees in Census", icon: Trees },
+  { number: "100%", label: "Solar Powered", icon: Sun },
+  { number: "Zero", label: "Waste to Landfill", icon: Recycle },
+  { number: "30+", label: "Local Jobs Created", icon: Users },
+  { number: "4", label: "UN SDGs Aligned", icon: Globe },
+];
+
 export default function SustainabilityPage() {
   return (
     <div className="pt-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <Breadcrumbs />
       </div>
+
+      {/* Impact Metrics Hero */}
+      <section className="bg-moss-900 text-white py-16 mb-12">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="font-display text-display-xl mb-4 text-center">Sustainability at Surwahi</h1>
+          <p className="text-center text-moss-100 mb-12 max-w-2xl mx-auto text-lg">
+            Sustainability isn't a feature — it's our foundation. Every decision at Surwahi
+            is made with the earth, the community, and future generations in mind.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-5xl mx-auto">
+            {impactMetrics.map((m) => (
+              <div key={m.label} className="text-center">
+                <div className="flex justify-center mb-3">
+                  <m.icon className="hidden md:block h-6 w-6 text-moss-300" />
+                </div>
+                <div className="text-3xl md:text-4xl font-bold mb-1 text-white">{m.number}</div>
+                <div className="text-sm text-moss-200 uppercase tracking-wider font-medium">{m.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 className="font-display text-display-xl text-forest-900 mb-8 text-center">Our Sustainability Practices</h1>
-        <p className="text-center text-body-lg text-soil-700 max-w-2xl mx-auto mb-12">
-          We are deeply committed to pioneering and practicing a sustainable way of life, ensuring our footprint is light and our impact is positive.
-        </p>
+        <h2 className="font-display text-3xl text-forest-900 mb-8 text-center">Our Core Initiatives</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {sustainabilityTopics.map((topic) => (
             <Link href={topic.href} key={topic.name} className="group block bg-bone-0 rounded-card overflow-hidden shadow-elev-1 hover:shadow-elev-2 transition-all">

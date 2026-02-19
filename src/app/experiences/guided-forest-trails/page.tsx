@@ -3,7 +3,8 @@ import Image from 'next/image';
 import { Check, Users, Mountain, Leaf } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
-import { getImageKitUrl } from '@/lib/images';
+import { getImageKitUrl, experienceImages, workshopImages } from '@/lib/images';
+import RelatedContent from '@/components/RelatedContent';
 
 export const metadata = generatePageMetadata(
   'Guided Forest Trails',
@@ -147,6 +148,14 @@ export default function GuidedForestTrailsPage() {
       <BookingCTA
         title="Walk on the Wild Side"
         description="Immerse yourself in the sights, smells, and sounds of the forest. Book your stay at Surwahi today."
+      />
+      <RelatedContent
+        title="Discover More"
+        items={[
+          { title: 'Wildlife Safaris', href: '/experiences/wildlife-safaris', image: experienceImages.wildlifeSafaris, category: 'Adventure' },
+          { title: "Nature's Pharmacy", href: '/workshops/natures-pharmacy', image: workshopImages.naturesPharmacy, category: 'Workshop' },
+          { title: 'Herping Walks', href: '/workshops/herping-walks', image: workshopImages.herping, category: 'Night Walk' },
+        ]}
       />
     </div>
   );

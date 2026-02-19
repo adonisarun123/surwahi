@@ -2,8 +2,9 @@ import Image from 'next/image';
 import { Check, Users, Calendar, Clock, Palette } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
-import { getImageKitUrl } from '@/lib/images';
+import { getImageKitUrl, workshopImages, experienceImages } from '@/lib/images';
 import ContactForm from '@/components/ContactForm';
+import RelatedContent from '@/components/RelatedContent';
 
 export const metadata = generatePageMetadata(
   'Gond Art Workshop',
@@ -130,6 +131,14 @@ export default function GondArtWorkshopsPage() {
           </div>
         </div>
       </div>
+      <RelatedContent
+        title="Explore Cultural Heritage"
+        items={[
+          { title: 'Earthen Pottery', href: '/workshops/earthen-pottery', image: workshopImages.earthenPottery, category: 'Craft' },
+          { title: 'Leaf Plate Making', href: '/workshops/leaf-plate-making', image: workshopImages.leafPlate, category: 'Sustainable Skills' },
+          { title: 'Tribal Cooking', href: '/experiences/live-tribal-cooking-experiences', image: experienceImages.tribalCooking, category: 'Culture' },
+        ]}
+      />
     </div>
   );
 }

@@ -4,7 +4,8 @@ import { Check, Clock, Sun, Users } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
 import BookingWidget from '@/components/BookingWidget';
-import { getImageKitUrl } from '@/lib/images';
+import { getImageKitUrl, experienceImages, workshopImages } from '@/lib/images';
+import RelatedContent from '@/components/RelatedContent';
 
 export const metadata = generatePageMetadata(
   'Wildlife Safaris',
@@ -169,6 +170,14 @@ export default function WildlifeSafarisPage() {
       <FAQ items={faqs} />
       <Testimonials items={testimonials} className="bg-sand-50" />
       <BookingCTA />
+      <RelatedContent
+        title="More Ways to Explore"
+        items={[
+          { title: 'Guided Forest Trails', href: '/experiences/guided-forest-trails', image: experienceImages.guidedForestTrails, category: 'Nature Walk' },
+          { title: 'Bird Watching Expeditions', href: '/experiences/bird-watching-expeditions', image: experienceImages.birdWatching, category: 'Nature' },
+          { title: 'Star Gazing Nights', href: '/workshops/star-gazing-nights', image: workshopImages.starGazing, category: 'Workshop' },
+        ]}
+      />
     </div>
   );
 }

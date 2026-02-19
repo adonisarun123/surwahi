@@ -3,6 +3,8 @@ import { generatePageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import Image from 'next/image';
 import { workshopImages } from '@/lib/images';
+import { workshopGroups } from '@/lib/data';
+import { ArrowRight } from 'lucide-react';
 
 export const metadata = generatePageMetadata(
   'Workshops & Learning',
@@ -12,52 +14,54 @@ export const metadata = generatePageMetadata(
   ['Workshops Kanha', 'Skill Learning', 'Nature Workshops', 'Sustainable Living Workshops', 'Art Workshops India']
 );
 
-const workshops = [
-  { name: 'Star Gazing Nights', href: '/workshops/star-gazing-nights', imageUrl: workshopImages.starGazing, description: 'Explore the cosmos from our dark sky location.' },
-  { name: 'Astro-Photography', href: '/workshops/astro-photography', imageUrl: workshopImages.astroPhotography, description: 'Capture the beauty of the night sky.' },
-  { name: 'Earthen Pottery', href: '/workshops/earthen-pottery', imageUrl: workshopImages.earthenPottery, description: 'Craft your own pottery from local clay.' },
-  { name: 'Gond Art Workshops', href: '/workshops/gond-art-workshops', imageUrl: workshopImages.gondArt, description: 'Learn the intricate art of the Gond tribe.' },
-  { name: 'Bamboo & Lantana Crafting', href: '/workshops/bamboo-and-lantana-crafting', imageUrl: workshopImages.bambooCrafting, description: 'Create beautiful objects from natural materials.' },
-  { name: 'Forest Bathing (Shinrin-Yoku)', href: '/workshops/forest-bathing', imageUrl: workshopImages.forestBathing, description: 'Reconnect with nature and yourself.' },
-  { name: 'Leaf Plate Making', href: '/workshops/leaf-plate-making', imageUrl: workshopImages.leafPlate, description: 'Learn the traditional art of making leaf plates.' },
-  { name: 'Food Foraging Trails', href: '/workshops/food-foraging-trails', imageUrl: workshopImages.foodForaging, description: 'Discover the edible treasures of the forest.' },
-  { name: 'Herping Walks (Amphibian Study)', href: '/workshops/herping-walks', imageUrl: workshopImages.herping, description: 'Explore the world of reptiles and amphibians.' },
-  { name: 'The Art of Regeneration', href: '/workshops/the-art-of-regeneration', imageUrl: workshopImages.regeneration, description: 'Learn about ecological restoration.' },
-  { name: 'Grassroots Governance & Local Democracy', href: '/workshops/grassroots-governance', imageUrl: workshopImages.governance, description: 'Understand local community structures.' },
-  { name: "Nature's Pharmacy (Herbal Healing)", href: '/workshops/natures-pharmacy', imageUrl: workshopImages.naturesPharmacy, description: 'Discover the medicinal properties of local plants.' },
-  { name: 'Build With Mud (Eco-Architecture)', href: '/workshops/build-with-mud', imageUrl: workshopImages.buildWithMud, description: 'Learn the art of sustainable construction.' },
-];
-
 export default function WorkshopsPage() {
   return (
     <div className="pt-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <Breadcrumbs />
       </div>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 className="font-display text-display-xl text-forest-900 mb-8 text-center">Workshops & Learning</h1>
-        <p className="text-center text-body-lg text-soil-700 max-w-2xl mx-auto mb-12">
+
+      <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
+        <h1 className="font-display text-display-xl text-forest-900 mb-6">Workshops & Learning</h1>
+        <p className="text-body-lg text-soil-700 max-w-2xl mx-auto mb-16">
           Immerse yourself in hands-on learning experiences that connect you with nature, culture, and new skills.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {workshops.map((workshop) => (
-            <Link href={workshop.href} key={workshop.name} className="group block bg-bone-0 rounded-card overflow-hidden shadow-elev-1 hover:shadow-elev-2 transition-all">
-              <div className="aspect-w-4 aspect-h-3 relative overflow-hidden">
-                <Image
-                  src={workshop.imageUrl}
-                  alt={workshop.name}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
+
+        <div className="space-y-20">
+          {workshopGroups.map((group) => (
+            <div key={group.category} className="text-left">
+              <div className="flex items-end justify-between border-b border-stone-200 pb-4 mb-8">
+                <div>
+                  <h2 className="font-display text-3xl text-forest-900 mb-2">{group.category}</h2>
+                  <p className="text-soil-600">{group.description}</p>
+                </div>
               </div>
-              <div className="p-6">
-                <h3 className="font-display text-2xl text-forest-900 mb-2">{workshop.name}</h3>
-                <p className="text-soil-700 text-sm">{workshop.description}</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {group.items.map((workshop) => (
+                  <Link href={workshop.href} key={workshop.name} className="group block bg-bone-0 rounded-card overflow-hidden shadow-elev-1 hover:shadow-elev-2 transition-all">
+                    <div className="aspect-w-4 aspect-h-3 relative overflow-hidden">
+                      <Image
+                        src={workshop.imageUrl}
+                        alt={`${workshop.name} at Surwahi`}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="font-display text-xl text-forest-900 mb-2 group-hover:text-moss-700 transition-colors">{workshop.name}</h3>
+                      <p className="text-soil-700 text-sm mb-4">{workshop.description}</p>
+                      <span className="inline-flex items-center text-moss-600 text-sm font-medium group-hover:translate-x-1 transition-transform">
+                        Explore <ArrowRight className="ml-1 h-4 w-4" />
+                      </span>
+                    </div>
+                  </Link>
+                ))}
               </div>
-            </Link>
+            </div>
           ))}
         </div>
-      </div>
+      </section>
     </div>
   );
 }
+

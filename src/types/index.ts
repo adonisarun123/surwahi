@@ -240,11 +240,13 @@ export interface ImageObject {
 }
 
 export interface NavigationItem {
-  name: string;
+  label: string;
   href: string;
   children?: NavigationItem[];
   description?: string;
   icon?: string;
+  isNew?: boolean;
+  isCTA?: boolean;
 }
 
 export interface Breadcrumb {

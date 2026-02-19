@@ -33,14 +33,108 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
+      // ═══ About section restructure ═══
+      {
+        source: "/about-us",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/about-us/our-story",
+        destination: "/about/our-story",
+        permanent: true,
+      },
+      {
+        source: "/about-us/the-lodge-and-philosophy",
+        destination: "/about/the-lodge-and-philosophy",
+        permanent: true,
+      },
+      {
+        source: "/about-us/our-residents",
+        destination: "/about/our-residents",
+        permanent: true,
+      },
+
+      // ═══ Stay section (formerly under About / Accommodations) ═══
+      {
+        source: "/accommodations",
+        destination: "/stay",
+        permanent: true,
+      },
+      {
+        source: "/accommodations/suites",
+        destination: "/stay/suites",
+        permanent: true,
+      },
+      {
+        source: "/accommodations/:slug*",
+        destination: "/stay/:slug*",
+        permanent: true,
+      },
+      {
+        source: "/about-us/dining-and-local-cuisine",
+        destination: "/stay/dining",
+        permanent: true,
+      },
+      {
+        source: "/about-us/fact-sheet",
+        destination: "/stay/fact-sheet",
+        permanent: true,
+      },
+
+      // ═══ Stories section (replaces Praises) ═══
+      {
+        source: "/praises",
+        destination: "/stories",
+        permanent: true,
+      },
+      {
+        source: "/praises/awards-and-accolades",
+        destination: "/stories/awards",
+        permanent: true,
+      },
+      {
+        source: "/praises/press-mentions-and-recognitions",
+        destination: "/stories/press",
+        permanent: true,
+      },
+      {
+        source: "/blogs",
+        destination: "/stories/blog",
+        permanent: true,
+      },
+      {
+        source: "/blogs/:slug*",
+        destination: "/stories/blog/:slug*",
+        permanent: true,
+      },
+
+      // ═══ Plan Your Visit (absorbing orphaned pages) ═══
+      {
+        source: "/itineraries",
+        destination: "/plan-your-visit/itineraries",
+        permanent: true,
+      },
+      {
+        source: "/getting-here",
+        destination: "/plan-your-visit/getting-here",
+        permanent: true,
+      },
+      {
+        source: "/kanha-national-park",
+        destination: "/plan-your-visit/getting-here",
+        permanent: true,
+      },
+
+      // ═══ Legacy Webflow pages (CRITICAL — these still get traffic) ═══
       {
         source: '/story-about-surwahi-social',
-        destination: '/about-us/our-story',
+        destination: '/about/our-story',
         permanent: true,
       },
       {
         source: '/about-social-surwahi',
-        destination: '/about-us',
+        destination: '/about/our-story',
         permanent: true,
       },
       {
@@ -49,8 +143,13 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/meet-the-dreamers",
+        destination: "/about/our-team",
+        permanent: true,
+      },
+      {
         source: '/surwahi-social/best-homestays-of-kanha',
-        destination: '/accommodations',
+        destination: '/stay',
         permanent: true,
       },
       {
@@ -58,6 +157,17 @@ const nextConfig: NextConfig = {
         destination: '/house-rules',
         permanent: true,
       },
+      {
+        source: "/surwahi-social/:slug*",
+        destination: "/experiences",
+        permanent: true,
+      },
+      {
+        source: "/knowledge-hub",
+        destination: "/stories/blog",
+        permanent: true,
+      },
+
       // Shortened URL redirects as recommended
       {
         source: '/sustainability/sustainable-development-goals-alignment',

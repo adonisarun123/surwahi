@@ -4,6 +4,8 @@ import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import MobileBookingBar from "@/components/MobileBookingBar";
 import { generateMetadata, generateOrganizationSchema, generateWebsiteSchema, generateLodgingBusinessSchema } from "@/lib/seo";
 
 const inter = Inter({
@@ -77,6 +79,8 @@ export default function RootLayout({
           {children}
         </main>
 
+        <WhatsAppButton />
+        <MobileBookingBar />
         <Footer />
 
         {/* Schema.org structured data for organization */}

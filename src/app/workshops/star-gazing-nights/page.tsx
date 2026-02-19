@@ -2,8 +2,9 @@ import Image from 'next/image';
 import { Check, Users, Calendar, Clock } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
-import { getImageKitUrl } from '@/lib/images';
+import { getImageKitUrl, workshopImages, experienceImages } from '@/lib/images';
 import ContactForm from '@/components/ContactForm';
+import RelatedContent from '@/components/RelatedContent';
 
 export const metadata = generatePageMetadata(
   'Star Gazing Nights',
@@ -124,6 +125,14 @@ export default function StarGazingNightsPage() {
           </div>
         </div>
       </div>
+      <RelatedContent
+        title="More Night Experiences"
+        items={[
+          { title: 'Astro Photography', href: '/workshops/astro-photography', image: workshopImages.astroPhotography, category: 'Photography' },
+          { title: 'Herping Walks', href: '/workshops/herping-walks', image: workshopImages.herping, category: 'Night Exploration' },
+          { title: 'Tribal Cooking', href: '/experiences/live-tribal-cooking-experiences', image: experienceImages.tribalCooking, category: 'Culture' },
+        ]}
+      />
     </div>
   );
 }

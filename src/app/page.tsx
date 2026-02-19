@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Leaf, Users, Shield, Star, Award, Heart } from 'lucide-react';
 import Image from 'next/image';
 import { generateMetadata } from '@/lib/seo';
+import LodgingBusinessSchema from '@/components/schema/LodgingBusinessSchema';
 
 export const metadata = generateMetadata({
   title: 'Award-Winning Eco Lodge near Kanha National Park | Surwahi',
@@ -13,6 +14,7 @@ export const metadata = generateMetadata({
 export default function HomePage() {
   return (
     <main id="main">
+      <LodgingBusinessSchema />
       <section className="relative min-h-screen flex items-center justify-center text-center text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
@@ -35,11 +37,11 @@ export default function HomePage() {
             </span>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style={{ animationDelay: '0.4s' }}>
-            <Link href="/accommodations" className="btn btn-primary text-base bg-moss-500 hover:bg-moss-600 text-white border-2 border-white shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.5)] transition-all" style={{ color: 'white' }}>
+            <Link href="/stay" className="btn btn-primary text-base bg-moss-500 hover:bg-moss-600 text-white border-2 border-white shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.5)] transition-all" style={{ color: 'white' }}>
               Book Your Eco Stay
             </Link>
             <Link
-              href="#about"
+              href="/about/our-story"
               className="btn btn-secondary bg-bone-0 hover:bg-bone-0/95 border-2 border-white text-white shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.5)] transition-all"
             >
               Explore the Story
@@ -59,7 +61,7 @@ export default function HomePage() {
             From earthen walls to solar lighting and natural ventilation, every corner at Surwahi celebrates <strong>eco-conscious design</strong> — built <em>with</em> nature, not <em>over</em> it.
           </p>
           <div className="mt-8">
-            <Link href="/sustainability" className="btn btn-secondary text-clay-500 border-clay-500/50 hover:bg-clay-500/10">
+            <Link href="/about/our-story" className="btn btn-secondary text-clay-500 border-clay-500/50 hover:bg-clay-500/10">
               Know Our Story
             </Link>
           </div>
@@ -74,13 +76,13 @@ export default function HomePage() {
             Stay in thoughtfully designed spaces made from local materials — mud, bamboo, stone, and love. Each room offers comfort without compromise, blending traditional craftsmanship with minimal modern amenities.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
-            <div className="bg-white p-6 rounded-card shadow-elev-1">🌾 Mudhouses & Dormitories for travelers and groups</div>
-            <div className="bg-white p-6 rounded-card shadow-elev-1">🌿 Open courtyards and skylit terraces</div>
-            <div className="bg-white p-6 rounded-card shadow-elev-1">🌞 Naturally cool interiors & solar energy</div>
-            <div className="bg-white p-6 rounded-card shadow-elev-1">🌕 Perfect stargazing nights and warm village hospitality</div>
+            <div className="bg-white p-6 rounded-card shadow-elev-1">Mudhouses & Dormitories for travelers and groups</div>
+            <div className="bg-white p-6 rounded-card shadow-elev-1">Open courtyards and skylit terraces</div>
+            <div className="bg-white p-6 rounded-card shadow-elev-1">Naturally cool interiors & solar energy</div>
+            <div className="bg-white p-6 rounded-card shadow-elev-1">Perfect stargazing nights and warm village hospitality</div>
           </div>
           <div className="mt-12">
-            <Link href="/accommodations" className="btn btn-primary text-base bg-forest-700 hover:bg-forest-900 text-white"
+            <Link href="/stay" className="btn btn-primary text-base bg-forest-700 hover:bg-forest-900 text-white"
               style={{ color: 'white' }}
             >
               Explore Stays
@@ -134,10 +136,10 @@ export default function HomePage() {
             At Surwahi, every experience brings you closer — to nature, to people, and to yourself.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <p>🌾 <strong>Wilderness Coliving:</strong> Work, create, and live amidst the forest’s calm.</p>
-            <p>🍃 <strong>Organic Farming:</strong> Sow, nurture, and harvest the earth’s gifts.</p>
-            <p>🪶 <strong>Tribal & Cultural Interactions:</strong> Celebrate the traditions of the Gond and Baiga tribes.</p>
-            <p>🦋 <strong>Within SSEK:</strong> Nature walks, riverside high teas, star gazing, and mindful evenings.</p>
+            <p><strong>Wilderness Coliving:</strong> Work, create, and live amidst the forest’s calm.</p>
+            <p><strong>Organic Farming:</strong> Sow, nurture, and harvest the earth’s gifts.</p>
+            <p><strong>Tribal & Cultural Interactions:</strong> Celebrate the traditions of the Gond and Baiga tribes.</p>
+            <p><strong>Within SSEK:</strong> Nature walks, riverside high teas, star gazing, and mindful evenings.</p>
           </div>
           <div className="mt-12">
             <Link href="/experiences" className="btn btn-primary text-base bg-forest-700 hover:bg-forest-900 text-white"
@@ -205,7 +207,7 @@ export default function HomePage() {
             Surwahi isn’t just a destination — it’s an invitation. Come be part of a community that’s redefining what sustainable living means.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/accommodations" className="btn btn-primary text-base bg-clay-500 hover:bg-clay-500/90 text-white border-clay-500"
+            <Link href="/stay" className="btn btn-primary text-base bg-clay-500 hover:bg-clay-500/90 text-white border-clay-500"
               style={{ color: 'white' }}
             >
               Book Your Stay

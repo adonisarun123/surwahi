@@ -2,8 +2,9 @@ import Image from 'next/image';
 import { Check, Users, Calendar, Clock, Hand } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
-import { getImageKitUrl } from '@/lib/images';
+import { getImageKitUrl, workshopImages, experienceImages } from '@/lib/images';
 import ContactForm from '@/components/ContactForm';
+import RelatedContent from '@/components/RelatedContent';
 
 export const metadata = generatePageMetadata(
   'Earthen Pottery Workshop',
@@ -130,6 +131,14 @@ export default function EarthenPotteryPage() {
           </div>
         </div>
       </div>
+      <RelatedContent
+        title="More Creative Workshops"
+        items={[
+          { title: 'Gond Art Workshop', href: '/workshops/gond-art-workshops', image: workshopImages.gondArt, category: 'Art' },
+          { title: 'Bamboo Crafting', href: '/workshops/bamboo-and-lantana-crafting', image: workshopImages.bambooCrafting, category: 'Craft' },
+          { title: 'Build With Mud', href: '/workshops/build-with-mud', image: workshopImages.buildWithMud, category: 'Sustainable Skills' },
+        ]}
+      />
     </div>
   );
 }

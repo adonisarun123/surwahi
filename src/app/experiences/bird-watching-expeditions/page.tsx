@@ -3,7 +3,8 @@ import Image from 'next/image';
 import { Check, Clock, Sun, Leaf } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
-import { getImageKitUrl } from '@/lib/images';
+import { getImageKitUrl, experienceImages, workshopImages } from '@/lib/images';
+import RelatedContent from '@/components/RelatedContent';
 
 export const metadata = generatePageMetadata(
   'Bird-watching Expeditions',
@@ -125,6 +126,14 @@ export default function BirdWatchingPage() {
           </div>
         </div>
       </div>
+      <RelatedContent
+        title="Explore Nature"
+        items={[
+          { title: 'Guided Forest Trails', href: '/experiences/guided-forest-trails', image: experienceImages.guidedForestTrails, category: 'Nature Walk' },
+          { title: 'Butterfly & Insect Watch', href: '/experiences/butterfly-and-insect-watch', image: experienceImages.wildlifeSafaris, category: 'Macro Nature' },
+          { title: 'Forest Bathing', href: '/workshops/forest-bathing', image: workshopImages.forestBathing, category: 'Wellness' },
+        ]}
+      />
     </div>
   );
 }

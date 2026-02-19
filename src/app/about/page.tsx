@@ -1,11 +1,25 @@
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import Link from 'next/link';
+import { BookOpen, Building, Bed, Utensils, FileText, PawPrint, HelpCircle } from 'lucide-react';
 
 export const metadata = generatePageMetadata(
-  'About Us',
-  'Learn about the story, philosophy, and team behind Surwahi Eco Lodge.',
-  '/about'
+  'About Surwahi Eco-Lodge | Sustainable Tourism near Kanha',
+  'Discover the story of Surwahi Eco-Lodge, an award-winning sustainable stay near Kanha National Park. Learn about our eco-friendly design and community philosophy.',
+  '/about',
+  undefined,
+  ['Surwahi Eco Lodge', 'Sustainable Tourism Kanha', 'Eco Resort India', 'Responsible Travel', 'Nature Retreat Kanha']
 );
+
+const subSections = [
+  { name: 'Our Story', href: '/about/our-story', description: 'The journey of how our dream took root.', icon: BookOpen },
+  { name: 'The Lodge & Philosophy', href: '/about/the-lodge-and-philosophy', description: 'Our principles of eco-friendly design and conscious hospitality.', icon: Building },
+  { name: 'Why Surwahi', href: '/about/why-surwahi', description: 'Understand the impact of your stay.', icon: HelpCircle },
+  { name: 'Accommodations', href: '/stay', description: 'Explore our sustainable and comfortable living spaces.', icon: Bed },
+  { name: 'Dining & Local Cuisine', href: '/stay/dining', description: 'Experience our farm-to-table, hyperlocal culinary delights.', icon: Utensils },
+  { name: 'Fact Sheet', href: '/stay/fact-sheet', description: 'Detailed information about our sustainability practices.', icon: FileText },
+  { name: 'Our Residents (Flora & Fauna)', href: '/about/our-residents', description: 'Meet the diverse wildlife that calls Surwahi home.', icon: PawPrint },
+]
 
 export default function AboutPage() {
   return (
@@ -13,29 +27,29 @@ export default function AboutPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <Breadcrumbs />
       </div>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 className="font-display text-display-xl text-forest-900 mb-8">About Us</h1>
-        <div className="space-y-12">
-          <section id="our-story">
-            <h2 className="font-display text-2xl text-forest-700 mb-4">Our Story</h2>
-            <p>Placeholder content...</p>
-          </section>
-          <section id="land-and-legacy">
-            <h2 className="font-display text-2xl text-forest-700 mb-4">The Land & Legacy</h2>
-            <p>Placeholder content...</p>
-          </section>
-          <section id="our-philosophy">
-            <h2 className="font-display text-2xl text-forest-700 mb-4">Our Philosophy</h2>
-            <p>Placeholder content...</p>
-          </section>
-          <section id="the-team">
-            <h2 className="font-display text-2xl text-forest-700 mb-4">The Team Behind Surwahi</h2>
-            <p>Placeholder content...</p>
-          </section>
-          <section id="conservation-commitments">
-            <h2 className="font-display text-2xl text-forest-700 mb-4">Conservation Commitments</h2>
-            <p>Placeholder content...</p>
-          </section>
+
+      <section className="bg-sand-50 py-12">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="font-display text-display-xl text-forest-900 mb-4">
+            About Surwahi — Award-Winning Eco Lodge near Kanha
+          </h1>
+          <p className="text-body-lg text-soil-700 max-w-3xl mx-auto">
+            Discover the heart and soul behind our eco-lodge. Learn about our journey, our philosophy of regenerative tourism, and the vibrant ecosystem we are a part of.
+          </p>
+        </div>
+      </section>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {subSections.map((section) => (
+            <Link key={section.name} href={section.href} className="group block p-6 bg-bone-0 rounded-card overflow-hidden shadow-elev-1 hover:shadow-elev-2 transition-all text-center">
+              <div className="flex justify-center mb-4">
+                <section.icon className="h-12 w-12 text-moss-500" />
+              </div>
+              <h2 className="font-display text-2xl text-forest-900 mb-2">{section.name}</h2>
+              <p className="text-soil-700 text-sm">{section.description}</p>
+            </Link>
+          ))}
         </div>
       </div>
     </div>
