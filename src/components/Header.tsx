@@ -45,7 +45,7 @@ export default function Header() {
     return (
       <Link
         href={item.href}
-        className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActive
+        className={`px-2 py-2 rounded-md text-sm font-medium transition-colors whitespace-nowrap ${isActive
           ? 'text-moss-500'
           : isTransparent ? 'text-bone-0 hover:text-bone-0/80' : 'text-soil-700 hover:text-forest-900'
           }`}
@@ -66,7 +66,7 @@ export default function Header() {
       <div className="group relative">
         <Link
           href={item.href}
-          className={`flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActive
+          className={`flex items-center px-2 py-2 rounded-md text-sm font-medium transition-colors whitespace-nowrap ${isActive
             ? 'text-moss-500'
             : isTransparent ? 'text-bone-0 hover:text-bone-0/80' : 'text-soil-700 hover:text-forest-900'
             }`}
@@ -144,15 +144,15 @@ export default function Header() {
             </Link>
           </div>
 
-          <div className="hidden lg:flex lg:items-center lg:space-x-1">
+          <div className="hidden xl:flex xl:items-center xl:space-x-1">
             {mainNavigation.map((item) => (
               item.children ? <DropdownLink key={item.label} item={item} /> : <NavLink key={item.label} item={item} />
             ))}
           </div>
 
-          <div className="hidden lg:flex items-center gap-4">
-            {/* Social Icons */}
-            <div className="flex items-center gap-3 border-r border-stone-200 pr-4 mr-2">
+          <div className="hidden xl:flex items-center gap-4">
+            {/* Social Icons - Only visible on 2xl screens to save space */}
+            <div className="hidden 2xl:flex items-center gap-3 border-r border-stone-200 pr-4 mr-2">
               <a href="https://www.instagram.com/surwahisocialecoestatekanha" target="_blank" rel="noopener noreferrer"
                 className={`transition-colors ${isTransparent ? 'text-bone-0 hover:text-bone-0/80' : 'text-stone-400 hover:text-moss-600'}`} aria-label="Instagram">
                 <Instagram className="w-4 h-4" />
@@ -167,12 +167,12 @@ export default function Header() {
               </a>
             </div>
 
-            <Link href={ctaButton.href} className="btn btn-primary" style={{ color: 'white' }}>
+            <Link href={ctaButton.href} className="btn btn-primary whitespace-nowrap" style={{ color: 'white' }}>
               {ctaButton.label}
             </Link>
           </div>
 
-          <div className="lg:hidden flex items-center">
+          <div className="xl:hidden flex items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className={`inline-flex items-center justify-center p-2 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-moss-500 ${isTransparent ? 'text-bone-0 hover:text-bone-0/80 hover:bg-bone-0/10' : 'text-soil-700 hover:text-forest-900 hover:bg-sand-50'
@@ -189,7 +189,7 @@ export default function Header() {
       {/* Mobile Menu Backdrop */}
       {mobileMenuOpen && (
         <div
-          className="lg:hidden fixed inset-0 bg-forest-900/20 backdrop-blur-sm z-40"
+          className="xl:hidden fixed inset-0 bg-forest-900/20 backdrop-blur-sm z-40"
           onClick={() => setMobileMenuOpen(false)}
           aria-hidden="true"
         />
@@ -197,7 +197,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden absolute inset-x-0 top-full bg-white shadow-lg overflow-y-auto max-h-[calc(100vh-5rem)] z-50 border-t border-mist-200">
+        <div className="xl:hidden absolute inset-x-0 top-full bg-white shadow-lg overflow-y-auto max-h-[calc(100vh-5rem)] z-50 border-t border-mist-200">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {mainNavigation.map((item) => (
               item.children ? (
