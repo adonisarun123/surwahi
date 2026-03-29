@@ -158,6 +158,7 @@ export default function ContactFormComponent({ subject }: ContactFormProps) {
             <option value="ACTIVITIES">Activities & Experiences</option>
             <option value="SUSTAINABILITY">Sustainability Programs</option>
             <option value="PRESS">Press & Media</option>
+            <option value="VANN_VIBE">Vann Vibe retreat (April 2026)</option>
           </select>
         </div>
 

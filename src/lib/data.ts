@@ -69,6 +69,18 @@ export const experienceGroups = [
 
 export const workshopGroups = [
     {
+        category: "Retreats",
+        description: "Immersive multi-day experiences rooted in forest living.",
+        items: [
+            {
+                name: 'Vann Vibe (वन VIBE)',
+                href: '/workshops/vann-vibe',
+                imageUrl: workshopImages.vannVibe,
+                description: 'Live like nature intended — forest rituals, culture, and community at Kanha.',
+            },
+        ],
+    },
+    {
         category: "Astronomy & Night Skies",
         description: "Look up and lose yourself in the cosmos.",
         items: [

@@ -9,8 +9,15 @@ const contactFormSchema = z.object({
   email: z.string().email('Invalid email address'),
   phone: z.string().optional(),
   city: z.string().optional(),
-  message: z.string().min(10, 'Message must be at least 10 characters').max(1000),
-  inquiryType: z.enum(['GENERAL', 'BOOKING', 'SUSTAINABILITY', 'ACTIVITIES', 'PRESS']),
+  message: z.string().min(10, 'Message must be at least 10 characters').max(2000),
+  inquiryType: z.enum([
+    'GENERAL',
+    'BOOKING',
+    'SUSTAINABILITY',
+    'ACTIVITIES',
+    'PRESS',
+    'VANN_VIBE',
+  ]),
   preferredDates: z.string().optional(),
   partySize: z.number().min(1).max(20).optional(),
 });

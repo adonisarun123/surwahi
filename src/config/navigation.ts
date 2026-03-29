@@ -47,6 +47,7 @@ export const mainNavigation: NavigationItem[] = [
             { label: "Star Gazing Nights", href: "/workshops/star-gazing-nights" },
             { label: "Astro-Photography", href: "/workshops/astro-photography" },
             { label: "Forest Bathing (Shinrin-Yoku)", href: "/workshops/forest-bathing" },
+            { label: "Vann Vibe Retreat", href: "/workshops/vann-vibe", isNew: true },
             { label: "Herping Walks", href: "/workshops/herping-walks" },
             // Group 2: Arts & Crafts
             { label: "Earthen Pottery", href: "/workshops/earthen-pottery" },

@@ -77,6 +77,8 @@ export const workshopImages = {
   governance: getImageKitUrl('Surwahi Social Photos/3c3adbb2-aacd-4c01-8aa0-01615b0912e8.jpeg'),
   naturesPharmacy: getImageKitUrl('Website Photos/IMG_5091.JPG'),
   buildWithMud: getImageKitUrl('Surwahi Social Photos/A.jpg'),
+  /** Local poster asset for retreat landing page */
+  vannVibe: '/images/workshops/vann-vibe-poster.jpg',
 };
 
 // Gallery Images
