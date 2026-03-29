@@ -6,7 +6,7 @@ import { aboutUsImages } from '@/lib/images';
 export const metadata = generatePageMetadata(
   'Our Story | Surwahi Eco-Lodge near Kanha National Park',
   'Discover Surwahi\'s story — an award-winning eco lodge near Kanha National Park built with mud, community & a dream. John Wakefield Award winner 2024.',
-  '/about-us/our-story',
+  '/about/our-story',
   undefined,
   ['Surwahi Story', 'Eco Lodge History', 'Sustainable Architecture', 'Community Led Tourism', 'Mud House India']
 );

@@ -7,37 +7,30 @@ import { accommodationImages } from '@/lib/images';
 export const metadata = generatePageMetadata(
   'Eco Accommodations near Kanha — Suites, Dorms & Camping | Surwahi',
   'Stay at Surwahi eco lodge near Kanha — eco suites, dormitories & camping tents. Mud-built, solar-powered comfort. Book your sustainable Kanha stay.',
-  '/accommodations',
+  '/stay',
   undefined,
   ['Eco Friendly Accommodation Kanha', 'Sustainable Stays India', 'Family Rooms Kanha', 'Nature Resort Rooms', 'Mud Cottages', 'Forest Stay']
 );
-
-// ... (categories array stays same, skipping for brevity in replacement if not needed, but here I need to replace the metadata block first)
-// Wait, I need to replace the component H1 too. I'll do two chunks or just replace the file content carefully.
-// I'll do the component H1 in a separate tool call if needed, but replace_file_content is single contiguous block.
-// The file has metadata at top and component at bottom.
-// I will use multi_replace for this file as well.
-
 
 const categories = [
   {
     name: 'Suites',
     description: 'Luxurious and private, our suites offer the perfect blend of comfort and nature.',
     imageUrl: accommodationImages.suites.category,
-    slug: 'suites'
+    href: '/stay/suites' as const,
   },
   {
     name: 'Dormitory',
     description: 'Affordable and social, our dormitory is ideal for solo travelers and groups.',
     imageUrl: accommodationImages.dormitory.category,
-    slug: 'dormitory'
+    href: '/stay/mudhouses' as const,
   },
   {
     name: 'Camping Tents',
     description: 'Immerse yourself in nature with our comfortable and well-equipped safari tents.',
     imageUrl: accommodationImages.camping.category,
-    slug: 'camping-tents'
-  }
+    href: '/stay/camping' as const,
+  },
 ];
 
 export default function AccommodationsPage() {
@@ -62,7 +55,7 @@ export default function AccommodationsPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {categories.map((category) => (
-              <Link href={`/accommodations/${category.slug}`} key={category.name} className="group block bg-bone-0 rounded-card overflow-hidden shadow-elev-1 hover:shadow-elev-2 transition-all">
+              <Link href={category.href} key={category.name} className="group block bg-bone-0 rounded-card overflow-hidden shadow-elev-1 hover:shadow-elev-2 transition-all">
                 <div className="aspect-w-4 aspect-h-3 relative overflow-hidden">
                   <Image
                     src={category.imageUrl}

@@ -5,7 +5,7 @@ import Link from 'next/link';
 export const metadata = generatePageMetadata(
   'Fact Sheet',
   'Detailed information about our sustainability practices.',
-  '/about-us/fact-sheet',
+  '/stay/fact-sheet',
   undefined,
   ['Sustainability Facts', 'Eco Friendly Practices', 'Green Resort India', 'Carbon Footprint', 'Water Conservation']
 );

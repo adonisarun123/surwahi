@@ -88,31 +88,32 @@ const nextConfig: NextConfig = {
         destination: "/stories",
         permanent: true,
       },
+      // Awards & press live under /praises/* (no /stories/awards or /stories/press routes yet)
       {
-        source: "/praises/awards-and-accolades",
-        destination: "/stories/awards",
+        source: "/stories/awards",
+        destination: "/praises/awards-and-accolades",
         permanent: true,
       },
       {
-        source: "/praises/press-mentions-and-recognitions",
-        destination: "/stories/press",
+        source: "/stories/press",
+        destination: "/praises/press-mentions-and-recognitions",
         permanent: true,
       },
       {
-        source: "/blogs",
-        destination: "/stories/blog",
+        source: "/stories/blog",
+        destination: "/blogs",
         permanent: true,
       },
       {
-        source: "/blogs/:slug*",
-        destination: "/stories/blog/:slug*",
+        source: "/stories/blog/:slug*",
+        destination: "/blogs/:slug*",
         permanent: true,
       },
 
       // ═══ Plan Your Visit (absorbing orphaned pages) ═══
       {
         source: "/itineraries",
-        destination: "/plan-your-visit/itineraries",
+        destination: "/plan-your-visit",
         permanent: true,
       },
       {
@@ -164,7 +165,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/knowledge-hub",
-        destination: "/stories/blog",
+        destination: "/blogs",
         permanent: true,
       },
 

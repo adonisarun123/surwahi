@@ -1,19 +1,48 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { blogPosts, experienceGroups, workshopGroups } from '@/lib/data';
 
 const baseUrl = process.env.SITE_URL || 'https://surwahi.com';
 
-// Static pages with their priorities and change frequencies
-const staticPages = [
-  { url: '', priority: 1.0, changefreq: 'monthly' }, // Homepage
-  { url: '/accommodations', priority: 0.9, changefreq: 'weekly' },
-  { url: '/sustainability', priority: 0.8, changefreq: 'monthly' },
-  { url: '/things-to-do', priority: 0.8, changefreq: 'monthly' },
-  { url: '/around-surwahi', priority: 0.7, changefreq: 'monthly' },
-  { url: '/blog', priority: 0.8, changefreq: 'weekly' },
-  { url: '/gallery', priority: 0.6, changefreq: 'monthly' },
-  { url: '/contact', priority: 0.7, changefreq: 'monthly' },
-  { url: '/itineraries', priority: 0.6, changefreq: 'monthly' },
+/** URLs that exist in the App Router (canonical paths; avoid 301-only or missing routes). */
+const staticPages: Array<{ url: string; priority: number; changefreq: string }> = [
+  { url: '', priority: 1.0, changefreq: 'weekly' },
+  { url: '/about', priority: 0.9, changefreq: 'monthly' },
+  { url: '/about/our-story', priority: 0.85, changefreq: 'monthly' },
+  { url: '/about/our-team', priority: 0.85, changefreq: 'monthly' },
+  { url: '/about/why-surwahi', priority: 0.85, changefreq: 'monthly' },
+  { url: '/about/the-lodge-and-philosophy', priority: 0.85, changefreq: 'monthly' },
+  { url: '/about/our-residents', priority: 0.8, changefreq: 'monthly' },
+  { url: '/stay', priority: 0.95, changefreq: 'weekly' },
+  { url: '/stay/suites', priority: 0.9, changefreq: 'weekly' },
+  { url: '/stay/mudhouses', priority: 0.9, changefreq: 'weekly' },
+  { url: '/stay/camping', priority: 0.9, changefreq: 'weekly' },
+  { url: '/stay/dining', priority: 0.85, changefreq: 'monthly' },
+  { url: '/stay/fact-sheet', priority: 0.85, changefreq: 'monthly' },
+  { url: '/experiences', priority: 0.9, changefreq: 'weekly' },
+  { url: '/workshops', priority: 0.9, changefreq: 'weekly' },
+  { url: '/sustainability', priority: 0.85, changefreq: 'monthly' },
+  { url: '/sustainability/evapo-transpiration-toilets', priority: 0.75, changefreq: 'monthly' },
+  { url: '/sustainability/tree-census-and-biodiversity-reports', priority: 0.75, changefreq: 'monthly' },
+  { url: '/sustainability/eco-friendly-construction-practices', priority: 0.75, changefreq: 'monthly' },
+  { url: '/sustainability/sdg-alignment', priority: 0.75, changefreq: 'monthly' },
+  { url: '/plan-your-visit', priority: 0.85, changefreq: 'monthly' },
+  { url: '/plan-your-visit/getting-here', priority: 0.85, changefreq: 'monthly' },
+  { url: '/plan-your-visit/best-time-to-visit', priority: 0.8, changefreq: 'monthly' },
+  { url: '/plan-your-visit/safari-booking-guide', priority: 0.8, changefreq: 'monthly' },
+  { url: '/plan-your-visit/faqs', priority: 0.8, changefreq: 'monthly' },
+  { url: '/stories', priority: 0.8, changefreq: 'monthly' },
+  { url: '/stories/guest-reviews', priority: 0.8, changefreq: 'monthly' },
+  { url: '/blogs', priority: 0.85, changefreq: 'weekly' },
+  { url: '/praises/awards-and-accolades', priority: 0.75, changefreq: 'monthly' },
+  { url: '/praises/press-mentions-and-recognitions', priority: 0.75, changefreq: 'monthly' },
+  { url: '/gallery', priority: 0.7, changefreq: 'monthly' },
+  { url: '/contact', priority: 0.85, changefreq: 'monthly' },
+  { url: '/privacy', priority: 0.4, changefreq: 'yearly' },
+  { url: '/terms', priority: 0.4, changefreq: 'yearly' },
+  { url: '/accessibility', priority: 0.4, changefreq: 'yearly' },
+  { url: '/cancellation', priority: 0.4, changefreq: 'yearly' },
+  { url: '/house-rules', priority: 0.5, changefreq: 'yearly' },
 ];
 
 interface SitemapUrl {
@@ -37,19 +66,42 @@ ${urls.map(({ url, lastmod, priority, changefreq }) => `  <url>
 
 export async function GET() {
   try {
-    const urls: SitemapUrl[] = [...staticPages];
+    const urlMap = new Map<string, SitemapUrl>();
 
-    // Add dynamic blog posts
+    staticPages.forEach(({ url, priority, changefreq }) => {
+      urlMap.set(url, { url, priority, changefreq });
+    });
+
+    blogPosts.forEach((post) => {
+      const path = `/blogs/${post.slug}`;
+      if (!urlMap.has(path)) {
+        urlMap.set(path, { url: path, priority: 0.7, changefreq: 'monthly' });
+      }
+    });
+
+    experienceGroups.flatMap((g) => g.items).forEach((item) => {
+      if (!urlMap.has(item.href)) {
+        urlMap.set(item.href, { url: item.href, priority: 0.8, changefreq: 'weekly' });
+      }
+    });
+
+    workshopGroups.flatMap((g) => g.items).forEach((item) => {
+      if (!urlMap.has(item.href)) {
+        urlMap.set(item.href, { url: item.href, priority: 0.8, changefreq: 'weekly' });
+      }
+    });
+
     try {
-      const blogPosts = await prisma.blogPost.findMany({
+      const dbBlogPosts = await prisma.blogPost.findMany({
         where: { isPublished: true },
         select: { slug: true, updatedAt: true },
         orderBy: { publishedAt: 'desc' }
       });
 
-      blogPosts.forEach((post: { slug: string; updatedAt: Date }) => {
-        urls.push({
-          url: `/blog/${post.slug}`,
+      dbBlogPosts.forEach((post: { slug: string; updatedAt: Date }) => {
+        const path = `/blogs/${post.slug}`;
+        urlMap.set(path, {
+          url: path,
           lastmod: post.updatedAt.toISOString().split('T')[0],
           priority: 0.7,
           changefreq: 'monthly'
@@ -59,7 +111,6 @@ export async function GET() {
       console.warn('Could not fetch blog posts for sitemap:', error);
     }
 
-    // Add dynamic room pages
     try {
       const rooms = await prisma.room.findMany({
         where: { isActive: true },
@@ -67,10 +118,11 @@ export async function GET() {
       });
 
       rooms.forEach((room: { slug: string; updatedAt: Date }) => {
-        urls.push({
-          url: `/accommodations/${room.slug}`,
+        const path = `/stay/${room.slug}`;
+        urlMap.set(path, {
+          url: path,
           lastmod: room.updatedAt.toISOString().split('T')[0],
-          priority: 0.8,
+          priority: 0.85,
           changefreq: 'weekly'
         });
       });
@@ -78,25 +130,7 @@ export async function GET() {
       console.warn('Could not fetch rooms for sitemap:', error);
     }
 
-    // Add dynamic activity pages
-    try {
-      const activities = await prisma.activity.findMany({
-        where: { isActive: true },
-        select: { slug: true, updatedAt: true }
-      });
-
-      activities.forEach((activity: { slug: string; updatedAt: Date }) => {
-        urls.push({
-          url: `/things-to-do/${activity.slug}`,
-          lastmod: activity.updatedAt.toISOString().split('T')[0],
-          priority: 0.6,
-          changefreq: 'monthly'
-        });
-      });
-    } catch (error) {
-      console.warn('Could not fetch activities for sitemap:', error);
-    }
-
+    const urls = Array.from(urlMap.values()).sort((a, b) => a.url.localeCompare(b.url));
     const sitemap = generateSitemapXml(urls);
 
     return new NextResponse(sitemap, {
@@ -108,11 +142,14 @@ export async function GET() {
 
   } catch (error) {
     console.error('Error generating sitemap:', error);
-    
-    // Fallback sitemap with just static pages
-    const fallbackSitemap = generateSitemapXml(staticPages);
-    
-    return new NextResponse(fallbackSitemap, {
+
+    const fallbackUrls: SitemapUrl[] = staticPages.map(({ url, priority, changefreq }) => ({
+      url,
+      priority,
+      changefreq
+    }));
+
+    return new NextResponse(generateSitemapXml(fallbackUrls), {
       headers: {
         'Content-Type': 'application/xml',
       },

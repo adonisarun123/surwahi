@@ -11,15 +11,15 @@ Disallow: /admin/
 Disallow: /_next/
 Disallow: /static/
 
-# Allow specific important pages
-Allow: /accommodations
+# Allow specific important sections
+Allow: /stay
+Allow: /experiences
+Allow: /workshops
+Allow: /blogs
 Allow: /sustainability
-Allow: /things-to-do
-Allow: /around-surwahi
-Allow: /blog
+Allow: /plan-your-visit
 Allow: /gallery
 Allow: /contact
-Allow: /itineraries
 
 # Sitemap location
 Sitemap: ${process.env.SITE_URL || 'https://surwahi.com'}/sitemap.xml

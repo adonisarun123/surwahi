@@ -8,7 +8,7 @@ import { getImageKitUrl } from '@/lib/images';
 export const metadata = generatePageMetadata(
   'Our Residents (Flora & Fauna)',
   'Meet the diverse wildlife that calls Surwahi home.',
-  '/about-us/our-residents',
+  '/about/our-residents',
   undefined,
   ['Wildlife Kanha', 'Flora and Fauna', 'Bird Watching India', 'Butterflies of Kanha', 'Medicinal Plants']
 );

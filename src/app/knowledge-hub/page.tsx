@@ -7,7 +7,7 @@ import { knowledgeArticles } from '@/lib/knowledge-hub';
 export const metadata = generatePageMetadata(
   'Knowledge Hub',
   'A curated collection of educational articles that celebrate the natural, cultural, and ecological heritage of the Kanha landscape.',
-  '/knowledge-hub'
+  '/blogs'
 );
 
 const articles = Object.values(knowledgeArticles);

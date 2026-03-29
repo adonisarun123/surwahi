@@ -12,7 +12,7 @@ import {
   Check,
   MapPin
 } from 'lucide-react';
-import Breadcrumbs, { BreadcrumbJsonLd } from '@/components/Breadcrumbs';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import BookingWidget from '@/components/BookingWidget';
 import { generateRoomMetadata } from '@/lib/seo';
 import { formatPrice } from '@/lib/utils';
@@ -53,8 +53,8 @@ export default async function RoomDetailPage({ params }: RoomPageProps) {
 
   const breadcrumbs = [
     { name: 'Home', href: '/' },
-    { name: 'Accommodations', href: '/accommodations' },
-    { name: room.name, href: `/accommodations/${room.slug}` }
+    { name: 'Stay', href: '/stay' },
+    { name: room.name, href: `/stay/${room.slug}` }
   ];
 
   return (
@@ -64,11 +64,11 @@ export default async function RoomDetailPage({ params }: RoomPageProps) {
         <div className="flex items-center justify-between">
           <Breadcrumbs customBreadcrumbs={breadcrumbs} />
           <Link
-            href="/accommodations"
+            href="/stay"
             className="flex items-center gap-2 text-moss-500 hover:text-forest-700 transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to Rooms
+            Back to Stay
           </Link>
         </div>
       </div>
@@ -315,7 +315,7 @@ export default async function RoomDetailPage({ params }: RoomPageProps) {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-display text-2xl text-forest-900 mb-8">Other Accommodations</h2>
           <div className="text-center">
-            <Link href="/accommodations" className="btn btn-primary">
+            <Link href="/stay" className="btn btn-primary">
               View All Rooms
             </Link>
           </div>
@@ -323,14 +323,13 @@ export default async function RoomDetailPage({ params }: RoomPageProps) {
       </section>
 
       {/* JSON-LD Structured Data */}
-      <BreadcrumbJsonLd breadcrumbs={breadcrumbs} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "HotelRoom",
-            "@id": `https://surwahi.com/accommodations/${room.slug}#room`,
+            "@id": `https://surwahi.com/stay/${room.slug}#room`,
             "name": room.name,
             "description": room.description,
             "bed": room.bedConfiguration,
@@ -352,7 +351,7 @@ export default async function RoomDetailPage({ params }: RoomPageProps) {
               "price": room.basePrice.toString(),
               "availability": "https://schema.org/InStock",
               "validFrom": new Date().toISOString().split('T')[0],
-              "url": `https://surwahi.com/accommodations/${room.slug}#book`
+              "url": `https://surwahi.com/stay/${room.slug}#book`
             }
           })
         }}

@@ -51,8 +51,6 @@ export default function RootLayout({
         {/* Facebook Domain Verification */}
         <meta name="facebook-domain-verification" content="mlk59ybu44651lzcbhhxjfl8vfae8q" />
 
-        {/* Font Awesome */}
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
       </head>
       <body className="font-ui bg-sand-50 text-ink-900 antialiased">
         {/* Google Analytics */}

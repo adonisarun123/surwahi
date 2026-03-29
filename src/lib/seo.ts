@@ -22,6 +22,16 @@ export const defaultMeta = {
   locale: 'en_IN',
 };
 
+/** Absolute URL for Open Graph / JSON-LD (handles ImageKit and other absolute URLs). */
+export function toAbsoluteSiteUrl(pathOrUrl: string): string {
+  if (pathOrUrl.startsWith('https://') || pathOrUrl.startsWith('http://')) {
+    return pathOrUrl;
+  }
+  const base = defaultMeta.url.replace(/\/$/, '');
+  const path = pathOrUrl.startsWith('/') ? pathOrUrl : `/${pathOrUrl}`;
+  return `${base}${path}`;
+}
+
 export function generateMetadata(config: SEOConfig = {}): Metadata {
   const {
     title = defaultMeta.title,
@@ -118,13 +128,13 @@ export function generateBlogMetadata(
   return generateMetadata({
     title,
     description,
-    url: `/blog/${slug}`,
+    url: `/blogs/${slug}`,
     type: 'article',
     publishedTime,
     modifiedTime,
     authors,
     tags,
-    image,
+    image: image ? toAbsoluteSiteUrl(image) : undefined,
     keywords: keywords || tags,
   });
 }
@@ -143,8 +153,8 @@ export function generateRoomMetadata(
   return generateMetadata({
     title,
     description: enhancedDescription,
-    url: `/accommodations/${slug}`,
-    image,
+    url: `/stay/${slug}`,
+    image: image ? toAbsoluteSiteUrl(image) : undefined,
     keywords,
   });
 }
@@ -191,11 +201,6 @@ export function generateWebsiteSchema() {
     name: 'Surwahi Eco-Lodge',
     publisher: { '@id': 'https://surwahi.com/#org' },
     inLanguage: 'en-IN',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: 'https://surwahi.com/search?q={search_term_string}',
-      'query-input': 'required name=search_term_string'
-    }
   };
 }
 
@@ -256,7 +261,7 @@ export function generateRoomSchema(room: {
   return {
     '@context': 'https://schema.org',
     '@type': 'HotelRoom',
-    '@id': `https://surwahi.com/accommodations/${room.slug}#room`,
+    '@id': `https://surwahi.com/stay/${room.slug}#room`,
     name: room.name,
     description: room.description,
     bed: room.bedType,
@@ -278,7 +283,7 @@ export function generateRoomSchema(room: {
       price: room.basePrice.toString(),
       availability: 'https://schema.org/InStock',
       validFrom: new Date().toISOString().split('T')[0],
-      url: `https://surwahi.com/accommodations/${room.slug}#book`
+      url: `https://surwahi.com/stay/${room.slug}#book`
     }
   };
 }
@@ -310,8 +315,14 @@ export function generateBlogPostSchema(post: {
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.description,
-    image: post.image || `https://surwahi.com/images/blog/${post.slug}.jpg`,
-    author: { '@type': 'Person', name: post.author },
+    image: post.image
+      ? toAbsoluteSiteUrl(post.image)
+      : `https://surwahi.com/images/blog/${post.slug}.jpg`,
+    author: {
+      '@type': 'Person',
+      name: post.author,
+      url: 'https://surwahi.com/about/our-team',
+    },
     publisher: {
       '@type': 'Organization',
       name: 'Surwahi Eco-Lodge',
@@ -322,7 +333,7 @@ export function generateBlogPostSchema(post: {
     },
     datePublished: post.publishedAt,
     dateModified: post.updatedAt || post.publishedAt,
-    mainEntityOfPage: `https://surwahi.com/blog/${post.slug}`
+    mainEntityOfPage: `https://surwahi.com/blogs/${post.slug}`
   };
 }
 

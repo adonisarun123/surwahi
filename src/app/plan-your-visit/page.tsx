@@ -45,7 +45,7 @@ const planningResources = [
         title: 'Curated Itineraries',
         description: 'Weekend escapades, 5-day retreats & festive plans.',
         icon: Route,
-        href: '/plan-your-visit/itineraries',
+        href: '/plan-your-visit',
         color: 'text-purple-500 bg-purple-50',
     },
 ];

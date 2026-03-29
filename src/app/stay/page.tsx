@@ -185,7 +185,7 @@ export default function StayPage() {
                 <div className="container mx-auto px-4 text-center">
                     <h2 className="font-display text-3xl text-forest-900 mb-8">Ready to Plan Your Escape?</h2>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/plan-your-visit/itineraries" className="px-8 py-4 bg-white border border-forest-900 text-forest-900 font-semibold rounded-lg hover:bg-sand-50 transition-colors">
+                        <Link href="/plan-your-visit" className="px-8 py-4 bg-white border border-forest-900 text-forest-900 font-semibold rounded-lg hover:bg-sand-50 transition-colors">
                             View Curated Itineraries
                         </Link>
                         <Link href="/stay/fact-sheet" className="px-8 py-4 bg-moss-600 text-white font-semibold rounded-lg hover:bg-moss-700 transition-colors">

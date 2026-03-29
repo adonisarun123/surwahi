@@ -9,7 +9,7 @@ import { formatPrice } from '@/lib/utils';
 export const metadata = generatePageMetadata(
   'Dormitory',
   'Affordable and social, our dormitory is ideal for solo travelers and groups.',
-  '/accommodations/dormitory',
+  '/stay/mudhouses',
   undefined,
   ['Dormitory Kanha', 'Hostel Kanha National Park', 'Budget Stay Kanha', 'Group Accommodation Kanha', 'Backpacker Hostel']
 );

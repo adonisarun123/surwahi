@@ -12,7 +12,7 @@ import {
     Check,
     MapPin
 } from 'lucide-react';
-import Breadcrumbs, { BreadcrumbJsonLd } from '@/components/Breadcrumbs';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import BookingWidget from '@/components/BookingWidget';
 import { generateRoomMetadata } from '@/lib/seo';
 import { formatPrice } from '@/lib/utils';
@@ -322,8 +322,7 @@ export default async function RoomDetailPage({ params }: RoomPageProps) {
                 </div>
             </section>
 
-            {/* JSON-LD Structured Data */}
-            <BreadcrumbJsonLd breadcrumbs={breadcrumbs} />
+            {/* JSON-LD Structured Data (breadcrumbs JSON-LD is emitted by <Breadcrumbs />) */}
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{

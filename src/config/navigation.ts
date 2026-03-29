@@ -78,7 +78,7 @@ export const mainNavigation: NavigationItem[] = [
         children: [
             { label: "Getting Here", href: "/plan-your-visit/getting-here", isNew: true },
             { label: "Best Time to Visit", href: "/plan-your-visit/best-time-to-visit", isNew: true },
-            { label: "Curated Itineraries", href: "/plan-your-visit/itineraries" },
+            { label: "Curated Itineraries", href: "/plan-your-visit" },
             { label: "Safari Booking Guide", href: "/plan-your-visit/safari-booking-guide", isNew: true },
             { label: "FAQs", href: "/plan-your-visit/faqs", isNew: true },
         ],
@@ -87,10 +87,10 @@ export const mainNavigation: NavigationItem[] = [
         label: "Stories",
         href: "/stories",
         children: [
-            { label: "Blog", href: "/stories/blog" },
+            { label: "Blog", href: "/blogs" },
             { label: "Guest Reviews", href: "/stories/guest-reviews", isNew: true },
-            { label: "Awards & Accolades", href: "/stories/awards" },
-            { label: "Press & Media", href: "/stories/press" },
+            { label: "Awards & Accolades", href: "/praises/awards-and-accolades" },
+            { label: "Press & Media", href: "/praises/press-mentions-and-recognitions" },
         ],
     },
     { label: "Gallery", href: "/gallery" },

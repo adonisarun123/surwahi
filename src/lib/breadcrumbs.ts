@@ -19,6 +19,8 @@ export function pathToBreadcrumbs(pathname: string): Crumb[] {
     // Custom labels for specific routes
     const customLabels: Record<string, string> = {
       'accommodations': 'Accommodations',
+      'stay': 'Stay',
+      'blogs': 'Blog',
       'things-to-do': 'Things to Do',
       'around-surwahi': 'Around Surwahi',
       'how-to-reach': 'How to Reach',
@@ -41,7 +43,7 @@ export function pathToBreadcrumbs(pathname: string): Crumb[] {
       if (parts[0] === 'accommodations' && parts.length === 2) {
         // This is a room detail page
         label = formatRoomName(decoded);
-      } else if (parts[0] === 'blog' && parts.length === 2) {
+      } else if (parts[0] === 'blogs' && parts.length === 2) {
         // This is a blog post page
         label = formatBlogTitle(decoded);
       } else if (parts[0] === 'things-to-do' && parts.length === 2) {
@@ -82,25 +84,36 @@ function formatActivityName(slug: string): string {
 
 export function getBreadcrumbsForPath(pathname: string): Crumb[] {
   // Handle special cases where we might want different breadcrumb structures
-  if (pathname.startsWith('/accommodations/')) {
+  if (pathname.startsWith('/stay/')) {
     const parts = pathname.split('/').filter(Boolean);
     if (parts.length === 2) {
-      // Room detail page
       return [
         { name: 'Home', href: '/' },
-        { name: 'Accommodations', href: '/accommodations' },
+        { name: 'Stay', href: '/stay' },
         { name: formatRoomName(parts[1]), href: pathname }
       ];
     }
   }
+
+  if (pathname.startsWith('/accommodations/')) {
+    const parts = pathname.split('/').filter(Boolean);
+    if (parts.length === 2) {
+      // Legacy URL (301 → /stay); breadcrumbs use canonical /stay paths
+      return [
+        { name: 'Home', href: '/' },
+        { name: 'Stay', href: '/stay' },
+        { name: formatRoomName(parts[1]), href: `/stay/${parts[1]}` }
+      ];
+    }
+  }
   
-  if (pathname.startsWith('/blog/')) {
+  if (pathname.startsWith('/blogs/')) {
     const parts = pathname.split('/').filter(Boolean);
     if (parts.length === 2) {
       // Blog post page
       return [
         { name: 'Home', href: '/' },
-        { name: 'Blog', href: '/blog' },
+        { name: 'Blog', href: '/blogs' },
         { name: formatBlogTitle(parts[1]), href: pathname }
       ];
     }

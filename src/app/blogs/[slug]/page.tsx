@@ -2,8 +2,8 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Calendar, Clock, User, Tag, ArrowLeft, ArrowRight } from 'lucide-react';
-import Breadcrumbs, { BreadcrumbJsonLd } from '@/components/Breadcrumbs';
-import { generateBlogMetadata } from '@/lib/seo';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import { generateBlogMetadata, toAbsoluteSiteUrl } from '@/lib/seo';
 import ShareButton from '@/components/ShareButton';
 import { getImageKitUrl } from '@/lib/images';
 
@@ -31,7 +31,7 @@ While the core zones of the national parks are closed during the monsoon, the bu
     author: 'Rhea Sharma',
     authorBio: 'Naturalist and passionate conservationist at Surwahi Social.',
     publishedAt: '2024-08-15',
-    updatedAt: '2024-08-15',
+    updatedAt: '2026-03-15',
     readingTime: 4,
     featuredImage: {
       url: getImageKitUrl('Website Photos/IMG20231020171008.jpg'),
@@ -65,7 +65,7 @@ Our mud structures are living, breathing entities. The natural materials allow t
     author: 'Arjun Das',
     authorBio: 'Co-founder of Surwahi Social and an advocate for sustainable architecture.',
     publishedAt: '2024-07-28',
-    updatedAt: '2024-07-28',
+    updatedAt: '2026-03-15',
     readingTime: 3,
     featuredImage: {
       url: getImageKitUrl('Surwahi Social Photos/A.jpg'),
@@ -99,7 +99,7 @@ This experience reinforced the importance of the conservation work being done by
     author: 'A Guest Blogger',
     authorBio: 'A recent guest at Surwahi Social who was deeply moved by their wildlife experience.',
     publishedAt: '2024-07-10',
-    updatedAt: '2024-07-10',
+    updatedAt: '2026-03-15',
     readingTime: 3,
     featuredImage: {
       url: getImageKitUrl('Website Photos/IMG_5090.JPG'),
@@ -431,8 +431,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </div>
       </section>
 
-      {/* JSON-LD Structured Data */}
-      <BreadcrumbJsonLd breadcrumbs={breadcrumbs} />
+      {/* JSON-LD Structured Data (breadcrumbs JSON-LD is emitted by <Breadcrumbs />) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -441,11 +440,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             "@type": "BlogPosting",
             "headline": post.title,
             "description": post.excerpt,
-            "image": `https://surwahi.com${post.featuredImage.url}`,
+            "image": toAbsoluteSiteUrl(post.featuredImage.url),
             "author": {
               "@type": "Person",
               "name": post.author,
-              "description": post.authorBio
+              "description": post.authorBio,
+              "url": "https://surwahi.com/about/our-team"
             },
             "publisher": {
               "@type": "Organization",

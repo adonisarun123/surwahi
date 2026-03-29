@@ -26,6 +26,14 @@ export default function GettingHerePage() {
                     <p className="text-body-lg text-soil-700 max-w-3xl mx-auto">
                         Located just 12km from the Khatia Gate of Kanha National Park, Surwahi is accessible by air, rail, and road. The journey itself takes you through the beautiful landscapes of Madhya Pradesh.
                     </p>
+                    <div className="max-w-3xl mx-auto mt-10 text-left">
+                        <h2 className="font-display text-xl md:text-2xl text-forest-900 mb-3">
+                            How far is Surwahi from Kanha National Park?
+                        </h2>
+                        <p className="text-soil-700 leading-relaxed">
+                            Surwahi Social Ecoestate is about <strong>12 km from the Khatia gate</strong> of Kanha National Park—close enough for straightforward safari access, yet set in quieter buffer-zone countryside. Most guests drive from Jabalpur (~160 km), Gondia (~145 km), or Nagpur (~270 km), then continue via Mandla toward the park gates.
+                        </p>
+                    </div>
                 </div>
             </section>
 

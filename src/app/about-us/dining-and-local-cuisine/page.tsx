@@ -8,7 +8,7 @@ import { getImageKitUrl } from '@/lib/images';
 export const metadata = generatePageMetadata(
   'Dining & Local Cuisine',
   'Discover our farm-to-table dining experience and the flavors of local cuisine.',
-  '/about-us/dining-and-local-cuisine',
+  '/stay/dining',
   undefined,
   ['Farm to Table Kanha', 'Local Cuisine India', 'Organic Food', 'Baiga Cuisine', 'Sustainable Dining']
 );

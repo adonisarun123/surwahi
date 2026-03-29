@@ -8,7 +8,7 @@ import { getImageKitUrl } from '@/lib/images';
 export const metadata = generatePageMetadata(
   'The Lodge & Philosophy',
   'Learn about the design, architecture, and guiding principles of Surwahi.',
-  '/about-us/the-lodge-and-philosophy',
+  '/about/the-lodge-and-philosophy',
   undefined,
   ['Eco Lodge Philosophy', 'Sustainable Design', 'Regenerative Tourism', 'Conscious Travel', 'Nature Architecture']
 );

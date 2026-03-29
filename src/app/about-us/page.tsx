@@ -6,18 +6,18 @@ import { BookOpen, Building, Bed, Utensils, FileText, PawPrint } from 'lucide-re
 export const metadata = generatePageMetadata(
   'About Surwahi Eco-Lodge | Sustainable Tourism near Kanha',
   'Discover the story of Surwahi Eco-Lodge, an award-winning sustainable stay near Kanha National Park. Learn about our eco-friendly design and community philosophy.',
-  '/about-us',
+  '/about',
   undefined,
   ['Surwahi Eco Lodge', 'Sustainable Tourism Kanha', 'Eco Resort India', 'Responsible Travel', 'Nature Retreat Kanha']
 );
 
 const subSections = [
-  { name: 'Our Story', href: '/about-us/our-story', description: 'The journey of how our dream took root.', icon: BookOpen },
-  { name: 'The Lodge & Philosophy', href: '/about-us/the-lodge-and-philosophy', description: 'Our principles of eco-friendly design and conscious hospitality.', icon: Building },
-  { name: 'Accommodations', href: '/accommodations', description: 'Explore our sustainable and comfortable living spaces.', icon: Bed },
-  { name: 'Dining & Local Cuisine', href: '/about-us/dining-and-local-cuisine', description: 'Experience our farm-to-table, hyperlocal culinary delights.', icon: Utensils },
-  { name: 'Fact Sheet', href: '/about-us/fact-sheet', description: 'Detailed information about our sustainability practices.', icon: FileText },
-  { name: 'Our Residents (Flora & Fauna)', href: '/about-us/our-residents', description: 'Meet the diverse wildlife that calls Surwahi home.', icon: PawPrint },
+  { name: 'Our Story', href: '/about/our-story', description: 'The journey of how our dream took root.', icon: BookOpen },
+  { name: 'The Lodge & Philosophy', href: '/about/the-lodge-and-philosophy', description: 'Our principles of eco-friendly design and conscious hospitality.', icon: Building },
+  { name: 'Accommodations', href: '/stay', description: 'Explore our sustainable and comfortable living spaces.', icon: Bed },
+  { name: 'Dining & Local Cuisine', href: '/stay/dining', description: 'Experience our farm-to-table, hyperlocal culinary delights.', icon: Utensils },
+  { name: 'Fact Sheet', href: '/stay/fact-sheet', description: 'Detailed information about our sustainability practices.', icon: FileText },
+  { name: 'Our Residents (Flora & Fauna)', href: '/about/our-residents', description: 'Meet the diverse wildlife that calls Surwahi home.', icon: PawPrint },
 ]
 
 export default function AboutUsPage() {

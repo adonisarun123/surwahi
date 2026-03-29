@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { MapPin, Phone, Mail, Leaf, Recycle, Bird } from 'lucide-react';
+import { MapPin, Phone, Mail, Leaf, Recycle, Bird, Instagram, Facebook, Linkedin } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface FooterSection {
@@ -49,10 +49,10 @@ const footerSections: FooterSection[] = [
 ];
 
 const socialLinks = [
-  { name: 'Instagram', href: 'https://www.instagram.com/surwahisocialecoestatekanha', icon: 'fa-brands fa-instagram' },
-  { name: 'Facebook', href: 'https://www.facebook.com/surwahisocialecoestatekanha/', icon: 'fa-brands fa-facebook' },
-  { name: 'LinkedIn', href: 'https://in.linkedin.com/company/surwahisocialecoestatekanha', icon: 'fa-brands fa-linkedin' },
-];
+  { name: 'Instagram', href: 'https://www.instagram.com/surwahisocialecoestatekanha', Icon: Instagram },
+  { name: 'Facebook', href: 'https://www.facebook.com/surwahisocialecoestatekanha/', Icon: Facebook },
+  { name: 'LinkedIn', href: 'https://in.linkedin.com/company/surwahisocialecoestatekanha', Icon: Linkedin },
+] as const;
 
 const certificationBadges = [
   { name: 'Eco-Certified', icon: Leaf, color: 'text-green-600 bg-green-50' },
@@ -308,19 +308,22 @@ export default function Footer() {
             {/* Social Links */}
             <div className="flex items-center gap-6">
               <span className="text-sm text-soil-600 font-medium hidden sm:inline">Follow us:</span>
-              {socialLinks.map((social) => (
-                <Link
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-lg bg-white border border-mist-200 flex items-center justify-center hover:border-moss-500 hover:bg-moss-50 transition-all shadow-sm hover:shadow group"
-                  aria-label={`Follow us on ${social.name}`}
-                >
-                  <span className="sr-only">{social.name}</span>
-                  <i className={`${social.icon} text-lg group-hover:scale-110 transition-transform`} aria-hidden="true"></i>
-                </Link>
-              ))}
+              {socialLinks.map((social) => {
+                const Icon = social.Icon;
+                return (
+                  <Link
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-lg bg-white border border-mist-200 flex items-center justify-center hover:border-moss-500 hover:bg-moss-50 transition-all shadow-sm hover:shadow group"
+                    aria-label={`Follow us on ${social.name}`}
+                  >
+                    <span className="sr-only">{social.name}</span>
+                    <Icon className="h-5 w-5 text-soil-700 group-hover:text-moss-600 group-hover:scale-110 transition-all" aria-hidden />
+                  </Link>
+                );
+              })}
             </div>
 
             {/* Additional Links */}
