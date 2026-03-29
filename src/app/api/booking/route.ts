@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { prisma } from '@/lib/prisma';
+import { adminListApiUnauthorized } from '@/lib/admin-api-auth';
 
 // Validation schema for booking
 const bookingSchema = z.object({
@@ -198,6 +199,9 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET(request: NextRequest) {
+  const denied = adminListApiUnauthorized(request);
+  if (denied) return denied;
+
   try {
     const { searchParams } = new URL(request.url);
     const page = parseInt(searchParams.get('page') || '1');

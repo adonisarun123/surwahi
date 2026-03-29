@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { query } from '@/lib/db';
 import { sendContactFormNotification, sendContactFormConfirmation } from '@/lib/email';
+import { adminListApiUnauthorized } from '@/lib/admin-api-auth';
 
 // Validation schema for contact form
 const contactFormSchema = z.object({
@@ -92,6 +93,9 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET(request: NextRequest) {
+  const denied = adminListApiUnauthorized(request);
+  if (denied) return denied;
+
   try {
     const { searchParams } = new URL(request.url);
     const page = parseInt(searchParams.get('page') || '1');
