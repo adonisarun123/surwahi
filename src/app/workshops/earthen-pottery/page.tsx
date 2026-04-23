@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Users, Calendar, Clock, Hand } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import EventSchema from '@/components/schema/EventSchema';
 import { getImageKitUrl, workshopImages } from '@/lib/images';
 import ContactForm from '@/components/ContactForm';
 import RelatedContent from '@/components/RelatedContent';
@@ -47,6 +48,13 @@ export default function EarthenPotteryPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <Breadcrumbs />
       </div>
+
+      <EventSchema
+        name="Earthen Pottery Workshop"
+        description="Hands-on terracotta pottery workshop — wheel throwing, hand-building and finishing — guided by master potters at Surwahi Eco-Lodge near Kanha."
+        path="/workshops/earthen-pottery"
+        recurring
+      />
 
       <section className="bg-sand-50 py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">

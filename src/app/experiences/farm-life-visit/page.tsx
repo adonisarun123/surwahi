@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Check, Sun, Users, Leaf } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import TouristAttractionSchema from '@/components/schema/TouristAttractionSchema';
 import { getImageKitUrl } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
@@ -47,6 +48,13 @@ export default function FarmLifeVisitPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <Breadcrumbs />
       </div>
+
+      <TouristAttractionSchema
+        name="Farm Life Visit at Surwahi"
+        description="Experience rural life and sustainable farming practices: dairy, poultry, organic vegetable beds and traditional agro-forestry around Kanha."
+        path="/experiences/farm-life-visit"
+        keywords={['Organic Farming Experience', 'Farm Stay Kanha', 'Rural Life Experience', 'Sustainable Agriculture Tour', 'Farm to Table Kanha']}
+      />
 
       <section className="bg-sand-50 py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">

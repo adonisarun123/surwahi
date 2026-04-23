@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Users, Calendar, Clock, Heart, Recycle, Wind } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import EventSchema from '@/components/schema/EventSchema';
 import { getImageKitUrl } from '@/lib/images';
 import ContactForm from '@/components/ContactForm';
 
@@ -46,6 +47,13 @@ export default function TheArtOfRegenerationPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <Breadcrumbs />
       </div>
+
+      <EventSchema
+        name="The Art of Regeneration"
+        description="Permaculture and regenerative-design workshop exploring soil restoration, water cycles and community resilience on the Surwahi farm."
+        path="/workshops/the-art-of-regeneration"
+        recurring
+      />
 
       <section className="bg-sand-50 py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">

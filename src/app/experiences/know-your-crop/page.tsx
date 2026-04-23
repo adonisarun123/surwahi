@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Check, Clock, Sun, Users, Leaf } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import TouristAttractionSchema from '@/components/schema/TouristAttractionSchema';
 import { getImageKitUrl } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
@@ -47,6 +48,13 @@ export default function KnowYourCropPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <Breadcrumbs />
       </div>
+
+      <TouristAttractionSchema
+        name="Know Your Crop — Farm-to-Table Experience"
+        description="Walk through Surwahi's organic farm, learn about indigenous crops and trace the journey from seed to harvest to your plate."
+        path="/experiences/know-your-crop"
+        keywords={['Organic Agriculture Workshop', 'Farming Tour India', 'Sustainable Farming', 'Agri Tourism Kanha', 'Crop Harvesting Experience']}
+      />
 
       <section className="bg-sand-50 py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">

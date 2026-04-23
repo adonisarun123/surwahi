@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Users, Leaf, Heart } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import TouristAttractionSchema from '@/components/schema/TouristAttractionSchema';
 import { getImageKitUrl } from '@/lib/images';
 import ContactForm from '@/components/ContactForm';
 
@@ -44,6 +45,13 @@ export default function EcoVolunteeringPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <Breadcrumbs />
       </div>
+
+      <TouristAttractionSchema
+        name="Eco Volunteering Programs at Surwahi"
+        description="Hands-on conservation and community volunteering: reforestation, biodiversity surveys, school outreach and sustainable construction with the Surwahi team."
+        path="/experiences/eco-volunteering-programs"
+        keywords={['Volunteer Kanha', 'Eco Tourism Volunteering', 'Conservation Volunteer India', 'Reforestation Project India', 'Community Service Travel']}
+      />
 
       <section className="bg-sand-50 py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">

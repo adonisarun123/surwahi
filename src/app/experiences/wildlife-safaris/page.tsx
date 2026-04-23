@@ -6,6 +6,7 @@ import { generatePageMetadata } from '@/lib/seo';
 import BookingWidget from '@/components/BookingWidget';
 import { getImageKitUrl, experienceImages, workshopImages } from '@/lib/images';
 import RelatedContent from '@/components/RelatedContent';
+import TouristAttractionSchema from '@/components/schema/TouristAttractionSchema';
 
 export const metadata = generatePageMetadata(
   'Wildlife Safaris',
@@ -85,6 +86,14 @@ export default function WildlifeSafarisPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <Breadcrumbs />
       </div>
+
+      <TouristAttractionSchema
+        name="Kanha Buffer Zone Wildlife Safari"
+        description="Expert-guided 4x4 wildlife safari in the buffer zone of Kanha National Park. Spot Royal Bengal Tigers, leopards, sloth bears and birdlife with experienced naturalists."
+        path="/experiences/wildlife-safaris"
+        image={safariDetails.images.map(i => i.src)}
+        keywords={['Tiger Safari Kanha', 'Jungle Safari Booking', 'Kanha National Park Safari', 'Wildlife Photography Tour', 'Bengal Tiger India']}
+      />
 
       <section className="bg-sand-50 py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
