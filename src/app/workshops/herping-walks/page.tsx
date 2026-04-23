@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Users, Calendar, Clock, Eye, AlertTriangle } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import EventSchema from '@/components/schema/EventSchema';
 import { getImageKitUrl } from '@/lib/images';
 import ContactForm from '@/components/ContactForm';
 
@@ -47,6 +48,13 @@ export default function HerpingWalksPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <Breadcrumbs />
       </div>
+
+      <EventSchema
+        name="Herping Walks — Amphibian & Reptile Study"
+        description="Guided night walks to discover frogs, snakes, geckos and other herpetofauna of the Kanha buffer zone, led by trained naturalists."
+        path="/workshops/herping-walks"
+        recurring
+      />
 
       <section className="bg-sand-50 py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">

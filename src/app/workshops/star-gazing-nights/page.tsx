@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Users, Calendar, Clock } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import EventSchema from '@/components/schema/EventSchema';
 import { getImageKitUrl, workshopImages, experienceImages } from '@/lib/images';
 import ContactForm from '@/components/ContactForm';
 import RelatedContent from '@/components/RelatedContent';
@@ -47,6 +48,13 @@ export default function StarGazingNightsPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <Breadcrumbs />
       </div>
+
+      <EventSchema
+        name="Star Gazing Nights at Surwahi"
+        description="Guided night-sky sessions under the pristine, light-pollution-free skies of Kanha — telescopes, deep-sky viewing and constellation tours."
+        path="/workshops/star-gazing-nights"
+        recurring
+      />
 
       <section className="bg-sand-50 py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">

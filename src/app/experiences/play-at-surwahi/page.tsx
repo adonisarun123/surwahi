@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Check, Clock, Sun, Shield, Leaf, Smile } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import TouristAttractionSchema from '@/components/schema/TouristAttractionSchema';
 import { getImageKitUrl } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
@@ -48,6 +49,13 @@ export default function PlayAtSurwahiPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <Breadcrumbs />
       </div>
+
+      <TouristAttractionSchema
+        name="Play @ Surwahi — Family Nature Playground"
+        description="A dedicated outdoor space for families and children to play, climb and learn from nature at Surwahi Eco-Lodge near Kanha National Park."
+        path="/experiences/play-at-surwahi"
+        keywords={['Kids Play Area', 'Family Resort Kanha', 'Child Friendly Resort', 'Nature Playground', 'Kids Activities Kanha']}
+      />
 
       <section className="bg-sand-50 py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">

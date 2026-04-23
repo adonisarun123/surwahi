@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Check, Leaf, Users, Utensils } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import TouristAttractionSchema from '@/components/schema/TouristAttractionSchema';
 import { getImageKitUrl } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
@@ -47,6 +48,13 @@ export default function LiveTribalCookingPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <Breadcrumbs />
       </div>
+
+      <TouristAttractionSchema
+        name="Live Tribal Cooking Experiences"
+        description="Cook traditional Gond and Baiga tribal dishes alongside village home-cooks. A hands-on culinary immersion in the foodways of the Kanha region."
+        path="/experiences/live-tribal-cooking-experiences"
+        keywords={['Tribal Food India', 'Village Cooking Class', 'Traditional Recipes Madhya Pradesh', 'Cooking Workshop Kanha', 'Gond Cuisine']}
+      />
 
       <section className="bg-sand-50 py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">

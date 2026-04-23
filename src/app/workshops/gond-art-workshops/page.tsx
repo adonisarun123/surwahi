@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Users, Calendar, Clock, Palette } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import EventSchema from '@/components/schema/EventSchema';
 import { getImageKitUrl, workshopImages, experienceImages } from '@/lib/images';
 import ContactForm from '@/components/ContactForm';
 import RelatedContent from '@/components/RelatedContent';
@@ -47,6 +48,13 @@ export default function GondArtWorkshopsPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <Breadcrumbs />
       </div>
+
+      <EventSchema
+        name="Gond Art Workshop"
+        description="Learn the intricate Gond tribal art form — patterns, motifs and storytelling — under the guidance of a practising local Gond artist. Held every Wednesday and Sunday at Surwahi Eco-Lodge near Kanha National Park."
+        path="/workshops/gond-art-workshops"
+        recurring
+      />
 
       <section className="bg-sand-50 py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">

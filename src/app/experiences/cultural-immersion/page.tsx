@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Check, Users, Hand, Mic, Home } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import TouristAttractionSchema from '@/components/schema/TouristAttractionSchema';
 import { getImageKitUrl } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
@@ -65,6 +66,13 @@ export default function CulturalImmersionPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <Breadcrumbs />
       </div>
+
+      <TouristAttractionSchema
+        name="Cultural Immersion & Local Life"
+        description="Visit Gond and Baiga tribal villages around Kanha. Meet artisans, learn folk traditions and share meals with the communities that steward this landscape."
+        path="/experiences/cultural-immersion"
+        keywords={['Tribal Village Tour', 'Gond Culture', 'Village Life India', 'Rural Tourism Madhya Pradesh', 'Baiga Tribe Culture']}
+      />
 
       <section className="bg-sand-50 py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">

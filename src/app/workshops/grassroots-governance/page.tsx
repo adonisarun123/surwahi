@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Users, Calendar, Clock, Landmark, BookOpen } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import EventSchema from '@/components/schema/EventSchema';
 import { getImageKitUrl } from '@/lib/images';
 import ContactForm from '@/components/ContactForm';
 
@@ -46,6 +47,13 @@ export default function GrassrootsGovernancePage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <Breadcrumbs />
       </div>
+
+      <EventSchema
+        name="Grassroots Governance & Local Democracy Workshop"
+        description="Field-based workshop on Panchayati Raj and community-led conservation, with visits to gram sabhas around Kanha and dialogue with local leaders."
+        path="/workshops/grassroots-governance"
+        recurring
+      />
 
       <section className="bg-sand-50 py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">

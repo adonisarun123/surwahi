@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Users, Calendar, Clock, Leaf, AlertTriangle } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import EventSchema from '@/components/schema/EventSchema';
 import { getImageKitUrl } from '@/lib/images';
 import ContactForm from '@/components/ContactForm';
 
@@ -47,6 +48,13 @@ export default function FoodForagingTrailsPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <Breadcrumbs />
       </div>
+
+      <EventSchema
+        name="Food Foraging Trails"
+        description="Guided foraging walks identifying edible greens, fruits, tubers and mushrooms of the Kanha forest, followed by a tasting cooked over open fire."
+        path="/workshops/food-foraging-trails"
+        recurring
+      />
 
       <section className="bg-sand-50 py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">

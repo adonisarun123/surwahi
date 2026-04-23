@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Check, Users, Sun, Zap } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import TouristAttractionSchema from '@/components/schema/TouristAttractionSchema';
 import { getImageKitUrl } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
@@ -49,6 +50,13 @@ export default function OutdoorSportsPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <Breadcrumbs />
       </div>
+
+      <TouristAttractionSchema
+        name="Outdoor Sports & Nature Games at Surwahi"
+        description="Archery, traditional Indian games, frisbee and group nature games set in the open campus of Surwahi Eco-Lodge, Kanha."
+        path="/experiences/outdoor-sports-and-nature-games"
+        keywords={['Nature Games', 'Outdoor Activities Kanha', 'Kids Activities Resort', 'Traditional Indian Games', 'Archery Kanha']}
+      />
 
       <section className="bg-sand-50 py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">

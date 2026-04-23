@@ -351,3 +351,115 @@ export function generateFAQSchema(faqs: Array<{ question: string; answer: string
     }))
   };
 }
+
+export function generateTouristAttractionSchema(attraction: {
+  name: string;
+  description: string;
+  path: string;
+  image?: string | string[];
+  keywords?: string[];
+}) {
+  const images = Array.isArray(attraction.image)
+    ? attraction.image.map(toAbsoluteSiteUrl)
+    : attraction.image
+      ? [toAbsoluteSiteUrl(attraction.image)]
+      : [`${defaultMeta.url}/images/og-default.jpg`];
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'TouristAttraction',
+    '@id': `${defaultMeta.url}${attraction.path}#attraction`,
+    name: attraction.name,
+    description: attraction.description,
+    url: `${defaultMeta.url}${attraction.path}`,
+    image: images,
+    keywords: attraction.keywords?.join(', '),
+    isAccessibleForFree: false,
+    touristType: ['Eco tourists', 'Nature lovers', 'Wildlife enthusiasts', 'Families'],
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Near Kanha National Park',
+      addressRegion: 'Madhya Pradesh',
+      addressCountry: 'IN',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 22.3344,
+      longitude: 80.6115,
+    },
+    isPartOf: { '@id': `${defaultMeta.url}/#lodging` },
+    provider: { '@id': `${defaultMeta.url}/#org` },
+  };
+}
+
+export function generateEventSchema(event: {
+  name: string;
+  description: string;
+  path: string;
+  image?: string | string[];
+  startDate?: string;
+  endDate?: string;
+  recurring?: boolean;
+  offers?: Array<{ name?: string; price: string; priceCurrency?: string }>;
+}) {
+  const images = Array.isArray(event.image)
+    ? event.image.map(toAbsoluteSiteUrl)
+    : event.image
+      ? [toAbsoluteSiteUrl(event.image)]
+      : [`${defaultMeta.url}/images/og-default.jpg`];
+
+  // For recurring workshops without a fixed date, use a forward-looking date
+  // so the schema validates while still signalling availability.
+  const today = new Date();
+  const nextYear = new Date(today.getFullYear() + 1, today.getMonth(), today.getDate());
+  const fallbackStart = today.toISOString().split('T')[0];
+  const fallbackEnd = nextYear.toISOString().split('T')[0];
+
+  const schema: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'Event',
+    '@id': `${defaultMeta.url}${event.path}#event`,
+    name: event.name,
+    description: event.description,
+    url: `${defaultMeta.url}${event.path}`,
+    image: images,
+    startDate: event.startDate || fallbackStart,
+    endDate: event.endDate || (event.recurring ? fallbackEnd : event.startDate || fallbackStart),
+    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    eventStatus: 'https://schema.org/EventScheduled',
+    location: {
+      '@type': 'Place',
+      name: 'Surwahi Social Eco Estate',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Near Kanha National Park',
+        addressRegion: 'Madhya Pradesh',
+        addressCountry: 'IN',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 22.3344,
+        longitude: 80.6115,
+      },
+    },
+    organizer: {
+      '@type': 'Organization',
+      '@id': `${defaultMeta.url}/#org`,
+      name: defaultMeta.siteName,
+      url: defaultMeta.url + '/',
+    },
+  };
+
+  if (event.offers?.length) {
+    schema.offers = event.offers.map(offer => ({
+      '@type': 'Offer',
+      name: offer.name,
+      price: offer.price,
+      priceCurrency: offer.priceCurrency || 'INR',
+      availability: 'https://schema.org/InStock',
+      url: `${defaultMeta.url}${event.path}`,
+    }));
+  }
+
+  return schema;
+}

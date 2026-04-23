@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Check, Users, Heart, Eye, Ear } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import EventSchema from '@/components/schema/EventSchema';
 import { getImageKitUrl } from '@/lib/images';
 import ContactForm from '@/components/ContactForm';
 
@@ -47,6 +48,13 @@ export default function ForestBathingPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <Breadcrumbs />
       </div>
+
+      <EventSchema
+        name="Forest Bathing (Shinrin-yoku) Sessions"
+        description="Slow, sensory walks in the forests around Surwahi following Japanese shinrin-yoku practice — proven to reduce stress and restore wellbeing."
+        path="/workshops/forest-bathing"
+        recurring
+      />
 
       <section className="bg-sand-50 py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">

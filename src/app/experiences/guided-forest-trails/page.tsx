@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Check, Users, Mountain, Leaf } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import TouristAttractionSchema from '@/components/schema/TouristAttractionSchema';
 import { getImageKitUrl, experienceImages, workshopImages } from '@/lib/images';
 import RelatedContent from '@/components/RelatedContent';
 
@@ -66,6 +67,13 @@ export default function GuidedForestTrailsPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <Breadcrumbs />
       </div>
+
+      <TouristAttractionSchema
+        name="Guided Forest Trails at Surwahi"
+        description="Naturalist-led nature walks through the rich biodiversity of the forests around Kanha — sal groves, bamboo thickets and grassland edges."
+        path="/experiences/guided-forest-trails"
+        keywords={['Nature Trails Kanha', 'Forest Walks', 'Guided Nature Walks', 'Flora and Fauna Kanha', 'Hiking Kanha']}
+      />
 
       <section className="bg-sand-50 py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">

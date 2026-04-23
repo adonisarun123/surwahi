@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Check, Clock, Sun, Leaf } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
+import TouristAttractionSchema from '@/components/schema/TouristAttractionSchema';
 import { getImageKitUrl, experienceImages, workshopImages } from '@/lib/images';
 import RelatedContent from '@/components/RelatedContent';
 
@@ -45,6 +46,13 @@ export default function BirdWatchingPage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <Breadcrumbs />
       </div>
+
+      <TouristAttractionSchema
+        name="Bird-watching Expeditions at Surwahi"
+        description="Specialised bird-watching tours near Kanha National Park spotting Malabar Pied Hornbills, racket-tailed drongos and 250+ species with expert ornithology guides."
+        path="/experiences/bird-watching-expeditions"
+        keywords={['Bird Watching Kanha', 'Bird Photography India', 'Kanha Bird Species', 'Ornithology Tours', 'Malabar Pied Hornbill']}
+      />
 
       <section className="bg-sand-50 py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
