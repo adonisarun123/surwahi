@@ -30,7 +30,7 @@ export default async function KnowledgeArticlePage({ params }: ArticlePageProps)
 
   const breadcrumbs = [
     { name: 'Home', href: '/' },
-    { name: 'Knowledge Hub', href: '/knowledge-hub' },
+    { name: 'Articles', href: '/blogs' },
     { name: article.title, href: `/knowledge-hub/${article.slug}` }
   ];
 
@@ -40,11 +40,11 @@ export default async function KnowledgeArticlePage({ params }: ArticlePageProps)
         <div className="flex items-center justify-between">
           <Breadcrumbs customBreadcrumbs={breadcrumbs} />
           <Link
-            href="/knowledge-hub"
+            href="/blogs"
             className="flex items-center gap-2 text-moss-500 hover:text-forest-700 transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to Hub
+            Back to Articles
           </Link>
         </div>
       </div>

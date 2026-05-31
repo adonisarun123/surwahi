@@ -158,7 +158,7 @@ export default function HomePage() {
           <p className="text-body-lg max-w-prose mx-auto mb-8">
             Explore the mystical beauty of <strong>Kanha Tiger Reserve</strong>, one of India’s most biodiverse landscapes. From early morning jungle safaris to quiet village walks, Surwahi is your perfect gateway to the wild heart of India.
           </p>
-          <Link href="/getting-here" className="btn btn-secondary text-clay-500 border-clay-500/50 hover:bg-clay-500/10">
+          <Link href="/plan-your-visit/getting-here" className="btn btn-secondary text-clay-500 border-clay-500/50 hover:bg-clay-500/10">
             Plan Your Kanha Journey
           </Link>
         </div>
