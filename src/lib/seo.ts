@@ -16,7 +16,7 @@ export interface SEOConfig {
 export const defaultMeta = {
   title: 'Surwahi Eco-Lodge',
   description: 'Eco-lodge offering sustainable stays near the forest. Experience regenerative hospitality in harmony with nature.',
-  image: '/images/og-default.jpg',
+  image: 'https://ik.imagekit.io/adonisarun/surwahi-logo.png?updatedAt=1761322022431',
   url: 'https://surwahi.com',
   siteName: 'Surwahi Eco-Lodge',
   locale: 'en_IN',
@@ -363,7 +363,7 @@ export function generateTouristAttractionSchema(attraction: {
     ? attraction.image.map(toAbsoluteSiteUrl)
     : attraction.image
       ? [toAbsoluteSiteUrl(attraction.image)]
-      : [`${defaultMeta.url}/images/og-default.jpg`];
+      : [defaultMeta.image];
 
   return {
     '@context': 'https://schema.org',
@@ -406,7 +406,7 @@ export function generateEventSchema(event: {
     ? event.image.map(toAbsoluteSiteUrl)
     : event.image
       ? [toAbsoluteSiteUrl(event.image)]
-      : [`${defaultMeta.url}/images/og-default.jpg`];
+      : [defaultMeta.image];
 
   // For recurring workshops without a fixed date, use a forward-looking date
   // so the schema validates while still signalling availability.
