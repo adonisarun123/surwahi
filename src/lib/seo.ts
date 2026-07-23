@@ -219,6 +219,13 @@ export function generateLodgingBusinessSchema() {
     amenityFeature: [
       { '@type': 'LocationFeatureSpecification', name: 'Solar power', value: true },
       { '@type': 'LocationFeatureSpecification', name: 'Rainwater harvesting', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Evapo-transpiration toilets', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Organic farm-to-table dining', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Natural swimming pool', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Free WiFi (common areas)', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Free parking', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Pet friendly', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Family friendly', value: true },
       { '@type': 'LocationFeatureSpecification', name: 'EV charging', value: true }
     ],
     address: {
@@ -235,9 +242,31 @@ export function generateLodgingBusinessSchema() {
       longitude: 80.468707
     },
     telephone: '+91-77952-07779',
+    email: 'contact@surwahi.com',
+    hasMap: 'https://www.google.com/maps/search/?api=1&query=22.244025,80.468707',
+    currenciesAccepted: 'INR',
+    paymentAccepted: 'Cash, UPI, Credit Card, Bank Transfer',
     checkinTime: '14:00',
     checkoutTime: '11:00',
-    petsAllowed: false,
+    award: [
+      'TOFTigers - Most Inspirational Eco Lodge 2024',
+      'AEN International Ecotourism Award 2025 (Sustainable Building)',
+      'Madhya Pradesh Tourism Board - Best B&B Unit 2024-25',
+      'Booking.com Traveller Review Award (2023-2026)',
+      'ICRT India Responsible Tourism Awards 2023 (Silver)',
+      'WTCA Best Eco Homestay Award 2024'
+    ],
+    potentialAction: {
+      '@type': 'ReserveAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://surwahi.com/stay',
+        inLanguage: 'en-IN',
+        actionPlatform: ['http://schema.org/DesktopWebPlatform', 'http://schema.org/MobileWebPlatform']
+      },
+      result: { '@type': 'LodgingReservation', name: 'Book your stay at Surwahi Eco-Lodge' }
+    },
+    petsAllowed: true,
     priceRange: '₹₹₹'
   };
 }

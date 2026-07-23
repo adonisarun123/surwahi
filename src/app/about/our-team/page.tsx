@@ -18,6 +18,10 @@ const founders = [
 export default function OurTeamPage() {
     return (
         <div className="pt-20">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', '@id': 'https://surwahi.com/#org', founder: [{ '@type': 'Person', name: 'Ankit Rastogi', jobTitle: 'Founder' }, { '@type': 'Person', name: 'Pradeep Vijayan', jobTitle: 'Co-Founder' }] }) }}
+            />
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
                 <Breadcrumbs />
             </div>

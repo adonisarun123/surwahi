@@ -3,6 +3,7 @@ import { Noto_Sans_Devanagari } from 'next/font/google';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import VannVibeBookingForm from '@/components/VannVibeBookingForm';
 import { generatePageMetadata } from '@/lib/seo';
+import EventSchema from '@/components/schema/EventSchema';
 
 const notoDeva = Noto_Sans_Devanagari({
   weight: ['600', '700'],
@@ -120,6 +121,13 @@ const eventJsonLd = {
 export default function VannVibePage() {
   return (
     <div className="relative min-h-screen bg-[#F4EDE4] pt-20 text-[#4B3A2B]">
+      <EventSchema
+        name="Vann Vibe — Nature Retreat"
+        description="An immersive 3-night retreat near Kanha National Park: forest bathing, ethno-astronomy, sound meditation, Gond art, mindful making and vegan fusion meals."
+        path="/workshops/vann-vibe"
+        startDate="2026-04-03"
+        endDate="2026-04-06"
+      />
       <TreeSilhouetteBackdrop />
 
       <div className="relative z-10">

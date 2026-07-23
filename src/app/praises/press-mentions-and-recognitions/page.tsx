@@ -13,14 +13,14 @@ const pressDetails = {
   description: 'We are grateful for the stories shared about our journey. Here are some of the press mentions and guest testimonials that have honored and inspired us.',
   testimonials: [
     {
-      name: 'Ananya Sharma',
-      location: 'Mumbai, India',
-      quote: 'An absolutely magical experience. The connection with nature, the warmth of the community, and the commitment to sustainability is palpable in every corner. I left with a renewed sense of purpose.',
+      name: 'Samarjeet',
+      location: 'Stayed via Airbnb',
+      quote: 'We visited Kanha with our pet dog and were warmly welcomed. We loved the play area and the naturally built swimming pool. Mr. Ankit is undoubtedly the best host I have come across.',
     },
     {
-      name: 'David Chen',
-      location: 'California, USA',
-      quote: 'I came for the wildlife, but I left with so much more. The workshops, the conversations, the food - everything was an experience in authentic, sustainable living. Highly recommended.',
+      name: 'Rushant',
+      location: 'Stayed via Airbnb',
+      quote: 'Unforgettable. Ankit was responsive and passionate about sustainability, Pradeep Ji leading the kitchen and Narendra ji the caretaker were wonderful. A unique, nature-centric retreat we will return to.',
     },
   ],
 };

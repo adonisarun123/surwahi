@@ -26,6 +26,8 @@ const certificates = [
   { src: '/awards/booking-2023.png', title: 'Traveller Review Award 2023', meta: 'Booking.com' },
   { src: '/awards/irta-outlook-silver-2023.jpg', title: 'Silver — B&Bs & Guesthouses', meta: 'IRTA / Outlook Traveller · 2023' },
   { src: '/awards/woloo-wah-2022.jpeg', title: 'WAH Hygiene Certification', meta: 'Woloo · Toilet Board Coalition · 2022' },
+  { src: '/awards/icrt-silver-2023.png', title: 'Silver — Addressing Climate Change', meta: 'ICRT India Responsible Tourism Awards · 2023' },
+  { src: '/awards/wtca-2024.png', title: 'Best Eco Homestay Award', meta: 'WTCA, Mumbai · 2024' },
 ];
 
 const recognitionGroups = [
