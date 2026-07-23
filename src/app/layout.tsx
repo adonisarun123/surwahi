@@ -21,7 +21,7 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Surwahi Eco-Lodge',
+  title: 'Surwahi Social Ecoestate',
   description: 'Eco-lodge offering sustainable stays near the forest. Experience regenerative hospitality in harmony with nature.',
   url: 'https://surwahi.com',
 });

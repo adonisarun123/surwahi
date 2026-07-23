@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Info } from 'lucide-react';
 
 export const metadata = generatePageMetadata(
-    'Kanha Safari Booking Guide | Surwahi Eco Lodge',
+    'Kanha Safari Booking Guide | Surwahi Social Ecoestate',
     'Complete guide to booking safaris in Kanha National Park. Zones, timings, costs, and tips for the best tiger sightings.',
     '/plan-your-visit/safari-booking-guide',
     undefined,

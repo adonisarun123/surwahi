@@ -10,7 +10,7 @@ import { generatePageMetadata } from '@/lib/seo';
 
 export const metadata = generatePageMetadata(
   'Contact Us',
-  'Get in touch with Surwahi Eco-Lodge. Find our contact information and send us a message for bookings or inquiries.',
+  'Get in touch with Surwahi Social Ecoestate. Find our contact information and send us a message for bookings or inquiries.',
   '/contact',
   undefined,
   ['Contact Surwahi', 'Surwahi Booking', 'Resort Phone Number', 'Kanha Resort Contact', 'Surwahi Social Email', 'Eco Lodge Booking']
@@ -18,7 +18,7 @@ export const metadata = generatePageMetadata(
 
 const contactInfo = {
   address: {
-    street: 'Surwahi Eco-Lodge, Village Surwahi, P.O Majgaon',
+    street: 'Surwahi Social Ecoestate, Village Surwahi, P.O Majgaon',
     city: 'Tehsil Paraswada, District Balaghat',
     state: 'Madhya Pradesh',
     pincode: '481111',

@@ -52,7 +52,7 @@ export default function PlayAtSurwahiPage() {
 
       <TouristAttractionSchema
         name="Play @ Surwahi — Family Nature Playground"
-        description="A dedicated outdoor space for families and children to play, climb and learn from nature at Surwahi Eco-Lodge near Kanha National Park."
+        description="A dedicated outdoor space for families and children to play, climb and learn from nature at Surwahi Social Ecoestate near Kanha National Park."
         path="/experiences/play-at-surwahi"
         keywords={['Kids Play Area', 'Family Resort Kanha', 'Child Friendly Resort', 'Nature Playground', 'Kids Activities Kanha']}
       />

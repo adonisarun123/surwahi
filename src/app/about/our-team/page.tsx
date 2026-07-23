@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Handshake, Quote } from 'lucide-react';
 
 export const metadata = generatePageMetadata(
-    'Meet the Team | Surwahi Eco Lodge',
+    'Meet the Team | Surwahi Social Ecoestate',
     'Meet the founders behind Surwahi Social Ecoestate near Kanha — Ankit Rastogi and Pradeep Vijayan — and the local community that brings this eco-lodge to life.',
     '/about/our-team'
 );

@@ -51,7 +51,7 @@ export default function EarthenPotteryPage() {
 
       <EventSchema
         name="Earthen Pottery Workshop"
-        description="Hands-on terracotta pottery workshop — wheel throwing, hand-building and finishing — guided by master potters at Surwahi Eco-Lodge near Kanha."
+        description="Hands-on terracotta pottery workshop — wheel throwing, hand-building and finishing — guided by master potters at Surwahi Social Ecoestate near Kanha."
         path="/workshops/earthen-pottery"
         recurring
       />

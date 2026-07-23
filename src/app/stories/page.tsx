@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export const metadata = generatePageMetadata(
     'Stories from Surwahi | Reviews, Blogs & Press',
-    'Read inspiring stories from our guests, updates from the forest, and press features about Surwahi Eco Lodge.',
+    'Read inspiring stories from our guests, updates from the forest, and press features about Surwahi Social Ecoestate.',
     '/stories'
 );
 

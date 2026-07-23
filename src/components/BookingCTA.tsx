@@ -11,7 +11,7 @@ interface CTAProps {
 
 export default function BookingCTA({
     title = "Ready to Experience the Wild?",
-    description = "Book your stay at Surwahi Eco-Lodge and immerse yourself in nature.",
+    description = "Book your stay at Surwahi Social Ecoestate and immerse yourself in nature.",
     buttonText = "Book Your Stay",
     buttonLink = "/accommodations",
     className = ''

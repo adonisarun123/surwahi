@@ -5,7 +5,7 @@ import { generatePageMetadata } from '@/lib/seo';
 import Image from 'next/image';
 
 export const metadata = generatePageMetadata(
-    'Plan Your Visit | Surwahi Eco Lodge',
+    'Plan Your Visit | Surwahi Social Ecoestate',
     'Everything you need to know before your eco-escape to Kanha. Getting here, best time to visit, safari guides, and FAQs.',
     '/plan-your-visit',
     undefined,

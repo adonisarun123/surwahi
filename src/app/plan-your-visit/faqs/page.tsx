@@ -5,8 +5,8 @@ import Link from 'next/link';
 import FAQSchema from '@/components/schema/FAQSchema';
 
 export const metadata = generatePageMetadata(
-    'Frequently Asked Questions | Surwahi Eco Lodge',
-    'Answers to common questions about booking, getting here, safaris, food, and facilities at Surwahi Eco Lodge.',
+    'Frequently Asked Questions | Surwahi Social Ecoestate',
+    'Answers to common questions about booking, getting here, safaris, food, and facilities at Surwahi Social Ecoestate.',
     '/plan-your-visit/faqs',
     undefined,
     ['Surwahi FAQ', 'Kanha Safari FAQ', 'Eco Lodge Amenities', 'Travel Tips Kanha']

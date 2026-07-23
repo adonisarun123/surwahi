@@ -11,14 +11,15 @@ export interface SEOConfig {
   authors?: string[];
   tags?: string[];
   keywords?: string[];
+  exactTitle?: boolean;
 }
 
 export const defaultMeta = {
-  title: 'Surwahi Eco-Lodge',
-  description: 'Award-winning sustainable eco-lodge near Kanha National Park, Madhya Pradesh. Mud cottages, dormitories and camping in harmony with nature.',
+  title: 'Surwahi Social Ecoestate',
+  description: 'Award-winning sustainable Bed & Breakfast near Kanha National Park, Madhya Pradesh — mud-built rooms, a dormitory and camping, run with the local community.',
   image: 'https://ik.imagekit.io/adonisarun/surwahi-logo.png?updatedAt=1761322022431',
   url: 'https://surwahi.com',
-  siteName: 'Surwahi Eco-Lodge',
+  siteName: 'Surwahi Social Ecoestate',
   locale: 'en_IN',
 };
 
@@ -46,7 +47,7 @@ export function generateMetadata(config: SEOConfig = {}): Metadata {
     keywords,
   } = config;
 
-  const fullTitle = title === defaultMeta.title ? title : `${title} | ${defaultMeta.siteName}`;
+  const fullTitle = (config.exactTitle || title === defaultMeta.title) ? title : `${title} | ${defaultMeta.siteName}`;
   const fullUrl = url.startsWith('http') ? url : `${defaultMeta.url}${url}`;
   const fullImage = image.startsWith('http') ? image : `${defaultMeta.url}${image}`;
 
@@ -104,7 +105,8 @@ export function generatePageMetadata(
   description: string,
   path: string = '',
   image?: string,
-  keywords?: string[]
+  keywords?: string[],
+  exactTitle?: boolean
 ): Metadata {
   return generateMetadata({
     title,
@@ -112,6 +114,7 @@ export function generatePageMetadata(
     url: path,
     image,
     keywords,
+    exactTitle,
   });
 }
 
@@ -149,7 +152,7 @@ export function generateRoomMetadata(
   keywords?: string[]
 ): Metadata {
   const title = `${roomName} - Book Your Stay`;
-  const enhancedDescription = `${description} Starting from ₹${price.toLocaleString('en-IN')} per night. Book your sustainable stay at Surwahi Eco-Lodge.`;
+  const enhancedDescription = `${description} Starting from ₹${price.toLocaleString('en-IN')} per night. Book your sustainable stay at Surwahi Social Ecoestate.`;
 
   return generateMetadata({
     title,
@@ -166,7 +169,7 @@ export function generateOrganizationSchema() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     '@id': 'https://surwahi.com/#org',
-    name: 'Surwahi Eco-Lodge',
+    name: 'Surwahi Social Ecoestate',
     url: 'https://surwahi.com/',
     logo: 'https://ik.imagekit.io/adonisarun/surwahi-logo.png?updatedAt=1761322022431',
     sameAs: [
@@ -199,7 +202,7 @@ export function generateWebsiteSchema() {
     '@type': 'WebSite',
     '@id': 'https://surwahi.com/#website',
     url: 'https://surwahi.com/',
-    name: 'Surwahi Eco-Lodge',
+    name: 'Surwahi Social Ecoestate',
     publisher: { '@id': 'https://surwahi.com/#org' },
     inLanguage: 'en-IN',
   };
@@ -208,11 +211,11 @@ export function generateWebsiteSchema() {
 export function generateLodgingBusinessSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'LodgingBusiness',
+    '@type': 'BedAndBreakfast',
     '@id': 'https://surwahi.com/#lodging',
-    name: 'Surwahi Eco-Lodge',
+    name: 'Surwahi Social Ecoestate',
     url: 'https://surwahi.com/',
-    description: 'Award-winning sustainable eco-lodge about 20 km from Kanha National Park (Khatia Gate), offering mud cottages, dormitories and camping in Balaghat, Madhya Pradesh.',
+    description: 'Award-winning sustainable Bed & Breakfast about 21 km from Kanha National Park (Khatia Gate), offering mud-built rooms, a dormitory and camping in Balaghat, Madhya Pradesh.',
     image: [
       'https://ik.imagekit.io/adonisarun/WhatsApp%20Image%202025-10-24%20at%2019.36.22.jpeg?updatedAt=1761321841612'
     ],
@@ -264,7 +267,7 @@ export function generateLodgingBusinessSchema() {
         inLanguage: 'en-IN',
         actionPlatform: ['http://schema.org/DesktopWebPlatform', 'http://schema.org/MobileWebPlatform']
       },
-      result: { '@type': 'LodgingReservation', name: 'Book your stay at Surwahi Eco-Lodge' }
+      result: { '@type': 'LodgingReservation', name: 'Book your stay at Surwahi Social Ecoestate' }
     },
     petsAllowed: true,
     priceRange: '₹₹₹'
@@ -348,7 +351,7 @@ export function generateBlogPostSchema(post: {
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Surwahi Eco-Lodge',
+      name: 'Surwahi Social Ecoestate',
       logo: {
         '@type': 'ImageObject',
         url: 'https://ik.imagekit.io/adonisarun/surwahi-logo.png?updatedAt=1761322022431'
@@ -381,6 +384,7 @@ export function generateTouristAttractionSchema(attraction: {
   path: string;
   image?: string | string[];
   keywords?: string[];
+  exactTitle?: boolean;
 }) {
   const images = Array.isArray(attraction.image)
     ? attraction.image.map(toAbsoluteSiteUrl)

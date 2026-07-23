@@ -99,7 +99,7 @@ const eventJsonLd = {
   },
   organizer: {
     '@type': 'Organization',
-    name: 'Surwahi Eco-Lodge',
+    name: 'Surwahi Social Ecoestate',
     url: 'https://surwahi.com',
   },
   offers: [

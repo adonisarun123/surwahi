@@ -51,7 +51,7 @@ export default function GondArtWorkshopsPage() {
 
       <EventSchema
         name="Gond Art Workshop"
-        description="Learn the intricate Gond tribal art form — patterns, motifs and storytelling — under the guidance of a practising local Gond artist. Held every Wednesday and Sunday at Surwahi Eco-Lodge near Kanha National Park."
+        description="Learn the intricate Gond tribal art form — patterns, motifs and storytelling — under the guidance of a practising local Gond artist. Held every Wednesday and Sunday at Surwahi Social Ecoestate near Kanha National Park."
         path="/workshops/gond-art-workshops"
         recurring
       />

@@ -449,7 +449,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             },
             "publisher": {
               "@type": "Organization",
-              "name": "Surwahi Eco-Lodge",
+              "name": "Surwahi Social Ecoestate",
               "logo": {
                 "@type": "ImageObject",
                 "url": "https://surwahi.com/assets/logo.png"

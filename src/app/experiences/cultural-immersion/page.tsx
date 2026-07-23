@@ -151,7 +151,7 @@ export default function CulturalImmersionPage() {
       <FAQ items={faqs} />
       <BookingCTA
         title="Experience Village Life"
-        description="Connect with the warmth and wisdom of the local community. Stay at Surwahi Eco-Lodge."
+        description="Connect with the warmth and wisdom of the local community. Stay at Surwahi Social Ecoestate."
       />
     </div>
   );

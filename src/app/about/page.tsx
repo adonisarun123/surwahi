@@ -4,11 +4,11 @@ import Link from 'next/link';
 import { BookOpen, Building, Bed, Utensils, FileText, PawPrint, HelpCircle } from 'lucide-react';
 
 export const metadata = generatePageMetadata(
-  'About Surwahi Eco-Lodge | Sustainable Tourism near Kanha',
-  'Discover the story of Surwahi Eco-Lodge, an award-winning sustainable stay near Kanha National Park. Learn about our eco-friendly design and community philosophy.',
+  'About Surwahi Social Ecoestate | Sustainable Tourism near Kanha',
+  'Discover the story of Surwahi Social Ecoestate, an award-winning sustainable stay near Kanha National Park. Learn about our eco-friendly design and community philosophy.',
   '/about',
   undefined,
-  ['Surwahi Eco Lodge', 'Sustainable Tourism Kanha', 'Eco Resort India', 'Responsible Travel', 'Nature Retreat Kanha']
+  ['Surwahi Social Ecoestate', 'Sustainable Tourism Kanha', 'Eco Resort India', 'Responsible Travel', 'Nature Retreat Kanha']
 );
 
 const subSections = [
@@ -31,7 +31,7 @@ export default function AboutPage() {
       <section className="bg-sand-50 py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="font-display text-display-xl text-forest-900 mb-4">
-            About Surwahi — Award-Winning Eco Lodge near Kanha
+            About Surwahi — Award-Winning Eco Stay near Kanha
           </h1>
           <p className="text-body-lg text-soil-700 max-w-3xl mx-auto">
             Discover the heart and soul behind our eco-lodge. Learn about our journey, our philosophy of regenerative tourism, and the vibrant ecosystem we are a part of.

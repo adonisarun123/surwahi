@@ -3,7 +3,7 @@ import { generatePageMetadata } from '@/lib/seo';
 
 
 export const metadata = generatePageMetadata(
-    'Best Time to Visit Kanha National Park | Surwahi Eco Lodge',
+    'Best Time to Visit Kanha National Park | Surwahi Social Ecoestate',
     'Month-by-month guide to weather, wildlife sightings, and what to pack for your trip to Kanha National Park.',
     '/plan-your-visit/best-time-to-visit',
     undefined,

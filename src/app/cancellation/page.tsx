@@ -1,8 +1,8 @@
 import { generateMetadata } from '@/lib/seo';
 
 export const metadata = generateMetadata({
-  title: 'Cancellation Policy — Surwahi Eco-Lodge',
-  description: 'Cancellation and refund policy for bookings at Surwahi Eco-Lodge.',
+  title: 'Cancellation Policy — Surwahi Social Ecoestate',
+  description: 'Cancellation and refund policy for bookings at Surwahi Social Ecoestate.',
   url: 'https://surwahi.com/cancellation',
   keywords: ['Cancellation Policy Surwahi', 'Refund Policy Kanha', 'Booking Cancellation', 'Resort Refund Rules']
 });

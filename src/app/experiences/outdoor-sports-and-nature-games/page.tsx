@@ -53,7 +53,7 @@ export default function OutdoorSportsPage() {
 
       <TouristAttractionSchema
         name="Outdoor Sports & Nature Games at Surwahi"
-        description="Archery, traditional Indian games, frisbee and group nature games set in the open campus of Surwahi Eco-Lodge, Kanha."
+        description="Archery, traditional Indian games, frisbee and group nature games set in the open campus of Surwahi Social Ecoestate, Kanha."
         path="/experiences/outdoor-sports-and-nature-games"
         keywords={['Nature Games', 'Outdoor Activities Kanha', 'Kids Activities Resort', 'Traditional Indian Games', 'Archery Kanha']}
       />

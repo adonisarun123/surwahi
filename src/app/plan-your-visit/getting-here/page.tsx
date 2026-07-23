@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Plane, Train, Car, MapPin, CheckCircle } from 'lucide-react';
 
 export const metadata = generatePageMetadata(
-    'How to Reach Surwahi Eco Lodge Near Kanha National Park',
+    'How to Reach Surwahi Social Ecoestate Near Kanha National Park',
     'Directions to Surwahi from Jabalpur, Nagpur, Bhopal & Delhi. Nearest airports, train stations, road routes, and pickup service to our eco lodge near Kanha Tiger Reserve.',
     '/plan-your-visit/getting-here',
     undefined,
@@ -21,7 +21,7 @@ export default function GettingHerePage() {
             <section className="bg-sand-50 py-12">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h1 className="font-display text-display-xl text-forest-900 mb-4">
-                        How to Reach Surwahi Eco Lodge, Kanha
+                        How to Reach Surwahi Social Ecoestate, Kanha
                     </h1>
                     <p className="text-body-lg text-soil-700 max-w-3xl mx-auto">
                         Located just 12km from the Khatia Gate of Kanha National Park, Surwahi is accessible by air, rail, and road. The journey itself takes you through the beautiful landscapes of Madhya Pradesh.

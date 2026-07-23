@@ -4,7 +4,7 @@ import { Star, User } from 'lucide-react';
 import { getGoogleReviews } from '@/lib/google-reviews';
 
 export const metadata = generatePageMetadata(
-    'Guest Reviews | Surwahi Eco Lodge',
+    'Guest Reviews | Surwahi Social Ecoestate',
     'See what our guests say about their sustainable stay, wildlife experiences and warm hospitality at Surwahi near Kanha.',
     '/stories/guest-reviews',
     undefined,

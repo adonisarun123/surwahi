@@ -167,7 +167,7 @@ export default function Footer() {
               </h3>
             </div>
             <p className="text-base leading-relaxed text-soil-700 mb-8">
-              Surwahi Eco-Lodge is a regenerative, low-impact stay nestled near the forest.
+              Surwahi Social Ecoestate is a regenerative, low-impact stay nestled near the forest.
               We&apos;re committed to conservation, community empowerment, and providing authentic
               experiences in harmony with nature.
             </p>
@@ -302,7 +302,7 @@ export default function Footer() {
 
             {/* Copyright */}
             <p className="text-sm text-soil-600 font-medium">
-              &copy; {currentYear} Surwahi Eco-Lodge. All rights reserved.
+              &copy; {currentYear} Surwahi Social Ecoestate. All rights reserved.
             </p>
 
             {/* Social Links */}

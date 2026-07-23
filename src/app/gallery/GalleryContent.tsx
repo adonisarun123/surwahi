@@ -9,23 +9,23 @@ import { galleryImages } from '@/lib/images';
 // SEO metadata can be set in a parent layout or a separate metadata export if needed.
 
 const allImages = [
-  { src: galleryImages.lodgeExterior, alt: 'Exterior view of Surwahi Eco-Lodge built with traditional mud architecture', category: 'Lodge & Architecture' },
-  { src: galleryImages.riverSuite, alt: 'Interior of the River View Suite at Surwahi Eco-Lodge', category: 'Lodge & Architecture' },
+  { src: galleryImages.lodgeExterior, alt: 'Exterior view of Surwahi Social Ecoestate built with traditional mud architecture', category: 'Lodge & Architecture' },
+  { src: galleryImages.riverSuite, alt: 'Interior of the River View Suite at Surwahi Social Ecoestate', category: 'Lodge & Architecture' },
   { src: galleryImages.hornbill, alt: 'Malabar Pied Hornbill spotted near Kanha National Park', category: 'Flora & Fauna' },
   { src: galleryImages.tigerSafari, alt: 'Tiger sighting during a wildlife safari in Kanha Tiger Reserve', category: 'Experiences' },
   { src: galleryImages.diningExperience, alt: 'Farm-to-table dining experience with local cuisine', category: 'Cuisine' },
   { src: galleryImages.forestTrail, alt: 'Guided nature walk on a forest trail near Surwahi', category: 'Experiences' },
-  { src: galleryImages.commonArea, alt: 'Cozy common area and library at Surwahi Eco-Lodge', category: 'Lodge & Architecture' },
+  { src: galleryImages.commonArea, alt: 'Cozy common area and library at Surwahi Social Ecoestate', category: 'Lodge & Architecture' },
   { src: galleryImages.wildMushrooms, alt: 'Wild mushrooms growing in the forest floor at Surwahi', category: 'Flora & Fauna' },
   { src: galleryImages.gondArt, alt: 'Guests participating in a Gond art workshop with local artisans', category: 'Experiences' },
   { src: galleryImages.organicFarm, alt: 'Fresh organic vegetables from Surwahi\'s kitchen garden', category: 'Cuisine' },
-  { src: galleryImages.starryNight, alt: 'Stargazing night sky view from Surwahi Eco-Lodge', category: 'Experiences' },
+  { src: galleryImages.starryNight, alt: 'Stargazing night sky view from Surwahi Social Ecoestate', category: 'Experiences' },
   { src: galleryImages.earthenPottery, alt: 'Pottery workshop experience with local potters', category: 'Experiences' },
 ];
 
 const videos = [
-  { id: '1', title: 'A Glimpse into Surwahi Eco-Lodge', thumbnailUrl: galleryImages.lodgeExterior, videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
-  { id: '2', title: 'The Making of an Eco-Lodge', thumbnailUrl: galleryImages.commonArea, videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
+  { id: '1', title: 'A Glimpse into Surwahi Social Ecoestate', thumbnailUrl: galleryImages.lodgeExterior, videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
+  { id: '2', title: 'The Making of an Ecoestate', thumbnailUrl: galleryImages.commonArea, videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
   { id: '3', title: 'Voices from the Community', thumbnailUrl: galleryImages.gondArt, videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
 ];
 
@@ -50,7 +50,7 @@ export default function GalleryContent() {
             Gallery
           </h1>
           <p className="text-body-lg text-soil-700 max-w-3xl mx-auto">
-            A visual journey through the experiences, landscapes, and life at Surwahi Eco-Lodge. Explore the beauty that awaits you.
+            A visual journey through the experiences, landscapes, and life at Surwahi Social Ecoestate. Explore the beauty that awaits you.
           </p>
         </div>
       </section>

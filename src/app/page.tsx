@@ -4,10 +4,10 @@ import Image from 'next/image';
 import { generateMetadata } from '@/lib/seo';
 
 export const metadata = generateMetadata({
-  title: 'Award-Winning Eco Lodge near Kanha National Park',
-  description: 'Stay at Surwahi Eco-Lodge near Kanha National Park. Award-winning sustainable mud cottages, dorms & camping. About 20 km from Khatia Gate.',
+  title: 'Award-Winning Eco Stay near Kanha National Park',
+  description: 'Stay at Surwahi Social Ecoestate near Kanha National Park. Award-winning sustainable mud cottages, dorms & camping. About 20 km from Khatia Gate.',
   url: 'https://surwahi.com',
-  keywords: ['Eco Lodge Kanha', 'Sustainable Resort India', 'Kanha National Park Hotels', 'Mud House Stay', 'Wildlife Resort Kanha', 'Surwahi Eco-Lodge', 'Ecotourism Madhya Pradesh'],
+  keywords: ['Eco Lodge Kanha', 'Sustainable Resort India', 'Kanha National Park Hotels', 'Mud House Stay', 'Wildlife Resort Kanha', 'Surwahi Social Ecoestate', 'Ecotourism Madhya Pradesh'],
 });
 
 export default function HomePage() {
@@ -17,7 +17,7 @@ export default function HomePage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="https://ik.imagekit.io/adonisarun/WhatsApp%20Image%202025-10-24%20at%2019.36.22.jpeg?updatedAt=1761321841612"
-            alt="Aerial view of Surwahi Eco-Lodge and sustainable estate near Kanha National Park"
+            alt="Aerial view of Surwahi Social Ecoestate and sustainable estate near Kanha National Park"
             fill
             className="object-cover"
             priority
@@ -26,10 +26,10 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-forest-900/50 via-forest-900/60 to-forest-900/70 z-10"></div>
         <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <h1 className="font-display text-display-xl text-bone-0 mb-6 animate-fade-up drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">
-            Award-Winning Eco Lodge near Kanha National Park
+            Award-Winning Eco Stay near Kanha National Park
           </h1>
           <p className="text-body-lg text-bone-0 mb-8 max-w-2xl mx-auto animate-fade-up drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]" style={{ animationDelay: '0.2s' }}>
-            Nestled about 20km from Kanha National Park (Khatia Gate), Surwahi Eco-Lodge invites you to slow down, reconnect with nature, and experience the art of sustainable living.
+            Nestled about 20km from Kanha National Park (Khatia Gate), Surwahi Social Ecoestate invites you to slow down, reconnect with nature, and experience the art of sustainable living.
             <span className="block mt-4 text-sm font-bold bg-forest-900/40 py-1 px-3 rounded-full inline-block backdrop-blur-sm border border-bone-0/20">
               🏆 Winner: John Wakefield Memorial Award 2024
             </span>
@@ -53,7 +53,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-display text-display-lg text-forest-900 mb-4">About Surwahi — A Vision Rooted in Nature</h2>
           <p className="text-body-lg max-w-prose mx-auto mb-6">
-            At Surwahi Eco-Lodge, we believe in living gently — where nature, people, and architecture coexist in harmony. What began as a small idea to build responsibly has now become a vibrant community of travelers, artisans, and changemakers who share one dream: <strong>a greener tomorrow.</strong>
+            At Surwahi Social Ecoestate, we believe in living gently — where nature, people, and architecture coexist in harmony. What began as a small idea to build responsibly has now become a vibrant community of travelers, artisans, and changemakers who share one dream: <strong>a greener tomorrow.</strong>
           </p>
           <p className="text-body-md max-w-prose mx-auto">
             From earthen walls to solar lighting and natural ventilation, every corner at Surwahi celebrates <strong>eco-conscious design</strong> — built <em>with</em> nature, not <em>over</em> it.
