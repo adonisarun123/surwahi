@@ -15,7 +15,7 @@ export interface SEOConfig {
 
 export const defaultMeta = {
   title: 'Surwahi Eco-Lodge',
-  description: 'Eco-lodge offering sustainable stays near the forest. Experience regenerative hospitality in harmony with nature.',
+  description: 'Award-winning sustainable eco-lodge near Kanha National Park, Madhya Pradesh. Mud cottages, dormitories and camping in harmony with nature.',
   image: 'https://ik.imagekit.io/adonisarun/surwahi-logo.png?updatedAt=1761322022431',
   url: 'https://surwahi.com',
   siteName: 'Surwahi Eco-Lodge',
@@ -51,6 +51,7 @@ export function generateMetadata(config: SEOConfig = {}): Metadata {
   const fullImage = image.startsWith('http') ? image : `${defaultMeta.url}${image}`;
 
   const metadata: Metadata = {
+    metadataBase: new URL(defaultMeta.url),
     title: fullTitle,
     description,
     keywords: keywords?.join(', ') || tags?.join(', '),
@@ -167,19 +168,19 @@ export function generateOrganizationSchema() {
     '@id': 'https://surwahi.com/#org',
     name: 'Surwahi Eco-Lodge',
     url: 'https://surwahi.com/',
-    logo: 'https://surwahi.com/assets/logo.png',
+    logo: 'https://ik.imagekit.io/adonisarun/surwahi-logo.png?updatedAt=1761322022431',
     sameAs: [
-      'https://www.facebook.com/surwahi',
-      'https://www.instagram.com/surwahi',
-      'https://www.linkedin.com/company/surwahi'
+      'https://www.facebook.com/surwahisocialecoestatekanha/',
+      'https://www.instagram.com/surwahisocialecoestatekanha/',
+      'https://in.linkedin.com/company/surwahisocialecoestatekanha'
     ],
     foundingDate: '2020',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Forest Road, Surwahi',
-      addressLocality: 'Surwahi',
+      streetAddress: 'Village Surwahi, P.O. Majhgaon, Tehsil Paraswada, Khairlanji Ryt.',
+      addressLocality: 'Balaghat',
       addressRegion: 'Madhya Pradesh',
-      postalCode: '480001',
+      postalCode: '481111',
       addressCountry: 'IN'
     },
     contactPoint: [{
@@ -211,10 +212,9 @@ export function generateLodgingBusinessSchema() {
     '@id': 'https://surwahi.com/#lodging',
     name: 'Surwahi Eco-Lodge',
     url: 'https://surwahi.com/',
-    description: 'Eco-lodge offering sustainable stays near the forest.',
+    description: 'Award-winning sustainable eco-lodge about 20 km from Kanha National Park (Khatia Gate), offering mud cottages, dormitories and camping in Balaghat, Madhya Pradesh.',
     image: [
-      'https://surwahi.com/images/hero.jpg',
-      'https://surwahi.com/images/room-forest.jpg'
+      'https://ik.imagekit.io/adonisarun/WhatsApp%20Image%202025-10-24%20at%2019.36.22.jpeg?updatedAt=1761321841612'
     ],
     amenityFeature: [
       { '@type': 'LocationFeatureSpecification', name: 'Solar power', value: true },
@@ -223,28 +223,22 @@ export function generateLodgingBusinessSchema() {
     ],
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Forest Road, Surwahi',
-      addressLocality: 'Surwahi',
+      streetAddress: 'Village Surwahi, P.O. Majhgaon, Tehsil Paraswada, Khairlanji Ryt.',
+      addressLocality: 'Balaghat',
       addressRegion: 'Madhya Pradesh',
-      postalCode: '480001',
+      postalCode: '481111',
       addressCountry: 'IN'
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 23.1765,
-      longitude: 79.9385
+      latitude: 22.244025,
+      longitude: 80.468707
     },
     telephone: '+91-77952-07779',
     checkinTime: '14:00',
     checkoutTime: '11:00',
     petsAllowed: false,
-    starRating: { '@type': 'Rating', ratingValue: '4.6' },
-    priceRange: '₹₹₹',
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.7',
-      reviewCount: '168'
-    }
+    priceRange: '₹₹₹'
   };
 }
 
@@ -328,7 +322,7 @@ export function generateBlogPostSchema(post: {
       name: 'Surwahi Eco-Lodge',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://surwahi.com/assets/logo.png'
+        url: 'https://ik.imagekit.io/adonisarun/surwahi-logo.png?updatedAt=1761322022431'
       }
     },
     datePublished: post.publishedAt,
@@ -384,8 +378,8 @@ export function generateTouristAttractionSchema(attraction: {
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 22.3344,
-      longitude: 80.6115,
+      latitude: 22.244025,
+      longitude: 80.468707,
     },
     isPartOf: { '@id': `${defaultMeta.url}/#lodging` },
     provider: { '@id': `${defaultMeta.url}/#org` },
@@ -438,8 +432,8 @@ export function generateEventSchema(event: {
       },
       geo: {
         '@type': 'GeoCoordinates',
-        latitude: 22.3344,
-        longitude: 80.6115,
+        latitude: 22.244025,
+        longitude: 80.468707,
       },
     },
     organizer: {

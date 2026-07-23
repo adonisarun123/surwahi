@@ -8,7 +8,6 @@ import {
     Maximize,
     Eye,
     Leaf,
-    Star,
     Check,
     MapPin
 } from 'lucide-react';
@@ -129,11 +128,6 @@ export default async function RoomDetailPage({ params }: RoomPageProps) {
                                             <div className="flex items-center gap-1">
                                                 <MapPin className="h-4 w-4" />
                                                 <span>{room.location}</span>
-                                            </div>
-                                            <div className="flex items-center gap-1">
-                                                <Star className="h-4 w-4 fill-clay-500 text-clay-500" />
-                                                <span className="font-medium">{room.rating}</span>
-                                                <span>({room.reviewCount} reviews)</span>
                                             </div>
                                         </div>
                                     </div>

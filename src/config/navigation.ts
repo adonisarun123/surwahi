@@ -20,6 +20,7 @@ export const mainNavigation: NavigationItem[] = [
             { label: "Mudhouses & Dormitories", href: "/stay/mudhouses" },
             { label: "Camping & Tents", href: "/stay/camping" },
             { label: "Dining & Local Cuisine", href: "/stay/dining" },
+            { label: "Corporate & Group Retreats", href: "/corporate-retreats", isNew: true },
             { label: "Fact Sheet & Amenities", href: '/stay/fact-sheet' },
         ],
     },

@@ -2,39 +2,17 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Handshake } from 'lucide-react';
+import { Handshake, Quote } from 'lucide-react';
 
 export const metadata = generatePageMetadata(
     'Meet the Team | Surwahi Eco Lodge',
-    'Meet the visionaries, naturalists, and local community members who make Surwahi a home away from home.',
+    'Meet the founders behind Surwahi Social Ecoestate near Kanha — Ankit Rastogi and Pradeep Vijayan — and the local community that brings this eco-lodge to life.',
     '/about/our-team'
 );
 
-const teamMembers = [
-    {
-        name: 'Mr. Sarabdeep Singh',
-        role: 'Founder & Visionary',
-        image: 'https://ik.imagekit.io/adonisarun/Surwahi%20Social%20Photos/IMG-20240225-WA0004.jpg?updatedAt=1762322336000', // Placeholder
-        bio: 'An avid wildlife enthusiast and conservationist at heart, Sarabdeep envisioned Surwahi as a bridge between luxury and sustainability.',
-    },
-    {
-        name: 'Mrs. Simran Kaur',
-        role: 'Co-Founder & Host',
-        image: 'https://ik.imagekit.io/adonisarun/Surwahi%20Social%20Photos/IMG-20240225-WA0005.jpg?updatedAt=1762322336000', // Placeholder
-        bio: 'The soul of Surwahi hospitality, ensuring every guest feels like family while championing local recipes and traditions.',
-    },
-    {
-        name: 'Raju Baiga',
-        role: 'Head Naturalist',
-        image: 'https://ik.imagekit.io/adonisarun/Surwahi%20Social%20Photos/IMG_20230219_103323.jpg?updatedAt=1762322340576', // Placeholder
-        bio: 'Born and raised in the Kanha buffer zone, Raju knows every tiger stripe and bird call in the forest.',
-    },
-    {
-        name: 'Sunita Bai',
-        role: 'Housekeeping Lead',
-        image: 'https://ik.imagekit.io/adonisarun/Surwahi%20Social%20Photos/IMG_20230219_115049.jpg?updatedAt=1762322340576', // Placeholder
-        bio: 'A master of mud-plastering art, she leads the team that keeps our eco-cottages breathing and beautiful.',
-    },
+const founders = [
+    { name: 'Ankit Rastogi', role: 'Founder & Host', image: '/team/Ankit.webp' },
+    { name: 'Pradeep Vijayan', role: 'Co-Founder & Kitchen', image: '/team/pradeep-vijayan.jpeg' },
 ];
 
 export default function OurTeamPage() {
@@ -50,7 +28,7 @@ export default function OurTeamPage() {
                         The People Behind Surwahi
                     </h1>
                     <p className="text-body-lg text-soil-700 max-w-3xl mx-auto">
-                        Surwahi is built by people, not just machines. From our founders to the local artisans who crafted every brick, meet the family.
+                        Surwahi is built by people, not machines — from our founders to the caretakers, cooks and local artisans who bring the estate to life.
                     </p>
                 </div>
             </section>
@@ -59,49 +37,39 @@ export default function OurTeamPage() {
 
                 {/* Founders */}
                 <section className="mb-24">
-                    <h2 className="font-display text-3xl text-forest-900 mb-12 text-center">Visionaries</h2>
-                    <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-                        {teamMembers.slice(0, 2).map((member) => (
-                            <div key={member.name} className="flex flex-col md:flex-row gap-6 items-center md:items-start bg-bone-0 p-6 rounded-2xl shadow-sm border border-stone-100">
-                                <div className="w-32 h-32 relative flex-shrink-0 rounded-full overflow-hidden border-4 border-sand-100">
-                                    <Image
-                                        src={member.image}
-                                        alt={member.name}
-                                        fill
-                                        className="object-cover"
-                                    />
+                    <h2 className="font-display text-3xl text-forest-900 mb-12 text-center">Meet the Founders</h2>
+                    <div className="grid sm:grid-cols-2 gap-8 max-w-2xl mx-auto mb-12">
+                        {founders.map((f) => (
+                            <div key={f.name} className="text-center">
+                                <div className="w-40 h-40 mx-auto relative rounded-2xl overflow-hidden border-4 border-sand-100 shadow-elev-1">
+                                    <Image src={f.image} alt={f.name} fill className="object-cover" sizes="160px" />
                                 </div>
-                                <div className="text-center md:text-left">
-                                    <h3 className="font-display text-xl text-forest-900">{member.name}</h3>
-                                    <p className="text-moss-600 font-medium text-sm mb-3 uppercase tracking-wide">{member.role}</p>
-                                    <p className="text-soil-700 text-sm leading-relaxed">{member.bio}</p>
-                                </div>
+                                <h3 className="font-display text-xl text-forest-900 mt-4">{f.name}</h3>
+                                <p className="text-moss-600 font-medium text-sm uppercase tracking-wide">{f.role}</p>
                             </div>
                         ))}
                     </div>
+                    <div className="max-w-3xl mx-auto text-center">
+                        <p className="text-soil-700 leading-relaxed mb-6">
+                            Travel entrepreneurs with a background in travel e-commerce, Ankit and Pradeep dreamed of building a holistically sustainable property — one rooted in hyper-local character, culture and grassroots values. In December 2015 they chose the village of Surwahi, on the outskirts of Kanha Tiger Reserve, and from there began an ongoing journey of unravelling what truly sustainable travel can look like: community-first, conservation-led and minimal by design.
+                        </p>
+                        <blockquote className="relative bg-sand-50 border-l-4 border-clay-500 rounded-r-xl p-6 text-soil-700 italic text-left max-w-2xl mx-auto">
+                            <Quote className="h-5 w-5 text-clay-500 mb-2" />
+                            We believe that sustainability, community, and natural beauty should coexist, creating a sanctuary that is more than just a place to live &mdash; it&rsquo;s a way of life.
+                        </blockquote>
+                    </div>
                 </section>
 
-                {/* The Team */}
-                <section className="mb-24">
-                    <h2 className="font-display text-3xl text-forest-900 mb-12 text-center">The Heart of Surwahi</h2>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {teamMembers.slice(2).map((member) => (
-                            <div key={member.name} className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-stone-100">
-                                <div className="h-64 relative overflow-hidden">
-                                    <Image
-                                        src={member.image}
-                                        alt={member.name}
-                                        fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                                    />
-                                </div>
-                                <div className="p-6 text-center">
-                                    <h3 className="font-display text-lg text-forest-900 mb-1">{member.name}</h3>
-                                    <p className="text-moss-600 text-xs font-bold uppercase tracking-wider mb-3">{member.role}</p>
-                                    <p className="text-soil-600 text-sm">{member.bio}</p>
-                                </div>
-                            </div>
-                        ))}
+                {/* On the ground */}
+                <section className="mb-24 max-w-3xl mx-auto text-center">
+                    <h2 className="font-display text-3xl text-forest-900 mb-6">The Team on the Ground</h2>
+                    <p className="text-soil-700 leading-relaxed mb-10">
+                        Every stay at Surwahi is personal. Ankit is the host guests remember — generous with his time and his passion for sustainability. Pradeep brings the kitchen to life, with home-cooked meals guests single out as a highlight. And Narendra, our caretaker and property manager, quietly makes sure everything runs smoothly from dawn to dusk.
+                    </p>
+                    <div className="max-w-xs mx-auto bg-white rounded-xl border border-stone-100 shadow-sm p-6">
+                        <div className="w-14 h-14 mx-auto mb-3 rounded-full bg-moss-500/10 text-moss-600 font-display text-xl flex items-center justify-center">N</div>
+                        <h3 className="font-display text-lg text-forest-900">Narendra ji</h3>
+                        <p className="text-moss-600 text-xs font-bold uppercase tracking-wider">Caretaker &amp; Property Manager</p>
                     </div>
                 </section>
 
@@ -112,9 +80,7 @@ export default function OurTeamPage() {
                     </div>
                     <h2 className="font-display text-3xl text-forest-900 mb-6">Built by the Community</h2>
                     <p className="text-soil-700 max-w-3xl mx-auto mb-8 leading-relaxed">
-                        90% of our staff comes from the neighboring villages of Surwahi and Majgaon.
-                        We are proud to partner with local self-help groups for our produce, laundry, and handicraft sourcing.
-                        Your stay directly supports 45+ local families.
+                        Surwahi was built with the community, not merely for it. Much of our team comes from the neighbouring villages of Surwahi and Majgaon, and we work hand-in-hand with local farmers, artisans and women&rsquo;s self-help groups. Together, the estate helps sustain the livelihoods of 50+ local people — so every stay directly supports the skills, craft and families at the forest&rsquo;s edge.
                     </p>
                     <Link href="/about/our-story" className="btn btn-primary bg-moss-600 hover:bg-moss-700 text-white border-none">
                         Read Our Full Story

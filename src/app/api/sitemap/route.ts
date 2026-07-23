@@ -19,6 +19,7 @@ const staticPages: Array<{ url: string; priority: number; changefreq: string }> 
   { url: '/stay/camping', priority: 0.9, changefreq: 'weekly' },
   { url: '/stay/dining', priority: 0.85, changefreq: 'monthly' },
   { url: '/stay/fact-sheet', priority: 0.85, changefreq: 'monthly' },
+  { url: '/corporate-retreats', priority: 0.9, changefreq: 'monthly' },
   { url: '/experiences', priority: 0.9, changefreq: 'weekly' },
   { url: '/workshops', priority: 0.9, changefreq: 'weekly' },
   { url: '/sustainability', priority: 0.85, changefreq: 'monthly' },

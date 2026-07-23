@@ -1,12 +1,11 @@
 import Link from 'next/link';
-import { Leaf, Users, Shield, Star, Award, Heart } from 'lucide-react';
+import { Leaf, Users, Shield, Star, Award, Heart, PawPrint, Sprout, ChefHat, Trees } from 'lucide-react';
 import Image from 'next/image';
 import { generateMetadata } from '@/lib/seo';
-import LodgingBusinessSchema from '@/components/schema/LodgingBusinessSchema';
 
 export const metadata = generateMetadata({
-  title: 'Award-Winning Eco Lodge near Kanha National Park | Surwahi',
-  description: 'Stay at Surwahi Eco-Lodge near Kanha National Park. Award-winning sustainable mud cottages, dorms & camping. Located 15km from Khatia Gate.',
+  title: 'Award-Winning Eco Lodge near Kanha National Park',
+  description: 'Stay at Surwahi Eco-Lodge near Kanha National Park. Award-winning sustainable mud cottages, dorms & camping. About 20 km from Khatia Gate.',
   url: 'https://surwahi.com',
   keywords: ['Eco Lodge Kanha', 'Sustainable Resort India', 'Kanha National Park Hotels', 'Mud House Stay', 'Wildlife Resort Kanha', 'Surwahi Eco-Lodge', 'Ecotourism Madhya Pradesh'],
 });
@@ -14,7 +13,6 @@ export const metadata = generateMetadata({
 export default function HomePage() {
   return (
     <main id="main">
-      <LodgingBusinessSchema />
       <section className="relative min-h-screen flex items-center justify-center text-center text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
@@ -31,7 +29,7 @@ export default function HomePage() {
             Award-Winning Eco Lodge near Kanha National Park
           </h1>
           <p className="text-body-lg text-bone-0 mb-8 max-w-2xl mx-auto animate-fade-up drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]" style={{ animationDelay: '0.2s' }}>
-            Nestled just 12km from Kanha National Park (Khatia Gate), Surwahi Eco-Lodge invites you to slow down, reconnect with nature, and experience the art of sustainable living.
+            Nestled about 20km from Kanha National Park (Khatia Gate), Surwahi Eco-Lodge invites you to slow down, reconnect with nature, and experience the art of sustainable living.
             <span className="block mt-4 text-sm font-bold bg-forest-900/40 py-1 px-3 rounded-full inline-block backdrop-blur-sm border border-bone-0/20">
               🏆 Winner: John Wakefield Memorial Award 2024
             </span>
@@ -76,10 +74,22 @@ export default function HomePage() {
             Stay in thoughtfully designed spaces made from local materials — mud, bamboo, stone, and love. Each room offers comfort without compromise, blending traditional craftsmanship with minimal modern amenities.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
-            <div className="bg-white p-6 rounded-card shadow-elev-1">Mudhouses & Dormitories for travelers and groups</div>
-            <div className="bg-white p-6 rounded-card shadow-elev-1">Open courtyards and skylit terraces</div>
-            <div className="bg-white p-6 rounded-card shadow-elev-1">Naturally cool interiors & solar energy</div>
-            <div className="bg-white p-6 rounded-card shadow-elev-1">Perfect stargazing nights and warm village hospitality</div>
+            <Link href="/stay/suites" className="block bg-white p-6 rounded-card shadow-elev-1 hover:shadow-elev-2 transition-all">
+              <h3 className="font-ui font-bold text-forest-900 mb-1">Forest &amp; River Suites</h3>
+              <p className="text-sm text-soil-700">Private mud-built suites with forest and river views.</p>
+            </Link>
+            <Link href="/stay/mudhouses" className="block bg-white p-6 rounded-card shadow-elev-1 hover:shadow-elev-2 transition-all">
+              <h3 className="font-ui font-bold text-forest-900 mb-1">Mudhouses &amp; Dormitories</h3>
+              <p className="text-sm text-soil-700">Traditional earthen cottages and dorms for groups and solo travelers.</p>
+            </Link>
+            <Link href="/stay/camping" className="block bg-white p-6 rounded-card shadow-elev-1 hover:shadow-elev-2 transition-all">
+              <h3 className="font-ui font-bold text-forest-900 mb-1">Safari Tents &amp; Camping</h3>
+              <p className="text-sm text-soil-700">Comfortable tented stays under starlit skies, close to nature.</p>
+            </Link>
+            <Link href="/stay/dining" className="block bg-white p-6 rounded-card shadow-elev-1 hover:shadow-elev-2 transition-all">
+              <h3 className="font-ui font-bold text-forest-900 mb-1">Farm-to-Table Dining</h3>
+              <p className="text-sm text-soil-700">Seasonal meals from our organic farm and local kitchens.</p>
+            </Link>
           </div>
           <div className="mt-12">
             <Link href="/stay" className="btn btn-primary text-base bg-forest-700 hover:bg-forest-900 text-white"
@@ -87,6 +97,7 @@ export default function HomePage() {
             >
               Explore Stays
             </Link>
+            <p className="mt-4 text-sm"><Link href="/corporate-retreats" className="text-clay-500 underline underline-offset-2">Planning a group or corporate retreat? &rarr;</Link></p>
           </div>
         </div>
       </section>
@@ -136,10 +147,26 @@ export default function HomePage() {
             At Surwahi, every experience brings you closer — to nature, to people, and to yourself.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <p><strong>Wilderness Coliving:</strong> Work, create, and live amidst the forest’s calm.</p>
-            <p><strong>Organic Farming:</strong> Sow, nurture, and harvest the earth’s gifts.</p>
-            <p><strong>Tribal & Cultural Interactions:</strong> Celebrate the traditions of the Gond and Baiga tribes.</p>
-            <p><strong>Within SSEK:</strong> Nature walks, riverside high teas, star gazing, and mindful evenings.</p>
+            <Link href="/experiences/wildlife-safaris" className="block bg-white/70 hover:bg-white p-6 rounded-card transition-colors text-center group">
+              <div className="w-14 h-14 mx-auto mb-4 bg-clay-500/10 rounded-full flex items-center justify-center"><PawPrint className="h-7 w-7 text-clay-500" /></div>
+              <h3 className="font-ui font-bold text-forest-900 mb-1">Wildlife Safaris</h3>
+              <p className="text-soil-700 text-sm">Track tigers and barasingha on guided jeep safaris in Kanha Tiger Reserve.</p>
+            </Link>
+            <Link href="/experiences/farm-life-visit" className="block bg-white/70 hover:bg-white p-6 rounded-card transition-colors text-center group">
+              <div className="w-14 h-14 mx-auto mb-4 bg-moss-500/10 rounded-full flex items-center justify-center"><Sprout className="h-7 w-7 text-moss-500" /></div>
+              <h3 className="font-ui font-bold text-forest-900 mb-1">Farm Life</h3>
+              <p className="text-soil-700 text-sm">Sow, nurture, and harvest on our organic farm.</p>
+            </Link>
+            <Link href="/experiences/live-tribal-cooking-experiences" className="block bg-white/70 hover:bg-white p-6 rounded-card transition-colors text-center group">
+              <div className="w-14 h-14 mx-auto mb-4 bg-river-400/10 rounded-full flex items-center justify-center"><ChefHat className="h-7 w-7 text-river-400" /></div>
+              <h3 className="font-ui font-bold text-forest-900 mb-1">Tribal Cooking &amp; Culture</h3>
+              <p className="text-soil-700 text-sm">Cook and connect with Gond and Baiga families.</p>
+            </Link>
+            <Link href="/experiences/guided-forest-trails" className="block bg-white/70 hover:bg-white p-6 rounded-card transition-colors text-center group">
+              <div className="w-14 h-14 mx-auto mb-4 bg-fern-300/10 rounded-full flex items-center justify-center"><Trees className="h-7 w-7 text-fern-300" /></div>
+              <h3 className="font-ui font-bold text-forest-900 mb-1">Guided Forest Trails</h3>
+              <p className="text-soil-700 text-sm">Walk ancient sal forests with expert naturalist guides.</p>
+            </Link>
           </div>
           <div className="mt-12">
             <Link href="/experiences" className="btn btn-primary text-base bg-forest-700 hover:bg-forest-900 text-white"
@@ -151,12 +178,32 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Workshops */}
+      <section className="py-16 lg:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-display text-display-lg text-forest-900 mb-4">Hands-On Workshops</h2>
+          <p className="text-body-lg max-w-prose mx-auto mb-8">
+            Learn from local artisans and the land itself — tribal art, natural building, and mindful time in the forest.
+          </p>
+          <div className="flex flex-wrap justify-center gap-3 mb-10">
+            <Link href="/workshops/gond-art-workshops" className="px-4 py-2 rounded-full bg-mist-200/60 hover:bg-mist-200 text-forest-900 text-sm transition-colors">Gond Art</Link>
+            <Link href="/workshops/earthen-pottery" className="px-4 py-2 rounded-full bg-mist-200/60 hover:bg-mist-200 text-forest-900 text-sm transition-colors">Earthen Pottery</Link>
+            <Link href="/workshops/build-with-mud" className="px-4 py-2 rounded-full bg-mist-200/60 hover:bg-mist-200 text-forest-900 text-sm transition-colors">Build with Mud</Link>
+            <Link href="/workshops/forest-bathing" className="px-4 py-2 rounded-full bg-mist-200/60 hover:bg-mist-200 text-forest-900 text-sm transition-colors">Forest Bathing</Link>
+            <Link href="/workshops/star-gazing-nights" className="px-4 py-2 rounded-full bg-mist-200/60 hover:bg-mist-200 text-forest-900 text-sm transition-colors">Star Gazing Nights</Link>
+          </div>
+          <Link href="/workshops" className="btn btn-secondary text-clay-500 border-clay-500/50 hover:bg-clay-500/10">
+            View All Workshops
+          </Link>
+        </div>
+      </section>
+
       {/* Kanha & Surroundings */}
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-display text-display-lg text-forest-900 mb-4">Kanha & Surroundings — Nature’s Grand Theatre</h2>
           <p className="text-body-lg max-w-prose mx-auto mb-8">
-            Explore the mystical beauty of <strong>Kanha Tiger Reserve</strong>, one of India’s most biodiverse landscapes. From early morning jungle safaris to quiet village walks, Surwahi is your perfect gateway to the wild heart of India.
+            Explore the mystical beauty of <strong>Kanha Tiger Reserve</strong>, one of India’s most biodiverse landscapes. From <Link href="/experiences/wildlife-safaris" className="text-clay-500 underline underline-offset-2">early morning jungle safaris</Link> to quiet village walks, Surwahi is your perfect gateway to the wild heart of India. Plan around the <Link href="/plan-your-visit/best-time-to-visit" className="text-clay-500 underline underline-offset-2">best time to visit</Link> and our <Link href="/plan-your-visit/safari-booking-guide" className="text-clay-500 underline underline-offset-2">safari booking guide</Link>.
           </p>
           <Link href="/plan-your-visit/getting-here" className="btn btn-secondary text-clay-500 border-clay-500/50 hover:bg-clay-500/10">
             Plan Your Kanha Journey

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Bed, Users, Eye, Star } from 'lucide-react';
+import { Bed, Users, Eye } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
 import { rooms } from '@/lib/accommodations';
@@ -55,7 +55,6 @@ export default function MudhousesPage() {
                                         <div className="flex items-center gap-2"><Users className="h-4 w-4 text-moss-500" />{room.maxOccupancy} guests</div>
                                         <div className="flex items-center gap-2"><Bed className="h-4 w-4 text-moss-500" />{room.bedConfiguration}</div>
                                         <div className="flex items-center gap-2"><Eye className="h-4 w-4 text-moss-500" />{room.view}</div>
-                                        <div className="flex items-center gap-2"><Star className="h-4 w-4 text-moss-500" />{room.rating} ({room.reviewCount})</div>
                                     </div>
                                     <div className="pt-4 border-t border-mist-200 text-right">
                                         <span className="text-2xl font-bold text-forest-900">{formatPrice(room.basePrice)}</span>

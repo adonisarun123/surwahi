@@ -1,8 +1,6 @@
-import Image from 'next/image';
 import { Newspaper, MessageSquare } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
-import { getImageKitUrl } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
   'Press Mentions & Recognitions',
@@ -13,32 +11,6 @@ export const metadata = generatePageMetadata(
 const pressDetails = {
   title: 'In the Spotlight: Press & Testimonials',
   description: 'We are grateful for the stories shared about our journey. Here are some of the press mentions and guest testimonials that have honored and inspired us.',
-  pressMentions: [
-    {
-      publication: 'Condé Nast Traveller',
-      quote: '"A benchmark for sustainable tourism in India, Surwahi Social is a must-visit for the conscious traveler."',
-      images: [
-        { src: getImageKitUrl('Website Photos/surwahi edit.png'), alt: 'A collection of press articles about Surwahi' },
-        { src: getImageKitUrl('Website Photos/DJI_20250819094744_0109_D.JPG'), alt: 'Surwahi featured in a travel magazine' },
-        { src: getImageKitUrl('Surwahi Social Photos/IMG_20200217_095015 (2).jpg'), alt: 'A team member giving an interview for a travel show' },
-        { src: getImageKitUrl('Website Photos/IMG20231020171008.jpg'), alt: 'Surwahi recognized by a popular travel blog' },
-      ],
-      link: '#',
-      logoUrl: getImageKitUrl('Website Photos/surwahi edit.png'),
-    },
-    {
-      publication: 'The Guardian',
-      quote: '"More than a lodge, it\'s a living experiment in regeneration. A truly hopeful and inspiring project."',
-      link: '#',
-      logoUrl: getImageKitUrl('Website Photos/surwahi edit.png'),
-    },
-    {
-      publication: 'National Geographic Traveller India',
-      quote: '"Where luxury meets conservation. Surwahi shows us that a truly immersive travel experience is one that gives back to nature and the community."',
-      link: '#',
-      logoUrl: getImageKitUrl('Website Photos/surwahi edit.png'),
-    },
-  ],
   testimonials: [
     {
       name: 'Ananya Sharma',
@@ -72,19 +44,46 @@ export default function PressMentionsAndRecognitionsPage() {
       </section>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Press Mentions */}
+        {/* Featured Story */}
+        <section className="mb-16">
+          <div className="max-w-4xl mx-auto bg-white rounded-card shadow-elev-1 border border-stone-100 overflow-hidden">
+            <div className="p-8">
+              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-moss-600 mb-3">
+                <Newspaper className="h-4 w-4" /> Featured in The Better India &middot; 22 July 2026 &middot; by Shweta Dravid
+              </div>
+              <h3 className="font-display text-2xl md:text-3xl text-forest-900 mb-4">
+                &ldquo;This Duo Turned 10 Acres of Dry Land Into an Eco-Stay With 6000 Plants, Mud Walls &amp; Local Jobs&rdquo;
+              </h3>
+              <p className="text-soil-700 mb-6 leading-relaxed">
+                The Better India profiles how founders Ankit Rastogi and Pradeep Vijayan transformed semi-barren land near Kanha into Surwahi Social Ecoestate &mdash; with mud-wall architecture, solar power, water conservation and 6,000+ trees &mdash; while creating livelihoods for over 50 local people through partnerships with farmers, artisans and women&rsquo;s self-help groups.
+              </p>
+              <a href="https://thebetterindia.com/travel/surwahi-kanha-eco-stay-forest-local-jobs-community-tourism-12185491" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                Read the full story
+              </a>
+            </div>
+          </div>
+        </section>
+
+
+        {/* In the Press */}
         <section className="mb-16">
           <h2 className="font-display text-3xl text-forest-900 mb-8 text-center flex items-center justify-center">
             <Newspaper className="h-8 w-8 mr-3 text-moss-500" />
-            As Featured In
+            In the Press
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {pressDetails.pressMentions.map((mention, index) => (
-              <a key={index} href={mention.link} target="_blank" rel="noopener noreferrer" className="block p-6 bg-white rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
-                <Image src={mention.logoUrl} alt={`${mention.publication} logo`} width={150} height={50} className="mb-4" />
-                <blockquote className="text-soil-700 italic">&quot;{mention.quote}&quot;</blockquote>
-              </a>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <a href="https://thebetterindia.com/travel/surwahi-kanha-eco-stay-forest-local-jobs-community-tourism-12185491" target="_blank" rel="noopener noreferrer" className="block p-6 bg-white rounded-card border border-stone-100 hover:shadow-lg transition-shadow">
+              <div className="text-xs font-semibold uppercase tracking-wider text-moss-600 mb-1">The Better India &middot; 2026</div>
+              <div className="font-display text-lg text-forest-900">Turning 10 acres of dry land into an award-winning eco-stay</div>
+            </a>
+            <a href="/press/outlook-india-homestay-jul2024.pdf" target="_blank" rel="noopener noreferrer" className="block p-6 bg-white rounded-card border border-stone-100 hover:shadow-lg transition-shadow">
+              <div className="text-xs font-semibold uppercase tracking-wider text-moss-600 mb-1">Outlook India &middot; July 2024</div>
+              <div className="font-display text-lg text-forest-900">Featured in the Special Homestay Edition (Madhya Pradesh)</div>
+            </a>
+            <a href="/press/better-india-top10-sep2022.jpeg" target="_blank" rel="noopener noreferrer" className="block p-6 bg-white rounded-card border border-stone-100 hover:shadow-lg transition-shadow">
+              <div className="text-xs font-semibold uppercase tracking-wider text-moss-600 mb-1">The Better India &middot; 2022</div>
+              <div className="font-display text-lg text-forest-900">Nominated among India&rsquo;s Top 10 Sustainable Stays</div>
+            </a>
           </div>
         </section>
 
