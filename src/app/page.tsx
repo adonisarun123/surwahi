@@ -33,7 +33,8 @@ export default function HomePage() {
             </Link>
             <Link
               href="/about/our-story"
-              className="btn btn-secondary bg-bone-0 hover:bg-bone-0/95 border-2 border-white text-white shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.5)] transition-all"
+              className="btn border-2 border-white shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.5)] transition-all"
+              style={{ backgroundColor: '#FFFFFF', color: '#0F261A' }}
             >
               Explore the Story
             </Link>
