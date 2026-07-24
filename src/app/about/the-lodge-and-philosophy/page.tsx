@@ -1,5 +1,7 @@
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Prose from '@/components/Prose';
+import Image from 'next/image';
+import { galleryImages } from '@/lib/images';
 import { generatePageMetadata } from '@/lib/seo';
 
 export const metadata = generatePageMetadata(
@@ -11,9 +13,7 @@ export const metadata = generatePageMetadata(
   true
 );
 
-const body = `Ten acres. Two built on. Eight left alone, forever.
-
-That ratio is the philosophy. Everything else on this page - the mud walls, the seven-sided dining hall, the rooms named after vanished villages - is just that one decision, expressed in architecture.
+const body = `That ratio is the philosophy. Everything else on this page - the mud walls, the seven-sided dining hall, the rooms named after vanished villages - is just that one decision, expressed in architecture.
 
 ## Conservation First. Guests Second. (We Mean It.)
 
@@ -54,15 +54,20 @@ Kanha shouldn't carry the entire weight of tourism here. By building an experien
 export default function Page() {
   return (
     <div className="pt-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <Breadcrumbs />
       </div>
-      <section className="bg-sand-50 py-12">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-display text-display-xl text-forest-900 mb-2 max-w-4xl mx-auto">The Estate and the Philosophy Behind It</h1>
+      <section className="relative min-h-[52vh] flex items-end overflow-hidden">
+        <Image src={galleryImages.commonArea} alt="The Estate and the Philosophy Behind It" fill priority sizes="100vw" className="object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-forest-900/90 via-forest-900/60 to-forest-900/25" aria-hidden="true"></div>
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12">
+          <div className="max-w-3xl">
+            <h1 className="font-display text-display-xl text-bone-0 mb-4 drop-shadow-lg">The Estate and the Philosophy Behind It</h1>
+            <p className="text-body-lg text-bone-0/90 max-w-2xl drop-shadow">Ten acres. Two built on. Eight left alone, forever.</p>
+          </div>
         </div>
       </section>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <article className="max-w-3xl mx-auto">
           <Prose md={body} />
         </article>

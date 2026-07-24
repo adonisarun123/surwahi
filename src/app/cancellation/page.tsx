@@ -1,3 +1,4 @@
+import PageHero from '@/components/PageHero';
 import { generateMetadata } from '@/lib/seo';
 
 export const metadata = generateMetadata({
@@ -9,10 +10,10 @@ export const metadata = generateMetadata({
 
 export default function CancellationPage() {
   return (
-    <main className="min-h-screen py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto prose">
-          <h1 className="font-display text-display-xl text-forest-900 mb-8">Cancellation Policy</h1>
+    <main>
+      <PageHero title="Cancellation Policy" subtitle="Please review our cancellation and refund terms before booking." />
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="max-w-3xl mx-auto">
 
           <p className="text-body-lg text-soil-700 mb-8">
             Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}

@@ -1,5 +1,7 @@
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Prose from '@/components/Prose';
+import Image from 'next/image';
+import { aboutUsImages } from '@/lib/images';
 import { generatePageMetadata } from '@/lib/seo';
 
 export const metadata = generatePageMetadata(
@@ -11,9 +13,7 @@ export const metadata = generatePageMetadata(
   true
 );
 
-const body = `Most eco lodges begin with a building. Ours began with a fence - and three years of deliberately doing nothing.
-
-In December 2015, we bought ten acres of semi-barren land 21 kilometres from the Khatia gate of Kanha Tiger Reserve. Locals called it satkata jungle. It held fewer than 300 trees. Dry, overgrazed, unremarkable. We fenced it, walked away, and let it breathe.
+const body = `In December 2015, we bought ten acres of semi-barren land 21 kilometres from the Khatia gate of Kanha Tiger Reserve. Locals called it satkata jungle. It held fewer than 300 trees. Dry, overgrazed, unremarkable. We fenced it, walked away, and let it breathe.
 
 By the March 2025 tree census, the same land held more than 6,000 native plants and trees, over 3,500 of them taller than five feet, and 59 documented species of birds. We didn't plant a forest. We simply stopped standing in its way.
 
@@ -115,15 +115,20 @@ We're not trying to disrupt the tourism industry. We're holding up a different m
 export default function Page() {
   return (
     <div className="pt-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <Breadcrumbs />
       </div>
-      <section className="bg-sand-50 py-12">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-display text-display-xl text-forest-900 mb-2 max-w-4xl mx-auto">The Surwahi Story: Ten Years, Ten Acres, One Village</h1>
+      <section className="relative min-h-[52vh] flex items-end overflow-hidden">
+        <Image src={aboutUsImages.lodgeToday} alt="The Surwahi Story: Ten Years, Ten Acres, One Village" fill priority sizes="100vw" className="object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-forest-900/90 via-forest-900/60 to-forest-900/25" aria-hidden="true"></div>
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12">
+          <div className="max-w-3xl">
+            <h1 className="font-display text-display-xl text-bone-0 mb-4 drop-shadow-lg">The Surwahi Story: Ten Years, Ten Acres, One Village</h1>
+            <p className="text-body-lg text-bone-0/90 max-w-2xl drop-shadow">Most eco lodges begin with a building. Ours began with a fence - and three years of deliberately doing nothing.</p>
+          </div>
         </div>
       </section>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <article className="max-w-3xl mx-auto">
           <Prose md={body} />
         </article>

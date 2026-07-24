@@ -1,4 +1,5 @@
 import Breadcrumbs from '@/components/Breadcrumbs';
+import PageHero from '@/components/PageHero';
 import { generatePageMetadata } from '@/lib/seo';
 
 
@@ -32,16 +33,7 @@ export default function BestTimeToVisitPage() {
                 <Breadcrumbs />
             </div>
 
-            <section className="bg-sand-50 py-12">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h1 className="font-display text-display-xl text-forest-900 mb-4">
-                        Best Time to Visit Kanha
-                    </h1>
-                    <p className="text-body-lg text-soil-700 max-w-3xl mx-auto">
-                        Kanha National Park offers a different magic in every season. Whether you seek lush greenery, winter mists, or the drama of tiger sightings in summer, we have a guide for you.
-                    </p>
-                </div>
-            </section>
+            <PageHero title={"Best Time to Visit Kanha"} subtitle={"Kanha National Park offers a different magic in every season. Whether you seek lush greenery, winter mists, or the drama of tiger sightings in summer, we have a guide for you."} />
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <div className="max-w-5xl mx-auto">

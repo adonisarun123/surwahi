@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Camera, Video } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import PageHero from '@/components/PageHero';
 import { galleryImages } from '@/lib/images';
 // We will use a client component for the gallery, so we can't use generatePageMetadata here
 // SEO metadata can be set in a parent layout or a separate metadata export if needed.
@@ -44,16 +45,11 @@ export default function GalleryContent() {
         <Breadcrumbs />
       </div>
 
-      <section className="bg-sand-50 py-12">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-display text-display-xl text-forest-900 mb-4">
-            Gallery
-          </h1>
-          <p className="text-body-lg text-soil-700 max-w-3xl mx-auto">
-            A visual journey through the experiences, landscapes, and life at Surwahi Social Ecoestate. Explore the beauty that awaits you.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Gallery"
+        subtitle="A visual journey through the experiences, landscapes, and life at Surwahi Social Ecoestate. Explore the beauty that awaits you."
+        image={galleryImages.lodgeExterior}
+      />
 
       {/* Photo Gallery */}
       <section id="photo-gallery" className="py-16">

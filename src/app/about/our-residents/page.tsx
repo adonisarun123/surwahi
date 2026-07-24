@@ -1,5 +1,7 @@
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Prose from '@/components/Prose';
+import Image from 'next/image';
+import { aboutUsImages } from '@/lib/images';
 import { generatePageMetadata } from '@/lib/seo';
 
 export const metadata = generatePageMetadata(
@@ -11,9 +13,7 @@ export const metadata = generatePageMetadata(
   true
 );
 
-const body = `Every hotel page like this lists its rooms. Ours introduces its residents - because Surwahi belongs to those who live here: the family from the villages next door who run it, the community that shaped it, and the birds, deer, snakes and leopard who moved back in as the forest returned. Guests, in the kindest sense, are the visitors.
-
----
+const body = `---
 
 # The People
 
@@ -72,15 +72,20 @@ Stay a night and the residents introduce themselves - Pradeep's cooking at dinne
 export default function Page() {
   return (
     <div className="pt-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <Breadcrumbs />
       </div>
-      <section className="bg-sand-50 py-12">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-display text-display-xl text-forest-900 mb-2 max-w-4xl mx-auto">Our Residents: The People and Wildlife Who Call This Home</h1>
+      <section className="relative min-h-[52vh] flex items-end overflow-hidden">
+        <Image src={aboutUsImages.communityMeeting} alt="Our Residents: The People and Wildlife Who Call This Home" fill priority sizes="100vw" className="object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-forest-900/90 via-forest-900/60 to-forest-900/25" aria-hidden="true"></div>
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12">
+          <div className="max-w-3xl">
+            <h1 className="font-display text-display-xl text-bone-0 mb-4 drop-shadow-lg">Our Residents: The People and Wildlife Who Call This Home</h1>
+            <p className="text-body-lg text-bone-0/90 max-w-2xl drop-shadow">Every hotel page like this lists its rooms. Ours introduces its residents - because Surwahi belongs to those who live here: the family from the villages next door who run it, the community that shaped it, and the birds, deer, snakes and leopard who moved back in as the forest returned. Guests, in the kindest sense, are the visitors.</p>
+          </div>
         </div>
       </section>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <article className="max-w-3xl mx-auto">
           <Prose md={body} />
         </article>

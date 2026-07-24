@@ -1,4 +1,5 @@
 import { Newspaper, MessageSquare } from 'lucide-react';
+import PageHero from '@/components/PageHero';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
 
@@ -32,16 +33,7 @@ export default function PressMentionsAndRecognitionsPage() {
         <Breadcrumbs />
       </div>
 
-      <section className="bg-sand-50 py-12">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-display text-display-xl text-forest-900 mb-4">
-            {pressDetails.title}
-          </h1>
-          <p className="text-body-lg text-soil-700 max-w-3xl mx-auto">
-            {pressDetails.description}
-          </p>
-        </div>
-      </section>
+      <PageHero title={pressDetails.title} subtitle={pressDetails.description} />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Featured Story */}

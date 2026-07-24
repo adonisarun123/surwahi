@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import PageHero from '@/components/PageHero';
 import {
   MapPin,
   Phone,
@@ -36,16 +37,7 @@ export default function ContactPage() {
         <Breadcrumbs />
       </div>
 
-      <section className="bg-sand-50 py-12">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-display text-display-xl text-forest-900 mb-4">
-            Contact Us
-          </h1>
-          <p className="text-body-lg text-soil-700 max-w-3xl mx-auto">
-            We&apos;d love to hear from you. Whether you have a question, a booking inquiry, or just want to say hello, here&apos;s how you can reach us.
-          </p>
-        </div>
-      </section>
+      <PageHero title={"Contact Us"} subtitle={"We&apos;d love to hear from you. Whether you have a question, a booking inquiry, or just want to say hello, here&apos;s how you can reach us."} />
 
       <section className="py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,5 +1,7 @@
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Prose from '@/components/Prose';
+import Image from 'next/image';
+import { aboutUsImages } from '@/lib/images';
 import { generatePageMetadata } from '@/lib/seo';
 
 export const metadata = generatePageMetadata(
@@ -11,9 +13,7 @@ export const metadata = generatePageMetadata(
   true
 );
 
-const body = `Most places near a tiger reserve exist to serve the safari. Surwahi exists to be the experience itself.
-
-Built on ten acres of once-degraded land near Kanha Tiger Reserve, and run almost entirely by people from the village next door, Surwahi is proof of a simple, stubborn idea: that tourism can give back more than it takes - and that doing it right shouldn't cost the earth, or cost a fortune.
+const body = `Built on ten acres of once-degraded land near Kanha Tiger Reserve, and run almost entirely by people from the village next door, Surwahi is proof of a simple, stubborn idea: that tourism can give back more than it takes - and that doing it right shouldn't cost the earth, or cost a fortune.
 
 We don't ask you to sacrifice comfort. We ask you to redefine it.
 
@@ -88,15 +88,20 @@ Come for the tiger. Stay for the forest, the food, the people and the quiet proo
 export default function Page() {
   return (
     <div className="pt-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <Breadcrumbs />
       </div>
-      <section className="bg-sand-50 py-12">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-display text-display-xl text-forest-900 mb-2 max-w-4xl mx-auto">Why Surwahi? Because Your Stay Is Never Just a Stay</h1>
+      <section className="relative min-h-[52vh] flex items-end overflow-hidden">
+        <Image src={aboutUsImages.foundersVision} alt="Why Surwahi? Because Your Stay Is Never Just a Stay" fill priority sizes="100vw" className="object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-forest-900/90 via-forest-900/60 to-forest-900/25" aria-hidden="true"></div>
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12">
+          <div className="max-w-3xl">
+            <h1 className="font-display text-display-xl text-bone-0 mb-4 drop-shadow-lg">Why Surwahi? Because Your Stay Is Never Just a Stay</h1>
+            <p className="text-body-lg text-bone-0/90 max-w-2xl drop-shadow">Most places near a tiger reserve exist to serve the safari. Surwahi exists to be the experience itself.</p>
+          </div>
         </div>
       </section>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <article className="max-w-3xl mx-auto">
           <Prose md={body} />
         </article>

@@ -1,7 +1,9 @@
 import Breadcrumbs from '@/components/Breadcrumbs';
+import PageHero from '@/components/PageHero';
 import { generatePageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import { Plane, Train, Car, MapPin, CheckCircle } from 'lucide-react';
+import { galleryImages } from '@/lib/images';
 
 export const metadata = generatePageMetadata(
     'How to Reach Surwahi Social Ecoestate Near Kanha National Park',
@@ -18,15 +20,15 @@ export default function GettingHerePage() {
                 <Breadcrumbs />
             </div>
 
+            <PageHero
+                title="How to Reach Surwahi Social Ecoestate, Kanha"
+                subtitle="Located just 12km from the Khatia Gate of Kanha National Park, Surwahi is accessible by air, rail, and road — the journey itself winds through the beautiful landscapes of Madhya Pradesh."
+                image={galleryImages.forestTrail}
+            />
+
             <section className="bg-sand-50 py-12">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h1 className="font-display text-display-xl text-forest-900 mb-4">
-                        How to Reach Surwahi Social Ecoestate, Kanha
-                    </h1>
-                    <p className="text-body-lg text-soil-700 max-w-3xl mx-auto">
-                        Located just 12km from the Khatia Gate of Kanha National Park, Surwahi is accessible by air, rail, and road. The journey itself takes you through the beautiful landscapes of Madhya Pradesh.
-                    </p>
-                    <div className="max-w-3xl mx-auto mt-10 text-left">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="max-w-3xl mx-auto text-left">
                         <h2 className="font-display text-xl md:text-2xl text-forest-900 mb-3">
                             How far is Surwahi from Kanha National Park?
                         </h2>

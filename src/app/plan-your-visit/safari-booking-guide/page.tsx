@@ -1,4 +1,5 @@
 import Breadcrumbs from '@/components/Breadcrumbs';
+import PageHero from '@/components/PageHero';
 import { generatePageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import { Info } from 'lucide-react';
@@ -18,16 +19,7 @@ export default function SafariBookingGuidePage() {
                 <Breadcrumbs />
             </div>
 
-            <section className="bg-sand-50 py-12">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h1 className="font-display text-display-xl text-forest-900 mb-4">
-                        Kanha Safari Booking Guide
-                    </h1>
-                    <p className="text-body-lg text-soil-700 max-w-3xl mx-auto">
-                        Navigate the zones, timings, and permit process for a seamless wildlife experience at Kanha Tiger Reserve.
-                    </p>
-                </div>
-            </section>
+            <PageHero title={"Kanha Safari Booking Guide"} subtitle={"Navigate the zones, timings, and permit process for a seamless wildlife experience at Kanha Tiger Reserve."} />
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <div className="max-w-4xl mx-auto space-y-12">

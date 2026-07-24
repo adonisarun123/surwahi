@@ -1,5 +1,7 @@
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Prose from '@/components/Prose';
+import Image from 'next/image';
+import { accommodationImages } from '@/lib/images';
 import { generatePageMetadata } from '@/lib/seo';
 
 export const metadata = generatePageMetadata(
@@ -11,9 +13,7 @@ export const metadata = generatePageMetadata(
   true
 );
 
-const body = `We are deliberately small: an 8-bed earthen dormitory, two family suites, and a handful of camping tents in our forest camp area. This is not a resort packing in numbers - it's a home, built from stabilised mud by the hands of the village around it, 21 km from the Khatia gate of Kanha Tiger Reserve.
-
-Every built room shares the same promise: naturally cool below 28°C when Kanha crosses 40 outside, warm when winter drops to 4 - all without a single air conditioner. Thick mud-cob walls, roofs insulated with terracotta tiles reused from village homes, and the shade of 6,000 trees do the work instead. And for those who want even less between themselves and the forest, there's canvas.
+const body = `Every built room shares the same promise: naturally cool below 28°C when Kanha crosses 40 outside, warm when winter drops to 4 - all without a single air conditioner. Thick mud-cob walls, roofs insulated with terracotta tiles reused from village homes, and the shade of 6,000 trees do the work instead. And for those who want even less between themselves and the forest, there's canvas.
 
 ## Maikal Express - The Earthen Dormitory
 
@@ -71,15 +71,20 @@ No air conditioning. No televisions. No chlorine pool. No plastic. No loud music
 export default function Page() {
   return (
     <div className="pt-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <Breadcrumbs />
       </div>
-      <section className="bg-sand-50 py-12">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-display text-display-xl text-forest-900 mb-2 max-w-4xl mx-auto">Stay at Surwahi: Three Ways to Sleep Inside a Forest</h1>
+      <section className="relative min-h-[52vh] flex items-end overflow-hidden">
+        <Image src={accommodationImages.suites.hero} alt="Stay at Surwahi: Three Ways to Sleep Inside a Forest" fill priority sizes="100vw" className="object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-forest-900/90 via-forest-900/60 to-forest-900/25" aria-hidden="true"></div>
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12">
+          <div className="max-w-3xl">
+            <h1 className="font-display text-display-xl text-bone-0 mb-4 drop-shadow-lg">Stay at Surwahi: Three Ways to Sleep Inside a Forest</h1>
+            <p className="text-body-lg text-bone-0/90 max-w-2xl drop-shadow">We are deliberately small: an 8-bed earthen dormitory, two family suites, and a handful of camping tents in our forest camp area. This is not a resort packing in numbers - it's a home, built from stabilised mud by the hands of the village around it, 21 km from the Khatia gate of Kanha Tiger Reserve.</p>
+          </div>
         </div>
       </section>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <article className="max-w-3xl mx-auto">
           <Prose md={body} />
         </article>

@@ -1,4 +1,5 @@
 import Breadcrumbs from '@/components/Breadcrumbs';
+import PageHero from '@/components/PageHero';
 import { generatePageMetadata } from '@/lib/seo';
 import { Star, User } from 'lucide-react';
 import { getGoogleReviews } from '@/lib/google-reviews';
@@ -33,14 +34,7 @@ export default async function GuestReviewsPage() {
                 <Breadcrumbs />
             </div>
 
-            <section className="bg-sand-50 py-12">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h1 className="font-display text-display-xl text-forest-900 mb-4">Guest Love</h1>
-                    <p className="text-body-lg text-soil-700 max-w-2xl mx-auto">
-                        We don&rsquo;t just host guests; we make friends. Here&rsquo;s what travellers from around the world say about their Surwahi experience.
-                    </p>
-                </div>
-            </section>
+            <PageHero title={"Guest Love"} subtitle={"We don&rsquo;t just host guests; we make friends. Here&rsquo;s what travellers from around the world say about their Surwahi experience."} />
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
