@@ -60,7 +60,7 @@ export default function HomePage() {
       </section>
 
       {/* Eco Accommodations */}
-      <section className="bg-mist-200/50 py-16 lg:py-24">
+      <section className="bg-mist-200 py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-display text-display-lg text-forest-900 mb-4">Eco Accommodations — Designed for Comfort, Crafted for the Earth</h2>
           <p className="text-body-lg max-w-prose mx-auto mb-8">
@@ -133,7 +133,7 @@ export default function HomePage() {
       </section>
 
       {/* Experiences */}
-      <section className="bg-mist-200/50 py-16 lg:py-24">
+      <section className="bg-mist-200 py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-display text-display-lg text-forest-900 mb-4">Experiences that Connect You to the Wild and Within</h2>
           <p className="text-body-lg max-w-prose mx-auto mb-12">
@@ -192,7 +192,7 @@ export default function HomePage() {
       </section>
 
       {/* Kanha & Surroundings */}
-      <section className="py-16 lg:py-24">
+      <section className="bg-mist-200 py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-display text-display-lg text-forest-900 mb-4">Kanha & Surroundings — Nature’s Grand Theatre</h2>
           <p className="text-body-lg max-w-prose mx-auto mb-8">
@@ -223,7 +223,7 @@ export default function HomePage() {
       <InstagramCarousel />
 
       {/* Recognitions & Accreditations */}
-      <section className="py-16 lg:py-24">
+      <section className="bg-mist-200 py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-display text-display-lg text-forest-900 mb-8">Recognitions & Accreditations</h2>
           <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12">

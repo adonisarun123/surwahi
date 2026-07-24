@@ -84,7 +84,7 @@ const config: Config = {
         '128': '32rem',
       },
       backgroundImage: {
-        'canopy-dawn': 'linear-gradient(135deg, #1E5741 0%, #3D6F54 40%, #A56B43 100%)',
+        'canopy-dawn': 'linear-gradient(135deg, #0F261A 0%, #1E5741 50%, #3D6F54 100%)',
         'river-mist': 'linear-gradient(180deg, #CFE7F2 0%, #F7F3EE 100%)',
       },
       animation: {
