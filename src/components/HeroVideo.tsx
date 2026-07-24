@@ -67,7 +67,7 @@ export default function HeroVideo({ image, alt }: HeroVideoProps) {
           className={`pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-1000 ${
             playing ? 'opacity-100' : 'opacity-0'
           }`}
-          style={{ width: '100vw', height: '56.25vw', minWidth: '177.78vh', minHeight: '100vh' }}
+          style={{ width: '100vw', height: '56.25vw', minWidth: '177.78vh', minHeight: '100vh', filter: 'brightness(1.08) saturate(1.08)' }}
         />
       )}
     </div>
