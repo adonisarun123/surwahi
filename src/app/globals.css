@@ -379,3 +379,20 @@ body {
     opacity: 1;
   }
 }
+/* --- Justified brochure-style body copy ---------------------------------
+   Long-form paragraphs read as clean justified blocks on tablet/desktop.
+   Left-aligned on phones (<640px) with hyphenation, to avoid word-gap rivers. */
+.prose p,
+.prose-surwahi p,
+.body-justify {
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+@media (min-width: 640px) {
+  .prose p,
+  .prose-surwahi p,
+  .body-justify {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+}

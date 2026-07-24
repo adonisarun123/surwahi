@@ -20,7 +20,7 @@ export default function CancellationPage() {
           </p>
 
           <section className="mb-8">
-            <p className="text-body-md text-black mb-4">
+            <p className="text-body-md body-justify text-black mb-4">
               We understand that plans can change. Please review our cancellation policy carefully before making a reservation.
             </p>
           </section>
@@ -51,7 +51,7 @@ export default function CancellationPage() {
 
           <section className="mb-8">
             <h2 className="font-display text-display-md text-forest-900 mb-4">Modifications to Bookings</h2>
-            <p className="text-body-md text-black mb-4">
+            <p className="text-body-md body-justify text-black mb-4">
               If you wish to modify your booking dates, please contact us as soon as possible. Modifications are subject to availability and may incur additional charges.
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2 text-black">
@@ -63,59 +63,59 @@ export default function CancellationPage() {
 
           <section className="mb-8">
             <h2 className="font-display text-display-md text-forest-900 mb-4">No-Show Policy</h2>
-            <p className="text-body-md text-black mb-4">
+            <p className="text-body-md body-justify text-black mb-4">
               If you do not arrive on your scheduled check-in date and have not contacted us to modify or cancel your reservation, you will be considered a &quot;no-show&quot; and the full booking amount will be forfeited with no refund.
             </p>
           </section>
 
           <section className="mb-8">
             <h2 className="font-display text-display-md text-forest-900 mb-4">Early Departure</h2>
-            <p className="text-body-md text-black mb-4">
+            <p className="text-body-md body-justify text-black mb-4">
               If you choose to leave before your scheduled check-out date, no refund will be provided for the unused portion of your stay.
             </p>
           </section>
 
           <section className="mb-8">
             <h2 className="font-display text-display-md text-forest-900 mb-4">Special Circumstances</h2>
-            <p className="text-body-md text-black mb-4">
+            <p className="text-body-md body-justify text-black mb-4">
               We understand that emergencies happen. In case of documented medical emergencies, natural disasters, or other extraordinary circumstances, please contact us directly. We will review each situation on a case-by-case basis.
             </p>
           </section>
 
           <section className="mb-8">
             <h2 className="font-display text-display-md text-forest-900 mb-4">Peak Season & Holidays</h2>
-            <p className="text-body-md text-black mb-4">
+            <p className="text-body-md body-justify text-black mb-4">
               During peak seasons and holidays, stricter cancellation policies may apply. You will be informed of any special terms at the time of booking.
             </p>
           </section>
 
           <section className="mb-8">
             <h2 className="font-display text-display-md text-forest-900 mb-4">How to Cancel</h2>
-            <p className="text-body-md text-black mb-4">
+            <p className="text-body-md body-justify text-black mb-4">
               To cancel your reservation, please contact us through:
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2 text-black">
               <li><strong>Email:</strong> <a href="mailto:contact@surwahi.com" className="text-moss-500 hover:text-forest-700">contact@surwahi.com</a></li>
               <li><strong>Phone:</strong> <a href="tel:+917795207779" className="text-moss-500 hover:text-forest-700">+91 77952 07779</a></li>
             </ul>
-            <p className="text-body-md text-black mb-4">
+            <p className="text-body-md body-justify text-black mb-4">
               Cancellations are effective from the date we receive your written notice (email confirmation).
             </p>
           </section>
 
           <section className="mb-8">
             <h2 className="font-display text-display-md text-forest-900 mb-4">Refund Processing</h2>
-            <p className="text-body-md text-black mb-4">
+            <p className="text-body-md body-justify text-black mb-4">
               Approved refunds will be processed within 7-10 business days to the original payment method. Please note that it may take additional time for your bank or credit card company to process the refund.
             </p>
           </section>
 
           <section className="mb-8 bg-fern-300/10 p-6 rounded-card border-l-4 border-fern-300">
             <h3 className="font-display text-lg text-forest-900 mb-3">Have Questions?</h3>
-            <p className="text-body-md text-black mb-2">
+            <p className="text-body-md body-justify text-black mb-2">
               Our team is here to help. Please don&apos;t hesitate to reach out if you have any questions about our cancellation policy.
             </p>
-            <p className="text-body-md text-black">
+            <p className="text-body-md body-justify text-black">
               <a href="/contact" className="text-moss-500 hover:text-forest-700 font-medium">Contact us →</a>
             </p>
           </section>
