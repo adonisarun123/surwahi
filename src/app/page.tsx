@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Leaf, Users, Shield, Star, Award, Heart, PawPrint, Sprout, ChefHat, Trees } from 'lucide-react';
 import HeroVideo from '@/components/HeroVideo';
+import InstagramCarousel from '@/components/InstagramCarousel';
 import { generateMetadata } from '@/lib/seo';
 
 export const metadata = generateMetadata({
@@ -25,9 +26,6 @@ export default function HomePage() {
           </h1>
           <p className="text-body-lg text-bone-0 mb-8 max-w-2xl mx-auto animate-fade-up drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]" style={{ animationDelay: '0.2s' }}>
             Nestled about 20km from Kanha National Park (Khatia Gate), Surwahi Social Ecoestate invites you to slow down, reconnect with nature, and experience the art of sustainable living.
-            <span className="block mt-4 text-sm font-bold bg-forest-900/40 py-1 px-3 rounded-full inline-block backdrop-blur-sm border border-bone-0/20">
-              🏆 Winner: John Wakefield Memorial Award 2024
-            </span>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style={{ animationDelay: '0.4s' }}>
             <Link href="/stay" className="btn btn-primary text-base bg-moss-500 hover:bg-moss-600 text-white border-2 border-white shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.5)] transition-all" style={{ color: 'white' }}>
@@ -220,6 +218,9 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+
+      {/* Instagram Feed */}
+      <InstagramCarousel />
 
       {/* Recognitions & Accreditations */}
       <section className="py-16 lg:py-24">

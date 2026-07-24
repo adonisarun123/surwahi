@@ -5,6 +5,11 @@ import Image from 'next/image';
 
 const VIMEO_ID = '1212571733';
 
+// Tiny blurred preview of the fallback image, inlined so the hero paints instantly
+// (no blank while the full image / video load).
+const BLUR =
+  'data:image/jpeg;base64,/9j/2wBDABIMDRANCxIQDhAUExIVGywdGxgYGzYnKSAsQDlEQz85Pj1HUGZXR0thTT0+WXlaYWltcnNyRVV9hnxvhWZwcm7/2wBDARMUFBsXGzQdHTRuST5Jbm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm7/wAARCAAQABwDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAwABAv/EABgQAQEBAQEAAAAAAAAAAAAAAAABAhES/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgEE/8QAFREBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhEDEQA/AA6uaH1JWGCaaa9BlJCV/9k=';
+
 interface HeroVideoProps {
   image: string;
   alt: string;
@@ -49,7 +54,7 @@ export default function HeroVideo({ image, alt }: HeroVideoProps) {
   return (
     <div className="absolute inset-0 z-0 overflow-hidden bg-forest-900">
       {/* Still image — always rendered; the fallback and the "until loaded" state */}
-      <Image src={image} alt={alt} fill className="object-cover" priority />
+      <Image src={image} alt={alt} fill className="object-cover" priority placeholder="blur" blurDataURL={BLUR} />
 
       {/* Vimeo background video — mounts only when motion is allowed, fades in on play */}
       {enabled && (
@@ -59,11 +64,6 @@ export default function HeroVideo({ image, alt }: HeroVideoProps) {
           allow="autoplay; fullscreen"
           aria-hidden="true"
           tabIndex={-1}
-          onLoad={() => {
-            // Backstop: if the player loaded but the play event was missed,
-            // reveal after a short delay. Never fires if the network failed.
-            window.setTimeout(() => setPlaying(true), 3000);
-          }}
           className={`pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-1000 ${
             playing ? 'opacity-100' : 'opacity-0'
           }`}
