@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Leaf, Users, Shield, Star, Award, Heart, PawPrint, Sprout, ChefHat, Trees } from 'lucide-react';
+import Image from 'next/image';
 import HeroVideo from '@/components/HeroVideo';
 import InstagramCarousel from '@/components/InstagramCarousel';
 import { generateMetadata } from '@/lib/seo';
@@ -15,10 +16,17 @@ export default function HomePage() {
   return (
     <main id="main">
       <section className="relative min-h-screen flex items-center justify-center text-center text-white overflow-hidden">
-        <HeroVideo
-          image="https://ik.imagekit.io/adonisarun/WhatsApp%20Image%202025-10-24%20at%2019.36.22.jpeg?updatedAt=1761321841612"
-          alt="Aerial view of Surwahi Social Ecoestate and sustainable estate near Kanha National Park"
-        />
+        <div className="absolute inset-0 z-0 bg-forest-900">
+          <Image
+            src="https://ik.imagekit.io/adonisarun/WhatsApp%20Image%202025-10-24%20at%2019.36.22.jpeg?updatedAt=1761321841612"
+            alt="Aerial view of Surwahi Social Ecoestate and sustainable estate near Kanha National Park"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
+        <HeroVideo />
         <div className="absolute inset-0 bg-gradient-to-b from-forest-900/30 via-forest-900/40 to-forest-900/60 z-10"></div>
         <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <h1 className="font-display text-display-xl text-bone-0 mb-6 animate-fade-up drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">

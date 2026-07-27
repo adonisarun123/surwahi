@@ -1,37 +1,23 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 
 const VIMEO_ID = '1212571733';
 
-// Tiny blurred preview of the hero image, applied as a CSS background on the
-// CONTAINER (not the <img>) so it paints instantly for a no-blank first render
-// WITHOUT interfering with the real image's Largest Contentful Paint measurement.
-const BLUR =
-  'data:image/jpeg;base64,/9j/2wBDABIMDRANCxIQDhAUExIVGywdGxgYGzYnKSAsQDlEQz85Pj1HUGZXR0thTT0+WXlaYWltcnNyRVV9hnxvhWZwcm7/2wBDARMUFBsXGzQdHTRuST5Jbm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm7/wAARCAAQABwDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAwABAv/EABgQAQEBAQEAAAAAAAAAAAAAAAABAhES/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgEE/8QAFREBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhEDEQA/AA6uaH1JWGCaaa9BlJCV/9k=';
-
-interface HeroVideoProps {
-  image: string;
-  alt: string;
-}
-
 /**
- * Homepage hero background.
- * - The <Image> is a clean `priority` image => it is the measurable LCP element.
- * - The blur preview is a CSS background on the CONTAINER (instant paint, no blank),
- *   so it does NOT alter the <img> and break LCP (which `placeholder="blur"` did).
- * - The Vimeo iframe is HEAVY: never loaded on mobile (< 768px) or with reduced
- *   motion, and on desktop only mounted AFTER load so it can't block first paint.
+ * Video OVERLAY only (the hero image lives in page.tsx as a server-rendered
+ * <Image priority> so it stays a clean, measurable LCP element).
+ * The Vimeo iframe is heavy: never mounted on mobile (<768px) or with reduced
+ * motion, and on desktop only mounted AFTER load, then faded in once playing.
  */
-export default function HeroVideo({ image, alt }: HeroVideoProps) {
-  const [enabled, setEnabled] = useState(false); // desktop + after-load only
-  const [playing, setPlaying] = useState(false);  // true once Vimeo reports playback
+export default function HeroVideo() {
+  const [enabled, setEnabled] = useState(false);
+  const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const isDesktop = window.matchMedia('(min-width: 768px)').matches;
-    if (reduce || !isDesktop) return; // mobile & reduced-motion: static image only
+    if (reduce || !isDesktop) return; // mobile & reduced-motion: no video at all
 
     function onMessage(e: MessageEvent) {
       if (typeof e.origin !== 'string' || e.origin.indexOf('vimeo.com') === -1) return;
@@ -67,34 +53,26 @@ export default function HeroVideo({ image, alt }: HeroVideoProps) {
     };
   }, []);
 
-  return (
-    <div
-      className="absolute inset-0 z-0 overflow-hidden bg-forest-900"
-      style={{ backgroundImage: `url("${BLUR}")`, backgroundSize: 'cover', backgroundPosition: 'center' }}
-    >
-      {/* Clean priority image — the LCP element (no blur placeholder on the <img>). */}
-      <Image src={image} alt={alt} fill priority sizes="100vw" className="object-cover" />
+  if (!enabled) return null;
 
-      {/* Vimeo background video — desktop only, mounted after load, fades in on play */}
-      {enabled && (
-        <iframe
-          src={`https://player.vimeo.com/video/${VIMEO_ID}?background=1&autoplay=1&loop=1&muted=1&autopause=0&dnt=1`}
-          title="Surwahi Social Ecoestate — a glimpse"
-          allow="autoplay; fullscreen"
-          aria-hidden="true"
-          tabIndex={-1}
-          className={`pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-1000 ${
-            playing ? 'opacity-100' : 'opacity-0'
-          }`}
-          style={{
-            width: '100vw',
-            height: '56.25vw',
-            minWidth: '177.78vh',
-            minHeight: '100vh',
-            filter: 'brightness(1.08) saturate(1.08)',
-          }}
-        />
-      )}
+  return (
+    <div className="hidden md:block absolute inset-0 z-0 overflow-hidden pointer-events-none" aria-hidden="true">
+      <iframe
+        src={`https://player.vimeo.com/video/${VIMEO_ID}?background=1&autoplay=1&loop=1&muted=1&autopause=0&dnt=1`}
+        title="Surwahi Social Ecoestate — a glimpse"
+        allow="autoplay; fullscreen"
+        tabIndex={-1}
+        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-1000 ${
+          playing ? 'opacity-100' : 'opacity-0'
+        }`}
+        style={{
+          width: '100vw',
+          height: '56.25vw',
+          minWidth: '177.78vh',
+          minHeight: '100vh',
+          filter: 'brightness(1.08) saturate(1.08)',
+        }}
+      />
     </div>
   );
 }
