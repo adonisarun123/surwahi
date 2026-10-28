@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+import { escapeHtml } from '@/lib/spam-guard';
 
 // Create reusable transporter
 const transporter = nodemailer.createTransport({
@@ -140,52 +141,52 @@ export async function sendContactFormNotification(formData: {
             <div class="content">
               <div class="field">
                 <div class="label">Name:</div>
-                <div class="value">${formData.name}</div>
+                <div class="value">${escapeHtml(formData.name)}</div>
               </div>
               
               <div class="field">
                 <div class="label">Email:</div>
-                <div class="value"><a href="mailto:${formData.email}">${formData.email}</a></div>
+                <div class="value"><a href="mailto:${escapeHtml(formData.email)}">${escapeHtml(formData.email)}</a></div>
               </div>
               
               ${formData.phone ? `
               <div class="field">
                 <div class="label">Phone:</div>
-                <div class="value"><a href="tel:${formData.phone}">${formData.phone}</a></div>
+                <div class="value"><a href="tel:${escapeHtml(formData.phone)}">${escapeHtml(formData.phone)}</a></div>
               </div>
               ` : ''}
               
               ${formData.city ? `
               <div class="field">
                 <div class="label">City:</div>
-                <div class="value">${formData.city}</div>
+                <div class="value">${escapeHtml(formData.city)}</div>
               </div>
               ` : ''}
               
               ${formData.inquiryType ? `
               <div class="field">
                 <div class="label">Inquiry Type:</div>
-                <div class="value">${formData.inquiryType}</div>
+                <div class="value">${escapeHtml(formData.inquiryType)}</div>
               </div>
               ` : ''}
               
               ${formData.preferredDates ? `
               <div class="field">
                 <div class="label">Preferred Dates:</div>
-                <div class="value">${formData.preferredDates}</div>
+                <div class="value">${escapeHtml(formData.preferredDates)}</div>
               </div>
               ` : ''}
               
               ${formData.partySize ? `
               <div class="field">
                 <div class="label">Party Size:</div>
-                <div class="value">${formData.partySize} guests</div>
+                <div class="value">${escapeHtml(formData.partySize)} guests</div>
               </div>
               ` : ''}
               
               <div class="message-box">
                 <div class="label">Message:</div>
-                <div class="value">${formData.message.replace(/\n/g, '<br>')}</div>
+                <div class="value">${escapeHtml(formData.message).replace(/\n/g, '<br>')}</div>
               </div>
               
               <p style="margin-top: 30px; font-size: 12px; color: #666;">
@@ -247,7 +248,7 @@ export async function sendContactFormConfirmation(email: string, name: string) {
               <h1>🌿 Thank You for Reaching Out!</h1>
             </div>
             <div class="content">
-              <p>Dear ${name},</p>
+              <p>Dear ${escapeHtml(name)},</p>
               
               <p>Thank you for contacting Surwahi Social Ecoestate Kanha. We have received your inquiry and our team will get back to you within 24 hours.</p>
               

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { MapPin, Phone, Mail, Leaf, Recycle, Bird, Instagram, Facebook, Linkedin } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -64,6 +64,12 @@ export default function Footer() {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState('');
+  const [honeypot, setHoneypot] = useState('');
+  const startedAtRef = useRef<number>(0);
+
+  useEffect(() => {
+    startedAtRef.current = Date.now();
+  }, []);
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -73,7 +79,12 @@ export default function Footer() {
       const response = await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, source: 'footer' }),
+        body: JSON.stringify({
+          email,
+          source: 'footer',
+          website: honeypot,
+          startedAt: startedAtRef.current,
+        }),
       });
 
       const result = await response.json();
@@ -110,6 +121,19 @@ export default function Footer() {
             </p>
 
             <form onSubmit={handleNewsletterSubmit} className="max-w-lg mx-auto">
+              {/* Honeypot: hidden from humans, bots fill it */}
+              <div aria-hidden="true" style={{ position: 'absolute', left: '-10000px', width: 1, height: 1, overflow: 'hidden' }}>
+                <label htmlFor="footer-website">Website</label>
+                <input
+                  id="footer-website"
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                />
+              </div>
               <div className="flex flex-col sm:flex-row gap-3">
                 <label htmlFor="footer-email" className="sr-only">
                   Email address
