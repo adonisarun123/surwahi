@@ -2,12 +2,13 @@
 // This is your Prisma schema file for the Surwahi website
 
 generator client {
-  provider = "prisma-client-js"
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
 }
 
+// Connection URL lives in prisma.config.ts (Prisma 7)
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
 // Room Types and Accommodations
