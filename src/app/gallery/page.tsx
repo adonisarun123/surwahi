@@ -1,5 +1,8 @@
 import { generatePageMetadata } from '@/lib/seo';
 import GalleryContent from './GalleryContent';
+import { getGalleryImages, getGalleryVideos } from '@/lib/content-repo';
+
+export const revalidate = 3600;
 
 export const metadata = generatePageMetadata(
     'Gallery',
@@ -9,6 +12,7 @@ export const metadata = generatePageMetadata(
     ['Surwahi Photos', 'Eco Lodge Gallery', 'Kanha Wildlife Photos', 'Mud House Images', 'Sustainable Resort Photos']
 );
 
-export default function GalleryPage() {
-    return <GalleryContent />;
+export default async function GalleryPage() {
+    const [images, videos] = await Promise.all([getGalleryImages(), getGalleryVideos()]);
+    return <GalleryContent images={images} videos={videos} />;
 }

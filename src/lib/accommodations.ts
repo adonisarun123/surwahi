@@ -220,5 +220,3 @@ export function quoteStay(room: Room, adults: number, children: number, nights: 
   return { nights, lines, subtotal, gst, total: subtotal + gst, note };
 }
 
-/** Lowest pre-GST price across rooms, for "starting from" labels. */
-export const startingPrice = Math.min(...Object.values(rooms).map((r) => r.basePrice));

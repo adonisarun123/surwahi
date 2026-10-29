@@ -6,6 +6,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import MobileBookingBar from "@/components/MobileBookingBar";
+import PublicChrome from "@/components/PublicChrome";
+import { getStartingPrice } from "@/lib/rooms-repo";
+import { getActiveAnnouncement } from "@/lib/content-repo";
+import AnnouncementBar from "@/components/AnnouncementBar";
 import { generateMetadata, generateOrganizationSchema, generateWebsiteSchema, generateLodgingBusinessSchema } from "@/lib/seo";
 
 const inter = Inter({
@@ -26,11 +30,12 @@ export const metadata: Metadata = generateMetadata({
   url: 'https://surwahi.com',
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [startingPrice, announcement] = await Promise.all([getStartingPrice(), getActiveAnnouncement()]);
   return (
     <html lang="en-IN" className={`${inter.variable} ${fraunces.variable}`}>
       <head>
@@ -71,15 +76,20 @@ export default function RootLayout({
           Skip to main content
         </a>
 
-        <Header />
+        <PublicChrome>
+          <Header announcement={announcement ? <AnnouncementBar text={announcement.text} linkText={announcement.linkText} href={announcement.href} /> : undefined} />
+        </PublicChrome>
 
+        {announcement && <PublicChrome><div className="h-9" aria-hidden="true" /></PublicChrome>}
         <main id="main" className="min-h-screen">
           {children}
         </main>
 
-        <WhatsAppButton />
-        <MobileBookingBar />
-        <Footer />
+        <PublicChrome>
+          <WhatsAppButton />
+          <MobileBookingBar startingPrice={startingPrice} />
+          <Footer />
+        </PublicChrome>
 
         {/* Schema.org structured data for organization */}
 

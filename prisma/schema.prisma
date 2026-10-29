@@ -1,5 +1,8 @@
-// Surwahi Eco-Lodge Database Schema
-// This is your Prisma schema file for the Surwahi website
+// Surwahi backend schema (Prisma 7).
+// Only tables owned by the admin backend live here. The legacy hand-made tables
+// (newsletter_subscriptions, contact_submissions, and the empty rooms/blog_posts/activities
+// stubs) are NOT modelled and are never touched by migrations.
+// SQL migrations: db/migrations/*.sql, applied by scripts/db-migrate.mjs
 
 generator client {
   provider = "prisma-client"
@@ -11,305 +14,343 @@ datasource db {
   provider = "postgresql"
 }
 
-// Room Types and Accommodations
-model Room {
-  id           String   @id @default(cuid())
+// ─── Admin users & auth ───────────────────────────────────────────────
+
+enum AdminRole {
+  OWNER   // everything, incl. users
+  MANAGER // bookings, calendar, rates
+  EDITOR  // photos, content
+}
+
+model AdminUser {
+  id           String         @id @default(uuid()) @db.Uuid
+  email        String         @unique
   name         String
-  slug         String   @unique
-  description  String
-  longDescription String @db.Text
-  bedType      String
-  maxOccupancy Int
-  basePrice    Decimal  @db.Decimal(10, 2)
-  size         String?
-  view         String?
-  images       Json[]   // Array of image objects with URL, alt text, caption
-  amenities    String[] // Array of amenity strings
-  policies     Json?    // Room-specific policies
-  isActive     Boolean  @default(true)
-  sortOrder    Int      @default(0)
-  ecoFeatures  String[] // Sustainability features
-  accessibility String[] // Accessibility features
-  
-  // Relations
-  bookings     Booking[]
-  reviews      Review[]
-  
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  role         AdminRole
+  passwordHash String         @map("password_hash")
+  isActive     Boolean        @default(true) @map("is_active")
+  lastLoginAt  DateTime?      @map("last_login_at") @db.Timestamptz
+  createdAt    DateTime       @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt    DateTime       @updatedAt @map("updated_at") @db.Timestamptz
+  sessions     AdminSession[]
+  auditLogs    AuditLog[]
 
-  @@map("rooms")
+  @@map("admin_users")
 }
 
-// Booking System
-model Booking {
-  id          String      @id @default(cuid())
-  guestName   String
-  guestEmail  String
-  guestPhone  String
-  checkIn     DateTime
-  checkOut    DateTime
-  adults      Int
-  children    Int         @default(0)
-  totalPrice  Decimal     @db.Decimal(10, 2)
-  status      BookingStatus @default(PENDING)
-  specialRequests String?
-  source      String?     // How they found us
-  
-  // Relations
-  roomId      String
-  room        Room        @relation(fields: [roomId], references: [id])
-  
-  createdAt   DateTime    @default(now())
-  updatedAt   DateTime    @updatedAt
+model AdminSession {
+  id        String    @id @default(uuid()) @db.Uuid
+  userId    String    @map("user_id") @db.Uuid
+  user      AdminUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String    @unique @map("token_hash")
+  expiresAt DateTime  @map("expires_at") @db.Timestamptz
+  ip        String?
+  userAgent String?   @map("user_agent")
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz
 
-  @@map("bookings")
+  @@index([userId])
+  @@map("admin_sessions")
 }
 
-enum BookingStatus {
-  PENDING
-  CONFIRMED
+model AuditLog {
+  id        String     @id @default(uuid()) @db.Uuid
+  userId    String?    @map("user_id") @db.Uuid
+  user      AdminUser? @relation(fields: [userId], references: [id], onDelete: SetNull)
+  action    String
+  entity    String
+  entityId  String?    @map("entity_id")
+  data      Json?
+  createdAt DateTime   @default(now()) @map("created_at") @db.Timestamptz
+
+  @@index([entity, entityId])
+  @@map("audit_log")
+}
+
+// ─── Rooms, rates, photos ─────────────────────────────────────────────
+
+enum AccommodationCategory {
+  SUITE
+  DORMITORY
+  CAMPING
+}
+
+enum PricingModel {
+  PER_UNIT   // price covers includedAdults; extra adults charged
+  PER_PERSON // price per guest per night
+}
+
+model Accommodation {
+  id               String                @id @default(uuid()) @db.Uuid
+  slug             String                @unique
+  name             String
+  category         AccommodationCategory
+  shortDescription String                @map("short_description")
+  longDescription  String                @map("long_description")
+  bedConfiguration String                @map("bed_configuration")
+  size             String?
+  view             String?
+  location         String?
+  maxOccupancy     Int                   @map("max_occupancy")
+  pricingModel     PricingModel          @map("pricing_model")
+  /// Pre-GST rupees per night
+  basePrice        Int                   @map("base_price")
+  extraAdultPrice  Int?                  @map("extra_adult_price")
+  includedAdults   Int?                  @map("included_adults")
+  /// Null = children's rate confirmed manually
+  childPrice       Int?                  @map("child_price")
+  gstPercent       Decimal               @default(18) @map("gst_percent") @db.Decimal(5, 2)
+  mealPlan         String                @map("meal_plan")
+  amenities        String[]
+  ecoFeatures      String[]              @map("eco_features")
+  accessibility    String[]
+  included         String[]
+  policies         Json                  @default("{}")
+  keywords         String[]
+  isActive         Boolean               @default(true) @map("is_active")
+  sortOrder        Int                   @default(0) @map("sort_order")
+  /// Secret used in this room's public iCal export URL
+  icalExportToken  String                @unique @default(uuid()) @map("ical_export_token")
+  createdAt        DateTime              @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt        DateTime              @updatedAt @map("updated_at") @db.Timestamptz
+
+  images       AccommodationImage[]
+  rateRules    RateRule[]
+  reservations Reservation[]
+  blocks       CalendarBlock[]
+  icalFeeds    IcalFeed[]
+
+  @@map("accommodations")
+}
+
+model MediaAsset {
+  id              String               @id @default(uuid()) @db.Uuid
+  url             String
+  /// ImageKit fileId when uploaded through the admin; null for legacy URLs
+  providerFileId  String?              @map("provider_file_id")
+  filePath        String?              @map("file_path")
+  width           Int?
+  height          Int?
+  alt             String
+  caption         String?
+  tags            String[]
+  /// Shown on /gallery when set
+  galleryCategory String?              @map("gallery_category")
+  gallerySort     Int                  @default(0) @map("gallery_sort")
+  uploadedById    String?              @map("uploaded_by_id") @db.Uuid
+  createdAt       DateTime             @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt       DateTime             @updatedAt @map("updated_at") @db.Timestamptz
+  accommodations  AccommodationImage[]
+
+  @@index([galleryCategory])
+  @@map("media_assets")
+}
+
+model AccommodationImage {
+  accommodationId String        @map("accommodation_id") @db.Uuid
+  accommodation   Accommodation @relation(fields: [accommodationId], references: [id], onDelete: Cascade)
+  mediaId         String        @map("media_id") @db.Uuid
+  media           MediaAsset    @relation(fields: [mediaId], references: [id], onDelete: Cascade)
+  sortOrder       Int           @default(0) @map("sort_order")
+  caption         String?
+
+  @@id([accommodationId, mediaId])
+  @@map("accommodation_images")
+}
+
+/// Seasonal / date-range price override. Highest priority wins on overlap.
+model RateRule {
+  id              String        @id @default(uuid()) @db.Uuid
+  accommodationId String        @map("accommodation_id") @db.Uuid
+  accommodation   Accommodation @relation(fields: [accommodationId], references: [id], onDelete: Cascade)
+  name            String
+  startDate       DateTime      @map("start_date") @db.Date
+  /// Inclusive last night the rule applies to
+  endDate         DateTime      @map("end_date") @db.Date
+  basePrice       Int           @map("base_price")
+  extraAdultPrice Int?          @map("extra_adult_price")
+  minNights       Int?          @map("min_nights")
+  priority        Int           @default(0)
+  isActive        Boolean       @default(true) @map("is_active")
+  createdAt       DateTime      @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt       DateTime      @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([accommodationId, startDate, endDate])
+  @@map("rate_rules")
+}
+
+// ─── Bookings & calendar ──────────────────────────────────────────────
+
+enum ReservationStatus {
+  REQUESTED        // guest asked; not holding dates yet
+  AWAITING_PAYMENT // confirmed by staff, payment link sent; holds dates
+  CONFIRMED        // paid / guaranteed; holds dates
+  DECLINED
   CANCELLED
   COMPLETED
+  NO_SHOW
 }
 
-// Contact Forms
-model ContactForm {
-  id          String      @id @default(cuid())
-  name        String
-  email       String
-  phone       String?
-  city        String?
-  message     String      @db.Text
-  inquiryType ContactType @default(GENERAL)
-  preferredDates String?
-  partySize   Int?
-  status      FormStatus  @default(NEW)
-  notes       String?     // Internal notes
-  
-  createdAt   DateTime    @default(now())
-  updatedAt   DateTime    @updatedAt
-
-  @@map("contact_forms")
+enum ReservationSource {
+  WEBSITE
+  PHONE
+  WHATSAPP
+  WALK_IN
+  AIRBNB
+  BOOKING_COM
+  OTHER
 }
 
-enum ContactType {
-  GENERAL
-  BOOKING
-  SUSTAINABILITY
-  ACTIVITIES
-  PRESS
+model Reservation {
+  id              String            @id @default(uuid()) @db.Uuid
+  code            String            @unique
+  accommodationId String            @map("accommodation_id") @db.Uuid
+  accommodation   Accommodation     @relation(fields: [accommodationId], references: [id])
+  checkIn         DateTime          @map("check_in") @db.Date
+  checkOut        DateTime          @map("check_out") @db.Date
+  adults          Int
+  children        Int               @default(0)
+  /// Dormitory: book every bed (private group)
+  exclusive       Boolean           @default(false)
+  guestName       String            @map("guest_name")
+  guestEmail      String            @map("guest_email")
+  guestPhone      String            @map("guest_phone")
+  specialRequests String?           @map("special_requests")
+  status          ReservationStatus @default(REQUESTED)
+  source          ReservationSource @default(WEBSITE)
+  subtotal        Int
+  gst             Int
+  total           Int
+  priceBreakdown  Json              @map("price_breakdown")
+  /// AWAITING_PAYMENT holds are released automatically after this time
+  holdExpiresAt   DateTime?         @map("hold_expires_at") @db.Timestamptz
+  paymentLinkUrl  String?           @map("payment_link_url")
+  paymentLinkId   String?           @map("payment_link_id")
+  amountPaid      Int               @default(0) @map("amount_paid")
+  paidAt          DateTime?         @map("paid_at") @db.Timestamptz
+  internalNotes   String?           @map("internal_notes")
+  createdById     String?           @map("created_by_id") @db.Uuid
+  createdAt       DateTime          @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt       DateTime          @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([accommodationId, checkIn, checkOut])
+  @@index([status])
+  @@index([status, holdExpiresAt])
+  @@map("reservations")
 }
 
-enum FormStatus {
-  NEW
-  IN_PROGRESS
-  RESOLVED
-  SPAM
+enum BlockSource {
+  MANUAL
+  ICAL
 }
 
-// Newsletter Subscriptions
-model NewsletterSubscription {
-  id          String   @id @default(cuid())
-  email       String   @unique
-  isActive    Boolean  @default(true)
-  source      String?  // Where they subscribed from
-  preferences Json?    // Email preferences
-  
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+/// Dates a room is unavailable outside a reservation (maintenance, owner use, OTA bookings).
+model CalendarBlock {
+  id              String        @id @default(uuid()) @db.Uuid
+  accommodationId String        @map("accommodation_id") @db.Uuid
+  accommodation   Accommodation @relation(fields: [accommodationId], references: [id], onDelete: Cascade)
+  startDate       DateTime      @map("start_date") @db.Date
+  /// Exclusive (checkout-style) end date
+  endDate         DateTime      @map("end_date") @db.Date
+  reason          String?
+  source          BlockSource   @default(MANUAL)
+  icalFeedId      String?       @map("ical_feed_id") @db.Uuid
+  icalFeed        IcalFeed?     @relation(fields: [icalFeedId], references: [id], onDelete: Cascade)
+  externalUid     String?       @map("external_uid")
+  createdAt       DateTime      @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt       DateTime      @updatedAt @map("updated_at") @db.Timestamptz
 
-  @@map("newsletter_subscriptions")
+  @@unique([icalFeedId, externalUid])
+  @@index([accommodationId, startDate, endDate])
+  @@map("calendar_blocks")
 }
 
-// Blog Posts
-model BlogPost {
-  id          String   @id @default(cuid())
-  title       String
-  slug        String   @unique
-  excerpt     String
-  content     String   @db.Text
-  featuredImage Json?  // Image object with URL, alt text, etc.
-  author      String
+/// An OTA calendar (Airbnb, Booking.com) imported into our availability.
+model IcalFeed {
+  id              String          @id @default(uuid()) @db.Uuid
+  accommodationId String          @map("accommodation_id") @db.Uuid
+  accommodation   Accommodation   @relation(fields: [accommodationId], references: [id], onDelete: Cascade)
+  name            String
+  url             String
+  isActive        Boolean         @default(true) @map("is_active")
+  lastSyncedAt    DateTime?       @map("last_synced_at") @db.Timestamptz
+  lastStatus      String?         @map("last_status")
+  lastError       String?         @map("last_error")
+  createdAt       DateTime        @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt       DateTime        @updatedAt @map("updated_at") @db.Timestamptz
+  blocks          CalendarBlock[]
+
+  @@map("ical_feeds")
+}
+
+// ─── Content (phase 3) ────────────────────────────────────────────────
+
+enum PublishStatus {
+  DRAFT
+  PUBLISHED
+}
+
+model Article {
+  id             String        @id @default(uuid()) @db.Uuid
+  slug           String        @unique
+  title          String
+  excerpt        String
+  /// Markdown
+  content        String
+  category       String
+  author         String        @default("Surwahi Team")
+  authorBio      String?       @map("author_bio")
+  coverUrl       String?       @map("cover_url")
+  coverAlt       String?       @map("cover_alt")
+  tags           String[]
+  status         PublishStatus @default(DRAFT)
+  publishedAt    DateTime?     @map("published_at") @db.Date
+  seoTitle       String?       @map("seo_title")
+  seoDescription String?       @map("seo_description")
+  createdAt      DateTime      @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt      DateTime      @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([status, publishedAt])
+  @@map("articles")
+}
+
+model Faq {
+  id          String   @id @default(uuid()) @db.Uuid
   category    String
-  tags        String[]
-  isPublished Boolean  @default(false)
-  publishedAt DateTime?
-  readingTime Int?     // in minutes
-  seoTitle    String?
-  seoDescription String?
-  
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  @@map("blog_posts")
-}
-
-// Activities and Things to Do
-model Activity {
-  id          String      @id @default(cuid())
-  name        String
-  slug        String      @unique
-  description String
-  longDescription String  @db.Text
-  category    ActivityCategory
-  duration    String      // e.g., "2 hours", "Half day"
-  difficulty  DifficultyLevel
-  price       Decimal?    @db.Decimal(10, 2)
-  included    String[]    // What's included
-  toBring     String[]    // What to bring
-  images      Json[]      // Array of image objects
-  isActive    Boolean     @default(true)
-  bestSeason  String?
-  maxParticipants Int?
-  ecoRating   Int?        // 1-5 leaf rating
-  
-  createdAt   DateTime    @default(now())
-  updatedAt   DateTime    @updatedAt
-
-  @@map("activities")
-}
-
-enum ActivityCategory {
-  NATURE_WALKS
-  SAFARIS
-  CULTURAL
-  WELLNESS
-  ADVENTURE
-}
-
-enum DifficultyLevel {
-  EASY
-  MODERATE
-  CHALLENGING
-}
-
-// Reviews and Testimonials
-model Review {
-  id          String   @id @default(cuid())
-  guestName   String
-  rating      Int      // 1-5 stars
-  title       String?
-  content     String   @db.Text
-  isPublished Boolean  @default(false)
-  source      String?  // Google, direct, etc.
-  stayDate    DateTime?
-  
-  // Relations
-  roomId      String?
-  room        Room?    @relation(fields: [roomId], references: [id])
-  
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  @@map("reviews")
-}
-
-// FAQ Management
-model FAQ {
-  id          String   @id @default(cuid())
   question    String
-  answer      String   @db.Text
-  category    String
-  isPublished Boolean  @default(true)
-  sortOrder   Int      @default(0)
-  
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  answer      String
+  sortOrder   Int      @default(0) @map("sort_order")
+  isPublished Boolean  @default(true) @map("is_published")
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz
 
+  @@index([category, sortOrder])
   @@map("faqs")
 }
 
-// Sustainability Metrics and Content
-model SustainabilityMetric {
-  id          String   @id @default(cuid())
-  name        String
-  value       String
-  unit        String
-  description String?
-  category    SustainabilityCategory
-  period      String   // e.g., "Monthly", "Annual"
-  lastUpdated DateTime @default(now())
-  isVisible   Boolean  @default(true)
-  
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  @@map("sustainability_metrics")
-}
-
-enum SustainabilityCategory {
-  WATER
-  ENERGY
-  WASTE
-  COMMUNITY
-  BIODIVERSITY
-  CARBON
-}
-
-// Travel Itineraries
-model Itinerary {
-  id          String   @id @default(cuid())
-  fromCity    String
-  toDestination String @default("Surwahi")
+/// Dated events (retreats, special workshops). Recurring workshop schedules stay on their pages.
+model Event {
+  id          String   @id @default(uuid()) @db.Uuid
   title       String
-  description String
-  mode        TravelMode
-  steps       Json[]   // Array of travel steps
-  duration    String   // Total journey time
-  estimatedCost String
-  co2Emissions String?
-  isActive    Boolean  @default(true)
-  
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  summary     String
+  startDate   DateTime @map("start_date") @db.Date
+  endDate     DateTime @map("end_date") @db.Date
+  /// Page with full details, e.g. /workshops/vann-vibe
+  linkPath    String?  @map("link_path")
+  priceText   String?  @map("price_text")
+  imageUrl    String?  @map("image_url")
+  isPublished Boolean  @default(true) @map("is_published")
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz
 
-  @@map("itineraries")
+  @@index([startDate])
+  @@map("events")
 }
 
-enum TravelMode {
-  AIR
-  RAIL
-  ROAD
-  MIXED
-}
-
-// Gallery Images
-model GalleryImage {
-  id          String   @id @default(cuid())
-  url         String
-  altText     String
-  caption     String?
-  category    String
-  season      String?
-  photographer String?
-  location    String?
-  isPublished Boolean  @default(true)
-  sortOrder   Int      @default(0)
-  
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  @@map("gallery_images")
-}
-
-// Site Settings and Content
+/// Small editable settings (homepage hero text, announcement bar, gallery videos). Value is JSON.
 model SiteSetting {
-  id          String   @id @default(cuid())
-  key         String   @unique
-  value       String   @db.Text
-  type        SettingType @default(TEXT)
-  description String?
-  
-  updatedAt   DateTime @updatedAt
+  key       String   @id
+  value     Json
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
 
   @@map("site_settings")
-}
-
-enum SettingType {
-  TEXT
-  JSON
-  BOOLEAN
-  NUMBER
-  URL
 }

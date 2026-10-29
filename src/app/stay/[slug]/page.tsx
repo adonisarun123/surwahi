@@ -12,21 +12,24 @@ import {
     MapPin
 } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import BookingWidget from '@/components/BookingWidget';
+import RoomBookingForm from '@/components/RoomBookingForm';
 import { generateRoomMetadata } from '@/lib/seo';
-import { rooms, priceWithGstLabel, priceBasisLabel, MEAL_PLAN } from '@/lib/accommodations';
+import { priceWithGstLabel, priceBasisLabel, MEAL_PLAN } from '@/lib/accommodations';
+import { getPublicRooms, getPublicRoom } from '@/lib/rooms-repo';
+
+export const revalidate = 3600;
 
 interface RoomPageProps {
     params: Promise<{ slug: string }>;
 }
 
-export function generateStaticParams() {
-    return Object.keys(rooms).map((slug) => ({ slug }));
+export async function generateStaticParams() {
+    return (await getPublicRooms()).map((r) => ({ slug: r.slug }));
 }
 
 export async function generateMetadata({ params }: RoomPageProps) {
     const { slug } = await params;
-    const room = rooms[slug];
+    const room = await getPublicRoom(slug);
 
     if (!room) {
         return {
@@ -47,7 +50,7 @@ export async function generateMetadata({ params }: RoomPageProps) {
 
 export default async function RoomDetailPage({ params }: RoomPageProps) {
     const { slug } = await params;
-    const room = rooms[slug];
+    const room = await getPublicRoom(slug);
 
     if (!room) {
         notFound();
@@ -267,7 +270,7 @@ export default async function RoomDetailPage({ params }: RoomPageProps) {
                         {/* Booking Sidebar */}
                         <div className="lg:col-span-1">
                             <div className="sticky top-24">
-                                <BookingWidget variant="page" room={room} className="mb-6" />
+                                <RoomBookingForm room={room} className="mb-6" />
 
                                 {/* Contact Info */}
                                 <div className="bg-sand-50 rounded-card p-6">

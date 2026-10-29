@@ -1,10 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import { startingPrice } from '@/lib/accommodations';
 import { useEffect, useState } from 'react';
 
-export default function MobileBookingBar() {
+export default function MobileBookingBar({ startingPrice }: { startingPrice: number }) {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {

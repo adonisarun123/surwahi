@@ -3,7 +3,10 @@ import Image from 'next/image';
 import { Bed, Users, Eye } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
-import { rooms, priceWithGstLabel, priceBasisLabel, MEAL_PLAN } from '@/lib/accommodations';
+import { priceWithGstLabel, priceBasisLabel, MEAL_PLAN } from '@/lib/accommodations';
+import { getRoomsByCategory } from '@/lib/rooms-repo';
+
+export const revalidate = 3600;
 
 export const metadata = generatePageMetadata(
     'Suites',
@@ -13,9 +16,9 @@ export const metadata = generatePageMetadata(
     ['Family Suite Kanha', 'Jholar suite Surwahi', 'Kariwah suite Surwahi', 'Wheelchair accessible stay Kanha', 'Eco stay Kanha']
 );
 
-const suites = Object.values(rooms).filter(room => room.category === 'Suites');
 
-export default function SuitesPage() {
+export default async function SuitesPage() {
+    const suites = await getRoomsByCategory('Suites');
     return (
         <div className="pt-20">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">

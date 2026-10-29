@@ -9,30 +9,16 @@ import { galleryImages } from '@/lib/images';
 // We will use a client component for the gallery, so we can't use generatePageMetadata here
 // SEO metadata can be set in a parent layout or a separate metadata export if needed.
 
-const allImages = [
-  { src: galleryImages.lodgeExterior, alt: 'Exterior view of Surwahi Social Ecoestate built with traditional mud architecture', category: 'Lodge & Architecture' },
-  { src: galleryImages.riverSuite, alt: 'Interior of the Jholar family suite at Surwahi Social Ecoestate', category: 'Lodge & Architecture' },
-  { src: galleryImages.hornbill, alt: 'Malabar Pied Hornbill spotted near Kanha National Park', category: 'Flora & Fauna' },
-  { src: galleryImages.tigerSafari, alt: 'Tiger sighting during a wildlife safari in Kanha Tiger Reserve', category: 'Experiences' },
-  { src: galleryImages.diningExperience, alt: 'Farm-to-table dining experience with local cuisine', category: 'Cuisine' },
-  { src: galleryImages.forestTrail, alt: 'Guided nature walk on a forest trail near Surwahi', category: 'Experiences' },
-  { src: galleryImages.commonArea, alt: 'Cozy common area and library at Surwahi Social Ecoestate', category: 'Lodge & Architecture' },
-  { src: galleryImages.wildMushrooms, alt: 'Wild mushrooms growing in the forest floor at Surwahi', category: 'Flora & Fauna' },
-  { src: galleryImages.gondArt, alt: 'Guests participating in a Gond art workshop with local artisans', category: 'Experiences' },
-  { src: galleryImages.organicFarm, alt: 'Fresh organic vegetables from Surwahi\'s kitchen garden', category: 'Cuisine' },
-  { src: galleryImages.starryNight, alt: 'Stargazing night sky view from Surwahi Social Ecoestate', category: 'Experiences' },
-  { src: galleryImages.earthenPottery, alt: 'Pottery workshop experience with local potters', category: 'Experiences' },
-];
+type GalleryImage = { src: string; alt: string; category: string };
+type GalleryVideo = { title: string; youtubeUrl: string; thumbnailUrl?: string };
 
-const videos = [
-  { id: '1', title: 'A Glimpse into Surwahi Social Ecoestate', thumbnailUrl: galleryImages.lodgeExterior, videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
-  { id: '2', title: 'The Making of an Ecoestate', thumbnailUrl: galleryImages.commonArea, videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
-  { id: '3', title: 'Voices from the Community', thumbnailUrl: galleryImages.gondArt, videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
-];
+function youtubeThumb(url: string) {
+  const id = url.match(/(?:v=|youtu\.be\/|shorts\/|embed\/)([\w-]{11})/)?.[1];
+  return id ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg` : undefined;
+}
 
-const categories = ['All', ...Array.from(new Set(allImages.map(img => img.category)))];
-
-export default function GalleryContent() {
+export default function GalleryContent({ images: allImages, videos }: { images: GalleryImage[]; videos: GalleryVideo[] }) {
+  const categories = ['All', ...Array.from(new Set(allImages.map(img => img.category)))];
   const [filter, setFilter] = useState('All');
 
   const filteredImages = filter === 'All'
@@ -92,7 +78,8 @@ export default function GalleryContent() {
         </div>
       </section>
 
-      {/* Video Stories */}
+      {/* Video Stories - only shown when real videos are added in /admin */}
+      {videos.length > 0 && (
       <section id="video-stories" className="bg-sand-50 py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-display text-3xl text-forest-900 mb-8 text-center flex items-center justify-center">
@@ -101,10 +88,10 @@ export default function GalleryContent() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {videos.map(video => (
-              <a key={video.id} href={video.videoUrl} target="_blank" rel="noopener noreferrer" className="group block">
+              <a key={video.youtubeUrl} href={video.youtubeUrl} target="_blank" rel="noopener noreferrer" className="group block">
                 <div className="relative aspect-video overflow-hidden rounded-lg shadow-lg">
                   <Image
-                    src={video.thumbnailUrl}
+                    src={video.thumbnailUrl || youtubeThumb(video.youtubeUrl) || galleryImages.lodgeExterior}
                     alt={video.title}
                     fill
                     className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
@@ -119,6 +106,7 @@ export default function GalleryContent() {
           </div>
         </div>
       </section>
+      )}
     </div>
   );
 }
