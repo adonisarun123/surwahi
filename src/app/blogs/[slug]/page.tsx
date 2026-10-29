@@ -4,7 +4,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Calendar, Clock, User, Tag, ArrowLeft, ArrowRight } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import { generateBlogMetadata, toAbsoluteSiteUrl } from '@/lib/seo';
+import { generateBlogMetadata, generateBlogPostSchema } from '@/lib/seo';
+import Prose from '@/components/Prose';
 import ShareButton from '@/components/ShareButton';
 import { getArticle, getPublishedArticles } from '@/lib/content-repo';
 
@@ -149,34 +150,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             
             {/* Main Content */}
             <article className="lg:col-span-3">
-              <div className="prose prose-lg max-w-none">
-                {post.content.split('\n\n').map((paragraph, index) => {
-                  // Handle headings
-                  if (paragraph.startsWith('## ')) {
-                    return (
-                      <h2 key={index} className="font-display text-2xl text-forest-900 mt-12 mb-6 first:mt-0">
-                        {paragraph.replace('## ', '')}
-                      </h2>
-                    );
-                  }
-                  
-                  // Handle emphasis paragraphs (italics)
-                  if (paragraph.startsWith('*') && paragraph.endsWith('*')) {
-                    return (
-                      <p key={index} className="text-lg italic text-moss-500 border-l-4 border-moss-500 pl-6 my-8">
-                        {paragraph.slice(1, -1)}
-                      </p>
-                    );
-                  }
-                  
-                  // Regular paragraphs
-                  return (
-                    <p key={index} className="mb-6 text-ink-900 leading-relaxed">
-                      {paragraph}
-                    </p>
-                  );
-                })}
-              </div>
+              <Prose md={post.content} />
 
               {/* Tags */}
               <div className="mt-12 pt-8 border-t border-mist-200">
@@ -318,31 +292,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            "headline": post.title,
-            "description": post.excerpt,
-            "image": toAbsoluteSiteUrl(post.featuredImage.url),
-            "author": {
-              "@type": "Person",
-              "name": post.author,
-              "description": post.authorBio ?? undefined,
-              "url": "https://surwahi.com/about/our-team"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "Surwahi Social Ecoestate",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://surwahi.com/assets/logo.png"
-              }
-            },
-            "datePublished": post.publishedAt,
-            "dateModified": post.updatedAt,
-            "mainEntityOfPage": `https://surwahi.com/blogs/${post.slug}`,
-            "articleSection": post.category,
-            "keywords": post.tags.join(", "),
-            "wordCount": post.content.split(' ').length
+            ...generateBlogPostSchema({
+              title: post.title,
+              description: post.excerpt,
+              slug: post.slug,
+              publishedAt: post.publishedAt,
+              updatedAt: post.updatedAt,
+              author: post.author,
+              image: post.featuredImage.url,
+            }),
+            articleSection: post.category,
+            keywords: post.tags.join(', '),
+            wordCount: post.content.split(/\s+/).length,
           })
         }}
       />

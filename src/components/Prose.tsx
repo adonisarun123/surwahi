@@ -4,11 +4,12 @@ import React from 'react';
 function inline(text: string, kp: string): React.ReactNode[] {
   text = text.replace(/->/g, '→');
   const out: React.ReactNode[] = [];
-  const re = /\*\*(.+?)\*\*|\[([^\]]+)\]\(([^)]+)\)/g;
+  const re = /\*\*(.+?)\*\*|\[([^\]]+)\]\(([^)]+)\)|\*([^*\s][^*]*?)\*/g;
   let last = 0, i = 0; let m: RegExpExecArray | null;
   while ((m = re.exec(text)) !== null) {
     if (m.index > last) out.push(text.slice(last, m.index));
     if (m[1] !== undefined) out.push(<strong key={`${kp}-b${i}`} className="font-semibold text-forest-900">{m[1]}</strong>);
+    else if (m[4] !== undefined) out.push(<em key={`${kp}-i${i}`}>{m[4]}</em>);
     else out.push(<Link key={`${kp}-l${i}`} href={m[3]} className="text-clay-600 font-medium underline underline-offset-2 hover:text-clay-500">{m[2]}</Link>);
     last = m.index + m[0].length; i++;
   }
@@ -36,6 +37,32 @@ export default function Prose({ md }: { md: string }) {
       );
       k++; i++; continue;
     }
+    if (t.startsWith('|')) {
+      const rows: string[][] = [];
+      while (i < lines.length && lines[i].trim().startsWith('|')) {
+        const cells = lines[i].trim().replace(/^\||\|$/g, '').split('|').map((c) => c.trim());
+        if (!cells.every((c) => /^:?-{2,}:?$/.test(c))) rows.push(cells);
+        i++;
+      }
+      const [head, ...body] = rows;
+      blocks.push(
+        <div key={k} className="overflow-x-auto my-6 rounded-card border border-mist-200">
+          <table className="w-full text-sm text-left">
+            <thead className="bg-sand-50 text-forest-900">
+              <tr>{head.map((c, j) => <th key={j} scope="col" className="px-4 py-3 font-semibold">{inline(c, `th${k}-${j}`)}</th>)}</tr>
+            </thead>
+            <tbody>
+              {body.map((r, ri) => (
+                <tr key={ri} className="border-t border-mist-200">
+                  {r.map((c, j) => <td key={j} className="px-4 py-3 text-soil-700 align-top">{inline(c, `td${k}-${ri}-${j}`)}</td>)}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+      k++; continue;
+    }
     if (t.startsWith('- ')) {
       const items: string[] = [];
       while (i < lines.length && lines[i].trim().startsWith('- ')) { items.push(lines[i].trim().slice(2)); i++; }
@@ -59,7 +86,7 @@ export default function Prose({ md }: { md: string }) {
     const para: string[] = [];
     while (i < lines.length) {
       const lt = lines[i].trim();
-      if (lt === '' || lt === '---' || lt.startsWith('#') || lt.startsWith('- ')) break;
+      if (lt === '' || lt === '---' || lt.startsWith('#') || lt.startsWith('- ') || lt.startsWith('|')) break;
       para.push(lt); i++;
     }
     blocks.push(<p key={k} className="text-soil-700 leading-relaxed mb-5 text-[1.05rem]">{inline(para.join(' '), 'p' + k)}</p>);
