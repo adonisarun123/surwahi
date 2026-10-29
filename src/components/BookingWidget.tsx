@@ -3,9 +3,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import { Calendar, Users, Search, Plus, Minus, X } from 'lucide-react';
 import { cn, addDays, formatPrice } from '@/lib/utils';
-import { rooms } from '@/lib/accommodations';
-
-type Room = typeof rooms[keyof typeof rooms];
+import { type Room, quoteStay, priceWithGstLabel, priceBasisLabel, MEAL_PLAN } from '@/lib/accommodations';
 
 interface BookingWidgetProps {
   className?: string;
@@ -83,10 +81,7 @@ export default function BookingWidget({ className, variant = 'hero', room }: Boo
   const isCompact = variant === 'sticky';
   const isHero = variant === 'hero';
   
-  const basePrice = room ? room.basePrice : 0;
-  const totalBasePrice = basePrice * numberOfNights;
-  const taxesAndFees = totalBasePrice * 0.18; // Example 18% tax
-  const totalPrice = totalBasePrice + taxesAndFees;
+  const quote = room && numberOfNights > 0 ? quoteStay(room, adults, children, numberOfNights) : null;
 
   if (isCompact) {
     return (
@@ -132,10 +127,13 @@ export default function BookingWidget({ className, variant = 'hero', room }: Boo
         {room && (
           <div className="text-left">
              <div className="text-2xl font-bold text-forest-900">
-              {formatPrice(room.basePrice)}
-              <span className="text-sm font-normal text-soil-700"> / night</span>
+              {priceWithGstLabel(room.basePrice)}
             </div>
-            <div className="text-xs text-soil-700">Excluding taxes & fees</div>
+            <div className="text-sm text-soil-700">{priceBasisLabel(room)}</div>
+            <div className="text-xs text-moss-600 font-medium">{MEAL_PLAN}</div>
+            {room.extraAdultPrice && (
+              <div className="text-xs text-soil-700">Extra adult: {priceWithGstLabel(room.extraAdultPrice)}</div>
+            )}
           </div>
         )}
 
@@ -256,20 +254,23 @@ export default function BookingWidget({ className, variant = 'hero', room }: Boo
         </div>
 
         {/* Price Breakdown */}
-        {room && numberOfNights > 0 && (
+        {quote && (
           <div className="border-t border-mist-200 pt-4 space-y-2 text-sm">
+            {quote.lines.map((line) => (
+              <div key={line.label} className="flex justify-between gap-3">
+                <span className="text-soil-700">{line.label}</span>
+                <span className="text-ink-900">{formatPrice(line.amount)}</span>
+              </div>
+            ))}
             <div className="flex justify-between">
-              <span className="text-soil-700">{formatPrice(basePrice)} x {numberOfNights} night{numberOfNights > 1 && 's'}</span>
-              <span className="text-ink-900">{formatPrice(totalBasePrice)}</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-soil-700">Taxes & fees</span>
-              <span className="text-ink-900">{formatPrice(taxesAndFees)}</span>
+              <span className="text-soil-700">GST (18%)</span>
+              <span className="text-ink-900">{formatPrice(quote.gst)}</span>
             </div>
             <div className="flex justify-between font-bold text-base pt-2">
               <span className="text-forest-900">Total</span>
-              <span className="text-forest-900">{formatPrice(totalPrice)}</span>
+              <span className="text-forest-900">{formatPrice(quote.total)}</span>
             </div>
+            {quote.note && <p className="text-xs text-soil-700">{quote.note}</p>}
           </div>
         )}
 
@@ -292,7 +293,7 @@ export default function BookingWidget({ className, variant = 'hero', room }: Boo
         {/* Quick Info */}
         <div className="text-center">
           <p className="text-xs text-soil-700">
-            Free cancellation • Best rate guarantee
+            All meals included · <a href="/cancellation" className="underline">Cancellation policy</a>
           </p>
         </div>
       </div>

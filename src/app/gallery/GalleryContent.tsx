@@ -11,7 +11,7 @@ import { galleryImages } from '@/lib/images';
 
 const allImages = [
   { src: galleryImages.lodgeExterior, alt: 'Exterior view of Surwahi Social Ecoestate built with traditional mud architecture', category: 'Lodge & Architecture' },
-  { src: galleryImages.riverSuite, alt: 'Interior of the River View Suite at Surwahi Social Ecoestate', category: 'Lodge & Architecture' },
+  { src: galleryImages.riverSuite, alt: 'Interior of the Jholar family suite at Surwahi Social Ecoestate', category: 'Lodge & Architecture' },
   { src: galleryImages.hornbill, alt: 'Malabar Pied Hornbill spotted near Kanha National Park', category: 'Flora & Fauna' },
   { src: galleryImages.tigerSafari, alt: 'Tiger sighting during a wildlife safari in Kanha Tiger Reserve', category: 'Experiences' },
   { src: galleryImages.diningExperience, alt: 'Farm-to-table dining experience with local cuisine', category: 'Cuisine' },

@@ -14,16 +14,19 @@ import {
 import Breadcrumbs from '@/components/Breadcrumbs';
 import BookingWidget from '@/components/BookingWidget';
 import { generateRoomMetadata } from '@/lib/seo';
-import { formatPrice } from '@/lib/utils';
-import { rooms } from '@/lib/accommodations';
+import { rooms, priceWithGstLabel, priceBasisLabel, MEAL_PLAN } from '@/lib/accommodations';
 
 interface RoomPageProps {
     params: Promise<{ slug: string }>;
 }
 
+export function generateStaticParams() {
+    return Object.keys(rooms).map((slug) => ({ slug }));
+}
+
 export async function generateMetadata({ params }: RoomPageProps) {
     const { slug } = await params;
-    const room = rooms[slug as keyof typeof rooms];
+    const room = rooms[slug];
 
     if (!room) {
         return {
@@ -44,7 +47,7 @@ export async function generateMetadata({ params }: RoomPageProps) {
 
 export default async function RoomDetailPage({ params }: RoomPageProps) {
     const { slug } = await params;
-    const room = rooms[slug as keyof typeof rooms];
+    const room = rooms[slug];
 
     if (!room) {
         notFound();
@@ -133,9 +136,13 @@ export default async function RoomDetailPage({ params }: RoomPageProps) {
                                     </div>
                                     <div className="text-right">
                                         <div className="text-3xl font-bold text-forest-900">
-                                            {formatPrice(room.basePrice)}
+                                            {priceWithGstLabel(room.basePrice)}
                                         </div>
-                                        <div className="text-soil-700">per night</div>
+                                        <div className="text-soil-700">{priceBasisLabel(room)}</div>
+                                        <div className="text-sm text-moss-600 font-medium">{MEAL_PLAN}</div>
+                                        {room.extraAdultPrice && (
+                                            <div className="text-sm text-soil-700">Extra adult: {priceWithGstLabel(room.extraAdultPrice)}</div>
+                                        )}
                                     </div>
                                 </div>
 
@@ -155,6 +162,7 @@ export default async function RoomDetailPage({ params }: RoomPageProps) {
                                             <div className="text-sm text-soil-700">Sleeping</div>
                                         </div>
                                     </div>
+                                    {room.size && (
                                     <div className="flex items-center gap-2">
                                         <Maximize className="h-5 w-5 text-moss-500" />
                                         <div>
@@ -162,6 +170,7 @@ export default async function RoomDetailPage({ params }: RoomPageProps) {
                                             <div className="text-sm text-soil-700">Room size</div>
                                         </div>
                                     </div>
+                                    )}
                                     <div className="flex items-center gap-2">
                                         <Eye className="h-5 w-5 text-moss-500" />
                                         <div>
@@ -232,20 +241,18 @@ export default async function RoomDetailPage({ params }: RoomPageProps) {
                                 <div className="bg-sand-50 rounded-card p-6 space-y-4">
                                     <div className="grid md:grid-cols-2 gap-6">
                                         <div>
-                                            <h4 className="font-medium text-forest-900 mb-2">Check-in / Check-out</h4>
-                                            <p className="text-sm text-soil-700">Check-in: {room.checkIn}</p>
-                                            <p className="text-sm text-soil-700">Check-out: {room.checkOut}</p>
+                                            <h4 className="font-medium text-forest-900 mb-2">Meal plan</h4>
+                                            <p className="text-sm text-soil-700">{MEAL_PLAN}. Prices exclude 18% GST.</p>
                                         </div>
                                         <div>
                                             <h4 className="font-medium text-forest-900 mb-2">Cancellation</h4>
-                                            <p className="text-sm text-soil-700">{room.policies.cancellation}</p>
+                                            <p className="text-sm text-soil-700">See our <Link href="/cancellation" className="text-moss-600 hover:underline">cancellation policy</Link>.</p>
                                         </div>
                                     </div>
                                     <div className="grid md:grid-cols-2 gap-6">
                                         <div>
                                             <h4 className="font-medium text-forest-900 mb-2">Additional Information</h4>
                                             <p className="text-sm text-soil-700">{room.policies.pets}</p>
-                                            <p className="text-sm text-soil-700">{room.policies.smoking}</p>
                                         </div>
                                         <div>
                                             <h4 className="font-medium text-forest-900 mb-2">Extra Services</h4>
@@ -343,6 +350,14 @@ export default async function RoomDetailPage({ params }: RoomPageProps) {
                             "@type": "Offer",
                             "priceCurrency": "INR",
                             "price": room.basePrice.toString(),
+                            "priceSpecification": {
+                                "@type": "UnitPriceSpecification",
+                                "price": room.basePrice,
+                                "priceCurrency": "INR",
+                                "valueAddedTaxIncluded": false,
+                                "unitText": room.pricing === 'per-person' ? 'per person per night' : 'per night, double occupancy',
+                            },
+                            "description": `${priceWithGstLabel(room.basePrice)} ${priceBasisLabel(room)}. ${MEAL_PLAN}.`,
                             "availability": "https://schema.org/InStock",
                             "validFrom": new Date().toISOString().split('T')[0],
                             "url": `https://surwahi.com/stay/${room.slug}#book`

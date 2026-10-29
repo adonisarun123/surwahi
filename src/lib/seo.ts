@@ -152,7 +152,7 @@ export function generateRoomMetadata(
   keywords?: string[]
 ): Metadata {
   const title = `${roomName} - Book Your Stay`;
-  const enhancedDescription = `${description} Starting from ₹${price.toLocaleString('en-IN')} per night. Book your sustainable stay at Surwahi Social Ecoestate.`;
+  const enhancedDescription = `${description} From ₹${price.toLocaleString('en-IN')} + 18% GST, all meals included (APAI). Book your sustainable stay at Surwahi Social Ecoestate.`;
 
   return generateMetadata({
     title,

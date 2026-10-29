@@ -17,7 +17,7 @@ const body = `Every built room shares the same promise: naturally cool below 28�
 
 ## Maikal Express - The Earthen Dormitory
 
-**Sleeps 8 · From the budget-friendly end of our range · Fully accessible**
+**Sleeps 8 · ₹4,000 + 18% GST per person per night, all meals included (APAI) · Fully accessible**
 
 Named after the Maikal hills that define this landscape, and designed like a luxurious train coach - because co-living should feel like an adventure, not a compromise. Roughly 600 sq ft across three sections: the bunk space, a utility area we call the Quarter Dome, and two washrooms.
 
@@ -31,15 +31,19 @@ Every single bed gets: two charging sockets, an individual LED reading light, a 
 
 **Perfect for:** students, researchers, solo travellers, friend groups, and families who'd rather share stories than corridors. Also bookable on an exclusive non-sharing basis for private groups.
 
+[See Maikal Express ->](/stay/maikal-express)
+
 ## Jholar & Kariwah - The Family Suites
 
-**Each sleeps up to 6 · More privacy, same philosophy · Wheelchair-accessible washrooms**
+**Each sleeps up to 6 · ₹10,800 + 18% GST per night for two adults, extra adult ₹4,000 + 18% GST · All meals included (APAI) · Wheelchair-accessible washrooms**
 
 Our two suites carry the names of two villages relocated out of Kanha National Park in the 1970s when the reserve was formed. We named them deliberately, so their memory lives in daily use.
 
 Each suite is built around a family: a permanent king bed, a mezzanine floor that works as a balcony or sleeping space for two, a permanent extra bed, and deep window sills where six adults can comfortably sit with their evening tea. The washrooms are wide, disability-friendly and naturally lit - stand in the shower and you can see open sky.
 
 **Perfect for:** families, couples, and elders who want quiet, space, and a private connection to the forest.
+
+[See Jholar ->](/stay/jholar) · [See Kariwah ->](/stay/kariwah)
 
 ## The Camp Area - Tents Under the Trees
 
@@ -53,7 +57,7 @@ Camping here follows the same rules as everything else at Surwahi: no plastic, n
 
 ## What Every Stay Includes
 
-Breakfast for two (suites) or per bed (dormitory), cooked fresh in the open Kodo Kutki Kitchen from village-sourced ingredients. Full access to the estate: Satkon, the seven-sided dining hall where monsoon rain falls into an indoor fish pond; Chandra Taal, the chlorine-free earthen plunge pool; the bonfire grove; Play@Surwahi; the Halon Tower terrace; and eight acres of protected regrown forest with 59 bird species for company.
+All meals - breakfast, lunch and dinner (APAI plan) - cooked fresh in the open Kodo Kutki Kitchen from village-sourced ingredients. Full access to the estate: Satkon, the seven-sided dining hall where monsoon rain falls into an indoor fish pond; Chandra Taal, the chlorine-free earthen plunge pool; the bonfire grove; Play@Surwahi; the Halon Tower terrace; and eight acres of protected regrown forest with 59 bird species for company.
 
 ## What We Don't Have - On Purpose
 

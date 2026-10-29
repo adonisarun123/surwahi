@@ -1,20 +1,15 @@
 import Link from 'next/link';
-import Image from 'next/image';
-import { Bed, Users, Eye } from 'lucide-react';
+import { Tent } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
-import { rooms } from '@/lib/accommodations';
-import { formatPrice } from '@/lib/utils';
 
 export const metadata = generatePageMetadata(
     'Camping Tents',
-    'Immerse yourself in nature with our comfortable and well-equipped safari tents.',
+    'Seasonal camping under 6,000 trees at Surwahi, 21 km from Kanha\'s Khatia gate - shared eco washrooms, fresh meals and full estate access.',
     '/stay/camping',
     undefined,
-    ['Camping Kanha', 'Safari Tents', 'Tent Stay Kanha', 'Glamping India', 'Jungle Camping']
+    ['Camping Kanha', 'Tent Stay Kanha', 'Glamping India', 'Jungle Camping']
 );
-
-const campingTents = Object.values(rooms).filter(room => room.category === 'Camping Tents');
 
 export default function CampingTentsPage() {
     return (
@@ -26,42 +21,32 @@ export default function CampingTentsPage() {
             <section className="bg-sand-50 py-12">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h1 className="font-display text-display-xl text-forest-900 mb-4">
-                        Our Camping Tents
+                        Camping Under the Trees
                     </h1>
                     <p className="text-body-lg text-soil-700 max-w-2xl mx-auto">
-                        Experience the thrill of the wild with the comfort of our safari-style tents.
+                        Seasonal tents pitched within the estate - the closest you can sleep to the forest itself.
                     </p>
                 </div>
             </section>
 
             <section className="py-12">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid md:grid-cols-2 gap-8">
-                        {campingTents.map((room) => (
-                            <Link href={`/stay/${room.slug}`} key={room.id} className="group block bg-bone-0 rounded-card overflow-hidden shadow-elev-1 hover:shadow-elev-2 transition-all">
-                                <div className="aspect-[4/3] relative overflow-hidden">
-                                    <Image
-                                        src={room.images[0].url}
-                                        alt={room.images[0].alt}
-                                        fill
-                                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                                    />
-                                </div>
-                                <div className="p-6">
-                                    <h3 className="font-display text-2xl text-forest-900 mb-2">{room.name}</h3>
-                                    <p className="text-soil-700 mb-4 text-sm">{room.description}</p>
-                                    <div className="grid grid-cols-2 gap-2 mb-4 text-sm">
-                                        <div className="flex items-center gap-2"><Users className="h-4 w-4 text-moss-500" />{room.maxOccupancy} guests</div>
-                                        <div className="flex items-center gap-2"><Bed className="h-4 w-4 text-moss-500" />{room.bedConfiguration}</div>
-                                        <div className="flex items-center gap-2"><Eye className="h-4 w-4 text-moss-500" />{room.view}</div>
-                                    </div>
-                                    <div className="pt-4 border-t border-mist-200 text-right">
-                                        <span className="text-2xl font-bold text-forest-900">{formatPrice(room.basePrice)}</span>
-                                        <span className="text-soil-700 text-sm"> / night</span>
-                                    </div>
-                                </div>
-                            </Link>
-                        ))}
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+                    <div className="bg-bone-0 rounded-card shadow-elev-1 p-8">
+                        <div className="flex items-center gap-3 mb-4">
+                            <Tent className="h-6 w-6 text-moss-500" />
+                            <h2 className="font-display text-2xl text-forest-900">The Camp Area</h2>
+                        </div>
+                        <p className="text-soil-700 mb-4">
+                            For travellers who want nothing but canvas between themselves and the night sounds of Kanha. Campers share the estate&apos;s
+                            eco-friendly washrooms with wood-fired hot water, eat from the open Kodo Kutki Kitchen, and have full access to Satkon and the grounds.
+                        </p>
+                        <p className="text-soil-700 mb-6">
+                            Camping runs seasonally, so dates and rates are shared on enquiry.
+                        </p>
+                        <div className="flex flex-wrap gap-3">
+                            <Link href="/contact" className="btn btn-primary">Enquire about camping</Link>
+                            <Link href="/stay" className="btn btn-secondary">See rooms &amp; dormitory</Link>
+                        </div>
                     </div>
                 </div>
             </section>

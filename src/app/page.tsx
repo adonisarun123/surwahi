@@ -77,15 +77,17 @@ export default function HomePage() {
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
             <Link href="/stay/suites" className="block bg-white p-6 rounded-card shadow-elev-1 hover:shadow-elev-2 transition-all">
-              <h3 className="font-ui font-bold text-forest-900 mb-1">Forest &amp; River Suites</h3>
-              <p className="text-sm text-soil-700">Private mud-built suites with forest and river views.</p>
+              <h3 className="font-ui font-bold text-forest-900 mb-1">Jholar &amp; Kariwah Family Suites</h3>
+              <p className="text-sm text-soil-700">Mud-built suites for up to six, with wheelchair-friendly washrooms.</p>
+              <p className="text-sm font-medium text-forest-900 mt-2">₹10,800 + 18% GST · 2 adults · all meals</p>
             </Link>
             <Link href="/stay/mudhouses" className="block bg-white p-6 rounded-card shadow-elev-1 hover:shadow-elev-2 transition-all">
-              <h3 className="font-ui font-bold text-forest-900 mb-1">Mudhouses &amp; Dormitories</h3>
-              <p className="text-sm text-soil-700">Traditional earthen cottages and dorms for groups and solo travelers.</p>
+              <h3 className="font-ui font-bold text-forest-900 mb-1">Maikal Express Dormitory</h3>
+              <p className="text-sm text-soil-700">An eight-bed earthen dorm built like a train coach, for groups and solo travellers.</p>
+              <p className="text-sm font-medium text-forest-900 mt-2">₹4,000 + 18% GST per person · all meals</p>
             </Link>
             <Link href="/stay/camping" className="block bg-white p-6 rounded-card shadow-elev-1 hover:shadow-elev-2 transition-all">
-              <h3 className="font-ui font-bold text-forest-900 mb-1">Safari Tents &amp; Camping</h3>
+              <h3 className="font-ui font-bold text-forest-900 mb-1">Seasonal Camping</h3>
               <p className="text-sm text-soil-700">Comfortable tented stays under starlit skies, close to nature.</p>
             </Link>
             <Link href="/stay/dining" className="block bg-white p-6 rounded-card shadow-elev-1 hover:shadow-elev-2 transition-all">

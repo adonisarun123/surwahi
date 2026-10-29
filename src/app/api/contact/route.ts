@@ -3,6 +3,7 @@ import { z } from 'zod';
 import { query } from '@/lib/db';
 import { sendContactFormNotification, sendContactFormConfirmation } from '@/lib/email';
 import { adminListApiUnauthorized } from '@/lib/admin-api-auth';
+import { getClientIp, isAllowedOrigin, isRateLimited } from '@/lib/spam-guard';
 
 // Validation schema for contact form
 const contactFormSchema = z.object({
@@ -25,6 +26,16 @@ const contactFormSchema = z.object({
 
 export async function POST(request: NextRequest) {
   try {
+    if (!isAllowedOrigin(request)) {
+      return NextResponse.json({ success: false, message: 'Forbidden' }, { status: 403 });
+    }
+    if (isRateLimited(`contact:${getClientIp(request)}`, 5, 10 * 60 * 1000)) {
+      return NextResponse.json(
+        { success: false, message: 'Too many attempts. Please try again later.' },
+        { status: 429 }
+      );
+    }
+
     const body = await request.json();
     
     // Validate the request body
@@ -33,7 +44,9 @@ export async function POST(request: NextRequest) {
     // Check for spam (simple checks)
     const message = validatedData.message.toLowerCase();
     const spamKeywords = ['casino', 'loan', 'crypto', 'investment', 'winner'];
-    const isSpam = spamKeywords.some(keyword => message.includes(keyword));
+    // A URL in the name field means someone is using our confirmation email as a spam relay
+    const urlInName = /https?:\/\/|www\.|\.[a-z]{2,}\//i.test(validatedData.name);
+    const isSpam = urlInName || spamKeywords.some(keyword => message.includes(keyword));
     
     // Save to database
     const result = await query(
