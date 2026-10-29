@@ -33,7 +33,7 @@ const posts: Post[] = [
   { image: galleryImages.hornbill, caption: 'A Malabar Pied Hornbill visits', href: IG_URL },
   { image: galleryImages.commonArea, caption: 'Evenings in the common lounge', href: IG_URL },
   { image: galleryImages.organicFarm, caption: 'From our kitchen garden', href: IG_URL },
-  { image: galleryImages.riverSuite, caption: 'Inside the River View Suite', href: IG_URL },
+  { image: galleryImages.riverSuite, caption: 'Inside the Jholar family suite', href: IG_URL },
   { image: galleryImages.wildMushrooms, caption: 'Monsoon wild mushrooms', href: IG_URL },
   { image: galleryImages.earthenPottery, caption: 'Hands in clay — pottery days', href: IG_URL },
 ];

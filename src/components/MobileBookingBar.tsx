@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { startingPrice } from '@/lib/accommodations';
 import { useEffect, useState } from 'react';
 
 export default function MobileBookingBar() {
@@ -27,7 +28,7 @@ export default function MobileBookingBar() {
             <div className="flex items-center justify-between max-w-md mx-auto">
                 <div className="flex flex-col">
                     <span className="text-xs text-gray-500 font-medium">Starting from</span>
-                    <span className="text-lg font-bold text-forest-900">₹2,500<span className="text-sm font-normal text-gray-500">/night</span></span>
+                    <span className="text-lg font-bold text-forest-900">₹{startingPrice.toLocaleString('en-IN')}<span className="text-sm font-normal text-gray-500"> + GST, all meals</span></span>
                 </div>
                 <Link href="/stay" className="btn btn-primary py-2 px-6 text-sm">
                     Book Now

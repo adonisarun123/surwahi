@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { blogPosts, experienceGroups, workshopGroups } from '@/lib/data';
+import { rooms as roomPages } from '@/lib/accommodations';
 
 const baseUrl = process.env.SITE_URL || 'https://surwahi.com';
 
@@ -17,6 +18,9 @@ const staticPages: Array<{ url: string; priority: number; changefreq: string }> 
   { url: '/stay/suites', priority: 0.9, changefreq: 'weekly' },
   { url: '/stay/mudhouses', priority: 0.9, changefreq: 'weekly' },
   { url: '/stay/camping', priority: 0.9, changefreq: 'weekly' },
+  { url: '/stay/jholar', priority: 0.9, changefreq: 'monthly' },
+  { url: '/stay/kariwah', priority: 0.9, changefreq: 'monthly' },
+  { url: '/stay/maikal-express', priority: 0.9, changefreq: 'monthly' },
   { url: '/stay/dining', priority: 0.85, changefreq: 'monthly' },
   { url: '/stay/fact-sheet', priority: 0.85, changefreq: 'monthly' },
   { url: '/corporate-retreats', priority: 0.9, changefreq: 'monthly' },
@@ -118,7 +122,8 @@ export async function GET() {
         select: { slug: true, updatedAt: true }
       });
 
-      rooms.forEach((room: { slug: string; updatedAt: Date }) => {
+      // Only list rooms that have a page (DB may still hold old placeholder slugs)
+      rooms.filter((room: { slug: string }) => room.slug in roomPages).forEach((room: { slug: string; updatedAt: Date }) => {
         const path = `/stay/${room.slug}`;
         urlMap.set(path, {
           url: path,

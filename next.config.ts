@@ -82,6 +82,12 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
+      // ═══ Old placeholder room pages -> real rooms ═══
+      { source: '/stay/forest-canopy-suite', destination: '/stay/jholar', permanent: true },
+      { source: '/stay/river-view-suite', destination: '/stay/kariwah', permanent: true },
+      { source: '/stay/mixed-dormitory', destination: '/stay/maikal-express', permanent: true },
+      { source: '/stay/safari-tent', destination: '/stay/camping', permanent: true },
+
       // ═══ Stories section (replaces Praises) ═══
       {
         source: "/praises",

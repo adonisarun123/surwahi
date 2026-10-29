@@ -3,15 +3,14 @@ import Image from 'next/image';
 import { Bed, Users, Eye } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
-import { rooms } from '@/lib/accommodations';
-import { formatPrice } from '@/lib/utils';
+import { rooms, priceWithGstLabel, priceBasisLabel, MEAL_PLAN } from '@/lib/accommodations';
 
 export const metadata = generatePageMetadata(
     'Suites',
     'Explore our luxurious and private suites, offering the perfect blend of comfort and nature.',
     '/stay/suites',
     undefined,
-    ['Luxury Suites Kanha', 'Forest Suite', 'River View Room', 'Family Suite Kanha', 'Luxury Eco Resort']
+    ['Family Suite Kanha', 'Jholar suite Surwahi', 'Kariwah suite Surwahi', 'Wheelchair accessible stay Kanha', 'Eco stay Kanha']
 );
 
 const suites = Object.values(rooms).filter(room => room.category === 'Suites');
@@ -56,8 +55,11 @@ export default function SuitesPage() {
                                         <div className="flex items-center gap-2"><Eye className="h-4 w-4 text-moss-500" />{room.view}</div>
                                     </div>
                                     <div className="pt-4 border-t border-mist-200 text-right">
-                                        <span className="text-2xl font-bold text-forest-900">{formatPrice(room.basePrice)}</span>
-                                        <span className="text-soil-700 text-sm"> / night</span>
+                                        <span className="text-2xl font-bold text-forest-900">{priceWithGstLabel(room.basePrice)}</span>
+                                        <span className="block text-soil-700 text-sm">{priceBasisLabel(room)} · {MEAL_PLAN}</span>
+                                        {room.extraAdultPrice && (
+                                            <span className="block text-soil-700 text-sm">Extra adult: {priceWithGstLabel(room.extraAdultPrice)}</span>
+                                        )}
                                     </div>
                                 </div>
                             </Link>

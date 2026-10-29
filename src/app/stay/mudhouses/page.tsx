@@ -3,8 +3,7 @@ import Image from 'next/image';
 import { Bed, Users, Eye } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
-import { rooms } from '@/lib/accommodations';
-import { formatPrice } from '@/lib/utils';
+import { rooms, priceWithGstLabel, priceBasisLabel, MEAL_PLAN } from '@/lib/accommodations';
 
 export const metadata = generatePageMetadata(
     'Mudhouses & Dormitories',
@@ -30,7 +29,7 @@ export default function MudhousesPage() {
                         Mudhouses & Dormitories
                     </h1>
                     <p className="text-body-lg text-soil-700 max-w-2xl mx-auto">
-                        Experience authentic local living in our traditional mud-built cottages and dormitories.
+                        Maikal Express - our eight-bed earthen dormitory, built like a train coach from mud, brick and reused village tiles.
                     </p>
                 </div>
             </section>
@@ -57,8 +56,8 @@ export default function MudhousesPage() {
                                         <div className="flex items-center gap-2"><Eye className="h-4 w-4 text-moss-500" />{room.view}</div>
                                     </div>
                                     <div className="pt-4 border-t border-mist-200 text-right">
-                                        <span className="text-2xl font-bold text-forest-900">{formatPrice(room.basePrice)}</span>
-                                        <span className="text-soil-700 text-sm"> / person / night</span>
+                                        <span className="text-2xl font-bold text-forest-900">{priceWithGstLabel(room.basePrice)}</span>
+                                        <span className="block text-soil-700 text-sm">{priceBasisLabel(room)} · {MEAL_PLAN}</span>
                                     </div>
                                 </div>
                             </Link>
