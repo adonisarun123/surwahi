@@ -12,7 +12,15 @@ import { mainNavigation, ctaButton, workshopGroups } from '@/config/navigation';
 export default function Header({ announcement }: { announcement?: React.ReactNode }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  // The server-rendered shell can't be trusted to know we're on '/', and React won't patch
+  // className mismatches on hydration — so only enable the transparent (white-text) state
+  // after mount, which forces a real client re-render with the correct classes.
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,7 +46,7 @@ export default function Header({ announcement }: { announcement?: React.ReactNod
     };
   }, [mobileMenuOpen]);
 
-  const isTransparent = !scrolled && !mobileMenuOpen && pathname === '/';
+  const isTransparent = mounted && !scrolled && !mobileMenuOpen && pathname === '/';
 
   const NavLink = ({ item }: { item: NavigationItem }) => {
     const isActive = pathname.startsWith(item.href);
