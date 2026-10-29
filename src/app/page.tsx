@@ -4,6 +4,8 @@ import Image from 'next/image';
 import HeroVideo from '@/components/HeroVideo';
 import InstagramCarousel from '@/components/InstagramCarousel';
 import { generateMetadata } from '@/lib/seo';
+import { getRoomsByCategory } from '@/lib/rooms-repo';
+import { priceWithGstLabel } from '@/lib/accommodations';
 
 export const metadata = generateMetadata({
   title: 'Award-Winning Eco Stay near Kanha National Park',
@@ -12,7 +14,11 @@ export const metadata = generateMetadata({
   keywords: ['Eco Lodge Kanha', 'Sustainable Resort India', 'Kanha National Park Hotels', 'Mud House Stay', 'Wildlife Resort Kanha', 'Surwahi Social Ecoestate', 'Ecotourism Madhya Pradesh'],
 });
 
-export default function HomePage() {
+export const revalidate = 3600;
+
+export default async function HomePage() {
+  const suite = (await getRoomsByCategory('Suites')).sort((a, b) => a.basePrice - b.basePrice)[0];
+  const [dorm] = await getRoomsByCategory('Dormitory');
   return (
     <main id="main">
       <section className="relative min-h-screen flex items-center justify-center text-center text-white overflow-hidden">
@@ -79,12 +85,12 @@ export default function HomePage() {
             <Link href="/stay/suites" className="block bg-white p-6 rounded-card shadow-elev-1 hover:shadow-elev-2 transition-all">
               <h3 className="font-ui font-bold text-forest-900 mb-1">Jholar &amp; Kariwah Family Suites</h3>
               <p className="text-sm text-soil-700">Mud-built suites for up to six, with wheelchair-friendly washrooms.</p>
-              <p className="text-sm font-medium text-forest-900 mt-2">₹10,800 + 18% GST · 2 adults · all meals</p>
+              <p className="text-sm font-medium text-forest-900 mt-2">{suite ? priceWithGstLabel(suite.basePrice) : 'Rates on request'} · 2 adults · all meals</p>
             </Link>
             <Link href="/stay/mudhouses" className="block bg-white p-6 rounded-card shadow-elev-1 hover:shadow-elev-2 transition-all">
               <h3 className="font-ui font-bold text-forest-900 mb-1">Maikal Express Dormitory</h3>
               <p className="text-sm text-soil-700">An eight-bed earthen dorm built like a train coach, for groups and solo travellers.</p>
-              <p className="text-sm font-medium text-forest-900 mt-2">₹4,000 + 18% GST per person · all meals</p>
+              <p className="text-sm font-medium text-forest-900 mt-2">{dorm ? priceWithGstLabel(dorm.basePrice) : 'Rates on request'} per person · all meals</p>
             </Link>
             <Link href="/stay/camping" className="block bg-white p-6 rounded-card shadow-elev-1 hover:shadow-elev-2 transition-all">
               <h3 className="font-ui font-bold text-forest-900 mb-1">Seasonal Camping</h3>

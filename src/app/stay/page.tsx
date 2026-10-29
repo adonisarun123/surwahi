@@ -3,6 +3,10 @@ import Prose from '@/components/Prose';
 import Image from 'next/image';
 import { accommodationImages } from '@/lib/images';
 import { generatePageMetadata } from '@/lib/seo';
+import { getRoomsByCategory } from '@/lib/rooms-repo';
+import { priceWithGstLabel } from '@/lib/accommodations';
+
+export const revalidate = 3600;
 
 export const metadata = generatePageMetadata(
   "Stay at Surwahi | Dorm, Suites & Camping Near Kanha",
@@ -17,7 +21,7 @@ const body = `Every built room shares the same promise: naturally cool below 28�
 
 ## Maikal Express - The Earthen Dormitory
 
-**Sleeps 8 · ₹4,000 + 18% GST per person per night, all meals included (APAI) · Fully accessible**
+**Sleeps 8 · {{DORM_PRICE}} per person per night, all meals included (APAI) · Fully accessible**
 
 Named after the Maikal hills that define this landscape, and designed like a luxurious train coach - because co-living should feel like an adventure, not a compromise. Roughly 600 sq ft across three sections: the bunk space, a utility area we call the Quarter Dome, and two washrooms.
 
@@ -35,7 +39,7 @@ Every single bed gets: two charging sockets, an individual LED reading light, a 
 
 ## Jholar & Kariwah - The Family Suites
 
-**Each sleeps up to 6 · ₹10,800 + 18% GST per night for two adults, extra adult ₹4,000 + 18% GST · All meals included (APAI) · Wheelchair-accessible washrooms**
+**Each sleeps up to 6 · {{SUITE_PRICE}} per night for two adults, extra adult {{EXTRA_ADULT_PRICE}} · All meals included (APAI) · Wheelchair-accessible washrooms**
 
 Our two suites carry the names of two villages relocated out of Kanha National Park in the 1970s when the reserve was formed. We named them deliberately, so their memory lives in daily use.
 
@@ -72,7 +76,13 @@ No air conditioning. No televisions. No chlorine pool. No plastic. No loud music
 
 [Plan your visit ->](/plan-your-visit) · [See the experiences included ->](/experiences) · [Why the rooms are built this way ->](/about/the-lodge-and-philosophy)`;
 
-export default function Page() {
+export default async function Page() {
+  const suite = (await getRoomsByCategory('Suites')).sort((a, b) => a.basePrice - b.basePrice)[0];
+  const [dorm] = await getRoomsByCategory('Dormitory');
+  const md = body
+    .replace('{{DORM_PRICE}}', dorm ? priceWithGstLabel(dorm.basePrice) : 'Rates on request')
+    .replace('{{SUITE_PRICE}}', suite ? priceWithGstLabel(suite.basePrice) : 'Rates on request')
+    .replace('{{EXTRA_ADULT_PRICE}}', suite?.extraAdultPrice ? priceWithGstLabel(suite.extraAdultPrice) : 'on request');
   return (
     <div className="pt-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -90,7 +100,7 @@ export default function Page() {
       </section>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <article className="max-w-3xl mx-auto">
-          <Prose md={body} />
+          <Prose md={md} />
         </article>
       </div>
     </div>

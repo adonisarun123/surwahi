@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma';
 import { blogPosts, experienceGroups, workshopGroups } from '@/lib/data';
-import { rooms as roomPages } from '@/lib/accommodations';
+import { getPublicRooms } from '@/lib/rooms-repo';
 
 const baseUrl = process.env.SITE_URL || 'https://surwahi.com';
 
@@ -96,44 +95,10 @@ export async function GET() {
       }
     });
 
-    try {
-      const dbBlogPosts = await prisma.blogPost.findMany({
-        where: { isPublished: true },
-        select: { slug: true, updatedAt: true },
-        orderBy: { publishedAt: 'desc' }
-      });
 
-      dbBlogPosts.forEach((post: { slug: string; updatedAt: Date }) => {
-        const path = `/blogs/${post.slug}`;
-        urlMap.set(path, {
-          url: path,
-          lastmod: post.updatedAt.toISOString().split('T')[0],
-          priority: 0.7,
-          changefreq: 'monthly'
-        });
-      });
-    } catch (error) {
-      console.warn('Could not fetch blog posts for sitemap:', error);
-    }
-
-    try {
-      const rooms = await prisma.room.findMany({
-        where: { isActive: true },
-        select: { slug: true, updatedAt: true }
-      });
-
-      // Only list rooms that have a page (DB may still hold old placeholder slugs)
-      rooms.filter((room: { slug: string }) => room.slug in roomPages).forEach((room: { slug: string; updatedAt: Date }) => {
-        const path = `/stay/${room.slug}`;
-        urlMap.set(path, {
-          url: path,
-          lastmod: room.updatedAt.toISOString().split('T')[0],
-          priority: 0.85,
-          changefreq: 'weekly'
-        });
-      });
-    } catch (error) {
-      console.warn('Could not fetch rooms for sitemap:', error);
+    for (const room of await getPublicRooms()) {
+      const path = `/stay/${room.slug}`;
+      urlMap.set(path, { url: path, priority: 0.9, changefreq: 'monthly' });
     }
 
     const urls = Array.from(urlMap.values()).sort((a, b) => a.url.localeCompare(b.url));

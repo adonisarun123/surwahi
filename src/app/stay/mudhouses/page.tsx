@@ -3,7 +3,10 @@ import Image from 'next/image';
 import { Bed, Users, Eye } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
-import { rooms, priceWithGstLabel, priceBasisLabel, MEAL_PLAN } from '@/lib/accommodations';
+import { priceWithGstLabel, priceBasisLabel, MEAL_PLAN } from '@/lib/accommodations';
+import { getRoomsByCategory } from '@/lib/rooms-repo';
+
+export const revalidate = 3600;
 
 export const metadata = generatePageMetadata(
     'Mudhouses & Dormitories',
@@ -14,9 +17,9 @@ export const metadata = generatePageMetadata(
 );
 
 // Filtering for dormitory category as per previous data, but branding as Mudhouses & Dorm
-const mudhouses = Object.values(rooms).filter(room => room.category === 'Dormitory');
 
-export default function MudhousesPage() {
+export default async function MudhousesPage() {
+    const mudhouses = await getRoomsByCategory('Dormitory');
     return (
         <div className="pt-20">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">

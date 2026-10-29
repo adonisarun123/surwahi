@@ -6,6 +6,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import MobileBookingBar from "@/components/MobileBookingBar";
+import PublicChrome from "@/components/PublicChrome";
+import { getStartingPrice } from "@/lib/rooms-repo";
 import { generateMetadata, generateOrganizationSchema, generateWebsiteSchema, generateLodgingBusinessSchema } from "@/lib/seo";
 
 const inter = Inter({
@@ -26,11 +28,12 @@ export const metadata: Metadata = generateMetadata({
   url: 'https://surwahi.com',
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const startingPrice = await getStartingPrice();
   return (
     <html lang="en-IN" className={`${inter.variable} ${fraunces.variable}`}>
       <head>
@@ -71,15 +74,19 @@ export default function RootLayout({
           Skip to main content
         </a>
 
-        <Header />
+        <PublicChrome>
+          <Header />
+        </PublicChrome>
 
         <main id="main" className="min-h-screen">
           {children}
         </main>
 
-        <WhatsAppButton />
-        <MobileBookingBar />
-        <Footer />
+        <PublicChrome>
+          <WhatsAppButton />
+          <MobileBookingBar startingPrice={startingPrice} />
+          <Footer />
+        </PublicChrome>
 
         {/* Schema.org structured data for organization */}
 
