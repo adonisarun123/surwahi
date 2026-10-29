@@ -33,6 +33,13 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
+      // The production *.vercel.app alias serves a full duplicate of the site — send it to the real domain.
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'surwahi.vercel.app' }],
+        destination: 'https://surwahi.com/:path*',
+        permanent: true,
+      },
       // ═══ About section restructure ═══
       {
         source: "/about-us",
@@ -210,6 +217,10 @@ const nextConfig: NextConfig = {
       {
         source: '/sitemap.xml',
         destination: '/api/sitemap',
+      },
+      {
+        source: '/llms.txt',
+        destination: '/api/llms',
       },
     ];
   },

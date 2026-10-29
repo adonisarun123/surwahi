@@ -77,47 +77,6 @@ function FolkMotif({ className }: { className?: string }) {
   );
 }
 
-const eventJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Event',
-  name: 'Vann Vibe (वन VIBE)',
-  description:
-    'Immersive retreat reconnecting guests with nature, culture, community, and self through mindful rituals and forest-rooted living at Surwahi Social Eco Estate, Kanha.',
-  startDate: '2026-04-03',
-  endDate: '2026-04-06',
-  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-  eventStatus: 'https://schema.org/EventScheduled',
-  location: {
-    '@type': 'Place',
-    name: 'Surwahi Social Eco Estate',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Near Kanha National Park',
-      addressRegion: 'Madhya Pradesh',
-      addressCountry: 'IN',
-    },
-  },
-  organizer: {
-    '@type': 'Organization',
-    name: 'Surwahi Social Ecoestate',
-    url: 'https://surwahi.com',
-  },
-  offers: [
-    {
-      '@type': 'Offer',
-      name: 'Double sharing',
-      price: '30000',
-      priceCurrency: 'INR',
-    },
-    {
-      '@type': 'Offer',
-      name: 'Community dorm',
-      price: '23000',
-      priceCurrency: 'INR',
-    },
-  ],
-};
-
 export default function VannVibePage() {
   return (
     <div className="relative min-h-screen bg-[#F4EDE4] pt-20 text-[#4B3A2B]">
@@ -127,6 +86,10 @@ export default function VannVibePage() {
         path="/workshops/vann-vibe"
         startDate="2026-04-03"
         endDate="2026-04-06"
+        offers={[
+          { name: 'Double sharing', price: '30000' },
+          { name: 'Community dorm', price: '23000' },
+        ]}
       />
       <TreeSilhouetteBackdrop />
 
@@ -323,10 +286,6 @@ export default function VannVibePage() {
         </main>
       </div>
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
-      />
     </div>
   );
 }

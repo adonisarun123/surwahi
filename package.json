@@ -15,7 +15,8 @@
     "db:seed": "npx tsx scripts/db-seed.ts",
     "admin:create": "npx tsx scripts/create-admin.ts",
     "test:booking": "NODE_OPTIONS=--conditions=react-server tsx scripts/tests/booking.test.ts",
-    "db:seed-content": "NODE_OPTIONS=--conditions=react-server tsx scripts/db-seed-content.ts"
+    "db:seed-content": "NODE_OPTIONS=--conditions=react-server tsx scripts/db-seed-content.ts",
+    "db:seed-intl-blogs": "NODE_OPTIONS=--conditions=react-server tsx scripts/db-seed-intl-blogs.ts"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.7",

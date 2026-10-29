@@ -22,7 +22,7 @@ export default function GettingHerePage() {
 
             <PageHero
                 title="How to Reach Surwahi Social Ecoestate, Kanha"
-                subtitle="Located just 12km from the Khatia Gate of Kanha National Park, Surwahi is accessible by air, rail, and road — the journey itself winds through the beautiful landscapes of Madhya Pradesh."
+                subtitle="Located about 21 km from the Khatia Gate of Kanha National Park, Surwahi is accessible by air, rail, and road — the journey itself winds through the beautiful landscapes of Madhya Pradesh."
                 image={galleryImages.forestTrail}
             />
 
@@ -33,7 +33,7 @@ export default function GettingHerePage() {
                             How far is Surwahi from Kanha National Park?
                         </h2>
                         <p className="text-soil-700 leading-relaxed">
-                            Surwahi Social Ecoestate is about <strong>12 km from the Khatia gate</strong> of Kanha National Park—close enough for straightforward safari access, yet set in quieter buffer-zone countryside. Most guests drive from Jabalpur (~160 km), Gondia (~145 km), or Nagpur (~270 km), then continue via Mandla toward the park gates.
+                            Surwahi Social Ecoestate is about <strong>21 km from the Khatia gate</strong> of Kanha National Park—close enough for straightforward safari access, yet set in quieter buffer-zone countryside. Most guests drive from Jabalpur (~160 km), Gondia (~145 km), or Nagpur (~270 km), then continue via Mandla toward the park gates.
                         </p>
                     </div>
                 </div>
@@ -64,7 +64,7 @@ export default function GettingHerePage() {
                                 <p className="text-soil-700 mb-4">~270 km / 5.5 hours drive</p>
                                 <ul className="space-y-2 text-sm text-soil-600">
                                     <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5" /> Better connectivity for South India travelers</li>
-                                    <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5" /> Airlines: IndiGo, SpiceJet, Air India, Vistara</li>
+                                    <li className="flex items-start"><CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5" /> Airlines: IndiGo, Air India</li>
                                 </ul>
                             </div>
                         </div>

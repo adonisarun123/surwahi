@@ -80,7 +80,7 @@ export default function CorporateRetreatsPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="font-display text-display-lg text-forest-900 mb-4">Why hold your retreat at Surwahi</h2>
-            <p className="text-body-lg max-w-prose mx-auto text-soil-700">A rare combination of nature, purpose and comfort, about 20 km from Kanha&apos;s Khatia Gate, in Balaghat, Madhya Pradesh.</p>
+            <p className="text-body-lg max-w-prose mx-auto text-soil-700">A rare combination of nature, purpose and comfort, about 21 km from Kanha&apos;s Khatia Gate, in Balaghat, Madhya Pradesh.</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {reasons.map((r) => (

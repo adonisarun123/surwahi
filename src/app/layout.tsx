@@ -37,7 +37,7 @@ export default async function RootLayout({
 }>) {
   const [startingPrice, announcement] = await Promise.all([getStartingPrice(), getActiveAnnouncement()]);
   return (
-    <html lang="en-IN" className={`${inter.variable} ${fraunces.variable}`}>
+    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
       <head>
         {/* Preconnect to font origins */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
