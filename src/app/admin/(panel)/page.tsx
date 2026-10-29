@@ -23,13 +23,14 @@ export default async function Dashboard({ searchParams }: { searchParams: Promis
   const week = addDaysUtc(today, 7);
   const bookings = can(user.role, 'bookings');
 
-  const [requests, awaiting, arrivals, departuresToday, feedErrors, rooms] = await Promise.all([
+  const [requests, awaiting, arrivals, departuresToday, feedErrors, rooms, expiring] = await Promise.all([
     bookings ? prisma.reservation.count({ where: { status: 'REQUESTED' } }) : 0,
     bookings ? prisma.reservation.count({ where: { status: 'AWAITING_PAYMENT' } }) : 0,
     bookings ? prisma.reservation.findMany({ where: { status: { in: ['CONFIRMED', 'AWAITING_PAYMENT'] }, checkIn: { gte: today, lt: week } }, orderBy: { checkIn: 'asc' }, include: { accommodation: { select: { name: true } } } }) : [],
     bookings ? prisma.reservation.count({ where: { status: 'CONFIRMED', checkOut: today } }) : 0,
     can(user.role, 'calendar') ? prisma.icalFeed.findMany({ where: { lastStatus: 'error' }, include: { accommodation: { select: { name: true } } } }) : [],
     prisma.accommodation.findMany({ orderBy: { sortOrder: 'asc' } }),
+    bookings ? prisma.reservation.findMany({ where: { status: 'AWAITING_PAYMENT', holdExpiresAt: { lt: new Date(Date.now() + 24 * 3600e3) } }, orderBy: { holdExpiresAt: 'asc' } }) : [],
   ]);
 
   return (
@@ -42,6 +43,11 @@ export default async function Dashboard({ searchParams }: { searchParams: Promis
         </p>
       ))}
 
+      {expiring.map((r) => (
+        <p key={r.id} className="rounded-lg bg-amber-50 border border-amber-200 px-3 py-2 text-sm text-amber-800">
+          Unpaid hold for <b>{r.guestName}</b> ({r.code}) releases {r.holdExpiresAt! < new Date() ? 'within the hour' : `at ${r.holdExpiresAt!.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', timeStyle: 'short', dateStyle: 'short' })}`}. <Link href={`/admin/bookings/${r.id}`} className="underline">Chase or extend</Link>
+        </p>
+      ))}
       {bookings && (
         <>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">

@@ -221,6 +221,8 @@ model Reservation {
   gst             Int
   total           Int
   priceBreakdown  Json              @map("price_breakdown")
+  /// AWAITING_PAYMENT holds are released automatically after this time
+  holdExpiresAt   DateTime?         @map("hold_expires_at") @db.Timestamptz
   paymentLinkUrl  String?           @map("payment_link_url")
   paymentLinkId   String?           @map("payment_link_id")
   amountPaid      Int               @default(0) @map("amount_paid")
@@ -232,6 +234,7 @@ model Reservation {
 
   @@index([accommodationId, checkIn, checkOut])
   @@index([status])
+  @@index([status, holdExpiresAt])
   @@map("reservations")
 }
 

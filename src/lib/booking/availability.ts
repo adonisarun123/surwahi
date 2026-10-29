@@ -6,6 +6,16 @@ import { addDaysUtc, eachNight, toIso } from './dates';
 /** Statuses that hold inventory. REQUESTED does not - staff decide on confirmation. */
 export const HOLDING = ['AWAITING_PAYMENT', 'CONFIRMED'] as const;
 
+/** Reservations that currently hold dates: confirmed, or awaiting payment with an unexpired hold. */
+export function holdingWhere(now = new Date()): Prisma.ReservationWhereInput {
+  return {
+    OR: [
+      { status: 'CONFIRMED' },
+      { status: 'AWAITING_PAYMENT', OR: [{ holdExpiresAt: null }, { holdExpiresAt: { gt: now } }] },
+    ],
+  };
+}
+
 type Db = Prisma.TransactionClient | typeof prisma;
 
 /** Units in use per night. Suites: capacity 1. Dormitory: capacity = beds (maxOccupancy). */
@@ -24,7 +34,7 @@ export async function usageByNight(db: Db, acc: Accommodation, from: Date, to: D
     db.reservation.findMany({
       where: {
         accommodationId: acc.id,
-        status: { in: [...HOLDING] },
+        ...holdingWhere(),
         checkIn: { lt: to },
         checkOut: { gt: from },
         ...(ignoreReservationId ? { id: { not: ignoreReservationId } } : {}),

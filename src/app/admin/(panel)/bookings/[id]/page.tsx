@@ -7,7 +7,7 @@ import { StatusBadge, SOURCE_LABELS } from '@/components/admin/status';
 import { formatDateIn, nightsBetween, todayIst } from '@/lib/booking/dates';
 import { razorpayEnabled } from '@/lib/booking/razorpay';
 import type { Quote } from '@/lib/booking/pricing';
-import { ApproveForm, PaymentForm, StatusForm, NotesForm } from './BookingActions';
+import { ApproveForm, PaymentForm, StatusForm, NotesForm, HoldForm } from './BookingActions';
 
 const inr = (n: number) => `₹${n.toLocaleString('en-IN')}`;
 
@@ -68,6 +68,7 @@ export default async function BookingDetail({ params }: { params: Promise<{ id: 
           {r.status === 'AWAITING_PAYMENT' && (
             <>
               <Card title="Payment received?"><PaymentForm id={r.id} total={r.total} /></Card>
+              <Card title="Hold"><HoldForm id={r.id} expiresAt={r.holdExpiresAt?.toISOString() ?? null} /></Card>
               <Card title="Resend payment link"><ApproveForm id={r.id} razorpay={razorpayEnabled()} total={r.total} resend /></Card>
             </>
           )}

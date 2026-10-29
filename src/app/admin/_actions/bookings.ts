@@ -5,7 +5,7 @@ import { revalidatePath } from 'next/cache';
 import { z } from 'zod';
 import { prisma } from '@/lib/prisma';
 import { requireUser, audit } from '@/lib/auth/session';
-import { approveReservation, createReservation, markPaid, setStatus, BookingError } from '@/lib/booking/service';
+import { approveReservation, createReservation, markPaid, setStatus, extendHold, BookingError } from '@/lib/booking/service';
 import { toDate } from '@/lib/booking/dates';
 import type { ActionState } from '@/components/admin/ui';
 
@@ -90,4 +90,16 @@ export async function createManualBooking(_prev: ActionState, form: FormData): P
     id = r.id;
   } catch (e) { return fail(e); }
   redirect(`/admin/bookings/${id}`);
+}
+
+export async function extendBookingHold(id: string, _prev: ActionState, form: FormData): Promise<ActionState> {
+  const user = await requireUser('bookings');
+  const hours = Number(form.get('hours'));
+  if (![24, 48, 72].includes(hours)) return { error: 'Pick 24, 48 or 72 hours.' };
+  try {
+    const until = await extendHold(id, hours);
+    await audit(user.id, 'extend_hold', 'reservation', id, { hours, until });
+    revalidatePath(`/admin/bookings/${id}`);
+    return { message: `Hold extended to ${until.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', dateStyle: 'medium', timeStyle: 'short' })}.` };
+  } catch (e) { return fail(e); }
 }

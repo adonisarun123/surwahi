@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { verifyWebhook } from '@/lib/booking/razorpay';
-import { markPaid } from '@/lib/booking/service';
+import { markPaid, handleLatePayment } from '@/lib/booking/service';
 
 /**
  * Razorpay webhook (Dashboard → Webhooks → URL https://surwahi.com/api/webhooks/razorpay,
@@ -22,9 +22,18 @@ export async function POST(request: NextRequest) {
   if (!link) return NextResponse.json({ ok: true });
   const r = await prisma.reservation.findFirst({ where: { OR: [{ paymentLinkId: link.id }, { code: link.reference_id ?? '' }] } });
   if (!r) return NextResponse.json({ ok: true, unknown: link.id });
-  if (r.status === 'CONFIRMED' && r.amountPaid > 0) return NextResponse.json({ ok: true, duplicate: true }); // webhooks retry
+  // Webhooks retry: if this exact link was already recorded as paid, do nothing
+  const already = await prisma.auditLog.findFirst({ where: { entity: 'reservation', entityId: r.id, action: 'razorpay_paid', data: { path: ['linkId'], equals: link.id } } });
+  if (already) return NextResponse.json({ ok: true, duplicate: true });
 
-  await markPaid(r.id, Math.round((link.amount_paid ?? r.total * 100) / 100));
-  await prisma.auditLog.create({ data: { action: 'razorpay_paid', entity: 'reservation', entityId: r.id, data: { linkId: link.id } } });
+  const amount = Math.round((link.amount_paid ?? r.total * 100) / 100);
+  await prisma.auditLog.create({ data: { action: 'razorpay_paid', entity: 'reservation', entityId: r.id, data: { linkId: link.id, amount } } });
+  if (r.status === 'CANCELLED' || r.status === 'DECLINED') {
+    // Paid after the hold was released (or after staff cancelled): never silently lose a payment
+    const autoReleased = await prisma.auditLog.findFirst({ where: { entity: 'reservation', entityId: r.id, action: 'auto_release_hold' } });
+    const outcome = await handleLatePayment(r.id, amount, { allowReinstate: !!autoReleased });
+    return NextResponse.json({ ok: true, late: outcome });
+  }
+  await markPaid(r.id, amount);
   return NextResponse.json({ ok: true });
 }

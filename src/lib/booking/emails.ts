@@ -104,3 +104,16 @@ export async function emailCancelled(r: MailReservation) {
     <p>Dear ${h(r.guestName)},</p>
     <p>Your booking ${h(r.code)} for ${h(r.roomName)} (${formatDateIn(r.checkIn)} → ${formatDateIn(r.checkOut)}) has been cancelled. Any refund follows our <a href="${SITE()}/cancellation">cancellation policy</a>.</p>`));
 }
+
+export async function emailHoldReleased(r: MailReservation) {
+  await send(r.guestEmail, `Your Surwahi booking request has expired (${r.code})`, shell('Your hold has expired', `
+    <p>Dear ${h(r.guestName)},</p>
+    <p>We held ${h(r.roomName)} for ${formatDateIn(r.checkIn)} → ${formatDateIn(r.checkOut)} but didn't receive payment in time, so the dates have been released.</p>
+    <p>If you'd still like to come, reply to this email or WhatsApp +91 77952 07779 and we'll check availability again.</p>`));
+}
+
+export async function emailOwnerAlert(subject: string, lines: string[]) {
+  const to = process.env.SALES_EMAIL;
+  if (!to) return;
+  await send(to, `[Surwahi admin] ${subject}`, shell(subject, lines.map((l) => `<p>${h(l)}</p>`).join('') + `<p><a href="${SITE()}/admin/bookings">Open bookings</a></p>`));
+}

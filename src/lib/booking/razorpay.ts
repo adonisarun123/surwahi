@@ -44,3 +44,27 @@ export function verifyWebhook(rawBody: string, signature: string | null): boolea
   const expected = createHmac('sha256', secret).update(rawBody).digest('hex');
   return expected.length === signature.length && timingSafeEqual(Buffer.from(expected), Buffer.from(signature));
 }
+
+async function rzp(path: string, method: 'POST' | 'PATCH', body?: object) {
+  const auth = Buffer.from(`${process.env.RAZORPAY_KEY_ID}:${process.env.RAZORPAY_KEY_SECRET}`).toString('base64');
+  const res = await fetch(`https://api.razorpay.com/v1${path}`, {
+    method,
+    headers: { Authorization: `Basic ${auth}`, 'Content-Type': 'application/json' },
+    body: body ? JSON.stringify(body) : undefined,
+  });
+  if (!res.ok) throw new Error(`Razorpay ${res.status}: ${(await res.text()).slice(0, 300)}`);
+  return res.json();
+}
+
+/** Cancels a link so it can't be paid after the hold is released. Ignores links that are already expired/paid. */
+export async function cancelPaymentLink(id: string) {
+  if (!razorpayEnabled()) return;
+  try { await rzp(`/payment_links/${encodeURIComponent(id)}/cancel`, 'POST'); }
+  catch (e) { console.warn('Razorpay cancel skipped:', (e as Error).message); }
+}
+
+/** Moves a link's expiry (used when staff extend a hold). */
+export async function extendPaymentLink(id: string, until: Date) {
+  if (!razorpayEnabled()) return;
+  await rzp(`/payment_links/${encodeURIComponent(id)}`, 'PATCH', { expire_by: Math.floor(until.getTime() / 1000) });
+}

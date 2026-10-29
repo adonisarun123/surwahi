@@ -1,6 +1,6 @@
 import 'server-only';
 import { prisma } from '@/lib/prisma';
-import { HOLDING } from './availability';
+import { holdingWhere } from './availability';
 import { addDaysUtc, toIso, todayIst } from './dates';
 
 // ─── Parsing (import from Airbnb / Booking.com) ───────────────────────
@@ -82,7 +82,7 @@ export async function exportIcs(token: string, excludeFeedId?: string | null) {
   if (!acc) return null;
   const since = addDaysUtc(todayIst(), -30);
   const [reservations, blocks] = await Promise.all([
-    prisma.reservation.findMany({ where: { accommodationId: acc.id, status: { in: [...HOLDING] }, checkOut: { gte: since } } }),
+    prisma.reservation.findMany({ where: { accommodationId: acc.id, ...holdingWhere(), checkOut: { gte: since } } }),
     prisma.calendarBlock.findMany({
       where: { accommodationId: acc.id, endDate: { gte: since }, ...(excludeFeedId ? { OR: [{ icalFeedId: null }, { icalFeedId: { not: excludeFeedId } }] } : {}) },
     }),

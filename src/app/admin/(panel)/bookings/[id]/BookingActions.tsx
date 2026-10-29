@@ -1,7 +1,7 @@
 'use client';
 
 import { useActionState, useState } from 'react';
-import { approve, recordPayment, changeStatus, saveNotes } from '../../../_actions/bookings';
+import { approve, recordPayment, changeStatus, saveNotes, extendBookingHold } from '../../../_actions/bookings';
 import { Field, Notice, SubmitButton, inputCls } from '@/components/admin/ui';
 
 const inr = (n: number) => `₹${n.toLocaleString('en-IN')}`;
@@ -69,6 +69,26 @@ export function NotesForm({ id, notes }: { id: string; notes: string }) {
       <Notice state={state} />
       <textarea name="notes" rows={4} defaultValue={notes} placeholder="Only visible to staff" className={inputCls} />
       <SubmitButton variant="secondary">Save notes</SubmitButton>
+    </form>
+  );
+}
+
+export function HoldForm({ id, expiresAt }: { id: string; expiresAt: string | null }) {
+  const [state, action] = useActionState(extendBookingHold.bind(null, id), undefined);
+  const ms = expiresAt ? new Date(expiresAt).getTime() - Date.now() : null;
+  const label = ms == null ? 'No expiry set' : ms <= 0 ? 'Expired - will be released within the hour'
+    : `Releases in ${Math.floor(ms / 3600e3)}h ${Math.floor((ms % 3600e3) / 60e3)}m (${new Date(expiresAt!).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', dateStyle: 'medium', timeStyle: 'short' })})`;
+  return (
+    <form action={action} className="space-y-3">
+      <Notice state={state} />
+      <p className={`text-sm ${ms != null && ms < 24 * 3600e3 ? 'text-red-700 font-medium' : 'text-soil-700'}`}>{label}</p>
+      <p className="text-xs text-soil-700">If unpaid by then, the dates are released, the payment link is cancelled and the guest is emailed.</p>
+      <div className="flex items-center gap-2">
+        <select name="hours" defaultValue="48" className={inputCls}>
+          <option value="24">+24 hours</option><option value="48">+48 hours</option><option value="72">+72 hours</option>
+        </select>
+        <SubmitButton variant="secondary" pendingLabel="Extending…">Extend</SubmitButton>
+      </div>
     </form>
   );
 }
