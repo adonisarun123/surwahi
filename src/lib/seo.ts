@@ -23,6 +23,18 @@ export const defaultMeta = {
   locale: 'en_IN',
 };
 
+/** Single source of truth for NAP + geo used by every schema node. */
+const SITE_ADDRESS = {
+  '@type': 'PostalAddress',
+  streetAddress: 'Village Surwahi, P.O. Majhgaon, Tehsil Paraswada, Khairlanji Ryt.',
+  addressLocality: 'Balaghat',
+  addressRegion: 'Madhya Pradesh',
+  postalCode: '481111',
+  addressCountry: 'IN',
+} as const;
+
+const SITE_GEO = { '@type': 'GeoCoordinates', latitude: 22.244025, longitude: 80.468707 } as const;
+
 /** Absolute URL for Open Graph / JSON-LD (handles ImageKit and other absolute URLs). */
 export function toAbsoluteSiteUrl(pathOrUrl: string): string {
   if (pathOrUrl.startsWith('https://') || pathOrUrl.startsWith('http://')) {
@@ -71,6 +83,7 @@ export function generateMetadata(config: SEOConfig = {}): Metadata {
         },
       ],
       locale: defaultMeta.locale,
+      alternateLocale: ['en_US', 'en_GB'],
       type,
       publishedTime,
       modifiedTime,
@@ -94,6 +107,9 @@ export function generateMetadata(config: SEOConfig = {}): Metadata {
     },
     alternates: {
       canonical: fullUrl,
+      // English-only site: declare it for all English speakers (not just en-IN)
+      // and as the default for every other locale.
+      languages: { en: fullUrl, 'x-default': fullUrl },
     }
   };
 
@@ -189,9 +205,8 @@ export function generateOrganizationSchema() {
     contactPoint: [{
       '@type': 'ContactPoint',
       telephone: '+91-77952-07779',
-      contactType: 'customer service',
-      areaServed: 'IN',
-      availableLanguage: ['en', 'hi']
+      contactType: 'reservations',
+      availableLanguage: ['English', 'Hindi']
     }]
   };
 }
@@ -204,7 +219,7 @@ export function generateWebsiteSchema() {
     url: 'https://surwahi.com/',
     name: 'Surwahi Social Ecoestate',
     publisher: { '@id': 'https://surwahi.com/#org' },
-    inLanguage: 'en-IN',
+    inLanguage: 'en',
   };
 }
 
@@ -231,19 +246,15 @@ export function generateLodgingBusinessSchema() {
       { '@type': 'LocationFeatureSpecification', name: 'Family friendly', value: true },
       { '@type': 'LocationFeatureSpecification', name: 'EV charging', value: true }
     ],
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: 'Village Surwahi, P.O. Majhgaon, Tehsil Paraswada, Khairlanji Ryt.',
-      addressLocality: 'Balaghat',
-      addressRegion: 'Madhya Pradesh',
-      postalCode: '481111',
-      addressCountry: 'IN'
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 22.244025,
-      longitude: 80.468707
-    },
+    address: SITE_ADDRESS,
+    geo: SITE_GEO,
+    sameAs: [
+      'https://www.facebook.com/surwahisocialecoestatekanha/',
+      'https://www.instagram.com/surwahisocialecoestatekanha/',
+      'https://in.linkedin.com/company/surwahisocialecoestatekanha'
+    ],
+    availableLanguage: ['English', 'Hindi'],
+    containedInPlace: { '@type': 'Place', name: 'Kanha Tiger Reserve buffer zone, Madhya Pradesh, India' },
     telephone: '+91-77952-07779',
     email: 'contact@surwahi.com',
     hasMap: 'https://www.google.com/maps/search/?api=1&query=22.244025,80.468707',
@@ -264,7 +275,7 @@ export function generateLodgingBusinessSchema() {
       target: {
         '@type': 'EntryPoint',
         urlTemplate: 'https://surwahi.com/stay',
-        inLanguage: 'en-IN',
+        inLanguage: 'en',
         actionPlatform: ['http://schema.org/DesktopWebPlatform', 'http://schema.org/MobileWebPlatform']
       },
       result: { '@type': 'LodgingReservation', name: 'Book your stay at Surwahi Social Ecoestate' }
@@ -307,8 +318,14 @@ export function generateRoomSchema(room: {
       '@type': 'Offer',
       priceCurrency: 'INR',
       price: room.basePrice.toString(),
+      priceSpecification: {
+        '@type': 'UnitPriceSpecification',
+        price: room.basePrice,
+        priceCurrency: 'INR',
+        unitText: 'per night, all meals included',
+        valueAddedTaxIncluded: false
+      },
       availability: 'https://schema.org/InStock',
-      validFrom: new Date().toISOString().split('T')[0],
       url: `https://surwahi.com/stay/${room.slug}#book`
     }
   };
@@ -339,27 +356,20 @@ export function generateBlogPostSchema(post: {
   return {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
+    '@id': `https://surwahi.com/blogs/${post.slug}#article`,
     headline: post.title,
     description: post.description,
-    image: post.image
-      ? toAbsoluteSiteUrl(post.image)
-      : `https://surwahi.com/images/blog/${post.slug}.jpg`,
-    author: {
-      '@type': 'Person',
-      name: post.author,
-      url: 'https://surwahi.com/about/our-team',
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'Surwahi Social Ecoestate',
-      logo: {
-        '@type': 'ImageObject',
-        url: 'https://ik.imagekit.io/adonisarun/surwahi-logo.png?updatedAt=1761322022431'
-      }
-    },
+    image: post.image ? toAbsoluteSiteUrl(post.image) : defaultMeta.image,
+    inLanguage: 'en',
+    // "Surwahi Team" is the org, not a person — don't mislabel it as a Person.
+    author: /team$/i.test(post.author.trim())
+      ? { '@id': 'https://surwahi.com/#org' }
+      : { '@type': 'Person', name: post.author, url: 'https://surwahi.com/about/our-team' },
+    publisher: { '@id': 'https://surwahi.com/#org' },
+    about: { '@id': 'https://surwahi.com/#lodging' },
     datePublished: post.publishedAt,
     dateModified: post.updatedAt || post.publishedAt,
-    mainEntityOfPage: `https://surwahi.com/blogs/${post.slug}`
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://surwahi.com/blogs/${post.slug}` }
   };
 }
 
@@ -402,18 +412,9 @@ export function generateTouristAttractionSchema(attraction: {
     image: images,
     keywords: attraction.keywords?.join(', '),
     isAccessibleForFree: false,
-    touristType: ['Eco tourists', 'Nature lovers', 'Wildlife enthusiasts', 'Families'],
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Near Kanha National Park',
-      addressRegion: 'Madhya Pradesh',
-      addressCountry: 'IN',
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 22.244025,
-      longitude: 80.468707,
-    },
+    touristType: ['Eco tourists', 'Nature lovers', 'Wildlife enthusiasts', 'Families', 'International travellers'],
+    address: SITE_ADDRESS,
+    geo: SITE_GEO,
     isPartOf: { '@id': `${defaultMeta.url}/#lodging` },
     provider: { '@id': `${defaultMeta.url}/#org` },
   };
@@ -435,12 +436,29 @@ export function generateEventSchema(event: {
       ? [toAbsoluteSiteUrl(event.image)]
       : [defaultMeta.image];
 
-  // For recurring workshops without a fixed date, use a forward-looking date
-  // so the schema validates while still signalling availability.
-  const today = new Date();
-  const nextYear = new Date(today.getFullYear() + 1, today.getMonth(), today.getDate());
-  const fallbackStart = today.toISOString().split('T')[0];
-  const fallbackEnd = nextYear.toISOString().split('T')[0];
+  // Workshops that run on request have no real date. Marking them up as Event with
+  // invented dates breaks Google's event guidelines (risk: structured-data manual action),
+  // so they are described as a TouristTrip offered by the lodge instead.
+  if (!event.startDate) {
+    const trip: Record<string, unknown> = {
+      '@context': 'https://schema.org',
+      '@type': 'TouristTrip',
+      '@id': `${defaultMeta.url}${event.path}#trip`,
+      name: event.name,
+      description: event.description,
+      url: `${defaultMeta.url}${event.path}`,
+      image: images,
+      touristType: ['Eco tourists', 'Nature lovers', 'Families', 'International travellers'],
+      itinerary: { '@type': 'Place', name: defaultMeta.siteName, address: SITE_ADDRESS, geo: SITE_GEO },
+      provider: { '@id': `${defaultMeta.url}/#org` },
+    };
+    if (event.offers?.length) {
+      trip.offers = event.offers.map(offer => ({
+        '@type': 'Offer', name: offer.name, price: offer.price, priceCurrency: offer.priceCurrency || 'INR', url: `${defaultMeta.url}${event.path}`,
+      }));
+    }
+    return trip;
+  }
 
   const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
@@ -450,31 +468,12 @@ export function generateEventSchema(event: {
     description: event.description,
     url: `${defaultMeta.url}${event.path}`,
     image: images,
-    startDate: event.startDate || fallbackStart,
-    endDate: event.endDate || (event.recurring ? fallbackEnd : event.startDate || fallbackStart),
+    startDate: event.startDate,
+    endDate: event.endDate || event.startDate,
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     eventStatus: 'https://schema.org/EventScheduled',
-    location: {
-      '@type': 'Place',
-      name: 'Surwahi Social Eco Estate',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Near Kanha National Park',
-        addressRegion: 'Madhya Pradesh',
-        addressCountry: 'IN',
-      },
-      geo: {
-        '@type': 'GeoCoordinates',
-        latitude: 22.244025,
-        longitude: 80.468707,
-      },
-    },
-    organizer: {
-      '@type': 'Organization',
-      '@id': `${defaultMeta.url}/#org`,
-      name: defaultMeta.siteName,
-      url: defaultMeta.url + '/',
-    },
+    location: { '@type': 'Place', name: defaultMeta.siteName, address: SITE_ADDRESS, geo: SITE_GEO },
+    organizer: { '@id': `${defaultMeta.url}/#org` },
   };
 
   if (event.offers?.length) {

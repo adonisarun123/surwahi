@@ -42,7 +42,7 @@ const sustainabilityTopics = [
 import { Trees, Sun, Recycle, Users, Globe } from 'lucide-react';
 
 const impactMetrics = [
-  { number: "500+", label: "Trees in Census", icon: Trees },
+  { number: "6,000+", label: "Trees & plants (2025 census)", icon: Trees },
   { number: "100%", label: "Solar Powered", icon: Sun },
   { number: "Zero", label: "Waste to Landfill", icon: Recycle },
   { number: "30+", label: "Local Jobs Created", icon: Users },
