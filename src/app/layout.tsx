@@ -8,6 +8,8 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import MobileBookingBar from "@/components/MobileBookingBar";
 import PublicChrome from "@/components/PublicChrome";
 import { getStartingPrice } from "@/lib/rooms-repo";
+import { getActiveAnnouncement } from "@/lib/content-repo";
+import AnnouncementBar from "@/components/AnnouncementBar";
 import { generateMetadata, generateOrganizationSchema, generateWebsiteSchema, generateLodgingBusinessSchema } from "@/lib/seo";
 
 const inter = Inter({
@@ -33,7 +35,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const startingPrice = await getStartingPrice();
+  const [startingPrice, announcement] = await Promise.all([getStartingPrice(), getActiveAnnouncement()]);
   return (
     <html lang="en-IN" className={`${inter.variable} ${fraunces.variable}`}>
       <head>
@@ -75,9 +77,10 @@ export default async function RootLayout({
         </a>
 
         <PublicChrome>
-          <Header />
+          <Header announcement={announcement ? <AnnouncementBar text={announcement.text} linkText={announcement.linkText} href={announcement.href} /> : undefined} />
         </PublicChrome>
 
+        {announcement && <PublicChrome><div className="h-9" aria-hidden="true" /></PublicChrome>}
         <main id="main" className="min-h-screen">
           {children}
         </main>

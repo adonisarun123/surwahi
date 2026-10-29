@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
-import { blogPosts, experienceGroups, workshopGroups } from '@/lib/data';
+import { experienceGroups, workshopGroups } from '@/lib/data';
+import { getPublishedArticles } from '@/lib/content-repo';
 import { getPublicRooms } from '@/lib/rooms-repo';
 
 const baseUrl = process.env.SITE_URL || 'https://surwahi.com';
@@ -76,12 +77,10 @@ export async function GET() {
       urlMap.set(url, { url, priority, changefreq });
     });
 
-    blogPosts.forEach((post) => {
+    for (const post of await getPublishedArticles()) {
       const path = `/blogs/${post.slug}`;
-      if (!urlMap.has(path)) {
-        urlMap.set(path, { url: path, priority: 0.7, changefreq: 'monthly' });
-      }
-    });
+      urlMap.set(path, { url: path, lastmod: post.updatedAt, priority: 0.7, changefreq: 'monthly' });
+    }
 
     experienceGroups.flatMap((g) => g.items).forEach((item) => {
       if (!urlMap.has(item.href)) {

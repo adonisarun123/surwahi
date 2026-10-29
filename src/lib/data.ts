@@ -1,34 +1,4 @@
-import { blogImages, experienceImages, workshopImages } from '@/lib/images';
-
-export const blogPosts = [
-    {
-        slug: 'the-magic-of-the-monsoon-forest',
-        title: 'The Magic of the Monsoon Forest',
-        author: 'Rhea Sharma',
-        date: 'August 15, 2024',
-        category: 'Conservation Diaries',
-        excerpt: "The monsoon breathes new life into the forest. The landscape transforms into a vibrant green, and the air is filled with the scent of wet earth. It's a time of rejuvenation, and a magical time to witness the secrets of the jungle.",
-        imageUrl: blogImages.monsoonForest,
-    },
-    {
-        slug: 'building-with-mud-a-lesson-in-sustainability',
-        title: 'Building with Mud: A Lesson in Sustainability',
-        author: 'Arjun Das',
-        date: 'July 28, 2024',
-        category: 'Behind the Scenes',
-        excerpt: 'Our buildings are more than just structures; they are a testament to our philosophy. Discover the journey of how we use the very earth we stand on to create spaces that are both beautiful and sustainable.',
-        imageUrl: blogImages.mudBuilding,
-    },
-    {
-        slug: 'a-tiger-sighting-that-changed-my-perspective',
-        title: 'A Tiger Sighting That Changed My Perspective',
-        author: 'A Guest Blogger',
-        date: 'July 10, 2024',
-        category: 'Guest Experiences',
-        excerpt: 'Locking eyes with a wild tiger is an experience that words can hardly do justice. It was a moment of pure awe, a powerful reminder of the raw beauty and importance of our wild spaces.',
-        imageUrl: blogImages.tigerSighting,
-    },
-];
+import { experienceImages, workshopImages } from '@/lib/images';
 
 export const experienceGroups = [
     {

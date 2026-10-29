@@ -5,6 +5,8 @@ import HeroVideo from '@/components/HeroVideo';
 import InstagramCarousel from '@/components/InstagramCarousel';
 import { generateMetadata } from '@/lib/seo';
 import { getRoomsByCategory } from '@/lib/rooms-repo';
+import { getSetting, getUpcomingEvents } from '@/lib/content-repo';
+import UpcomingEvents from '@/components/UpcomingEvents';
 import { priceWithGstLabel } from '@/lib/accommodations';
 
 export const metadata = generateMetadata({
@@ -19,6 +21,7 @@ export const revalidate = 3600;
 export default async function HomePage() {
   const suite = (await getRoomsByCategory('Suites')).sort((a, b) => a.basePrice - b.basePrice)[0];
   const [dorm] = await getRoomsByCategory('Dormitory');
+  const [hero, events] = await Promise.all([getSetting('home_hero'), getUpcomingEvents(3)]);
   return (
     <main id="main">
       <section className="relative min-h-screen flex items-center justify-center text-center text-white overflow-hidden">
@@ -36,25 +39,27 @@ export default async function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-forest-900/30 via-forest-900/40 to-forest-900/60 z-10"></div>
         <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <h1 className="font-display text-display-xl text-bone-0 mb-6 animate-fade-up drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">
-            Award-Winning Eco Stay near Kanha National Park
+            {hero.title}
           </h1>
           <p className="text-body-lg text-bone-0 mb-8 max-w-2xl mx-auto animate-fade-up drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]" style={{ animationDelay: '0.2s' }}>
-            Nestled about 20km from Kanha National Park (Khatia Gate), Surwahi Social Ecoestate invites you to slow down, reconnect with nature, and experience the art of sustainable living.
+            {hero.subtitle}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style={{ animationDelay: '0.4s' }}>
-            <Link href="/stay" className="btn btn-primary text-base bg-moss-500 hover:bg-moss-600 text-white border-2 border-white shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.5)] transition-all" style={{ color: 'white' }}>
-              Book Your Eco Stay
+            <Link href={hero.primaryHref} className="btn btn-primary text-base bg-moss-500 hover:bg-moss-600 text-white border-2 border-white shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.5)] transition-all" style={{ color: 'white' }}>
+              {hero.primaryCta}
             </Link>
             <Link
-              href="/about/our-story"
+              href={hero.secondaryHref}
               className="btn border-2 border-white shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.5)] transition-all"
               style={{ backgroundColor: '#FFFFFF', color: '#0F261A' }}
             >
-              Explore the Story
+              {hero.secondaryCta}
             </Link>
           </div>
         </div>
       </section>
+
+      {events.length > 0 && <UpcomingEvents events={events} />}
 
       {/* About Surwahi */}
       <section id="about" className="py-16 lg:py-24">

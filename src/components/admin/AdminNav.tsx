@@ -11,8 +11,8 @@ const ITEMS: { href: string; label: string; icon: React.ElementType; cap?: Capab
   { href: '/admin/bookings', label: 'Bookings', icon: ClipboardList, cap: 'bookings', ready: true },
   { href: '/admin/calendar', label: 'Calendar', icon: CalendarDays, cap: 'calendar', ready: true },
   { href: '/admin/rooms', label: 'Rooms & Rates', icon: BedDouble, cap: 'rooms', ready: true },
-  { href: '/admin/photos', label: 'Photos', icon: ImageIcon, cap: 'media', ready: false },
-  { href: '/admin/content', label: 'Content', icon: FileText, cap: 'content', ready: false },
+  { href: '/admin/photos', label: 'Photos', icon: ImageIcon, cap: 'media', ready: true },
+  { href: '/admin/content', label: 'Content', icon: FileText, cap: 'content', ready: true },
   { href: '/admin/users', label: 'Users', icon: Users, cap: 'users', ready: true },
   { href: '/admin/account', label: 'My account', icon: UserCircle, ready: true },
 ];

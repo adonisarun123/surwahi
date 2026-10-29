@@ -4,11 +4,10 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { User, Calendar, Tag } from 'lucide-react';
-import { blogPosts } from '@/lib/data';
+type ListPost = { slug: string; title: string; excerpt: string; category: string; author: string; date: string; imageUrl: string };
 
-const categories = ['All', ...Array.from(new Set(blogPosts.map(post => post.category)))];
-
-export default function BlogList() {
+export default function BlogList({ posts: blogPosts }: { posts: ListPost[] }) {
+    const categories = ['All', ...Array.from(new Set(blogPosts.map(post => post.category)))];
     const [filter, setFilter] = useState('All');
 
     const filteredPosts = filter === 'All'

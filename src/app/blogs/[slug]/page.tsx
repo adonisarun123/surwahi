@@ -1,150 +1,26 @@
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
+import { prisma } from '@/lib/prisma';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Calendar, Clock, User, Tag, ArrowLeft, ArrowRight } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { generateBlogMetadata, toAbsoluteSiteUrl } from '@/lib/seo';
 import ShareButton from '@/components/ShareButton';
-import { getImageKitUrl } from '@/lib/images';
+import { getArticle, getPublishedArticles } from '@/lib/content-repo';
+
+export const revalidate = 3600;
+
+export async function generateStaticParams() {
+  return (await getPublishedArticles()).map((a) => ({ slug: a.slug }));
+}
+
+async function loadPost(slug: string) {
+  const a = await getArticle(slug);
+  if (!a) return null;
+  return { ...a, featuredImage: { url: a.coverUrl, alt: a.coverAlt, caption: '' } };
+}
 
 // Mock blog data - will be replaced with database queries
-const blogPosts = {
-  'the-magic-of-the-monsoon-forest': {
-    id: 1,
-    title: 'The Magic of the Monsoon Forest',
-    slug: 'the-magic-of-the-monsoon-forest',
-    excerpt: 'The monsoon breathes new life into the forest, transforming the landscape into a vibrant green and filling the air with the scent of wet earth.',
-    content: `The forest awakens in a riot of green when the monsoon arrives. After months of dry heat, the first rains are a celebration. The dusty brown landscape transforms into a lush, vibrant paradise, and the air is thick with the petrichor, the scent of wet earth. This is the forest's time of rejuvenation, a magical period that reveals its deepest secrets.
-
-## A Symphony of Life
-
-The monsoon is a sensory explosion. The constant drumming of rain is a backdrop to a symphony of life. Frogs of all shapes and sizes emerge, their croaks filling the nights. The bird calls are different now - more urgent, more joyful. This is the breeding season for many species, and the forest is alive with courtship displays and the frantic activity of nest building.
-
-## The World in a Droplet
-
-It's a time to appreciate the small wonders. A raindrop clinging to a spider's web, a mushroom sprouting from a decaying log, a caterpillar munching on a fresh leaf. The macro world comes alive, offering endless opportunities for photographers and nature lovers to observe the intricate details of the ecosystem. Our guided herping walks are particularly exciting during this season, revealing the hidden world of amphibians and reptiles.
-
-## A Different Kind of Safari
-
-While the core zones of the national parks are closed during the monsoon, the buffer zones offer a unique safari experience. The forest is less crowded, and the landscape is breathtakingly beautiful. It's a chance to see the jungle in its most raw and untamed state. The rain-washed trees, the misty mornings, and the dramatic skies create a mystical atmosphere that is a world away from the dry heat of summer.`,
-    category: 'Conservation Diaries',
-    author: 'Rhea Sharma',
-    authorBio: 'Naturalist and passionate conservationist at Surwahi Social.',
-    publishedAt: '2024-08-15',
-    updatedAt: '2026-03-15',
-    readingTime: 4,
-    featuredImage: {
-      url: getImageKitUrl('Website Photos/IMG20231020171008.jpg'),
-      alt: 'A lush green forest during the monsoon season',
-      caption: 'The vibrant green of the monsoon forest'
-    },
-    tags: ['monsoon', 'forest', 'conservation', 'nature', 'rejuvenation'],
-    isPublished: true,
-    seoTitle: 'The Magic of the Monsoon Forest',
-    seoDescription: 'Discover the beauty and secrets of the forest during the monsoon season.'
-  },
-  'building-with-mud-a-lesson-in-sustainability': {
-    id: 2,
-    title: 'Building with Mud: A Lesson in Sustainability',
-    slug: 'building-with-mud-a-lesson-in-sustainability',
-    excerpt: 'Our buildings are more than just structures; they are a testament to our philosophy of sustainable living. Discover how we use the very earth we stand on to create beautiful, comfortable, and eco-friendly spaces.',
-    content: `From the very beginning, our vision for Surwahi was to create a space that is in harmony with its surroundings. This philosophy is most tangible in our architecture. We chose to build with mud, one of the oldest and most sustainable building materials known to humankind.
-
-## The Wisdom of the Earth
-
-Building with mud is a tradition that has been practiced in this region for centuries. It is a technique that is both eco-friendly and climate-responsive. Our cob walls, made from a mixture of local soil, straw, and water, provide excellent thermal insulation. They keep the interiors cool in the scorching summer and warm during the chilly winter nights, drastically reducing our need for artificial heating and cooling.
-
-## A Labor of Love and Community
-
-The process of building with mud is a labor of love. Each wall is built by hand, layer by layer. We worked with local artisans who possess the traditional knowledge of this craft, passed down through generations. This not only ensured the authenticity of our structures but also provided meaningful employment to the local community, making them an integral part of our story.
-
-## More Than Just a Building
-
-Our mud structures are living, breathing entities. The natural materials allow the walls to 'breathe', regulating humidity and creating a healthy indoor environment. By choosing to build with mud, we have minimized our carbon footprint, reduced construction waste, and created a space that is truly connected to the land. Our "Build With Mud" workshop offers guests a chance to experience this ancient craft firsthand.`,
-    category: 'Behind the Scenes',
-    author: 'Arjun Das',
-    authorBio: 'Co-founder of Surwahi Social and an advocate for sustainable architecture.',
-    publishedAt: '2024-07-28',
-    updatedAt: '2026-03-15',
-    readingTime: 3,
-    featuredImage: {
-      url: getImageKitUrl('Surwahi Social Photos/A.jpg'),
-      alt: 'A beautiful structure built with mud',
-      caption: 'The art of building with mud'
-    },
-    tags: ['sustainability', 'eco-architecture', 'mud-building', 'community', 'behind-the-scenes'],
-    isPublished: true,
-    seoTitle: 'Building with Mud: A Lesson in Sustainability',
-    seoDescription: 'Learn about our philosophy of sustainable architecture and the art of building with mud.'
-  },
-  'a-tiger-sighting-that-changed-my-perspective': {
-    id: 3,
-    title: 'A Tiger Sighting That Changed My Perspective',
-    slug: 'a-tiger-sighting-that-changed-my-perspective',
-    excerpt: 'Locking eyes with a wild tiger is an experience that words can hardly do justice. It was a moment of pure awe, a powerful reminder of the raw beauty and importance of our wild spaces.',
-    content: `I had been on several safaris before, but nothing could have prepared me for this moment. We were driving through the buffer zone of Kanha, the forest bathed in the golden light of the late afternoon. Our naturalist, with his keen eyes, suddenly stopped the jeep and pointed towards a thicket of bamboo.
-
-## The Majestic Presence
-
-And then I saw her. A tigress, majestic and powerful, emerged from the bamboo. She walked with a silent grace, her stripes a perfect camouflage in the dappled light. She was so close that I could see the twitch of her whiskers and the intensity in her amber eyes. For a few breathtaking moments, our worlds converged. She looked at us, not with aggression, but with a calm, regal indifference.
-
-## A Lesson in Humility
-
-In that moment, I felt a profound sense of humility. I was a guest in her kingdom, a fleeting visitor in a world that has existed for millennia. It was a powerful reminder that these wild spaces do not belong to us. We are merely custodians, with a responsibility to protect them for generations to come.
-
-## The Importance of Conservation
-
-This experience reinforced the importance of the conservation work being done by places like Surwahi Social and the forest department. Every effort to protect these habitats, to create corridors for wildlife, and to mitigate human-animal conflict is a step towards ensuring that future generations can also experience this sense of awe and wonder. My safari was not just a tour; it was a life-altering lesson in the importance of coexistence.`,
-    category: 'Guest Experiences',
-    author: 'A Guest Blogger',
-    authorBio: 'A recent guest at Surwahi Social who was deeply moved by their wildlife experience.',
-    publishedAt: '2024-07-10',
-    updatedAt: '2026-03-15',
-    readingTime: 3,
-    featuredImage: {
-      url: getImageKitUrl('Website Photos/IMG_5090.JPG'),
-      alt: 'A majestic tiger in the wild',
-      caption: 'A moment of awe in the jungle'
-    },
-    tags: ['tiger', 'safari', 'wildlife', 'conservation', 'guest-experience', 'kanha'],
-    isPublished: true,
-    seoTitle: 'A Tiger Sighting That Changed My Perspective',
-    seoDescription: 'A firsthand account of a life-changing tiger sighting experience near Surwahi.'
-  }
-};
-
-const relatedPosts = [
-  {
-    id: 2,
-    title: 'Building with Mud: A Lesson in Sustainability',
-    slug: 'building-with-mud-a-lesson-in-sustainability',
-    excerpt: 'Our buildings are more than just structures; they are a testament to our philosophy of sustainable living. Discover how we use the very earth we stand on to create beautiful, comfortable, and eco-friendly spaces.',
-    image: getImageKitUrl('Surwahi Social Photos/A.jpg'),
-    category: 'Sustainability',
-    publishedAt: '2024-07-20',
-    readingTime: 6
-  },
-  {
-    id: 3,
-    title: 'A Tiger Sighting That Changed My Perspective',
-    slug: 'a-tiger-sighting-that-changed-my-perspective',
-    excerpt: 'A chance encounter with a wild tiger on a dawn safari offered me a profound lesson in the power of patience, respect for nature, and the importance of conservation.',
-    image: getImageKitUrl('Website Photos/IMG_5090.JPG'),
-    category: 'Wildlife',
-    publishedAt: '2024-07-08',
-    readingTime: 5
-  },
-  {
-    id: 1,
-    title: 'The Magic of the Monsoon Forest',
-    slug: 'the-magic-of-the-monsoon-forest',
-    excerpt: 'The monsoon breathes new life into the forest, transforming the landscape into a vibrant green and filling the air with the scent of wet earth.',
-    image: getImageKitUrl('Website Photos/IMG20231020171008.jpg'),
-    category: 'Conservation',
-    publishedAt: '2024-08-15',
-    readingTime: 4
-  }
-];
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -152,7 +28,7 @@ interface BlogPostPageProps {
 
 export async function generateMetadata({ params }: BlogPostPageProps) {
   const { slug } = await params;
-  const post = blogPosts[slug as keyof typeof blogPosts];
+  const post = await loadPost(slug);
   
   if (!post) {
     return {
@@ -175,11 +51,15 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
-  const post = blogPosts[slug as keyof typeof blogPosts];
+  const post = await loadPost(slug);
 
   if (!post) {
+    // Unpublished (draft) posts send visitors to the blog index instead of a 404
+    const draft = await prisma.article.findUnique({ where: { slug }, select: { id: true } }).catch(() => null);
+    if (draft) redirect('/blogs');
     notFound();
   }
+  const relatedPosts = (await getPublishedArticles()).filter((a) => a.slug !== post.slug).slice(0, 3).map((a) => ({ id: a.slug, title: a.title, slug: a.slug, excerpt: a.excerpt, image: a.coverUrl, category: a.category, publishedAt: a.publishedAt, readingTime: a.readingTime }));
 
   const breadcrumbs = [
     { name: 'Home', href: '/' },
@@ -316,6 +196,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </div>
 
               {/* Author Bio */}
+              {post.authorBio && (
               <div className="mt-12 pt-8 border-t border-mist-200">
                 <div className="bg-sand-50 rounded-card p-6">
                   <h3 className="font-display text-xl text-forest-900 mb-3">About the Author</h3>
@@ -330,6 +211,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   </div>
                 </div>
               </div>
+              )}
             </article>
 
             {/* Sidebar */}
@@ -444,7 +326,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             "author": {
               "@type": "Person",
               "name": post.author,
-              "description": post.authorBio,
+              "description": post.authorBio ?? undefined,
               "url": "https://surwahi.com/about/our-team"
             },
             "publisher": {

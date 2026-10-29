@@ -278,3 +278,76 @@ model IcalFeed {
 
   @@map("ical_feeds")
 }
+
+// ─── Content (phase 3) ────────────────────────────────────────────────
+
+enum PublishStatus {
+  DRAFT
+  PUBLISHED
+}
+
+model Article {
+  id             String        @id @default(uuid()) @db.Uuid
+  slug           String        @unique
+  title          String
+  excerpt        String
+  /// Markdown
+  content        String
+  category       String
+  author         String        @default("Surwahi Team")
+  authorBio      String?       @map("author_bio")
+  coverUrl       String?       @map("cover_url")
+  coverAlt       String?       @map("cover_alt")
+  tags           String[]
+  status         PublishStatus @default(DRAFT)
+  publishedAt    DateTime?     @map("published_at") @db.Date
+  seoTitle       String?       @map("seo_title")
+  seoDescription String?       @map("seo_description")
+  createdAt      DateTime      @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt      DateTime      @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([status, publishedAt])
+  @@map("articles")
+}
+
+model Faq {
+  id          String   @id @default(uuid()) @db.Uuid
+  category    String
+  question    String
+  answer      String
+  sortOrder   Int      @default(0) @map("sort_order")
+  isPublished Boolean  @default(true) @map("is_published")
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([category, sortOrder])
+  @@map("faqs")
+}
+
+/// Dated events (retreats, special workshops). Recurring workshop schedules stay on their pages.
+model Event {
+  id          String   @id @default(uuid()) @db.Uuid
+  title       String
+  summary     String
+  startDate   DateTime @map("start_date") @db.Date
+  endDate     DateTime @map("end_date") @db.Date
+  /// Page with full details, e.g. /workshops/vann-vibe
+  linkPath    String?  @map("link_path")
+  priceText   String?  @map("price_text")
+  imageUrl    String?  @map("image_url")
+  isPublished Boolean  @default(true) @map("is_published")
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([startDate])
+  @@map("events")
+}
+
+/// Small editable settings (homepage hero text, announcement bar, gallery videos). Value is JSON.
+model SiteSetting {
+  key       String   @id
+  value     Json
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@map("site_settings")
+}
