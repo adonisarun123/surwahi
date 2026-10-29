@@ -74,7 +74,7 @@ export default function RoomForm({ room, canEditRates }: { room: RoomProps; canE
           </Field>
         </div>
         {!canEditRates && <p className="text-xs text-soil-700 mt-3">Your role can&apos;t change prices.</p>}
-        <p className="text-xs text-soil-700 mt-3">Seasonal prices and date-specific rates come with the calendar.</p>
+        <p className="text-xs text-soil-700 mt-3">Standard price. Seasonal and special-date prices are set below.</p>
       </Card>
 
       <Card title="Description">

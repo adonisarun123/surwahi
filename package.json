@@ -13,7 +13,8 @@
     "postinstall": "prisma generate",
     "db:migrate": "node scripts/db-migrate.mjs",
     "db:seed": "npx tsx scripts/db-seed.ts",
-    "admin:create": "npx tsx scripts/create-admin.ts"
+    "admin:create": "npx tsx scripts/create-admin.ts",
+    "test:booking": "NODE_OPTIONS=--conditions=react-server tsx scripts/tests/booking.test.ts"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.7",

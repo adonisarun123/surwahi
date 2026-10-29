@@ -60,7 +60,7 @@ export default function BookingWidget({ className, variant = 'hero', room }: Boo
       alert(`Booking ${room.name} for ${adults} adults and ${children} children from ${checkIn} to ${checkOut}`);
     } else {
       // Handle general availability search
-      window.location.href = `/accommodations?${params.toString()}`;
+      window.location.href = `/stay?${params.toString()}`;
     }
   };
 

@@ -8,8 +8,8 @@ import type { Capability } from '@/lib/auth/permissions';
 
 const ITEMS: { href: string; label: string; icon: React.ElementType; cap?: Capability; ready: boolean }[] = [
   { href: '/admin', label: 'Dashboard', icon: Home, ready: true },
-  { href: '/admin/bookings', label: 'Bookings', icon: ClipboardList, cap: 'bookings', ready: false },
-  { href: '/admin/calendar', label: 'Calendar', icon: CalendarDays, cap: 'calendar', ready: false },
+  { href: '/admin/bookings', label: 'Bookings', icon: ClipboardList, cap: 'bookings', ready: true },
+  { href: '/admin/calendar', label: 'Calendar', icon: CalendarDays, cap: 'calendar', ready: true },
   { href: '/admin/rooms', label: 'Rooms & Rates', icon: BedDouble, cap: 'rooms', ready: true },
   { href: '/admin/photos', label: 'Photos', icon: ImageIcon, cap: 'media', ready: false },
   { href: '/admin/content', label: 'Content', icon: FileText, cap: 'content', ready: false },

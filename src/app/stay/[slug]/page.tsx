@@ -12,7 +12,7 @@ import {
     MapPin
 } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import BookingWidget from '@/components/BookingWidget';
+import RoomBookingForm from '@/components/RoomBookingForm';
 import { generateRoomMetadata } from '@/lib/seo';
 import { priceWithGstLabel, priceBasisLabel, MEAL_PLAN } from '@/lib/accommodations';
 import { getPublicRooms, getPublicRoom } from '@/lib/rooms-repo';
@@ -270,7 +270,7 @@ export default async function RoomDetailPage({ params }: RoomPageProps) {
                         {/* Booking Sidebar */}
                         <div className="lg:col-span-1">
                             <div className="sticky top-24">
-                                <BookingWidget variant="page" room={room} className="mb-6" />
+                                <RoomBookingForm room={room} className="mb-6" />
 
                                 {/* Contact Info */}
                                 <div className="bg-sand-50 rounded-card p-6">
