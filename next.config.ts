@@ -191,7 +191,7 @@ const nextConfig: NextConfig = {
       { source: '/blog/green-building-is-not-always-sustainable', destination: '/sustainability/eco-friendly-construction-practices', permanent: true },
       { source: '/blog/ssek-collaborative-artisanal-construction-folktale', destination: '/sustainability/eco-friendly-construction-practices', permanent: true },
       { source: '/blog/nature-tourism-and-ecotourism', destination: '/blogs/how-to-choose-a-genuine-eco-lodge-in-india', permanent: true },
-      { source: '/blog/difference-between-wildlife-sanctuary-wls-vs-national-park-np-in-india', destination: '/experiences/wildlife-safaris', permanent: true },
+      { source: '/blog/difference-between-wildlife-sanctuary-wls-vs-national-park-np-in-india', destination: '/kanha-national-park', permanent: true },
       { source: '/blog/major-districts-of-kanha-balaghat-and-mandla', destination: '/plan-your-visit/getting-here', permanent: true },
       { source: '/blog/a-webinar-at-iim-sirmaur', destination: '/praises/press-mentions-and-recognitions', permanent: true },
       { source: '/blog/best-homestays-of-kanha', destination: '/stay', permanent: true },
@@ -202,11 +202,12 @@ const nextConfig: NextConfig = {
       { source: '/kanha-national-park/safari-timings-and-bookings', destination: '/plan-your-visit/safari-booking-guide', permanent: true },
       { source: '/kanha-national-park/non-safari-activities-at-khatia-gate-zone-kanha', destination: '/experiences', permanent: true },
       { source: '/kanha-national-park/arriving-at-kanha-tiger-reserve-ktr-via-3-large-nearby-cities', destination: '/plan-your-visit/getting-here', permanent: true },
-      { source: '/kanha-national-park/:slug+', destination: '/plan-your-visit', permanent: true },
+      { source: '/kanha-national-park/:slug+', destination: '/kanha-national-park', permanent: true },
 
-      // Old tag archives (mostly Kanha deer species) and uncategorized posts
-      { source: '/tag/:slug*', destination: '/experiences/wildlife-safaris', permanent: true },
-      { source: '/types-of-deer-antelopes-of-kanha', destination: '/experiences/wildlife-safaris', permanent: true },
+      // Old tag archives (mostly Kanha deer species) and uncategorized posts. The Kanha National Park
+      // guide covers barasingha, chital and the other deer; repoint to the barasingha post once it's published.
+      { source: '/tag/:slug*', destination: '/kanha-national-park', permanent: true },
+      { source: '/types-of-deer-antelopes-of-kanha', destination: '/kanha-national-park', permanent: true },
       { source: '/uncategorized/tree-life-of-surwahi-social-kanha', destination: '/sustainability/tree-census-and-biodiversity-reports', permanent: true },
       { source: '/uncategorized/:slug*', destination: '/blogs', permanent: true },
 
