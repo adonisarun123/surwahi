@@ -16,10 +16,10 @@ export const kanhaGuidePosts: SeedPost[] = [
     coverUrl: img('Website Photos/DJI_20250819094744_0109_D.JPG'),
     coverAlt: 'Aerial view of forest and farmland near Kanha Tiger Reserve',
     tags: ['Kanha safari zones', 'Kanha core zone', 'Kanha buffer zone', 'Khatia gate', 'Mukki gate', 'Kanha safari booking'],
-    seoTitle: 'Kanha Safari Zones Explained: Core, Buffer & Which Gate | 2026',
-    seoDescription: 'Kanha has four core zones (Kanha, Kisli, Mukki, Sarhi) and four buffer zones (Khatia, Khapa, Sijhora, Phen). Which gate serves each, and how to choose.',
+    seoTitle: 'Kanha Safari Zones: Core, Buffer & Which Gate to Use',
+    seoDescription: 'Kanha has 4 core zones (Kanha, Kisli, Mukki, Sarhi), 3 buffer zones and Phen sanctuary. Which gate serves each zone, how permits work, how to choose.',
     content: `
-If you have started looking at Kanha safari bookings, you have probably met a confusing mix of names: Kanha, Kisli, Khatia, Mukki, Khapa, Sarhi, Sijhora, Phen. Some are zones, some are gates, and one name, Kanha, is a zone, a village, a national park and a tiger reserve all at once.
+If you have started looking at Kanha safari zones and bookings, you have probably met a confusing mix of names: Kanha, Kisli, Khatia, Mukki, Khapa, Sarhi, Sijhora, Phen. Some are zones, some are gates, and one name, Kanha, is a zone, a village, a national park and a tiger reserve all at once.
 
 This guide untangles it. By the end you will know how the reserve is organised, which gate leads to which zone, how core and buffer safaris differ, and how to choose zones that make sense for where you are staying. We have written it from the point of view of our guests at Surwahi, about 20 km from Khatia gate, but the logic applies wherever you stay.
 
@@ -39,13 +39,13 @@ The core is the strictly protected heart of the tiger reserve. Villages were rel
 
 ### Kanha zone
 
-The zone that gave the park its name and its reputation. Kanha zone holds the famous **Kanha meadows**, wide grasslands where herds of chital and the rare hard-ground barasingha graze in the open, and where tigers are regularly seen crossing or resting at the edges. It is central, so it can be reached from more than one gate, but most visitors enter through **Khatia**.
+The zone that gave the park its name and its reputation. Kanha zone holds the famous **Kanha meadows**, wide grasslands where herds of chital and the rare hard-ground barasingha graze in the open, and where tigers are regularly seen crossing or resting at the edges. It is central, so it can be reached from more than one gate: most visitors enter through **Khatia**, and Mukki gate also allows entry to Kanha zone, but only on morning safaris.
 
-Why choose it: the classic Kanha landscape, excellent for barasingha, and consistently good for tigers.
+Why choose it: the classic Kanha landscape, excellent for [barasingha](/blogs/barasingha-kanha-hard-ground-swamp-deer), and consistently good for tigers.
 
 ### Kisli zone
 
-The **western** core zone, entered from **Khatia gate**. Kisli mixes dense sal forest with smaller meadows and stream beds. For our guests it is the closest core zone, which means a slightly later alarm clock on a morning safari.
+The **western** core zone, entered mainly from **Khatia gate** (Sarhi gate also allows entry, for morning safaris only). Kisli mixes dense sal forest with smaller meadows and stream beds. For our guests it is the closest core zone, which means a slightly later alarm clock on a morning safari.
 
 Why choose it: proximity to the Khatia side, varied habitat, and often fewer vehicles than Kanha zone.
 
@@ -66,9 +66,9 @@ Why choose it: solitude.
 The buffer is the belt of forest and village land that surrounds the core. People live and farm here, and wildlife moves freely between the buffer and the core. Buffer zones are generally **easier to book at short notice** and, in our experience, are frequently excellent for leopard, sloth bear, gaur, dhole and birds. Tigers use the buffer too, and sightings there are far from rare.
 
 - **Khatia buffer** - Entered from Khatia gate, the buffer zone closest to Surwahi. A good choice when core permits are sold out.
-- **Khapa buffer** - Entered via the Mukki side.
-- **Sijhora buffer** - Entered via the Sarhi side.
-- **Phen** - An adjoining wildlife sanctuary, sometimes called Kanha's satellite core, with its own entry arrangements.
+- **Khapa buffer** - Entered from Mukki gate.
+- **Sijhora buffer** - Entered from Sarhi gate.
+- **Phen** - An adjoining wildlife sanctuary that serves as Kanha's satellite core, entered via the Ghurri barrier on the Mukki side.
 
 If someone tells you a buffer safari is second best, ask them how many leopards they saw last season. A buffer drive is often more relaxed, with fewer vehicles, and the guides who work it know it intimately.
 
@@ -77,10 +77,10 @@ If someone tells you a buffer safari is second best, ask them how many leopards 
 | Gate | Core zones | Buffer zones |
 |---|---|---|
 | Khatia | Kanha, Kisli | Khatia |
-| Mukki | Mukki (Kanha zone is also reachable from this side) | Khapa |
-| Sarhi | Sarhi | Sijhora |
+| Mukki | Mukki, plus Kanha zone (morning safaris only) | Khapa, Phen (via Ghurri barrier) |
+| Sarhi | Sarhi, plus Kisli zone (morning safaris only) | Sijhora |
 
-Exact access arrangements can change from season to season, so we always confirm the current rules when we book permits for our guests.
+This follows the MP Forest Department's own brochure for the reserve, but access arrangements can change from season to season, so we always confirm the current rules when we book permits for our guests.
 
 ## How permits work
 
@@ -108,11 +108,33 @@ Here is how we usually plan safaris for guests staying at Surwahi:
 
 Morning safaris are longer and begin in the cool of dawn, when animals are most active and the light through the sal trees is beautiful. Afternoon safaris are shorter and often warmer, but they can be excellent in the hotter months, when animals move towards water late in the day. If you can do only one, choose a morning. If you can do several, do both.
 
+## Frequently asked questions
+
+### How many safari zones are there in Kanha National Park?
+
+Eight. Kanha Tiger Reserve has four core zones (Kanha, Kisli, Mukki and Sarhi), three buffer zones (Khatia, Khapa and Sijhora) and the adjoining Phen sanctuary. Visitors enter through three gates: Khatia, Mukki and Sarhi.
+
+### Which is the best zone in Kanha for tiger sightings?
+
+There is no single best zone. Kanha, Kisli and Mukki all have strong tiger records, and sightings shift as tigers move territory and cubs grow up. Mixing two or three zones over several safaris gives you better odds than booking the same zone every time.
+
+### Which Kanha gate is closest to Surwahi?
+
+Khatia gate, about 20 km away. It serves the Kanha and Kisli core zones and the Khatia buffer. Mukki gate is roughly 35 km from Surwahi.
+
+### Is a buffer zone safari in Kanha worth it?
+
+Yes. Buffer zones are easier to book at short notice, usually have fewer vehicles, and are often good for leopard, sloth bear, dhole and birds. Tigers use the buffer as well.
+
+### Are Kanha's core zones open all year?
+
+No. Core zones close for the monsoon from 1 July until the October reopening, and they are closed on Wednesday afternoons. Buffer zones generally stay open longer, but individual routes can close after heavy rain, so check before you book.
+
 ## Bringing it together
 
 Kanha is big, and the zone system exists to protect it. Once you understand that permits are tied to zones, and zones to gates, the planning becomes simple: choose a base, choose the zones it serves best, mix core and buffer, and book early.
 
-If you would like us to do the planning, our [stay and safari packages](/kanha-safari-packages) include permit booking, jeep and guide. You can also read our full [Kanha National Park guide](/kanha-national-park) or the practical [safari booking guide](/plan-your-visit/safari-booking-guide).
+If you would like us to do the planning, our [stay and safari packages](/kanha-safari-packages) include permit booking, jeep and guide. You can also read our full [Kanha National Park guide](/kanha-national-park) or the practical [safari booking guide](/plan-your-visit/safari-booking-guide). Before you go, check our [season-by-season Kanha packing list](/blogs/what-to-pack-for-kanha-safari).
 `,
   },
   {
@@ -124,8 +146,8 @@ If you would like us to do the planning, our [stay and safari packages](/kanha-s
     coverUrl: img('Website Photos/IMG20231020170019.jpg'),
     coverAlt: 'Mud-built cottage under tall trees at Surwahi Social Ecoestate near Kanha',
     tags: ['barasingha', 'hard ground swamp deer', 'Kanha wildlife', 'Kanha conservation', 'Madhya Pradesh state animal'],
-    seoTitle: 'Barasingha in Kanha: The Hard-Ground Swamp Deer Comeback',
-    seoDescription: 'Kanha saved the hard-ground barasingha from about 66 animals around 1970 to roughly 1,100 today. The story, the science, and where to see barasingha on safari.',
+    seoTitle: 'Barasingha in Kanha: The Hard-Ground Swamp Deer Story',
+    seoDescription: 'Kanha brought the hard-ground barasingha back from just 66 animals in the late 1960s to about 1,100 today. How it was done, and where to see them on safari.',
     content: `
 Ask most people why they come to Kanha and the answer is tigers. Ask the people who know Kanha well, and many will add a second animal: a large, graceful deer with a crown of many-tined antlers, grazing knee-deep in the meadows at dawn. This is the **barasingha**, and its survival is one of the great conservation stories of Asia.
 
@@ -139,7 +161,7 @@ There are three recognised populations of swamp deer, and Kanha's is distinct. I
 
 The barasingha was once common across central India. As forests were cleared for farming, as hunting went unchecked and as grazing livestock spread disease and competed for grass, numbers collapsed.
 
-Figures cited by the Kanha Tiger Reserve management, and reported widely in the Indian press, tell the story starkly. There were an estimated few thousand in the late 1930s and 551 in 1953. By around 1970, just **66 animals** remained in Kanha. Sources give slightly different dates for the low point, between the late 1960s and 1970, but they agree on the number. For a while, the hard-ground barasingha was one bad season away from extinction.
+Figures cited by the Kanha Tiger Reserve management, and reported widely in the Indian press, tell the story starkly. A census in 1938 counted roughly 3,000 barasingha in Kanha. By 1953 the estimate had fallen to 551. By around 1970, just **66 animals** remained in Kanha. Sources give slightly different dates for the low point, between the late 1960s and 1970, but they agree on the number. For a while, the hard-ground barasingha was one bad season away from extinction.
 
 ## How Kanha brought it back
 
@@ -161,7 +183,7 @@ Groups have been moved to **Satpura Tiger Reserve**, to **Van Vihar National Par
 
 ## Where and when to see barasingha in Kanha
 
-Barasingha are most closely associated with the **Kanha zone** and its famous meadows, reached through Khatia gate, which is the closest gate to Surwahi. They also occur in other parts of the reserve, and your guide will know where herds have been seen recently.
+Barasingha are most closely associated with the **Kanha zone** and its famous meadows, reached through Khatia gate, which is the closest gate to Surwahi. Our guide to [Kanha's safari zones](/blogs/kanha-safari-zones-explained) explains which permits to book. They also occur in other parts of the reserve, and your guide will know where herds have been seen recently.
 
 A few tips:
 
@@ -201,13 +223,35 @@ The barasingha recovery depended on undisturbed grasslands, so please help keep 
 - Do not use flash, call out, or play recorded sounds to get a reaction.
 - Support the people who protect the park. Hire local guides, stay with locally run businesses and buy local crafts.
 
+## Frequently asked questions
+
+### Where can I see barasingha in Kanha?
+
+Mostly on the open meadows of Kanha zone, the central core zone reached through Khatia gate. Herds also use other parts of the reserve, and guides follow where they have been seen recently. Morning safaris are usually best.
+
+### Why is Kanha's barasingha called the hard-ground swamp deer?
+
+Other swamp deer populations live in wet, marshy grasslands in northern India and Nepal. Kanha's subspecies, Rucervus duvaucelii branderi, is adapted to firmer ground, with harder hooves suited to open sal forest and grassy meadows.
+
+### How many barasingha are there in Kanha today?
+
+Recent reports quoting reserve officials put the population at roughly 1,100, up from about 66 animals at the low point in the late 1960s. Counts vary between surveys, so treat any single figure as approximate.
+
+### Is the barasingha the state animal of Madhya Pradesh?
+
+Yes. The hard-ground barasingha is the state animal of Madhya Pradesh, and Kanha is where it survived.
+
+### Can you see barasingha outside Kanha?
+
+Small populations have been started by moving animals from Kanha to Satpura Tiger Reserve, Van Vihar National Park in Bhopal and Bandhavgarh Tiger Reserve. Kanha is still by far the best place to see them.
+
 ## Why it matters
 
 The tiger gets the headlines, but tigers need prey, and prey needs healthy grassland. The barasingha story shows what protected areas can do when they are managed patiently and well. It also shows that conservation in India is never only about animals: it involves foresters, scientists, villagers who moved, and communities who still live on the edges of the park.
 
 At Surwahi we try to play our small part in that bigger picture. Since 2015 our ten acres near Kanha have regenerated from fewer than 300 trees to more than 6,000, with 59 bird species recorded and leopard, sambar and wild boar visiting our rainwater pond. Read more about our [tree census and biodiversity work](/sustainability/tree-census-and-biodiversity-reports), or plan a visit with our [Kanha safari packages](/kanha-safari-packages).
 
-For a wider introduction to the park, see our [Kanha National Park guide](/kanha-national-park).
+For a wider introduction to the park, see our [Kanha National Park guide](/kanha-national-park), and pack for the season with our [Kanha safari packing list](/blogs/what-to-pack-for-kanha-safari).
 `,
   },
   {
@@ -219,8 +263,8 @@ For a wider introduction to the park, see our [Kanha National Park guide](/kanha
     coverUrl: img('Website Photos/DJI_20250819094705_0108_D.JPG'),
     coverAlt: 'Aerial view of the forested estate at Surwahi near Kanha',
     tags: ['Kanha packing list', 'what to wear on safari India', 'tiger safari packing', 'Kanha winter safari', 'Kanha summer safari'],
-    seoTitle: 'What to Pack for a Kanha Safari (Winter, Summer, Monsoon)',
-    seoDescription: 'A practical Kanha safari packing list by season: layers for freezing winter mornings, sun protection for 40°C summers, safari colours, camera gear and documents.',
+    seoTitle: 'What to Pack for a Kanha Safari: Season-by-Season List',
+    seoDescription: 'Kanha safari packing list by season: layers for near-freezing winter jeep rides, sun protection for 40°C summers, safari colours, camera kit and ID.',
     content: `
 First-time visitors to Kanha are often surprised by two things: how cold a winter safari is, and how hot a May afternoon gets. Kanha sits in the highlands of central India, and its weather swings from near-freezing dawns to fierce dry-season afternoons. Packing for it is easy once you know what to expect.
 
@@ -299,7 +343,7 @@ Flash photography of wildlife is not appropriate, and drones are not permitted i
 
 ## Documents and money
 
-- **Your original photo ID.** Safari permits are linked to the ID used to book them. Indian nationals carry the same ID, and **foreign nationals must carry their passport**. It is checked at the gate.
+- **Your original photo ID.** Safari permits are linked to the ID used to book them. Indian nationals carry the same ID, and **foreign nationals must carry their passport**. It is checked at the gate. Our [guide to Kanha's safari zones](/blogs/kanha-safari-zones-explained) explains how permits work.
 - Visa and passport copies for international travellers. Indian law requires accommodation providers to record foreign guests' details at check-in.
 - Some cash in small notes for tips and small purchases. ATMs are scarce in rural areas.
 - Travel insurance details.
@@ -353,6 +397,28 @@ Families are very welcome on safari, but children feel the cold, the heat and th
 
 Check the park's current age rules for core zones before you book; we are happy to confirm them for you.
 
+## Frequently asked questions
+
+### What should I wear on a Kanha safari in winter?
+
+Layers. For a dawn drive between December and February, wear a thermal base layer, a long-sleeved shirt, a fleece and a warm windproof jacket, with a hat, gloves and closed shoes. Peel layers off as the sun comes up.
+
+### How cold does a Kanha safari get?
+
+Winter nights at Surwahi can drop to around 4°C, and an open jeep moving at dawn feels colder than the thermometer suggests. By late morning it is usually pleasant.
+
+### What colours should I avoid on a Kanha safari?
+
+Avoid bright colours, neon and stark white, which stand out in the forest. Olive, khaki, beige, brown and muted greens are ideal. Leave camouflage patterns at home.
+
+### Do foreign tourists need a passport for a Kanha safari?
+
+Yes. Safari permits are linked to the ID used when booking, and foreign nationals must carry their original passport, which is checked at the gate.
+
+### Can I fly a drone in Kanha?
+
+No. Drones are not permitted in the reserve.
+
 ## Quick checklist
 
 - Layered clothing in neutral colours, weighted to the season
@@ -362,7 +428,7 @@ Check the park's current age rules for core zones before you book; we are happy 
 - Refillable bottle, repellent, personal medicines
 - Headlamp and power bank
 
-Packed and ready? Plan your trip with our [Kanha safari packages](/kanha-safari-packages), read our [guide for international travellers](/plan-your-visit/international-travellers), or check the [best time to visit Kanha](/plan-your-visit/best-time-to-visit).
+Packed and ready? Plan your trip with our [Kanha safari packages](/kanha-safari-packages), read our [guide for international travellers](/plan-your-visit/international-travellers), or check the [best time to visit Kanha](/plan-your-visit/best-time-to-visit). First tiger safari? Read our [first tiger safari in India guide](/blogs/first-tiger-safari-in-india-guide).
 `,
   },
   {
@@ -374,8 +440,8 @@ Packed and ready? Plan your trip with our [Kanha safari packages](/kanha-safari-
     coverUrl: img('Website Photos/IMG20231020171008.jpg'),
     coverAlt: 'Path through trees past terracotta-roofed rooms at Surwahi in central India',
     tags: ['Jungle Book Kanha', 'Kipling Kanha', 'Mowgli land', 'Seoni Jungle Book', 'Kanha history', 'central India forests'],
-    seoTitle: 'Is Kanha the Real Jungle Book? The Kipling Connection Explained',
-    seoDescription: 'Kipling set The Jungle Book in the Seonee hills of central India but never went there. How Kanha and Pench became linked to Mowgli, and what you can still see today.',
+    seoTitle: 'Is Kanha the Real Jungle Book? The Kipling Connection',
+    seoDescription: 'Kipling set The Jungle Book in the Seoni hills but never went there. How Kanha and Pench became linked to Mowgli, and the real animals you can see today.',
     content: `
 "It was seven o'clock of a very warm evening in the Seeonee hills..." So begins the first of Rudyard Kipling's Jungle Book stories, published in 1894. More than a century later, the stories of Mowgli, Baloo, Bagheera and Shere Khan are known all over the world. Many travellers who come to central India arrive with one question: is this the real Jungle Book?
 
@@ -385,7 +451,7 @@ The honest answer is more interesting than a simple yes or no.
 
 Rudyard Kipling was born in Bombay (now Mumbai) in 1865 and spent his early childhood and his early working years in India. But he **never visited the Seoni hills** where he set Mowgli's jungle, and he wrote the Jungle Book stories while living in Vermont, in the United States.
 
-According to the Kipling Society and other historians, Kipling himself admitted in a letter that he had never been to Seoni. He built his setting from other people's accounts. The most important was **Robert Armitage Sterndale**, a British administrator and naturalist who served in the Central Provinces and published *Seonee, or Camp Life on the Satpura Range* in 1877. Sterndale's descriptions of the Seoni district, the Wainganga river, the wildlife and the villages gave Kipling the raw material, and possibly even his spelling, "Seeonee".
+According to the Kipling Society, his official biographer, Charles Carrington, confirmed that Kipling had no first-hand knowledge of Seoni, and Kipling is reported to have told one correspondent that he never went there. He built his setting from other people's accounts. The most important was **Robert Armitage Sterndale**, a British administrator and naturalist who served in the Central Provinces and published *Seonee, or Camp Life on the Satpura Range* in 1877. Sterndale's descriptions of the Seoni district, the Wainganga river, the wildlife and the villages gave Kipling the raw material, and possibly even his spelling, "Seeonee".
 
 Kipling also drew on friends who had travelled in the region, on natural history books and photographs, and on the stories of India he had grown up with. His jungle is part real landscape and part imagination.
 
@@ -412,7 +478,7 @@ Read the stories again before your trip and you will start to recognise things.
 
 The Jungle Book is also a story about the edge between village and forest, and about a child who belongs to both. That edge is still the reality of life around Kanha.
 
-The buffer zone around the reserve is home to many villages, including Gond and Baiga communities whose lives have been bound up with the forest for generations. Some villages were relocated out of the core of the reserve as it was protected. Our own family suites, Jholar and Kariwah, are named after two of them. People still farm, gather forest produce, herd cattle and live alongside leopards and tigers, with all the difficulty that involves.
+The buffer zone around the reserve is home to many villages, including [Gond and Baiga communities](/blogs/gond-and-baiga-culture-around-kanha) whose lives have been bound up with the forest for generations. Some villages were relocated out of the core of the reserve as it was protected. Our own family suites, Jholar and Kariwah, are named after two of them. People still farm, gather forest produce, herd cattle and live alongside leopards and tigers, with all the difficulty that involves.
 
 If the Jungle Book is part of why you come, take time to see that side too: a [village walk](/experiences/cultural-immersion), a meal of local millets cooked the traditional way at a [tribal cooking session](/experiences/live-tribal-cooking-experiences), or an afternoon with a Gond artist. It brings the stories down to earth in the best possible way.
 
@@ -431,9 +497,27 @@ The Jungle Book is a product of its time, and it reflects the colonial attitudes
 If you want to follow the Kipling trail, here is a suggestion:
 
 - **Read first.** The original Mowgli stories are short and readable, and very different from the films. Kipling's "Red Dog" from *The Second Jungle Book* is worth reading before you look for dhole.
-- **Spend at least three nights** so you can take four or more safaris across core and buffer zones, which gives you the best chance of meeting Shere Khan, Bagheera's spotted cousins, Baloo and the rest.
+- **Spend at least three nights** so you can take four or more safaris across [core and buffer zones](/blogs/kanha-safari-zones-explained), which gives you the best chance of meeting Shere Khan, Bagheera's spotted cousins, Baloo and the rest.
 - **Walk the forest edge.** At Surwahi, a guided walk through our regenerated woodland at dusk, with langurs calling and birds settling, feels closer to Kipling than any jeep.
 - **Consider pairing Kanha with Pench.** If the Seoni connection matters to you, combine the two parks. Our [Kanha vs Bandhavgarh vs Pench](/blogs/kanha-vs-bandhavgarh-vs-pench) guide explains the differences.
+
+## Frequently asked questions
+
+### Is Kanha National Park the setting of The Jungle Book?
+
+Not exactly. Kipling set the stories in the Seoni hills of central India, closest to today's Pench Tiger Reserve. Kanha is part of the same great central Indian forest, and it is one of the best places to see the kind of jungle and wildlife Kipling described.
+
+### Did Rudyard Kipling ever visit Kanha or Seoni?
+
+No. Kipling lived and worked in India but never visited Seoni, and he wrote the Jungle Book stories in Vermont. He drew on Robert Armitage Sterndale's 1877 book about the Seoni district and on friends' accounts.
+
+### Should I visit Kanha or Pench for the Jungle Book connection?
+
+Pench is closest to Seoni, the town named in the stories. Kanha is famous for its meadows, barasingha and tigers. If the Kipling link matters to you, combine both parks on one trip.
+
+### Which Jungle Book animals can you see in Kanha?
+
+Tigers (Shere Khan), leopards (Bagheera was a black leopard), sloth bears (the real bear of central India), langurs (the Bandar-log) and dhole (the red dogs). Wolves and pythons live in the region but are rarely seen.
 
 ## The real magic
 
@@ -451,7 +535,7 @@ Start planning with our [Kanha National Park guide](/kanha-national-park), see o
     coverUrl: img('Surwahi Social Photos/Jholar_Corridor_Wall_Painting.jpg'),
     coverAlt: 'Gond-style wall painting in the corridor of the Jholar suite at Surwahi',
     tags: ['Gond art', 'Baiga tribe', 'Kanha culture', 'tribal tourism Madhya Pradesh', 'responsible travel India', 'kodo kutki'],
-    seoTitle: 'Gond & Baiga Culture near Kanha: Art, Food & Village Visits',
+    seoTitle: 'Gond & Baiga Culture near Kanha: Art, Food, Villages',
     seoDescription: 'Meet the Gond and Baiga communities around Kanha Tiger Reserve: Gond painting, millet food, forest knowledge, and how to visit villages respectfully.',
     content: `
 Most people come to Kanha for the tiger. Many leave talking just as much about the people: a Gond painter turning a story into a tree full of birds, a lunch of millet and forest greens cooked over wood, a village woman explaining which leaf soothes a scorpion sting. The forests of Kanha have never been empty wilderness. They are a landscape shaped over centuries by the communities who live in and around them.
@@ -513,6 +597,28 @@ If you would like to experience village life around Kanha, a few simple principl
 6. **Listen more than you talk.** Ask about farming, festivals, food and forests. Most people are proud to share, and you will learn far more than any guidebook can teach.
 7. **Remember that you are a guest.** Village schedules revolve around fields, cattle and family, not tourists.
 
+## Frequently asked questions
+
+### Who are the Baiga?
+
+The Baiga are an Adivasi community living mainly in the Mandla, Dindori and Balaghat districts of Madhya Pradesh and in neighbouring Chhattisgarh. The Government of India classifies them as a Particularly Vulnerable Tribal Group. They are known for their deep knowledge of forest plants and healing.
+
+### What is Gond art?
+
+A style of painting built from dots, dashes and fine lines that shows trees, animals and stories. It grew out of wall and floor decoration in Gond homes, and Pardhan Gond artists such as Jangarh Singh Shyam took it onto paper and canvas.
+
+### Can tourists visit tribal villages near Kanha?
+
+Yes, ideally with a host from the community. Ask before taking photos, dress modestly, buy crafts directly from the people who make them, and do not hand out money or sweets to children.
+
+### What are kodo and kutki?
+
+Hardy millets that grow on poor soil with little water and have fed central India for generations. They are a staple of local cooking around Kanha, and our kitchen at Surwahi is named after them.
+
+### Where can I learn Gond painting near Kanha?
+
+At Surwahi, Gond artist Sanjay Pancheshwar teaches Gond art workshops for guests.
+
 ## Experiences at Surwahi
 
 Our approach to cultural experiences is simple: the people who live here lead them. Options include:
@@ -525,7 +631,7 @@ Our approach to cultural experiences is simple: the people who live here lead th
 
 They fit easily between safaris, and an unhurried afternoon in the village is a good counterweight to early-morning drives.
 
-Plan your visit with our [sample Kanha itineraries](/plan-your-visit/itineraries), or read [our story](/about/our-story) to learn how Surwahi grew alongside its village.
+Plan your visit with our [sample Kanha itineraries](/plan-your-visit/itineraries), or read [our story](/about/our-story) to learn how Surwahi grew alongside its village. If the forest's stories drew you here, read [is Kanha the real Jungle Book?](/blogs/is-kanha-the-real-jungle-book)
 `,
   },
 ];
