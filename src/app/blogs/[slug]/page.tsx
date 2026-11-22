@@ -4,12 +4,24 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Calendar, Clock, User, Tag, ArrowLeft, ArrowRight } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import { generateBlogMetadata, generateBlogPostSchema } from '@/lib/seo';
+import { generateBlogMetadata, generateBlogPostSchema, generateFAQSchema } from '@/lib/seo';
 import Prose from '@/components/Prose';
 import ShareButton from '@/components/ShareButton';
 import { getArticle, getPublishedArticles } from '@/lib/content-repo';
 
 export const revalidate = 3600;
+
+// Pull Q&A pairs out of a "## Frequently asked questions" section (### question + answer paragraph) for FAQPage schema.
+function extractFaqs(md: string): { question: string; answer: string }[] {
+  const after = md.split(/^## Frequently asked questions\s*$/m)[1];
+  if (!after) return [];
+  const section = after.split(/^## /m)[0];
+  return section.split(/^### /m).slice(1).map((block) => {
+    const [q, ...rest] = block.split('\n');
+    const answer = rest.join(' ').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').replace(/\*+/g, '').replace(/\s+/g, ' ').trim();
+    return { question: q.trim(), answer };
+  }).filter((f) => f.question && f.answer);
+}
 
 export async function generateStaticParams() {
   return (await getPublishedArticles()).map((a) => ({ slug: a.slug }));
@@ -307,6 +319,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           })
         }}
       />
+      {extractFaqs(post.content).length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(extractFaqs(post.content))) }}
+        />
+      )}
     </div>
   );
 }
