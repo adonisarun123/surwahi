@@ -24,7 +24,7 @@ export default function WhatsAppButton() {
 
     return (
         <a
-            href="https://wa.me/91XXXXXXXXXX" // Replace with actual number
+            href={`https://wa.me/917795207779?text=${encodeURIComponent("Hi Surwahi, I'd like to check availability for a stay near Kanha.")}`}
             target="_blank"
             rel="noopener noreferrer"
             className="fixed bottom-24 right-4 z-40 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 animate-bounce-subtle"

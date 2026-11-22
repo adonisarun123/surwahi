@@ -43,9 +43,9 @@ const planningResources = [
     },
     {
         title: 'Curated Itineraries',
-        description: 'Weekend escapades, 5-day retreats & festive plans.',
+        description: '2, 3 & 4-night Kanha plans, monsoon stays and India tiger circuits.',
         icon: Route,
-        href: '/plan-your-visit',
+        href: '/plan-your-visit/itineraries',
         color: 'text-purple-500 bg-purple-50',
     },
 ];

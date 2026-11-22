@@ -126,7 +126,7 @@ const nextConfig: NextConfig = {
       // ═══ Plan Your Visit (absorbing orphaned pages) ═══
       {
         source: "/itineraries",
-        destination: "/plan-your-visit",
+        destination: "/plan-your-visit/itineraries",
         permanent: true,
       },
       {
@@ -134,9 +134,10 @@ const nextConfig: NextConfig = {
         destination: "/plan-your-visit/getting-here",
         permanent: true,
       },
+      // /kanha-national-park is now a real pillar page (2026-11-22) - redirect removed.
       {
-        source: "/kanha-national-park",
-        destination: "/plan-your-visit/getting-here",
+        source: "/plan-your-visit/curated-itineraries",
+        destination: "/plan-your-visit/itineraries",
         permanent: true,
       },
 

@@ -3,7 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import { generatePageMetadata } from '@/lib/seo';
+import { generatePageMetadata, defaultMeta } from '@/lib/seo';
+import Prose from '@/components/Prose';
+import JsonLd from '@/components/schema/JsonLd';
 import { knowledgeArticles } from '@/lib/knowledge-hub';
 import { KnowledgeArticle } from '@/types';
 
@@ -17,7 +19,7 @@ export async function generateMetadata({ params }: ArticlePageProps) {
   if (!article) {
     return {};
   }
-  return generatePageMetadata(article.title, article.excerpt, `/knowledge-hub/${article.slug}`);
+  return generatePageMetadata(article.title, article.excerpt, `/knowledge-hub/${article.slug}`, article.imageUrl);
 }
 
 export default async function KnowledgeArticlePage({ params }: ArticlePageProps) {
@@ -30,7 +32,7 @@ export default async function KnowledgeArticlePage({ params }: ArticlePageProps)
 
   const breadcrumbs = [
     { name: 'Home', href: '/' },
-    { name: 'Articles', href: '/blogs' },
+    { name: 'Knowledge Hub', href: '/knowledge-hub' },
     { name: article.title, href: `/knowledge-hub/${article.slug}` }
   ];
 
@@ -40,11 +42,11 @@ export default async function KnowledgeArticlePage({ params }: ArticlePageProps)
         <div className="flex items-center justify-between">
           <Breadcrumbs customBreadcrumbs={breadcrumbs} />
           <Link
-            href="/blogs"
+            href="/knowledge-hub"
             className="flex items-center gap-2 text-moss-500 hover:text-forest-700 transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to Articles
+            Back to Knowledge Hub
           </Link>
         </div>
       </div>
@@ -72,26 +74,23 @@ export default async function KnowledgeArticlePage({ params }: ArticlePageProps)
       <section className="py-8">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <div className="prose prose-lg max-w-none">
-              {article.content.split('## ').map((section: string, index: number) => {
-                if (!section.trim()) return null;
-                const lines = section.trim().split('\n');
-                const heading = lines.shift()?.trim();
-                const content = lines.join('\n').trim();
-
-                return (
-                  <div key={index} className="mb-12">
-                    <h2 className="font-display text-2xl text-forest-900 mt-12 mb-6 first:mt-0">
-                      {heading}
-                    </h2>
-                    <div className="text-ink-900 leading-relaxed" dangerouslySetInnerHTML={{ __html: content.replace(/\n/g, '<br />').replace(/- /g, '\u2022 ').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
-                  </div>
-                );
-              })}
-            </div>
+            <Prose md={article.content.replace(/^ {6}/gm, '')} />
           </div>
         </div>
       </section>
+      <JsonLd schema={[
+        {
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: article.title,
+          description: article.excerpt,
+          image: article.imageUrl,
+          inLanguage: 'en',
+          author: { '@type': 'Organization', name: defaultMeta.siteName, url: defaultMeta.url },
+          publisher: { '@id': `${defaultMeta.url}/#org` },
+          mainEntityOfPage: `${defaultMeta.url}/knowledge-hub/${article.slug}`,
+        },
+      ]} />
     </div>
   );
 }
