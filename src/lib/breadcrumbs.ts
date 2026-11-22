@@ -26,6 +26,8 @@ export function pathToBreadcrumbs(pathname: string): Crumb[] {
       'how-to-reach': 'How to Reach',
       'sustainability': 'Sustainability',
       'itineraries': 'Itineraries',
+      'where-to-stay-in-kanha': 'Where to Stay in Kanha',
+      'plan-your-visit': 'Plan Your Visit',
       'gallery': 'Gallery',
       'blog': 'Blog',
       'contact': 'Contact',

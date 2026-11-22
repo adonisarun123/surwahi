@@ -1,15 +1,45 @@
 import Breadcrumbs from '@/components/Breadcrumbs';
 import PageHero from '@/components/PageHero';
-import { generatePageMetadata } from '@/lib/seo';
+import { generatePageMetadata, generateFAQSchema } from '@/lib/seo';
 import Link from 'next/link';
 import { Info } from 'lucide-react';
+import JsonLd from '@/components/schema/JsonLd';
+import FAQList from '@/components/FAQList';
+
+const safariFaqs = [
+    {
+        question: 'Which Kanha safari gate is closest to Surwahi?',
+        answer: 'Khatia gate, about 20 km by road from Surwahi. From Khatia you can enter the Kanha and Kisli core zones and the Khatia buffer zone. Mukki gate is roughly 35 km away and serves the Mukki core zone and the Khapa buffer.',
+    },
+    {
+        question: 'What is the difference between core and buffer zone safaris in Kanha?',
+        answer: 'Core zones (Kanha, Kisli, Mukki and Sarhi) are the heart of the tiger reserve and have strictly limited vehicle permits, so they sell out first in peak season. Buffer zones (Khatia, Khapa, Sijhora and Phen) surround the core, are easier to book at short notice and often give good sightings of leopard, sloth bear, gaur and birds.',
+    },
+    {
+        question: 'How far in advance should I book a Kanha safari?',
+        answer: 'For core zones between November and May, book as early as your dates are fixed, as permits are released in advance on the MP Forest Department portal and popular dates fill quickly. Buffer zones can often be arranged closer to the date. Tell us your dates when you book your stay and we will advise on availability.',
+    },
+    {
+        question: 'Can Surwahi book my safari permits?',
+        answer: 'Yes. We arrange Kanha safari permits, the jeep and the forest guide for our in-house guests. We confirm the full permit, vehicle and guide cost before booking anything. Please share your dates at least a week ahead, and earlier in peak season.',
+    },
+    {
+        question: 'Do foreign nationals need anything different to book a Kanha safari?',
+        answer: 'Foreign nationals pay a different permit fee from Indian citizens and must carry the passport whose details were used to book the permit; it is checked at the gate. Send us the passport details of each traveller when we book your permits.',
+    },
+    {
+        question: 'Is Kanha National Park open all year?',
+        answer: 'No. The core zones close for the monsoon, roughly from July to mid-October. Some buffer zones may remain open, and Surwahi itself stays open year-round with estate walks, farm activities and workshops. Check the exact opening dates with us for your travel year, as the Forest Department sets them annually.',
+    },
+];
 
 export const metadata = generatePageMetadata(
     'Kanha Safari Booking Guide | Surwahi Social Ecoestate',
     'Complete guide to booking safaris in Kanha National Park. Zones, timings, costs, and tips for the best tiger sightings.',
     '/plan-your-visit/safari-booking-guide',
     undefined,
-    ['Kanha Safari Booking', 'Safari Zones Kanha', 'Tiger Safari India', 'Kanha Safari Cost']
+    ['Kanha Safari Booking', 'Safari Zones Kanha', 'Tiger Safari India', 'Kanha Safari Cost'],
+    true
 );
 
 export default function SafariBookingGuidePage() {
@@ -31,19 +61,20 @@ export default function SafariBookingGuidePage() {
                                 <h3 className="font-bold text-lg mb-2">Core Zones</h3>
                                 <p className="text-soil-700 text-sm mb-2">Prime wildlife habitat. Requires advance booking.</p>
                                 <ul className="list-disc list-inside text-soil-600 text-sm">
-                                    <li><strong>Khatia</strong> (Closest to Surwahi)</li>
-                                    <li><strong>Kanha</strong> (Iconic grassland)</li>
-                                    <li><strong>Mukki</strong> (Southern entrance)</li>
-                                    <li><strong>Sarhi</strong> (Northern side)</li>
+                                    <li><strong>Kanha</strong> (Iconic meadows; via Khatia gate)</li>
+                                    <li><strong>Kisli</strong> (Western core; via Khatia gate, closest to Surwahi)</li>
+                                    <li><strong>Mukki</strong> (Southern core; via Mukki gate)</li>
+                                    <li><strong>Sarhi</strong> (via Sarhi gate)</li>
                                 </ul>
                             </div>
                             <div className="p-6 bg-white border border-stone-200 rounded-card">
                                 <h3 className="font-bold text-lg mb-2">Buffer Zones</h3>
                                 <p className="text-soil-700 text-sm mb-2">Easier availability, good for leopards/bears.</p>
                                 <ul className="list-disc list-inside text-soil-600 text-sm">
-                                    <li><strong>Khatia Buffer</strong></li>
-                                    <li><strong>Khapa</strong></li>
-                                    <li><strong>Sijhora</strong></li>
+                                    <li><strong>Khatia</strong> (via Khatia gate, closest to Surwahi)</li>
+                                    <li><strong>Khapa</strong> (via Mukki gate)</li>
+                                    <li><strong>Sijhora</strong> (via Sarhi gate)</li>
+                                    <li><strong>Phen</strong> (separate sanctuary entry)</li>
                                 </ul>
                             </div>
                         </div>
@@ -116,6 +147,17 @@ export default function SafariBookingGuidePage() {
                             <p>✅ <strong>Listen to your guide</strong> — they know the forest intimately.</p>
                         </div>
                     </section>
+
+                    <section>
+                        <h2 className="font-display text-2xl text-forest-900 mb-4">Safari Booking FAQs</h2>
+                        <FAQList items={safariFaqs} />
+                        <p className="text-soil-700 mt-6">
+                            Planning the whole trip? See our <Link href="/kanha-safari-packages" className="text-clay-600 underline">stay + safari packages</Link>,{' '}
+                            <Link href="/plan-your-visit/itineraries" className="text-clay-600 underline">sample Kanha itineraries</Link> and the{' '}
+                            <Link href="/kanha-national-park" className="text-clay-600 underline">Kanha National Park guide</Link>.
+                        </p>
+                    </section>
+                    <JsonLd schema={[generateFAQSchema(safariFaqs)]} />
 
                 </div>
             </div>

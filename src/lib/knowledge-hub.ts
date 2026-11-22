@@ -1,11 +1,12 @@
 import { KnowledgeArticle } from "@/types";
+import { getImageKitUrl } from "@/lib/images";
 
 export const knowledgeArticles: Record<string, KnowledgeArticle> = {
   'banjar-river-lifeline-of-kanha': {
     slug: 'banjar-river-lifeline-of-kanha',
     title: 'Banjar River – Lifeline of Kanha',
     excerpt: 'The very artery that sustains the vibrant ecosystem of the Kanha National Park, nurturing its lush forests and supporting countless species.',
-    imageUrl: 'https://placehold.co/800x600/A8BA9A/333333?text=Banjar+River',
+    imageUrl: getImageKitUrl('Website Photos/IMG20231020170019.jpg'),
     content: `
       ## Overview
       The Banjar River is more than a stream that threads through the Kanha landscape—it is the very artery that sustains the vibrant ecosystem of the Kanha National Park. Flowing through the heart of Madhya Pradesh, this river nurtures the park’s lush sal and bamboo forests, replenishes wetlands, and supports countless species that depend on its seasonal rhythm. At Surwahi Social Ecoestate Kanha, the Banjar River defines not just the scenery but also the philosophy of coexistence. Its gentle flow near the eco-lodge mirrors the harmonious relationship between humans and nature—a relationship built on respect, balance, and continuity.
@@ -25,7 +26,7 @@ export const knowledgeArticles: Record<string, KnowledgeArticle> = {
       At Surwahi Social Ecoestate Kanha, the Banjar River isn’t merely a feature—it’s a living classroom. The eco-lodge emphasizes **river conservation education**, guiding visitors to understand how small behavioral changes, such as reducing plastic waste or respecting natural water channels, can protect such ecosystems. Sustainable practices adopted here—like **rainwater harvesting**, **greywater recycling**, and **permeable landscaping**—reduce stress on natural water bodies. Moreover, community outreach programs encourage local participation in maintaining clean banks and monitoring seasonal biodiversity. Efforts by **the Forest Department and the National Tiger Conservation Authority (NTCA)** focus on regulating tourism pressure around sensitive riparian habitats. These programs align perfectly with Surwahi’s vision of responsible eco-tourism—where visitors become custodians of nature.
 
       ## Visitor Tips
-      - Visit during **October to April** to witness the Banjar at its fullest flow.
+      - Visit after the monsoon, from October onwards, to see the Banjar at its fullest flow.
       - Avoid littering or washing near the riverbanks; detergents harm aquatic ecosystems.
       - Carry refillable bottles and use eco-safe sunscreens to minimize chemical runoff.
       - Participate in guided nature walks by Surwahi’s eco-naturalists for a deeper understanding of the river’s ecology.
@@ -36,13 +37,13 @@ export const knowledgeArticles: Record<string, KnowledgeArticle> = {
     slug: 'deers-of-kanha',
     title: 'Deers of Kanha',
     excerpt: 'Often called the "Kingdom of the Deer," Kanha’s meadows and sal forests echo with the rhythms of these graceful creatures.',
-    imageUrl: 'https://placehold.co/800x600/A8BA9A/333333?text=Deers+of+Kanha',
+    imageUrl: getImageKitUrl('Website Photos/DJI_20250819094744_0109_D.JPG'),
     content: `
       ## Overview
       Kanha National Park is often called the **“Kingdom of the Deer”**, a title that captures the grace and abundance of its ungulate population. From the elegant **barasingha (swamp deer)** to the nimble **chital (spotted deer)** and the shy **sambar**, Kanha’s meadows and sal forests echo with the rhythms of these creatures’ daily lives. For guests at **Surwahi Social Ecoestate Kanha**, observing these herds in their natural environment is one of the most immersive experiences in the heart of central India.
 
       ## Significance
-      The deer species of Kanha play a pivotal role in maintaining the **ecological balance of the tiger reserve**. As primary grazers, they help regulate plant growth and sustain the food chain that supports apex predators like the **Bengal tiger** and **leopards**. The **barasingha**, in particular, is Kanha’s emblematic species. Once on the brink of extinction in the 1960s, with only about 60 individuals remaining, the swamp deer became a symbol of successful wildlife conservation in India. Through careful habitat restoration, protection measures, and relocation efforts, their population has now surpassed 800, a triumph credited to the joint efforts of the **Madhya Pradesh Forest Department**, **NTCA**, and the **Wildlife Institute of India (WII)**.
+      The deer species of Kanha play a pivotal role in maintaining the **ecological balance of the tiger reserve**. As primary grazers, they help regulate plant growth and sustain the food chain that supports apex predators like the **Bengal tiger** and **leopards**. The **barasingha**, in particular, is Kanha’s emblematic species. Once on the brink of extinction, with only about 66 individuals remaining in Kanha around 1970, the swamp deer became a symbol of successful wildlife conservation in India. Through careful habitat restoration, protection measures, and relocation efforts, their population is now reported at around 1,100, a triumph credited to the joint efforts of the **Madhya Pradesh Forest Department**, **NTCA**, and the **Wildlife Institute of India (WII)**.
 
       ## Key Facts & Highlights
       - **Barasingha (Rucervus duvaucelii branderi):** Found only in Kanha; state animal of Madhya Pradesh.
@@ -65,19 +66,19 @@ export const knowledgeArticles: Record<string, KnowledgeArticle> = {
     slug: 'how-to-arrive-at-kanha-tiger-reserve',
     title: 'How to Arrive at Kanha Tiger Reserve',
     excerpt: 'Getting to Kanha is an immersion into the heart of India’s wilderness, passing through scenic farmlands, forest corridors, and tribal settlements.',
-    imageUrl: 'https://placehold.co/800x600/A8BA9A/333333?text=Arriving+at+Kanha',
+    imageUrl: getImageKitUrl('Website Photos/DJI_20250819094705_0108_D.JPG'),
     content: `
       ## Overview
-      Nestled in the lush highlands of **Madhya Pradesh**, **Kanha Tiger Reserve (KTR)** spans over **1,900 sq. km** of core and buffer forest. Getting here is not just travel—it’s an immersion into the heart of India’s wilderness. For guests of **Surwahi Social Ecoestate Kanha**, the journey itself reflects the eco-conscious spirit—passing through scenic farmlands, forest corridors, and tribal settlements that shape the reserve’s cultural and ecological identity.
+      Nestled in the lush highlands of **Madhya Pradesh**, **Kanha Tiger Reserve (KTR)** spans about **2,050 sq. km** of core and buffer forest (MP Forest Department figure). Getting here is not just travel—it’s an immersion into the heart of India’s wilderness. For guests of **Surwahi Social Ecoestate Kanha**, the journey itself reflects the eco-conscious spirit—passing through scenic farmlands, forest corridors, and tribal settlements that shape the reserve’s cultural and ecological identity.
 
       ## Significance
       Every route to Kanha tells a story of connectivity—linking **wildlife corridors**, **village livelihoods**, and **tourism economies**. Understanding these routes helps visitors travel responsibly, minimize carbon impact, and support local enterprises along the way. The access roads and corridors around Kanha are part of a **larger central Indian tiger landscape**, connecting Kanha with **Pench, Achanakmar, and Bandhavgarh** reserves—critical for tiger gene flow and ecosystem balance.
 
       ## Key Facts & Highlights
-      - **By Air:** Jabalpur (165 km), Raipur (250 km), Nagpur (260 km).
+      - **By Air:** Jabalpur (about 160 km, roughly 3.5 hours by road to Surwahi) and Nagpur (about 270 km, roughly 5.5 hours). Some travellers also use Raipur.
       - **By Rail:** Gondia (145 km), Jabalpur, and Nagpur are key access points.
       - **By Road:** Mandla and Baihar are the main approach towns; roads are forested and scenic.
-      - **Entry Gates:** Khatia, Mukki, Sarhi, and Kisli—each offering a distinct safari experience.
+      - **Entry Gates:** Khatia, Mukki and Sarhi—each serving different safari zones. Surwahi is about 20 km from Khatia gate.
 
       ## Sustainability Insights
       **Surwahi Social Ecoestate Kanha** promotes **slow, mindful travel**. Guests are encouraged to use shared or electric vehicles, offset carbon footprints through tree-planting initiatives, and engage with local craft markets along the way. The ecoestate also advocates **eco-friendly route signage, reduced noise zones**, and **community transport partnerships**, aligning with MoEFCC’s sustainable tourism roadmap for tiger reserves.
@@ -93,10 +94,10 @@ export const knowledgeArticles: Record<string, KnowledgeArticle> = {
     slug: 'kanha-zones-and-gates',
     title: 'Kanha Zones and Gates',
     excerpt: 'Designed for harmony between conservation and responsible access, each zone of the park reveals a unique ecological narrative.',
-    imageUrl: 'https://placehold.co/800x600/A8BA9A/333333?text=Kanha+Gates',
+    imageUrl: getImageKitUrl('Website Photos/DJI_20250819094705_0108_D.JPG'),
     content: `
       ## Overview
-      Kanha’s zones and gates are designed for harmony—between conservation and responsible access. Spread across **four major gates** and multiple tourism zones, each area of the park reveals a unique ecological narrative. For visitors from **Surwahi Social Ecoestate Kanha**, located near the Mukki buffer, exploring these zones with trained naturalists provides insight beyond sightings—into ecosystem management and scientific conservation.
+      Kanha’s zones and gates are designed for harmony—between conservation and responsible access. Spread across **three entry gates** and eight safari zones, each area of the park reveals a unique ecological narrative. For visitors from **Surwahi Social Ecoestate Kanha**, located about 20 km from Khatia gate, exploring these zones with trained naturalists provides insight beyond sightings—into ecosystem management and scientific conservation.
 
       ## Significance
       The zonal system forms the backbone of **Project Tiger’s management framework**. Core zones are protected breeding grounds, while buffer zones act as community-integrated conservation landscapes. Together, they create a model of coexistence that supports both biodiversity and rural livelihoods.
@@ -104,24 +105,24 @@ export const knowledgeArticles: Record<string, KnowledgeArticle> = {
       ## Key Facts & Highlights
       - **Core Zones:** Kanha, Kisli, Mukki, Sarhi.
       - **Buffer Zones:** Khapa, Phen, Khatia, Sijhora.
-      - **Entry Gates:** Khatia (main), Mukki (closest to Surwahi), Sarhi, Kisli.
+      - **Entry Gates:** Khatia (closest to Surwahi, about 20 km; serves Kanha and Kisli core zones and the Khatia buffer), Mukki (about 35 km; serves Mukki core and Khapa buffer), Sarhi (serves Sarhi core and Sijhora buffer).
       - Each gate offers a unique habitat—from grasslands to bamboo thickets.
 
       ## Sustainability Insights
       At Surwahi, buffer-zone-based eco-tourism reflects the NTCA vision—**tourism as a tool for conservation education**. The lodge employs and trains locals as guides, ensuring equitable economic benefits. This balance between core protection and community participation embodies sustainable wildlife tourism—reducing poaching pressures while creating pride in conservation.
 
       ## Visitor Tips
-      - Safaris: morning (6:30–11:00 AM) and evening (3:00–6:00 PM).
+      - Safaris run in a morning and an afternoon session; exact gate times change through the season, and core zones close on Wednesday afternoons.
       - Book in advance; carry eco-friendly attire.
       - Remain quiet and follow guide instructions at all times.
-      - Choose lesser-crowded gates like Mukki or Sarhi for immersive experiences.
+      - Mix core and buffer zones; buffer safaris are easier to book and often excellent for leopard and sloth bear. See our [Kanha safari zones guide](/kanha-national-park).
     `
   },
   'museums-of-kanha': {
     slug: 'museums-of-kanha',
     title: 'Museums of Kanha',
     excerpt: 'Treasure troves of ecological and cultural knowledge, narrating the evolution of the landscape, its wildlife, and its people.',
-    imageUrl: 'https://placehold.co/800x600/A8BA9A/333333?text=Kanha+Museums',
+    imageUrl: getImageKitUrl('Website Photos/IMG20231020171008.jpg'),
     content: `
       ## Overview
       Kanha’s museums and interpretation centers are treasure troves of ecological and cultural knowledge. They narrate the evolution of the landscape, its wildlife, and its people—transforming curiosity into conservation awareness. For guests at **Surwahi Social Ecoestate Kanha**, these museums offer a contemplative journey that complements the thrill of safaris, deepening their understanding of the forest’s soul.

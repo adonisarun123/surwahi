@@ -126,7 +126,7 @@ const nextConfig: NextConfig = {
       // ═══ Plan Your Visit (absorbing orphaned pages) ═══
       {
         source: "/itineraries",
-        destination: "/plan-your-visit",
+        destination: "/plan-your-visit/itineraries",
         permanent: true,
       },
       {
@@ -134,9 +134,10 @@ const nextConfig: NextConfig = {
         destination: "/plan-your-visit/getting-here",
         permanent: true,
       },
+      // /kanha-national-park is now a real pillar page (2026-11-22) - redirect removed.
       {
-        source: "/kanha-national-park",
-        destination: "/plan-your-visit/getting-here",
+        source: "/plan-your-visit/curated-itineraries",
+        destination: "/plan-your-visit/itineraries",
         permanent: true,
       },
 
@@ -181,6 +182,42 @@ const nextConfig: NextConfig = {
         destination: "/blogs",
         permanent: true,
       },
+
+      // ═══ Legacy WordPress-era URLs (found as 404s in GA4, Oct 25 - Nov 21 2026) ═══
+      // aocr.org and old Facebook posts still link to these. Specific matches first, catch-alls last.
+      // Destinations are pages live on surwahi.com as of 2026-11-22.
+      { source: '/blog', destination: '/blogs', permanent: true },
+      { source: '/blog/energy-conservation', destination: '/sustainability', permanent: true },
+      { source: '/blog/water-conservation', destination: '/sustainability', permanent: true },
+      { source: '/blog/green-building-is-not-always-sustainable', destination: '/sustainability/eco-friendly-construction-practices', permanent: true },
+      { source: '/blog/ssek-collaborative-artisanal-construction-folktale', destination: '/sustainability/eco-friendly-construction-practices', permanent: true },
+      { source: '/blog/nature-tourism-and-ecotourism', destination: '/blogs/how-to-choose-a-genuine-eco-lodge-in-india', permanent: true },
+      { source: '/blog/difference-between-wildlife-sanctuary-wls-vs-national-park-np-in-india', destination: '/kanha-national-park', permanent: true },
+      { source: '/blog/major-districts-of-kanha-balaghat-and-mandla', destination: '/plan-your-visit/getting-here', permanent: true },
+      { source: '/blog/a-webinar-at-iim-sirmaur', destination: '/praises/press-mentions-and-recognitions', permanent: true },
+      { source: '/blog/best-homestays-of-kanha', destination: '/stay', permanent: true },
+      { source: '/blog/:slug*', destination: '/blogs', permanent: true },
+
+      // Old /kanha-national-park/* articles. `:slug+` needs at least one segment, so the
+      // /kanha-national-park pillar page itself is NOT redirected.
+      { source: '/kanha-national-park/safari-timings-and-bookings', destination: '/plan-your-visit/safari-booking-guide', permanent: true },
+      { source: '/kanha-national-park/non-safari-activities-at-khatia-gate-zone-kanha', destination: '/experiences', permanent: true },
+      { source: '/kanha-national-park/arriving-at-kanha-tiger-reserve-ktr-via-3-large-nearby-cities', destination: '/plan-your-visit/getting-here', permanent: true },
+      { source: '/kanha-national-park/:slug+', destination: '/kanha-national-park', permanent: true },
+
+      // Old tag archives (mostly Kanha deer species) and uncategorized posts. The Kanha National Park
+      // guide covers barasingha, chital and the other deer; repoint to the barasingha post once it's published.
+      { source: '/tag/:slug*', destination: '/kanha-national-park', permanent: true },
+      { source: '/types-of-deer-antelopes-of-kanha', destination: '/kanha-national-park', permanent: true },
+      { source: '/uncategorized/tree-life-of-surwahi-social-kanha', destination: '/sustainability/tree-census-and-biodiversity-reports', permanent: true },
+      { source: '/uncategorized/:slug*', destination: '/blogs', permanent: true },
+
+      // Old root-level posts (shared on Facebook)
+      { source: '/evapotranspiration-toilet', destination: '/sustainability/evapo-transpiration-toilets', permanent: true },
+      { source: '/community-building', destination: '/experiences/cultural-immersion', permanent: true },
+      { source: '/consume-local', destination: '/stay/dining', permanent: true },
+      { source: '/discover-landforms', destination: '/experiences/guided-forest-trails', permanent: true },
+      { source: '/surwahi-social-kanha-an-alternative-tourism-concept', destination: '/about/our-story', permanent: true },
 
       // Shortened URL redirects as recommended
       {

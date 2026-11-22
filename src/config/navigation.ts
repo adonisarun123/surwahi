@@ -80,7 +80,11 @@ export const mainNavigation: NavigationItem[] = [
         children: [
             { label: "Getting Here", href: "/plan-your-visit/getting-here", isNew: true },
             { label: "Best Time to Visit", href: "/plan-your-visit/best-time-to-visit", isNew: true },
-            { label: "Curated Itineraries", href: "/plan-your-visit" },
+            { label: "Kanha National Park Guide", href: "/kanha-national-park", isNew: true },
+            { label: "Kanha Safari Packages", href: "/kanha-safari-packages", isNew: true },
+            { label: "Curated Itineraries", href: "/plan-your-visit/itineraries", isNew: true },
+            { label: "Where to Stay in Kanha", href: "/where-to-stay-in-kanha" },
+            { label: "International Travellers", href: "/plan-your-visit/international-travellers", isNew: true },
             { label: "Safari Booking Guide", href: "/plan-your-visit/safari-booking-guide", isNew: true },
             { label: "FAQs", href: "/plan-your-visit/faqs", isNew: true },
         ],
