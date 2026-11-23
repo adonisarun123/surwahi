@@ -400,10 +400,3 @@ export type DeepPartial<T> = {
 
 export type RoomData = Record<string, Room>;
 
-export interface KnowledgeArticle {
-  slug: string;
-  title: string;
-  excerpt: string;
-  imageUrl: string;
-  content: string;
-}

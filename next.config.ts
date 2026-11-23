@@ -46,6 +46,10 @@ const nextConfig: NextConfig = {
       { source: '/knowledge-hub/kanha-zones-and-gates', destination: '/blogs/kanha-safari-zones-explained', permanent: true },
       { source: '/knowledge-hub/deers-of-kanha', destination: '/blogs/barasingha-kanha-hard-ground-swamp-deer', permanent: true },
       { source: '/knowledge-hub/how-to-arrive-at-kanha-tiger-reserve', destination: '/plan-your-visit/getting-here', permanent: true },
+      { source: '/knowledge-hub/banjar-river-lifeline-of-kanha', destination: '/blogs/banjar-and-halon-rivers-of-kanha', permanent: true },
+      { source: '/knowledge-hub/museums-of-kanha', destination: '/blogs/museums-and-heritage-near-kanha', permanent: true },
+      // Section retired: anything else under /knowledge-hub goes to the journal.
+      { source: '/knowledge-hub/:path*', destination: '/blogs', permanent: true },
       // The production *.vercel.app alias serves a full duplicate of the site — send it to the real domain.
       {
         source: '/:path*',
