@@ -33,6 +33,23 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
+      // www.surwahi.com was serving a full 200 duplicate; GSC showed Google splitting
+      // impressions across both hosts. Canonical tags point at the apex, so make it a hard 308.
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.surwahi.com' }],
+        destination: 'https://surwahi.com/:path*',
+        permanent: true,
+      },
+      // Knowledge-hub articles superseded by newer pages (2026-11-23) - pass their equity on
+      // instead of just noindexing them.
+      { source: '/knowledge-hub/kanha-zones-and-gates', destination: '/blogs/kanha-safari-zones-explained', permanent: true },
+      { source: '/knowledge-hub/deers-of-kanha', destination: '/blogs/barasingha-kanha-hard-ground-swamp-deer', permanent: true },
+      { source: '/knowledge-hub/how-to-arrive-at-kanha-tiger-reserve', destination: '/plan-your-visit/getting-here', permanent: true },
+      { source: '/knowledge-hub/banjar-river-lifeline-of-kanha', destination: '/blogs/banjar-and-halon-rivers-of-kanha', permanent: true },
+      { source: '/knowledge-hub/museums-of-kanha', destination: '/blogs/museums-and-heritage-near-kanha', permanent: true },
+      // Section retired: anything else under /knowledge-hub goes to the journal.
+      { source: '/knowledge-hub/:path*', destination: '/blogs', permanent: true },
       // The production *.vercel.app alias serves a full duplicate of the site — send it to the real domain.
       {
         source: '/:path*',
