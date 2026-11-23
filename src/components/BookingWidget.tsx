@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { istToday } from '@/lib/stay-search';
 import { Calendar, Users, Search, Plus, Minus, X } from 'lucide-react';
 import { cn, addDays, formatPrice } from '@/lib/utils';
 import { type Room, quoteStay, priceWithGstLabel, priceBasisLabel, MEAL_PLAN } from '@/lib/accommodations';
@@ -36,8 +37,9 @@ export default function BookingWidget({ className, variant = 'hero', room }: Boo
     };
   }, [isGuestSelectorOpen]);
 
-  const today = new Date().toISOString().split('T')[0];
-  const tomorrow = addDays(new Date(), 1).toISOString().split('T')[0];
+  // India dates: the lodge's calendar (a UTC date is still "yesterday" before 05:30 IST).
+  const today = istToday();
+  const tomorrow = addDays(new Date(`${today}T00:00:00Z`), 1).toISOString().split('T')[0];
   
   const maxGuests = room ? room.maxOccupancy : 8;
 
@@ -57,13 +59,8 @@ export default function BookingWidget({ className, variant = 'hero', room }: Boo
       children: children.toString(),
     });
 
-    if (room) {
-      // Handle direct booking for a specific room
-      alert(`Booking ${room.name} for ${adults} adults and ${children} children from ${checkIn} to ${checkOut}`);
-    } else {
-      // Handle general availability search
-      router.push(`/stay?${params.toString()}`);
-    }
+    // Room mode opens that room's booking form pre-filled; search mode shows availability for every room.
+    router.push(room ? `/stay/${room.slug}?${params.toString()}#book` : `/stay?${params.toString()}`);
   };
 
   const numberOfNights = useMemo(() => {

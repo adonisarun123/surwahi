@@ -12,7 +12,9 @@ import {
     MapPin
 } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import { Suspense } from 'react';
 import RoomBookingForm from '@/components/RoomBookingForm';
+import RoomBookingFormWithSearch from '@/components/RoomBookingFormWithSearch';
 import { generateRoomMetadata } from '@/lib/seo';
 import { priceWithGstLabel, priceBasisLabel, MEAL_PLAN } from '@/lib/accommodations';
 import { getPublicRooms, getPublicRoom } from '@/lib/rooms-repo';
@@ -270,7 +272,9 @@ export default async function RoomDetailPage({ params }: RoomPageProps) {
                         {/* Booking Sidebar */}
                         <div className="lg:col-span-1">
                             <div className="sticky top-24">
-                                <RoomBookingForm room={room} className="mb-6" />
+                                <Suspense fallback={<RoomBookingForm room={room} className="mb-6" />}>
+                                    <RoomBookingFormWithSearch room={room} className="mb-6" />
+                                </Suspense>
 
                                 {/* Contact Info */}
                                 <div className="bg-sand-50 rounded-card p-6">
