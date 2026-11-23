@@ -4,11 +4,16 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import { generatePageMetadata } from '@/lib/seo';
 import { knowledgeArticles } from '@/lib/knowledge-hub';
 
-export const metadata = generatePageMetadata(
-  'Knowledge Hub',
-  'A curated collection of educational articles that celebrate the natural, cultural, and ecological heritage of the Kanha landscape.',
-  '/knowledge-hub'
-);
+// generatePageMetadata sets robots index:true, which overrode the layout's noindex.
+// Legacy archive (main journal is /blogs) — keep it out of the index.
+export const metadata = {
+  ...generatePageMetadata(
+    'Knowledge Hub',
+    'A curated collection of educational articles that celebrate the natural, cultural, and ecological heritage of the Kanha landscape.',
+    '/knowledge-hub'
+  ),
+  robots: { index: false, follow: true },
+};
 
 const articles = Object.values(knowledgeArticles);
 

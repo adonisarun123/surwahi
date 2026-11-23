@@ -19,7 +19,11 @@ export async function generateMetadata({ params }: ArticlePageProps) {
   if (!article) {
     return {};
   }
-  return generatePageMetadata(article.title, article.excerpt, `/knowledge-hub/${article.slug}`, article.imageUrl);
+  // Override generatePageMetadata's index:true so the layout's noindex actually applies.
+  return {
+    ...generatePageMetadata(article.title, article.excerpt, `/knowledge-hub/${article.slug}`, article.imageUrl),
+    robots: { index: false, follow: true },
+  };
 }
 
 export default async function KnowledgeArticlePage({ params }: ArticlePageProps) {
