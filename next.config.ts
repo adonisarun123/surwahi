@@ -41,6 +41,11 @@ const nextConfig: NextConfig = {
         destination: 'https://surwahi.com/:path*',
         permanent: true,
       },
+      // Knowledge-hub articles superseded by newer pages (2026-11-23) - pass their equity on
+      // instead of just noindexing them.
+      { source: '/knowledge-hub/kanha-zones-and-gates', destination: '/blogs/kanha-safari-zones-explained', permanent: true },
+      { source: '/knowledge-hub/deers-of-kanha', destination: '/blogs/barasingha-kanha-hard-ground-swamp-deer', permanent: true },
+      { source: '/knowledge-hub/how-to-arrive-at-kanha-tiger-reserve', destination: '/plan-your-visit/getting-here', permanent: true },
       // The production *.vercel.app alias serves a full duplicate of the site — send it to the real domain.
       {
         source: '/:path*',
