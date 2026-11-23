@@ -23,6 +23,9 @@ export default async function Dashboard({ searchParams }: { searchParams: Promis
   const week = addDaysUtc(today, 7);
   const bookings = can(user.role, 'bookings');
 
+  // Server component rendered per request, so reading the clock here is intended.
+  // eslint-disable-next-line react-hooks/purity
+  const in24h = new Date(Date.now() + 24 * 3600e3);
   const [requests, awaiting, arrivals, departuresToday, feedErrors, rooms, expiring] = await Promise.all([
     bookings ? prisma.reservation.count({ where: { status: 'REQUESTED' } }) : 0,
     bookings ? prisma.reservation.count({ where: { status: 'AWAITING_PAYMENT' } }) : 0,
@@ -30,7 +33,7 @@ export default async function Dashboard({ searchParams }: { searchParams: Promis
     bookings ? prisma.reservation.count({ where: { status: 'CONFIRMED', checkOut: today } }) : 0,
     can(user.role, 'calendar') ? prisma.icalFeed.findMany({ where: { lastStatus: 'error' }, include: { accommodation: { select: { name: true } } } }) : [],
     prisma.accommodation.findMany({ orderBy: { sortOrder: 'asc' } }),
-    bookings ? prisma.reservation.findMany({ where: { status: 'AWAITING_PAYMENT', holdExpiresAt: { lt: new Date(Date.now() + 24 * 3600e3) } }, orderBy: { holdExpiresAt: 'asc' } }) : [],
+    bookings ? prisma.reservation.findMany({ where: { status: 'AWAITING_PAYMENT', holdExpiresAt: { lt: in24h } }, orderBy: { holdExpiresAt: 'asc' } }) : [],
   ]);
 
   return (

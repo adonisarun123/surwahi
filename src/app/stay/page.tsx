@@ -3,7 +3,9 @@ import Prose from '@/components/Prose';
 import Image from 'next/image';
 import { accommodationImages } from '@/lib/images';
 import { generatePageMetadata } from '@/lib/seo';
-import { getRoomsByCategory } from '@/lib/rooms-repo';
+import { Suspense } from 'react';
+import { getRoomsByCategory, getPublicRooms } from '@/lib/rooms-repo';
+import StayAvailability from '@/components/StayAvailability';
 import { priceWithGstLabel } from '@/lib/accommodations';
 
 export const revalidate = 3600;
@@ -79,6 +81,7 @@ No air conditioning. No televisions. No chlorine pool. No plastic. No loud music
 export default async function Page() {
   const suite = (await getRoomsByCategory('Suites')).sort((a, b) => a.basePrice - b.basePrice)[0];
   const [dorm] = await getRoomsByCategory('Dormitory');
+  const searchRooms = (await getPublicRooms()).map((r) => ({ slug: r.slug, name: r.name, maxOccupancy: r.maxOccupancy }));
   const md = body
     .replace('{{DORM_PRICE}}', dorm ? priceWithGstLabel(dorm.basePrice) : 'Rates on request')
     .replace('{{SUITE_PRICE}}', suite ? priceWithGstLabel(suite.basePrice) : 'Rates on request')
@@ -94,11 +97,15 @@ export default async function Page() {
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12">
           <div className="max-w-3xl">
             <h1 className="font-display text-display-xl text-bone-0 mb-4 drop-shadow-lg">Stay at Surwahi: Three Ways to Sleep Inside a Forest</h1>
-            <p className="text-body-lg text-bone-0/90 max-w-2xl drop-shadow">We are deliberately small: an 8-bed earthen dormitory, two family suites, and a handful of camping tents in our forest camp area. This is not a resort packing in numbers - it's a home, built from stabilised mud by the hands of the village around it, 21 km from the Khatia gate of Kanha Tiger Reserve.</p>
+            <p className="text-body-lg text-bone-0/90 max-w-2xl drop-shadow">We are deliberately small: an 8-bed earthen dormitory, two family suites, and a handful of camping tents in our forest camp area. This is not a resort packing in numbers - it&apos;s a home, built from stabilised mud by the hands of the village around it, 21 km from the Khatia gate of Kanha Tiger Reserve.</p>
           </div>
         </div>
       </section>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        {/* Only renders when the booking widget sent dates (?checkIn=…); the page itself stays static. */}
+        <Suspense fallback={null}>
+          <StayAvailability rooms={searchRooms} />
+        </Suspense>
         <article className="max-w-3xl mx-auto">
           <Prose md={md} />
         </article>

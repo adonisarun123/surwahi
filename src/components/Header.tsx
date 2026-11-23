@@ -2,12 +2,14 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useSyncExternalStore } from 'react';
 import { Menu, X, ChevronDown, Instagram, Facebook, Linkedin } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
 import { NavigationItem } from '@/types';
 import { mainNavigation, ctaButton, workshopGroups } from '@/config/navigation';
+
+const noopSubscribe = () => () => {};
 
 export default function Header({ announcement }: { announcement?: React.ReactNode }) {
   const [scrolled, setScrolled] = useState(false);
@@ -15,12 +17,8 @@ export default function Header({ announcement }: { announcement?: React.ReactNod
   // The server-rendered shell can't be trusted to know we're on '/', and React won't patch
   // className mismatches on hydration — so only enable the transparent (white-text) state
   // after mount, which forces a real client re-render with the correct classes.
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(noopSubscribe, () => true, () => false);
   const pathname = usePathname();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,9 +28,12 @@ export default function Header({ announcement }: { announcement?: React.ReactNod
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
+  // Close the mobile menu on navigation (state adjusted during render, not in an effect).
+  const [menuPath, setMenuPath] = useState(pathname);
+  if (pathname !== menuPath) {
+    setMenuPath(pathname);
     setMobileMenuOpen(false);
-  }, [pathname]);
+  }
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {

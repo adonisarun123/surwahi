@@ -89,7 +89,7 @@ export default function Page() {
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12">
           <div className="max-w-3xl">
             <h1 className="font-display text-display-xl text-bone-0 mb-4 drop-shadow-lg">Kanha Jungle Safari &amp; Eco Experiences</h1>
-            <p className="text-body-lg text-bone-0/90 max-w-2xl drop-shadow">Go beyond the safari. Embrace the rhythm of village life, learn from the land, and build relationships with the people who call Kanha home. Every experience below is run by or with our neighbours - the artisans, farmers, chefs and naturalists of the villages around us - so your journey supports Kanha's living story instead of just passing through it.</p>
+            <p className="text-body-lg text-bone-0/90 max-w-2xl drop-shadow">Go beyond the safari. Embrace the rhythm of village life, learn from the land, and build relationships with the people who call Kanha home. Every experience below is run by or with our neighbours - the artisans, farmers, chefs and naturalists of the villages around us - so your journey supports Kanha&apos;s living story instead of just passing through it.</p>
           </div>
         </div>
       </section>

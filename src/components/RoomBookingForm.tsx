@@ -4,11 +4,11 @@ import { useEffect, useRef, useState } from 'react';
 import { Minus, Plus, CheckCircle2 } from 'lucide-react';
 import { cn, formatPrice } from '@/lib/utils';
 import { priceWithGstLabel, priceBasisLabel, MEAL_PLAN, type Room } from '@/lib/accommodations';
+import { istToday, type StaySearch } from '@/lib/stay-search';
 
 type Quote = { lines: { label: string; amount: number }[]; gst: number; gstPercent: number; total: number; notes: string[]; minNights: number; nights: number };
 type Check = { loading: boolean; available?: boolean; unavailableNights?: string[]; quote?: Quote; error?: string };
 
-const istToday = () => new Date(Date.now() + 5.5 * 3600e3).toISOString().slice(0, 10);
 const plusDays = (iso: string, n: number) => {
   const d = new Date(`${iso}T00:00:00Z`);
   d.setUTCDate(d.getUTCDate() + n);
@@ -29,13 +29,16 @@ function Counter({ label, value, min, max, onChange }: { label: string; value: n
   );
 }
 
-export default function RoomBookingForm({ room, className }: { room: Room; className?: string }) {
+export default function RoomBookingForm({ room, className, initial }: { room: Room; className?: string; initial?: StaySearch }) {
   const today = istToday();
-  const [checkIn, setCheckIn] = useState('');
-  const [checkOut, setCheckOut] = useState('');
-  const [adults, setAdults] = useState(Math.min(2, room.maxOccupancy));
-  const [children, setChildren] = useState(0);
-  const [check, setCheck] = useState<Check>({ loading: false });
+  const [checkIn, setCheckIn] = useState(initial?.checkIn ?? '');
+  const [checkOut, setCheckOut] = useState(initial?.checkOut ?? '');
+  // Guests from a search are capped to what this room sleeps; adults take priority over children.
+  const [adults, setAdults] = useState(Math.min(initial?.adults ?? 2, room.maxOccupancy));
+  const [children, setChildren] = useState(Math.max(0, Math.min(initial?.children ?? 0, room.maxOccupancy - Math.min(initial?.adults ?? 2, room.maxOccupancy))));
+  // Availability results are stored with the query they answer; `check` is derived from that,
+  // so the effect only sets state from async callbacks.
+  const [result, setResult] = useState<{ key: string; check: Check } | null>(null);
   const [step, setStep] = useState<'select' | 'details' | 'done'>('select');
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
@@ -43,10 +46,14 @@ export default function RoomBookingForm({ room, className }: { room: Room; class
   const startedAt = useRef(0);
   useEffect(() => { startedAt.current = Date.now(); }, []);
 
+  const validRange = !!checkIn && !!checkOut && checkOut > checkIn;
+  const queryKey = `${room.slug}|${checkIn}|${checkOut}|${adults}|${children}`;
+  const check: Check = !validRange ? { loading: false } : result?.key === queryKey ? result.check : { loading: true };
+
   useEffect(() => {
-    if (!checkIn || !checkOut || checkOut <= checkIn) { setCheck({ loading: false }); return; }
+    if (!validRange) return;
     const ctrl = new AbortController();
-    setCheck({ loading: true });
+    const setCheck = (c: Check) => setResult({ key: queryKey, check: c });
     const t = setTimeout(async () => {
       try {
         const qs = new URLSearchParams({ room: room.slug, checkIn, checkOut, adults: String(adults), children: String(children) });
@@ -58,7 +65,7 @@ export default function RoomBookingForm({ room, className }: { room: Room; class
       }
     }, 250);
     return () => { clearTimeout(t); ctrl.abort(); };
-  }, [room.slug, checkIn, checkOut, adults, children]);
+  }, [validRange, queryKey, room.slug, checkIn, checkOut, adults, children]);
 
   const tooShort = check.quote && check.quote.nights < check.quote.minNights;
   const canProceed = !!check.quote && check.available && !tooShort;
