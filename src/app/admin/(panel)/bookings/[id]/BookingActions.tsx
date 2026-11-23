@@ -75,7 +75,8 @@ export function NotesForm({ id, notes }: { id: string; notes: string }) {
 
 export function HoldForm({ id, expiresAt }: { id: string; expiresAt: string | null }) {
   const [state, action] = useActionState(extendBookingHold.bind(null, id), undefined);
-  const ms = expiresAt ? new Date(expiresAt).getTime() - Date.now() : null;
+  const [now] = useState(() => Date.now());
+  const ms = expiresAt ? new Date(expiresAt).getTime() - now : null;
   const label = ms == null ? 'No expiry set' : ms <= 0 ? 'Expired - will be released within the hour'
     : `Releases in ${Math.floor(ms / 3600e3)}h ${Math.floor((ms % 3600e3) / 60e3)}m (${new Date(expiresAt!).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', dateStyle: 'medium', timeStyle: 'short' })})`;
   return (

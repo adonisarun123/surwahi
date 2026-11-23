@@ -35,7 +35,9 @@ export default function RoomBookingForm({ room, className }: { room: Room; class
   const [checkOut, setCheckOut] = useState('');
   const [adults, setAdults] = useState(Math.min(2, room.maxOccupancy));
   const [children, setChildren] = useState(0);
-  const [check, setCheck] = useState<Check>({ loading: false });
+  // Availability results are stored with the query they answer; `check` is derived from that,
+  // so the effect only sets state from async callbacks.
+  const [result, setResult] = useState<{ key: string; check: Check } | null>(null);
   const [step, setStep] = useState<'select' | 'details' | 'done'>('select');
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
@@ -43,10 +45,14 @@ export default function RoomBookingForm({ room, className }: { room: Room; class
   const startedAt = useRef(0);
   useEffect(() => { startedAt.current = Date.now(); }, []);
 
+  const validRange = !!checkIn && !!checkOut && checkOut > checkIn;
+  const queryKey = `${room.slug}|${checkIn}|${checkOut}|${adults}|${children}`;
+  const check: Check = !validRange ? { loading: false } : result?.key === queryKey ? result.check : { loading: true };
+
   useEffect(() => {
-    if (!checkIn || !checkOut || checkOut <= checkIn) { setCheck({ loading: false }); return; }
+    if (!validRange) return;
     const ctrl = new AbortController();
-    setCheck({ loading: true });
+    const setCheck = (c: Check) => setResult({ key: queryKey, check: c });
     const t = setTimeout(async () => {
       try {
         const qs = new URLSearchParams({ room: room.slug, checkIn, checkOut, adults: String(adults), children: String(children) });
@@ -58,7 +64,7 @@ export default function RoomBookingForm({ room, className }: { room: Room; class
       }
     }, 250);
     return () => { clearTimeout(t); ctrl.abort(); };
-  }, [room.slug, checkIn, checkOut, adults, children]);
+  }, [validRange, queryKey, room.slug, checkIn, checkOut, adults, children]);
 
   const tooShort = check.quote && check.quote.nights < check.quote.minNights;
   const canProceed = !!check.quote && check.available && !tooShort;

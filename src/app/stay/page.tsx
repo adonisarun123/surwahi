@@ -94,7 +94,7 @@ export default async function Page() {
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12">
           <div className="max-w-3xl">
             <h1 className="font-display text-display-xl text-bone-0 mb-4 drop-shadow-lg">Stay at Surwahi: Three Ways to Sleep Inside a Forest</h1>
-            <p className="text-body-lg text-bone-0/90 max-w-2xl drop-shadow">We are deliberately small: an 8-bed earthen dormitory, two family suites, and a handful of camping tents in our forest camp area. This is not a resort packing in numbers - it's a home, built from stabilised mud by the hands of the village around it, 21 km from the Khatia gate of Kanha Tiger Reserve.</p>
+            <p className="text-body-lg text-bone-0/90 max-w-2xl drop-shadow">We are deliberately small: an 8-bed earthen dormitory, two family suites, and a handful of camping tents in our forest camp area. This is not a resort packing in numbers - it&apos;s a home, built from stabilised mud by the hands of the village around it, 21 km from the Khatia gate of Kanha Tiger Reserve.</p>
           </div>
         </div>
       </section>

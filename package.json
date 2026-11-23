@@ -9,7 +9,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint",
     "postinstall": "prisma generate",
     "db:migrate": "node scripts/db-migrate.mjs",
     "db:seed": "npx tsx scripts/db-seed.ts",

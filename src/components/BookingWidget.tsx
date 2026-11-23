@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { Calendar, Users, Search, Plus, Minus, X } from 'lucide-react';
 import { cn, addDays, formatPrice } from '@/lib/utils';
 import { type Room, quoteStay, priceWithGstLabel, priceBasisLabel, MEAL_PLAN } from '@/lib/accommodations';
@@ -12,6 +13,7 @@ interface BookingWidgetProps {
 }
 
 export default function BookingWidget({ className, variant = 'hero', room }: BookingWidgetProps) {
+  const router = useRouter();
   const [checkIn, setCheckIn] = useState<string>('');
   const [checkOut, setCheckOut] = useState<string>('');
   const [adults, setAdults] = useState(room ? 1 : 2);
@@ -60,7 +62,7 @@ export default function BookingWidget({ className, variant = 'hero', room }: Boo
       alert(`Booking ${room.name} for ${adults} adults and ${children} children from ${checkIn} to ${checkOut}`);
     } else {
       // Handle general availability search
-      window.location.href = `/stay?${params.toString()}`;
+      router.push(`/stay?${params.toString()}`);
     }
   };
 
